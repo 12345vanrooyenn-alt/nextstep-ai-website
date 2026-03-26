@@ -1,0 +1,11 @@
+# Image generation scripts (contain API keys — keep local only)
+nano-banana/
+
+# Environment files
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
