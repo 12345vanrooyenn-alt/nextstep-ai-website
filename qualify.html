@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Your Free Brand Audit — Nextstep AI</title>
   <meta name="description" content="Submit your brand details and we'll send back a personalised breakdown of where you're losing revenue and exactly what we'd fix first." />
+  <meta property="og:title" content="Get Your Free Brand Audit — Nextstep AI" />
+  <meta property="og:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. Free. No obligation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/qualify.html" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get Your Free Brand Audit — Nextstep AI" />
+  <meta name="twitter:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. Free. No obligation." />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,6 +24,11 @@
        ANNOUNCEMENT BAR
     ═══════════════════════════════════════════════ */
     .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 150;
       background: rgba(6,12,26,0.97);
       border-top: 2px solid rgba(14,165,233,0.45);
       border-bottom: 1px solid rgba(14,165,233,0.18);
@@ -45,7 +60,7 @@
     ═══════════════════════════════════════════════ */
     .qualify-hero {
       background: var(--ink);
-      padding: calc(72px + 56px) 0 0;
+      padding: calc(72px + var(--bar-h) + 56px) 0 0;
       overflow: hidden;
       position: relative;
     }
