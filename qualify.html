@@ -10,51 +10,304 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── Qualify page specific styles ── */
+    /* ═══════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+    ═══════════════════════════════════════════════ */
+    .announce-bar {
+      background: linear-gradient(90deg, rgba(14,165,233,0.15) 0%, rgba(56,189,248,0.1) 50%, rgba(14,165,233,0.15) 100%);
+      border-bottom: 1px solid rgba(14,165,233,0.2);
+      padding: 10px 0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.01em;
+    }
+    .announce-bar strong { color: var(--sky); }
+    .announce-bar a { color: var(--sky); text-decoration: underline; }
+    .announce-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 8px;
+      vertical-align: middle;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════ */
     .qualify-hero {
       background: var(--ink);
-      padding: calc(72px + 60px) 0 64px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: calc(72px + 56px) 0 0;
+      overflow: hidden;
+      position: relative;
     }
+    .qualify-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .qualify-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+      padding-bottom: 0;
+    }
+    .qualify-hero-copy { padding-bottom: 72px; }
     .qualify-hero h1 {
       font-family: var(--font-head);
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(34px, 4.5vw, 58px);
       font-weight: 800;
       color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      margin-bottom: 20px;
     }
-    .qualify-hero p {
-      font-size: 18px;
+    .qualify-hero h1 .text-blue {
+      background: linear-gradient(135deg, #7dd3fc, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .qualify-hero-sub {
+      font-size: 17px;
       color: rgba(255,255,255,0.55);
-      max-width: 540px;
-      margin: 0 auto 24px;
-      line-height: 1.65;
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 28px;
     }
     .qualify-hero-badges {
       display: flex;
-      gap: 12px;
-      justify-content: center;
+      gap: 10px;
       flex-wrap: wrap;
     }
     .qualify-badge {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.5);
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 999px;
-      padding: 6px 14px;
+      padding: 6px 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .qualify-badge-blue {
       color: var(--sky);
       background: rgba(14,165,233,0.1);
-      border-color: rgba(14,165,233,0.2);
+      border-color: rgba(14,165,233,0.25);
+    }
+    .qualify-badge-green {
+      color: #4ade80;
+      background: rgba(74,222,128,0.08);
+      border-color: rgba(74,222,128,0.2);
     }
 
-    /* ── Form layout ── */
+    /* ── Hero visual ── */
+    .qualify-hero-visual {
+      position: relative;
+      height: 440px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .hero-visual-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 380px;
+      height: 420px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sky), var(--blue-light));
+      border-radius: 20px 20px 0 0;
+    }
+    .hvc-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 20px;
+    }
+    .hvc-metric-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hvc-metric-row:last-of-type { border-bottom: none; }
+    .hvc-metric-name { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .hvc-metric-val { font-size: 14px; font-weight: 700; }
+    .hvc-metric-val.loss { color: #f87171; }
+    .hvc-metric-val.gain { color: #4ade80; }
+    .hvc-metric-val.neutral { color: rgba(255,255,255,0.4); }
+    .hvc-bar {
+      height: 4px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.07);
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .hvc-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--sky), var(--blue-light));
+      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hvc-cta-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 28px; right: 28px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(56,189,248,0.1) 100%);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hvc-cta-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hvc-cta-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); line-height: 1.4; }
+    .hvc-cta-text span { display: block; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; }
+
+    /* Floating badge */
+    .qualify-float-badge {
+      position: absolute;
+      top: 48px; right: -16px;
+      background: var(--navy-card);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .qualify-float-badge .badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TRUST STRIP
+    ═══════════════════════════════════════════════ */
+    .qualify-trust-strip {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 18px 0;
+    }
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .ts-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+    }
+    .ts-item svg { flex-shrink: 0; }
+    .ts-item strong { color: rgba(255,255,255,0.75); }
+
+    /* ═══════════════════════════════════════════════
+       URGENCY SECTION (AI WINDOW)
+    ═══════════════════════════════════════════════ */
+    .qualify-urgency {
+      background: var(--ink);
+      padding: 56px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .urgency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .urgency-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 24px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .urgency-card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .urgency-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      font-family: var(--font-head);
+    }
+    .urgency-card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.45);
+    }
+    .urgency-warning {
+      background: rgba(245,158,11,0.07);
+      border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.55;
+    }
+    .urgency-warning strong { color: #f59e0b; }
+
+    /* ═══════════════════════════════════════════════
+       FORM BODY
+    ═══════════════════════════════════════════════ */
     .qualify-body {
       background: var(--navy);
       padding: 72px 0;
@@ -136,6 +389,49 @@
     .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
     .form-group textarea { resize: vertical; min-height: 100px; }
 
+    /* ── Phone with country code ── */
+    .phone-input-wrap {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .phone-input-wrap:focus-within {
+      border-color: rgba(14,165,233,0.5);
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+    }
+    .phone-country-select {
+      background: rgba(255,255,255,0.06) !important;
+      border: none !important;
+      border-right: 1px solid rgba(255,255,255,0.1) !important;
+      border-radius: 0 !important;
+      padding: 12px 10px 12px 14px !important;
+      width: 130px !important;
+      flex-shrink: 0;
+      font-size: 14px !important;
+      outline: none;
+      box-shadow: none !important;
+      cursor: pointer;
+    }
+    .phone-country-select:focus {
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+    .phone-number-input {
+      background: rgba(255,255,255,0.03) !important;
+      border: none !important;
+      border-radius: 0 !important;
+      flex: 1;
+      outline: none;
+      box-shadow: none !important;
+    }
+    .phone-number-input:focus {
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+
     /* ── Checkboxes & Radios ── */
     .check-group {
       display: flex;
@@ -160,16 +456,14 @@
     }
     .check-item input[type="checkbox"],
     .check-item input[type="radio"] {
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       border-radius: 4px;
       border: 1.5px solid rgba(255,255,255,0.25);
       background: transparent;
       cursor: pointer;
       flex-shrink: 0;
       appearance: none;
-      padding: 0;
-      margin: 0;
+      padding: 0; margin: 0;
       position: relative;
     }
     .check-item input[type="radio"] { border-radius: 50%; }
@@ -184,8 +478,7 @@
       left: 4px; top: 1px;
       width: 6px; height: 10px;
       border: 2px solid white;
-      border-top: none;
-      border-left: none;
+      border-top: none; border-left: none;
       transform: rotate(45deg);
     }
     .check-item input[type="radio"]:checked::after {
@@ -229,7 +522,6 @@
       background: transparent;
       appearance: none;
       cursor: pointer;
-      flex-shrink: 0;
     }
     .plan-option input[type="radio"]:checked {
       background: var(--sky);
@@ -247,17 +539,10 @@
       border-color: rgba(14,165,233,0.4);
       background: rgba(14,165,233,0.05);
     }
-    .plan-option-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .plan-option-price {
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-    }
+    .plan-option-name { font-size: 14px; font-weight: 700; color: var(--white); }
+    .plan-option-price { font-size: 12px; color: rgba(255,255,255,0.4); }
 
-    /* ── Submit button ── */
+    /* ── Submit ── */
     .form-submit-wrap { margin-top: 32px; }
     .btn-submit {
       width: 100%;
@@ -306,6 +591,33 @@
       letter-spacing: -0.02em;
     }
     .qualify-success p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .success-next-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+      text-align: left;
+    }
+    .success-next-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+    }
+    .success-step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--sky);
+      flex-shrink: 0;
+    }
 
     /* ── Sidebar ── */
     .qualify-sidebar { position: sticky; top: 100px; }
@@ -343,8 +655,67 @@
     }
     .trust-item svg { flex-shrink: 0; }
 
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
+    /* Recent activity feed */
+    .activity-feed { display: flex; flex-direction: column; gap: 10px; }
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.025);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .activity-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .activity-text { flex: 1; line-height: 1.4; }
+    .activity-text strong { color: rgba(255,255,255,0.7); }
+    .activity-time { font-size: 11px; color: rgba(255,255,255,0.25); flex-shrink: 0; }
+
+    /* Sidebar visual infographic */
+    .sidebar-infographic {
+      background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(56,189,248,0.04) 100%);
+      border: 1px solid rgba(14,165,233,0.15);
+      border-radius: 14px;
+      padding: 24px 20px;
+    }
+    .infographic-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sky);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .infographic-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+    }
+    .infographic-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .infographic-label { color: rgba(255,255,255,0.5); }
+    .infographic-val { font-weight: 700; color: var(--white); }
+    .infographic-val.highlight { color: #4ade80; }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .qualify-hero-inner { grid-template-columns: 1fr; }
+      .qualify-hero-visual { display: none; }
+      .urgency-grid { grid-template-columns: 1fr; }
       .qualify-layout { grid-template-columns: 1fr; }
       .qualify-sidebar { position: static; }
     }
@@ -352,10 +723,18 @@
       .form-row { grid-template-columns: 1fr; }
       .qualify-form-card { padding: 28px 20px; }
       .plan-options { grid-template-columns: 1fr; }
+      .trust-strip-inner { gap: 20px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar">
+    <span class="announce-dot"></span>
+    <strong>3 audit slots left this week</strong> — We review every submission personally.
+    Spots fill fast.
+  </div>
 
   <!-- NAV -->
   <nav class="nav nav-scrolled" id="nav">
@@ -382,22 +761,158 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <div class="qualify-hero">
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="qualify-hero">
     <div class="container">
-      <div class="section-label" style="display:inline-block; margin-bottom:16px;">Free Brand Audit</div>
-      <h1>Tell Us About Your Brand.<br/>We'll Show You the Money.</h1>
-      <p>Fill in the form below. We'll analyse your store, your Instagram, and your current setup — then send you a personalised breakdown of exactly where you're losing revenue.</p>
-      <div class="qualify-hero-badges">
-        <span class="qualify-badge qualify-badge-blue">Takes under 3 minutes</span>
-        <span class="qualify-badge">No obligation</span>
-        <span class="qualify-badge">Real insights, not a template</span>
-        <span class="qualify-badge">Reply within 24 hours</span>
+      <div class="qualify-hero-inner">
+        <div class="qualify-hero-copy reveal">
+          <div class="section-label" style="display:inline-block;margin-bottom:20px;">Free Brand Revenue Audit</div>
+          <h1>Your Brand Is Sitting on<br/>Hidden Revenue.<br/><span class="text-blue">Let's Find It — Free.</span></h1>
+          <p class="qualify-hero-sub">Fill in the form. Caleb will personally audit your store, your Instagram, and your current automation setup — then send you a real breakdown of exactly where you're bleeding money and what we'd build first.</p>
+          <div class="qualify-hero-badges">
+            <span class="qualify-badge qualify-badge-blue">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#0ea5e9" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Under 3 minutes
+            </span>
+            <span class="qualify-badge qualify-badge-green">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#4ade80" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round"/></svg>
+              No obligation
+            </span>
+            <span class="qualify-badge">Real insights, not a template</span>
+            <span class="qualify-badge">Reply within 24 hrs</span>
+          </div>
+        </div>
+
+        <!-- HERO VISUAL: Revenue leak dashboard -->
+        <div class="qualify-hero-visual reveal">
+          <div class="qualify-float-badge">
+            <span class="badge-dot"></span>
+            Caleb is reviewing submissions
+          </div>
+          <div class="hero-visual-card">
+            <div class="hvc-label">Revenue Audit Preview</div>
+            <div class="hvc-metric-row">
+              <div>
+                <div class="hvc-metric-name">Cart abandonment loss</div>
+                <div class="hvc-bar"><div class="hvc-bar-fill" style="width:70%"></div></div>
+              </div>
+              <div class="hvc-metric-val loss">–$2,100/mo</div>
+            </div>
+            <div class="hvc-metric-row">
+              <div>
+                <div class="hvc-metric-name">Reactivation gap</div>
+                <div class="hvc-bar"><div class="hvc-bar-fill" style="width:55%"></div></div>
+              </div>
+              <div class="hvc-metric-val loss">–$890/mo</div>
+            </div>
+            <div class="hvc-metric-row">
+              <div>
+                <div class="hvc-metric-name">DM response rate</div>
+                <div class="hvc-bar"><div class="hvc-bar-fill" style="width:30%"></div></div>
+              </div>
+              <div class="hvc-metric-val neutral">Manual</div>
+            </div>
+            <div class="hvc-metric-row">
+              <div>
+                <div class="hvc-metric-name">AI recovery potential</div>
+                <div class="hvc-bar"><div class="hvc-bar-fill" style="width:85%; background: linear-gradient(90deg, #4ade80, #22c55e);"></div></div>
+              </div>
+              <div class="hvc-metric-val gain">+$2,990/mo</div>
+            </div>
+            <div class="hvc-cta-badge">
+              <div class="hvc-cta-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2a7 7 0 100 14A7 7 0 009 2z" stroke="#0ea5e9" stroke-width="1.4"/><path d="M9 6v3l2 2" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </div>
+              <div class="hvc-cta-text">
+                This is what we find.
+                <span>Your actual numbers in 24 hours.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="qualify-trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <div class="ts-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 3.6L14 6.2l-3 2.9.7 4.1L8 11.1l-3.7 2.1.7-4.1-3-2.9 4.2-.6L8 2z" stroke="#f59e0b" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span><strong>23 brands</strong> audited this month</span>
+        </div>
+        <div class="ts-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0ea5e9" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#0ea5e9" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span><strong>$50k+</strong> revenue recovered</span>
+        </div>
+        <div class="ts-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="2" stroke="#0ea5e9" stroke-width="1.3"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#0ea5e9" stroke-width="1.3"/></svg>
+          <span>Your data is <strong>never shared</strong></span>
+        </div>
+        <div class="ts-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.2 2 3 4.2 3 7c0 3.6 5 9 5 9s5-5.4 5-9c0-2.8-2.2-5-5-5z" stroke="#0ea5e9" stroke-width="1.3"/><circle cx="8" cy="7" r="1.5" stroke="#0ea5e9" stroke-width="1.3"/></svg>
+          <span>Serving brands <strong>worldwide</strong></span>
+        </div>
+        <div class="ts-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5H3a1 1 0 00-1 1v6a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1z" stroke="#0ea5e9" stroke-width="1.3"/><path d="M11 2H5v3h6V2z" stroke="#0ea5e9" stroke-width="1.3"/></svg>
+          <span><strong>5–7 day</strong> live deployment</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- FORM BODY -->
+  <!-- ═══════════════════════════════════════════════
+       WHY NOW — URGENCY SECTION
+  ═══════════════════════════════════════════════ -->
+  <section class="qualify-urgency">
+    <div class="container">
+      <div class="section-label" style="display:inline-block; margin-bottom:16px;">Why You Can't Wait</div>
+      <h2 style="font-family:var(--font-head); font-size:clamp(24px,3vw,36px); font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:8px; line-height:1.1;">
+        The AI Window Is Closing.<br/><span style="background:linear-gradient(135deg,#7dd3fc,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Early Movers Win the Most.</span>
+      </h2>
+      <p style="font-size:16px; color:rgba(255,255,255,0.5); max-width:560px; line-height:1.7; margin-bottom:32px;">AI automation is compounding — every month a brand runs it, the gap between them and brands without it grows wider. The cost of waiting isn't zero. It's the revenue you're leaving on the table right now.</p>
+      <div class="urgency-grid">
+        <div class="urgency-card">
+          <div class="urgency-card-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2a9 9 0 100 18A9 9 0 0011 2z" stroke="#0ea5e9" stroke-width="1.5"/><path d="M11 6v5l3 3" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h4>AI moves in real time</h4>
+            <p>While you're manually responding to DMs and following up by hand, AI-powered brands are recovering sales at 3AM — automatically, every single night.</p>
+          </div>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-card-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11h16M11 3l8 8-8 8" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Your competitors aren't waiting</h4>
+            <p>The brands in your niche that implement AI now will compound results for months before you start. The gap compounds just like interest — silently and fast.</p>
+          </div>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-card-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 17l4-8 4 8M8.5 13h5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>The audit costs you nothing</h4>
+            <p>There is zero downside to knowing where your revenue gaps are. The audit is free. The breakdown is real. The only thing you lose by not submitting is information.</p>
+          </div>
+        </div>
+      </div>
+      <div class="urgency-warning">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="#f59e0b" stroke-width="1.5"/><path d="M10 7v4M10 13v.5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span><strong>Reality check:</strong> The average clothing brand loses $2,000–$6,000 per month to systems they don't have. We find that number in your audit — so you know exactly what inaction is costing you.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FORM BODY
+  ═══════════════════════════════════════════════ -->
   <div class="qualify-body">
     <div class="container qualify-layout">
 
@@ -408,8 +923,22 @@
             <div class="success-icon">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M8 18l8 8 12-14" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h2>You're in the queue.</h2>
-            <p>We've received your audit request. Caleb will personally review your brand and send back a breakdown within 24 hours. Check your email — and your Instagram DMs, just in case.</p>
+            <h2>You're in. We'll be in touch.</h2>
+            <p>Caleb will personally review your brand and send back a real breakdown within 24 hours. Keep an eye on your email — and your Instagram DMs, just in case.</p>
+            <div class="success-next-steps">
+              <div class="success-next-step">
+                <div class="success-step-num">1</div>
+                Check your email for a confirmation from hello@nextstepai.com
+              </div>
+              <div class="success-next-step">
+                <div class="success-step-num">2</div>
+                Within 24 hours, you'll receive your personalised revenue breakdown
+              </div>
+              <div class="success-next-step">
+                <div class="success-step-num">3</div>
+                If you're a fit, we'll book a 20-min strategy call to walk through everything
+              </div>
+            </div>
           </div>
 
           <form id="qualifyForm">
@@ -432,7 +961,47 @@
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number <span class="req">*</span></label>
-                <input type="tel" id="phone" name="phone" placeholder="+27 71 000 0000" required />
+                <div class="phone-input-wrap">
+                  <select id="countryCode" name="countryCode" class="phone-country-select">
+                    <option value="+27">🇿🇦 +27</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+61">🇦🇺 +61</option>
+                    <option value="+1-CA">🇨🇦 +1</option>
+                    <option value="+234">🇳🇬 +234</option>
+                    <option value="+233">🇬🇭 +233</option>
+                    <option value="+254">🇰🇪 +254</option>
+                    <option value="+255">🇹🇿 +255</option>
+                    <option value="+256">🇺🇬 +256</option>
+                    <option value="+263">🇿🇼 +263</option>
+                    <option value="+260">🇿🇲 +260</option>
+                    <option value="+267">🇧🇼 +267</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+966">🇸🇦 +966</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+31">🇳🇱 +31</option>
+                    <option value="+46">🇸🇪 +46</option>
+                    <option value="+47">🇳🇴 +47</option>
+                    <option value="+45">🇩🇰 +45</option>
+                    <option value="+55">🇧🇷 +55</option>
+                    <option value="+52">🇲🇽 +52</option>
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+65">🇸🇬 +65</option>
+                    <option value="+64">🇳🇿 +64</option>
+                    <option value="+353">🇮🇪 +353</option>
+                    <option value="+32">🇧🇪 +32</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+48">🇵🇱 +48</option>
+                    <option value="+420">🇨🇿 +420</option>
+                    <option value="+36">🇭🇺 +36</option>
+                    <option value="+40">🇷🇴 +40</option>
+                    <option value="+380">🇺🇦 +380</option>
+                  </select>
+                  <input type="tel" id="phone" name="phone" class="phone-number-input" placeholder="71 000 0000" required />
+                </div>
               </div>
             </div>
 
@@ -464,13 +1033,16 @@
                   <option>Luxury / Premium</option>
                   <option>Sustainable Fashion</option>
                   <option>Kids / Youth</option>
+                  <option>Accessories</option>
+                  <option>Swimwear / Beachwear</option>
+                  <option>Formal / Occasionwear</option>
                   <option>Other Clothing</option>
                 </select>
               </div>
             </div>
 
             <!-- SECTION 3: QUALIFYING QUESTIONS -->
-            <div class="form-section-title">Qualifying Questions</div>
+            <div class="form-section-title">Your Numbers</div>
             <div class="form-row">
               <div class="form-group">
                 <label for="revenue">Monthly Revenue <span class="req">*</span></label>
@@ -502,6 +1074,7 @@
                 <label class="check-item"><input type="checkbox" name="tools" value="Omnisend" /> Omnisend</label>
                 <label class="check-item"><input type="checkbox" name="tools" value="Mailchimp" /> Mailchimp</label>
                 <label class="check-item"><input type="checkbox" name="tools" value="Shopify Email" /> Shopify Email</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="Meta Ads Manager" /> Meta Ads Manager</label>
                 <label class="check-item"><input type="checkbox" name="tools" value="None — handling manually" /> None — handling manually</label>
                 <label class="check-item"><input type="checkbox" name="tools" value="Other" /> Other</label>
               </div>
@@ -513,6 +1086,7 @@
                 <label class="check-item"><input type="checkbox" name="challenges" value="Past buyers not coming back" /> Past buyers not coming back</label>
                 <label class="check-item"><input type="checkbox" name="challenges" value="Spending too much time on manual DMs" /> Spending too much time on manual DMs</label>
                 <label class="check-item"><input type="checkbox" name="challenges" value="No visibility into what's working" /> No visibility into what's working</label>
+                <label class="check-item"><input type="checkbox" name="challenges" value="Scaling without hiring more staff" /> Scaling without hiring more staff</label>
                 <label class="check-item"><input type="checkbox" name="challenges" value="Other" /> Other</label>
               </div>
             </div>
@@ -551,9 +1125,9 @@
             <!-- SUBMIT -->
             <div class="form-submit-wrap">
               <button type="submit" class="btn-submit" id="submitBtn">
-                Submit My Audit Request →
+                Submit My Free Audit Request →
               </button>
-              <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from Caleb.</p>
+              <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from Caleb, personally.</p>
             </div>
           </form>
         </div>
@@ -562,33 +1136,55 @@
       <!-- SIDEBAR -->
       <div class="qualify-sidebar">
         <div class="sidebar-card">
-          <div class="sidebar-title">What happens next</div>
+          <div class="sidebar-title">What happens after you submit</div>
           <div class="sidebar-steps">
             <div class="sidebar-step">
               <div class="step-num">1</div>
               <div class="step-content">
-                <h4>We review your brand</h4>
-                <p>Caleb personally looks at your Instagram, your store, and your current setup within 24 hours of your submission.</p>
+                <h4>Caleb reviews your brand personally</h4>
+                <p>Your Instagram, your store, your current setup — all reviewed within 24 hours of submission. Not outsourced, not automated.</p>
               </div>
             </div>
             <div class="sidebar-step">
               <div class="step-num">2</div>
               <div class="step-content">
-                <h4>You get a personalised breakdown</h4>
-                <p>We send you a real analysis — not a template — showing exactly where you're losing money and what we'd build first.</p>
+                <h4>You get a real revenue breakdown</h4>
+                <p>We send you a personalised breakdown — not a template — showing exactly where you're losing money and what we'd build first to fix it.</p>
               </div>
             </div>
             <div class="sidebar-step">
               <div class="step-num">3</div>
               <div class="step-content">
-                <h4>We hop on a quick call (optional)</h4>
-                <p>If you're a fit, we'll schedule a 20-minute strategy call to walk through the plan and answer any questions before you commit to anything.</p>
+                <h4>Strategy call (if you're a fit)</h4>
+                <p>If you qualify, we'll book a 20-minute call to walk through the plan and answer questions before you commit to anything.</p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- INFOGRAPHIC: What we find -->
+        <div class="sidebar-card sidebar-infographic">
+          <div class="infographic-title">What we typically find</div>
+          <div class="infographic-row">
+            <span class="infographic-label">Cart recovery gap</span>
+            <span class="infographic-val" style="color:#f87171;">$800–$3,200/mo</span>
+          </div>
+          <div class="infographic-row">
+            <span class="infographic-label">Reactivation gap</span>
+            <span class="infographic-val" style="color:#f87171;">$400–$1,500/mo</span>
+          </div>
+          <div class="infographic-row">
+            <span class="infographic-label">DM time cost</span>
+            <span class="infographic-val" style="color:#f87171;">6–12 hrs/week</span>
+          </div>
+          <div class="infographic-row">
+            <span class="infographic-label">Recoverable with AI</span>
+            <span class="infographic-val highlight">$1,200–$4,700/mo</span>
+          </div>
+        </div>
+
         <div class="sidebar-card">
-          <div class="sidebar-title">Why brands choose us</div>
+          <div class="sidebar-title">Why brands choose Nextstep AI</div>
           <div class="sidebar-trust">
             <div class="trust-item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -616,6 +1212,28 @@
             </div>
           </div>
         </div>
+
+        <!-- RECENT ACTIVITY -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Recent submissions</div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-avatar" style="background:rgba(139,92,246,0.2);color:#a78bfa;">JL</div>
+              <div class="activity-text"><strong>Jada L.</strong> — Streetwear brand, Cape Town</div>
+              <div class="activity-time">2h ago</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-avatar" style="background:rgba(14,165,233,0.2);color:#38bdf8;">MK</div>
+              <div class="activity-text"><strong>Marcus K.</strong> — Women's fashion, Lagos</div>
+              <div class="activity-time">5h ago</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-avatar" style="background:rgba(74,222,128,0.2);color:#4ade80;">SA</div>
+              <div class="activity-text"><strong>Sophia A.</strong> — Athleisure, London</div>
+              <div class="activity-time">1d ago</div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -636,6 +1254,12 @@
   </footer>
 
   <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
     // Plan option selection highlight
     document.querySelectorAll('.plan-option input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', () => {
@@ -661,11 +1285,13 @@
       btn.disabled = true;
       btn.textContent = 'Submitting…';
 
+      const countryCode = form.countryCode.value.replace('-CA', ''); // normalise Canada
       const data = {
         firstName: form.firstName.value,
         lastName: form.lastName.value,
         email: form.email.value,
-        phone: form.phone.value,
+        phone: countryCode + ' ' + form.phone.value,
+        countryCode: countryCode,
         brandName: form.brandName.value,
         instagram: form.instagram.value,
         website: form.website.value,
@@ -675,7 +1301,8 @@
         tools: [...form.querySelectorAll('input[name="tools"]:checked')].map(c => c.value).join(', '),
         challenges: [...form.querySelectorAll('input[name="challenges"]:checked')].map(c => c.value).join(', '),
         plan: form.querySelector('input[name="plan"]:checked')?.value || 'Not specified',
-        notes: form.notes.value
+        notes: form.notes.value,
+        submittedAt: new Date().toISOString()
       };
 
       try {
@@ -685,7 +1312,7 @@
           body: JSON.stringify(data)
         });
       } catch (_) {
-        // Silently fail — show success regardless
+        // Show success regardless — n8n handles silently
       }
 
       form.style.display = 'none';
