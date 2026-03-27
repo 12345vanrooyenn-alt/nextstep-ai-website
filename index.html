@@ -1680,6 +1680,43 @@
     </div>
   </footer>
 
+  <!-- ═══════════════════════════════════════════════
+       LEGAL DISCLAIMER
+  ═══════════════════════════════════════════════ -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="legal-inner">
+        <div class="legal-header">
+          <div class="legal-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 3.5v4c0 3.3 2.5 6.3 6 7 3.5-.7 6-3.7 6-7v-4L7 1z" stroke="rgba(245,158,11,0.7)" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="legal-title">Legal &amp; Policy Information</div>
+        </div>
+        <div class="legal-grid">
+          <div class="legal-item">
+            <div class="legal-item-title">Refund Policy</div>
+            <div class="legal-item-text">Refund requests must be submitted within 30 days of the initial setup fee payment. Refunds are considered on a case-by-case basis and are only issued where no workflows have been delivered or deployed. Once workflows are live, the setup fee is non-refundable. Monthly retainer fees are non-refundable once the billing period has commenced.</div>
+          </div>
+          <div class="legal-item">
+            <div class="legal-item-title">Results Disclaimer</div>
+            <div class="legal-item-text">All revenue figures, recovery rates, and performance metrics referenced on this website are based on specific client results and are not guarantees of future performance. Individual results will vary depending on traffic volume, audience engagement, product pricing, and other factors outside our control. Nextstep AI makes no guarantee of specific revenue outcomes.</div>
+          </div>
+          <div class="legal-item">
+            <div class="legal-item-title">Service &amp; Cancellation Terms</div>
+            <div class="legal-item-text">All plans operate on a month-to-month basis with no long-term lock-in contracts. Cancellation requires 30 days written notice sent to hello@nextstepai.com. All custom-built workflows remain the intellectual property of the client upon full payment. Nextstep AI retains the right to decline or terminate service if agreed terms are breached.</div>
+          </div>
+          <div class="legal-item">
+            <div class="legal-item-title">Privacy &amp; Data</div>
+            <div class="legal-item-text">Information submitted via our audit form is used solely to assess brand fit and deliver the requested audit. We do not sell, share, or distribute your personal or business information to third parties. Form submissions are encrypted and stored securely. You may request deletion of your data at any time by emailing hello@nextstepai.com.</div>
+          </div>
+        </div>
+        <div class="legal-notice">
+          By submitting the brand audit form or purchasing any Nextstep AI service, you confirm that you have read and agree to the terms outlined above. Nextstep AI is operated by Caleb van Rooyen. All services are governed by the laws of the Republic of South Africa. For full terms, contact <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Floating CTA -->
   <a href="qualify.html" target="_blank" class="float-cta" id="floatCta" aria-label="Get Free Audit">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 9h14M9 2l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1705,6 +1742,7 @@
     if (announceClose && announceBar) {
       announceClose.addEventListener('click', () => {
         announceBar.classList.add('hidden');
+        document.documentElement.style.setProperty('--bar-h', '0px');
       });
     }
 
