@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow Library — Nextstep AI</title>
+  <meta name="description" content="Browse every workflow we build for clothing brands — from cart recovery to DM automation, reactivation, VIP flows, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .wl-hero {
+      background: var(--ink);
+      padding: calc(72px + 60px) 0 64px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .wl-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .wl-hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+    .wl-body { background: var(--navy); padding: 72px 0; }
+    .wl-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Sticky sidebar nav */
+    .wl-sidebar { position: sticky; top: 96px; }
+    .wl-nav-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 12px;
+    }
+    .wl-nav { display: flex; flex-direction: column; gap: 2px; }
+    .wl-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .wl-nav a:hover, .wl-nav a.active {
+      background: rgba(14,165,233,0.1);
+      color: var(--sky);
+    }
+    .wl-nav-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 12px 0;
+    }
+
+    /* Category sections */
+    .wl-category {
+      margin-bottom: 72px;
+      scroll-margin-top: 100px;
+    }
+    .wl-category-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .wl-cat-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .wl-cat-title {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .wl-cat-count {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 2px;
+    }
+    .wl-cards { display: flex; flex-direction: column; gap: 16px; }
+    .wl-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .wl-card:hover {
+      border-color: rgba(14,165,233,0.2);
+      box-shadow: 0 8px 32px rgba(14,165,233,0.06);
+    }
+    .wl-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .wl-card-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .wl-plan-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-core { background: rgba(100,116,139,0.15); color: #94a3b8; border: 1px solid rgba(100,116,139,0.2); }
+    .badge-standard { background: rgba(14,165,233,0.12); color: var(--sky); border: 1px solid rgba(14,165,233,0.2); }
+    .badge-ultimate { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+    .wl-card-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+    }
+    .wl-card-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .wl-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+    .wl-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+    /* Plan sections */
+    .wl-plan-section {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      scroll-margin-top: 100px;
+    }
+    .wl-plan-section.plan-featured {
+      border-color: rgba(14,165,233,0.25);
+      background: rgba(14,165,233,0.04);
+    }
+    .wl-plan-section.plan-ultimate {
+      border-color: rgba(245,158,11,0.2);
+      background: rgba(245,158,11,0.03);
+    }
+    .wl-plan-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .wl-plan-name {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .wl-plan-price {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+    .wl-plan-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .wl-plan-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.4;
+    }
+    .wl-plan-item svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* Bottom CTA */
+    .wl-bottom-cta {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 72px 0;
+      text-align: center;
+    }
+    .wl-bottom-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .wl-bottom-cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .wl-layout { grid-template-columns: 1fr; }
+      .wl-sidebar { position: static; }
+      .wl-nav { flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      .wl-plan-list { grid-template-columns: 1fr; }
+      .wl-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav nav-scrolled" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="workflows.html">Workflows</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="wl-hero">
+    <div class="container">
+      <div class="section-label" style="display:inline-block; margin-bottom:16px;">Workflow Library</div>
+      <h1>50+ AI Workflows.<br/><span style="color:#0ea5e9;">Every One Built for Revenue.</span></h1>
+      <p>Browse every automation we deploy for clothing brands. Click a category to explore — or jump straight to a plan to see exactly what's included.</p>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">Get Your Free Brand Audit</a>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="wl-body">
+    <div class="container wl-layout">
+
+      <!-- SIDEBAR NAV -->
+      <aside class="wl-sidebar">
+        <div class="wl-nav-title">Workflow Categories</div>
+        <nav class="wl-nav">
+          <a href="#cart-recovery">🛒 Cart Recovery</a>
+          <a href="#reactivation">🔄 Reactivation</a>
+          <a href="#dm-automation">💬 DM Automation</a>
+          <a href="#support">🎧 Support</a>
+          <a href="#product-performance">📊 Performance Alerts</a>
+          <a href="#vip-flows">⭐ VIP Flows</a>
+          <a href="#dashboards">📋 Dashboards</a>
+          <a href="#launch-flows">🚀 Launch Flows</a>
+        </nav>
+        <div class="wl-nav-divider"></div>
+        <div class="wl-nav-title">By Plan</div>
+        <nav class="wl-nav">
+          <a href="#core-vip">Core VIP</a>
+          <a href="#standard-vip">Standard VIP</a>
+          <a href="#ultimate-vip">Ultimate VIP</a>
+        </nav>
+      </aside>
+
+      <!-- CONTENT -->
+      <main>
+
+        <!-- CART RECOVERY -->
+        <section class="wl-category" id="cart-recovery">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m0 0a2 2 0 100 4 2 2 0 000-4zm-7 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">Cart &amp; Checkout Recovery</div>
+              <div class="wl-cat-count">6 workflows · included in all plans</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Cart Abandonment Email — 3-Step Sequence</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">A timed 3-email sequence that fires when a buyer leaves your checkout without purchasing. Email 1 goes out at 1 hour, Email 2 at 24 hours with social proof, Email 3 at 72 hours with a discount trigger. Dynamically pulls the exact products they left behind.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Cart abandoned</strong></span>
+                <span class="wl-meta-item">Avg recovery: <strong>8–15% of abandoned carts</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Cart Abandonment SMS Reminder</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">A single high-converting SMS sent 30 minutes after cart abandonment. Short, brand-voice matched, with a direct link back to the exact cart. Works in parallel with the email sequence for maximum recovery.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Cart abandoned</strong></span>
+                <span class="wl-meta-item">Channel: <strong>SMS</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Checkout Abandonment — Instagram DM Follow-Up</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">For buyers who have your Instagram DMs open — automatically sends a casual, brand-voice follow-up message when they abandon checkout. Feels personal. Converts at 2–4× the rate of email alone.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Checkout abandoned + IG connected</strong></span>
+                <span class="wl-meta-item">Channel: <strong>Instagram DM</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Browse Abandonment — High-Intent Visitor Follow-Up</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">Triggers when a visitor views a product page 2+ times without adding to cart. Sends a soft, curiosity-based email featuring the exact product they kept returning to. Catches buyers before they even get to checkout.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>2+ product page views, no cart add</strong></span>
+                <span class="wl-meta-item">Channel: <strong>Email</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Low Stock Urgency Trigger</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">When an item in an abandoned cart drops below 5 units remaining, this workflow automatically fires a "last chance" email to everyone who abandoned that specific product. Creates genuine urgency without fake scarcity.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Inventory drops below threshold</strong></span>
+                <span class="wl-meta-item">Result: <strong>Converts 6–12% of recipients</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Dynamic Cart Recovery — Product-Aware Messaging</div>
+                <span class="wl-plan-badge badge-ultimate">Ultimate VIP</span>
+              </div>
+              <p class="wl-card-desc">Advanced version of cart recovery that uses AI to write product-specific recovery copy based on the item category, price point, and buyer history. A hoodie recovery email sounds different from a luxury item recovery — this workflow knows the difference.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Cart abandoned</strong></span>
+                <span class="wl-meta-item">AI-powered: <strong>Yes — custom copy per product</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REACTIVATION -->
+        <section class="wl-category" id="reactivation">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4v5h5M20 20v-5h-5" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.1 15a8 8 0 0014.8 0M19.9 9a8 8 0 00-14.8 0" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">Customer Reactivation</div>
+              <div class="wl-cat-count">5 workflows · Standard VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Past Buyer Reactivation — 60-Day</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">Automatically contacts customers who bought 60 days ago and haven't returned. Personalised "we miss you" messaging featuring new arrivals relevant to their past purchases. The cheapest re-sale you'll ever make.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>60 days since last purchase</strong></span>
+                <span class="wl-meta-item">Avg result: <strong>12–18% of recipients repurchase</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Past Buyer Reactivation — 90-Day</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">Deeper reactivation flow for 90-day lapsed buyers. More aggressive incentive, with social proof from recent buyers and a time-limited offer to drive urgency. Designed to bring back the "one-and-done" customers.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>90 days since last purchase</strong></span>
+                <span class="wl-meta-item">Channel: <strong>Email + SMS</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Win-Back Sequence — 120-Day Lapsed</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">Your last-resort campaign for customers who haven't bought in 4+ months. Three-touch sequence over 2 weeks — starts with curiosity, moves to value, ends with a final offer. If they don't buy after this, they're auto-suppressed from your list.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>120 days since last purchase</strong></span>
+                <span class="wl-meta-item">Duration: <strong>14-day sequence</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">New Arrival Alert — Past Buyer Segment</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">Automatically notifies your highest-value past buyers whenever new products drop that match their purchase history. An ex-streetwear buyer gets streetwear alerts. An accessories buyer gets accessories. Hyper-relevant.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>New product published</strong></span>
+                <span class="wl-meta-item">AI-powered: <strong>Yes — interest matching</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Personalised Product Recommendation Engine</div>
+                <span class="wl-plan-badge badge-ultimate">Ultimate VIP</span>
+              </div>
+              <p class="wl-card-desc">AI analyses each customer's purchase history, browsing behaviour, and product preferences to generate personalised product recommendations sent at the highest-intent moment. Not a generic "you might also like" — truly personal.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">AI-powered: <strong>Yes — deep personalisation</strong></span>
+                <span class="wl-meta-item">Result: <strong>3–5× higher CTR vs generic recommendations</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DM AUTOMATION -->
+        <section class="wl-category" id="dm-automation">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">DM &amp; Lead Automation</div>
+              <div class="wl-cat-count">6 workflows · Core VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Instagram DM Reply Detection &amp; Response</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">Monitors your Instagram DMs 24/7 and automatically responds to common enquiries — sizing, availability, shipping — in your brand's voice. Complex questions are flagged for your personal reply. Never miss a lead while sleeping.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Response time: <strong>Under 60 seconds</strong></span>
+                <span class="wl-meta-item">Available: <strong>24/7 including weekends</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Basic Lead Qualification Flow</div>
+                <span class="wl-plan-badge badge-core">Core VIP</span>
+              </div>
+              <p class="wl-card-desc">When someone DMs asking about products or wholesale, this workflow runs them through a qualification sequence to determine intent, budget, and purchase readiness — then routes them accordingly without you lifting a finger.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Channel: <strong>Instagram DM</strong></span>
+                <span class="wl-meta-item">Result: <strong>Pre-qualified leads delivered to you</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Instagram Comment → DM Funnel</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">When someone comments "link" or specific keywords on your posts, they automatically receive a DM with the product link, more info, and a soft call to action. Turns passive engagement into active buying intent.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Trigger: <strong>Post comment with keyword</strong></span>
+                <span class="wl-meta-item">Result: <strong>Comment → DM → sale in under 2 mins</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Lead Follow-Up &amp; Reply Detection</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">After a qualified lead is identified, this workflow sends a timed follow-up sequence — 24h, 48h, 96h — over DM and email. Automatically stops the moment they reply, so it never feels robotic.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Sequence: <strong>24h / 48h / 96h</strong></span>
+                <span class="wl-meta-item">Smart stop: <strong>Stops on reply detection</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">Cold DM Prospect Pipeline</div>
+                <span class="wl-plan-badge badge-standard">Standard VIP</span>
+              </div>
+              <p class="wl-card-desc">For brands with a proactive outreach strategy — this workflow researches prospects, scores them, writes personalised DMs using AI, and queues them for you to review and send. Outreach without the manual grind.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">AI-powered: <strong>Yes — personalised DM writing</strong></span>
+                <span class="wl-meta-item">Result: <strong>Pre-written, reviewed, ready to send</strong></span>
+              </div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header">
+                <div class="wl-card-name">WhatsApp Lead Conversion Flow</div>
+                <span class="wl-plan-badge badge-ultimate">Ultimate VIP</span>
+              </div>
+              <p class="wl-card-desc">For brands operating in markets where WhatsApp is the primary communication channel (Middle East, South Africa, parts of Europe). Full lead qualification, follow-up, and closing sequence via WhatsApp Business API.</p>
+              <div class="wl-card-meta">
+                <span class="wl-meta-item">Channel: <strong>WhatsApp Business API</strong></span>
+                <span class="wl-meta-item">Markets: <strong>ZA, UAE, EU, Global</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SUPPORT -->
+        <section class="wl-category" id="support">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#38bdf8" stroke-width="1.5"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="#38bdf8"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">Support Automation</div>
+              <div class="wl-cat-count">5 workflows · Core VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Order Status &amp; Shipping Notification System</div><span class="wl-plan-badge badge-core">Core VIP</span></div>
+              <p class="wl-card-desc">Automatically sends real-time order confirmations, shipping updates, and delivery notifications to your customers. Eliminates "where is my order?" messages by keeping customers informed at every step.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Order status change</strong></span><span class="wl-meta-item">Result: <strong>80% reduction in support DMs</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Review Request Automation</div><span class="wl-plan-badge badge-core">Core VIP</span></div>
+              <p class="wl-card-desc">Sends a personalised review request 5–7 days after delivery confirmed. Includes a direct link to your review platform and a thank-you incentive for their next order. Builds your social proof on autopilot.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Delivery confirmed + 5 days</strong></span><span class="wl-meta-item">Result: <strong>3–6× more reviews collected</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">FAQ Auto-Response — DM &amp; Email</div><span class="wl-plan-badge badge-core">Core VIP</span></div>
+              <p class="wl-card-desc">AI-powered auto-responses to the 15 most common customer questions about sizing, returns, shipping times, and product care — delivered instantly via DM or email depending on where the question was asked.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Response time: <strong>Under 30 seconds</strong></span><span class="wl-meta-item">Channels: <strong>DM + Email</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Return &amp; Refund Process Automation</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Handles the entire returns flow — from initial request through approval, return shipping label generation, and refund confirmation — without manual intervention. Turns a painful process into a smooth brand moment.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Return request submitted</strong></span><span class="wl-meta-item">Result: <strong>Zero manual handling required</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Negative Review Intercept &amp; Recovery</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Monitors for 1–3 star reviews and automatically triggers a recovery sequence — a personal apology message, a resolution offer, and a request to update the review once resolved. Protects your brand reputation passively.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Low-star review detected</strong></span><span class="wl-meta-item">Result: <strong>60–70% of recoveries update rating</strong></span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRODUCT PERFORMANCE -->
+        <section class="wl-category" id="product-performance">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21V9M7 21V5m4 16V9m4 16V3m4 18v-6" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">Product Performance Alerts</div>
+              <div class="wl-cat-count">5 workflows · Standard VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Low Stock Alert — Owner Notification</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Automatically alerts you when any product drops below your set threshold. Includes current stock level, average daily sell-through rate, and predicted days until out-of-stock so you can reorder before you lose sales.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Stock drops below threshold</strong></span><span class="wl-meta-item">Channel: <strong>Telegram / Email</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Best-Seller Identification &amp; Alert</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Monitors your sales data weekly and automatically identifies emerging best-sellers before they sell out — so you can restock strategically and push more marketing behind what's already working.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Runs: <strong>Weekly analysis</strong></span><span class="wl-meta-item">Result: <strong>Data-driven restocking decisions</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Slow Mover Clearance Trigger</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Identifies products that have been sitting unsold for 30+ days and automatically triggers a targeted promotion to the segment most likely to buy that item — without a store-wide sale.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>30+ days no movement</strong></span><span class="wl-meta-item">Result: <strong>Clears dead stock without discounting everything</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Inventory Alert to VIP Waitlist</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">When a sold-out item is restocked, this workflow instantly notifies everyone on the waitlist — via email AND DM — in priority order based on loyalty score. VIPs get first access before the general announcement.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Product restocked</strong></span><span class="wl-meta-item">Channels: <strong>Email + DM (priority order)</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Customer Lifetime Value Scoring</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">AI continuously scores every customer based on purchase frequency, AOV, and engagement — and automatically adjusts their marketing treatment. High-value customers get VIP treatment. At-risk high-value customers get a retention campaign before they churn.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">AI-powered: <strong>Yes — continuous scoring</strong></span><span class="wl-meta-item">Result: <strong>Right message to right customer every time</strong></span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIP FLOWS -->
+        <section class="wl-category" id="vip-flows">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6.3L22 9.3l-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8L2 9.3l7-.9L12 2z" stroke="#38bdf8" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">VIP Customer Flows</div>
+              <div class="wl-cat-count">4 workflows · Standard VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">VIP Customer Identification &amp; Tagging</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Automatically identifies and tags your top-tier customers based on purchase history and AOV. Once tagged, VIPs receive a different (more exclusive) version of all marketing communications — making them feel valued without extra work from you.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Purchase threshold reached</strong></span><span class="wl-meta-item">Result: <strong>Automatic VIP segmentation</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">VIP Early Access — New Drop Alert</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">When a new collection drops, VIP customers are notified 24 hours before the general public with exclusive early access. Creates genuine loyalty and drives first-hour sales from your most valuable buyers.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>New collection scheduled</strong></span><span class="wl-meta-item">Lead time: <strong>24h before public</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">VIP Birthday &amp; Anniversary Flow</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">Sends personalised birthday and purchase-anniversary messages to VIP customers with a one-time exclusive offer. Simple, effective, and the kind of personal touch that turns one-time buyers into lifetime fans.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Birthday / anniversary date</strong></span><span class="wl-meta-item">Result: <strong>35–50% redemption rate</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Affiliate &amp; Referral Program Automation</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">Full referral program management — unique tracking codes, automatic commission tracking, payout triggers, and performance reporting. Turn your best customers into a passive sales channel without hiring an affiliate manager.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">AI-powered: <strong>Fraud detection + scoring</strong></span><span class="wl-meta-item">Result: <strong>Full referral tracking automated</strong></span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DASHBOARDS -->
+        <section class="wl-category" id="dashboards">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">Owner Dashboards &amp; Insights</div>
+              <div class="wl-cat-count">4 workflows · all plans</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Weekly Performance Report — Telegram</div><span class="wl-plan-badge badge-core">Core VIP</span></div>
+              <p class="wl-card-desc">Every Monday morning, you receive a clean performance summary via Telegram showing: revenue recovered, workflows triggered, conversion rates, and what we optimised this week. Your business in 60 seconds.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Delivery: <strong>Every Monday, 8AM</strong></span><span class="wl-meta-item">Channel: <strong>Telegram</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Daily Revenue &amp; Order Summary</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">A daily morning briefing delivered to your phone showing yesterday's orders, total revenue, top products, and any anomalies (unusual spikes or drops) flagged by the AI monitoring system.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Delivery: <strong>Every morning, 7AM</strong></span><span class="wl-meta-item">Channel: <strong>Telegram + Email</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">CEO Live Dashboard — Web Browser</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">A private, password-protected live web dashboard that pulls real-time data from your store and all automation systems. Goals, pipeline, metrics, and KPIs in one screen. Access from any device, anywhere.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Access: <strong>Live, any device</strong></span><span class="wl-meta-item">Updates: <strong>Every 15 minutes</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Monthly Business Intelligence Report</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">An AI-generated end-of-month report that analyses every workflow's performance, your customer cohort data, and makes strategic recommendations for next month. Like having a data analyst on staff.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Delivery: <strong>1st of every month</strong></span><span class="wl-meta-item">AI-powered: <strong>Yes — strategic recommendations</strong></span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LAUNCH FLOWS -->
+        <section class="wl-category" id="launch-flows">
+          <div class="wl-category-header">
+            <div class="wl-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke="#38bdf8" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="wl-cat-title">New Drop &amp; Launch Flows</div>
+              <div class="wl-cat-count">5 workflows · Standard VIP and above</div>
+            </div>
+          </div>
+          <div class="wl-cards">
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Product Drop Launch Sequence</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">A multi-touch pre-launch and launch sequence — teaser email 72h before, reminder 24h before, launch notification at drop time, and a "last chance" follow-up 48h after. Builds anticipation and drives first-hour sell-through.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Sequence: <strong>72h / 24h / drop / 48h follow-up</strong></span><span class="wl-meta-item">Channels: <strong>Email + DM</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Waitlist &amp; Pre-Order Automation</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">Manages your pre-launch waitlist from sign-up through to purchase — confirmation, countdown reminders, and instant notification at launch. Turns interest into guaranteed revenue before the product even drops.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Waitlist sign-up → launch</strong></span><span class="wl-meta-item">Result: <strong>Pre-sold revenue before launch day</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Post-Launch Upsell Flow</div><span class="wl-plan-badge badge-standard">Standard VIP</span></div>
+              <p class="wl-card-desc">3–5 days after launch, triggers an upsell campaign to everyone who bought a new drop item — featuring complementary products from the same collection. Strike while the interest is highest.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Trigger: <strong>Post-purchase + 3 days</strong></span><span class="wl-meta-item">Result: <strong>15–25% accept the upsell</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Influencer Collaboration Tracker</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">Manages your influencer gifting and collaboration pipeline — tracks who's received product, follows up for content posting, monitors performance of posts, and logs ROI data automatically. Full visibility on every collab.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Tracks: <strong>Product sent → post → performance</strong></span><span class="wl-meta-item">AI-powered: <strong>ROI scoring per influencer</strong></span></div>
+            </div>
+            <div class="wl-card">
+              <div class="wl-card-header"><div class="wl-card-name">Seasonal Campaign Automation</div><span class="wl-plan-badge badge-ultimate">Ultimate VIP</span></div>
+              <p class="wl-card-desc">Pre-built, customisable campaign sequences for Black Friday, Christmas, Valentine's Day, and end-of-season clearance. Each campaign is AI-personalised by customer segment — VIPs get exclusive previews, casual buyers get standard promotions.</p>
+              <div class="wl-card-meta"><span class="wl-meta-item">Campaigns: <strong>BFCM, Xmas, Valentine's, Clearance</strong></span><span class="wl-meta-item">AI-powered: <strong>Yes — per-segment personalisation</strong></span></div>
+            </div>
+          </div>
+        </section>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 64px; margin-top: 16px;">
+          <div class="section-label">By Plan</div>
+          <h2 class="section-title" style="margin-bottom: 40px;">See Exactly What's <span class="text-blue">Included in Each Plan</span></h2>
+
+          <!-- CORE VIP -->
+          <div class="wl-plan-section" id="core-vip">
+            <div class="wl-plan-header">
+              <div>
+                <div class="wl-plan-name">Core VIP</div>
+                <div class="wl-plan-price">from $1,000 setup + $350/month · 10–12 active workflows</div>
+              </div>
+              <a href="qualify.html" target="_blank" class="btn btn-outline">Get Started →</a>
+            </div>
+            <div class="wl-plan-list">
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cart Abandonment Email — 3-Step Sequence</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cart Abandonment SMS Reminder</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instagram DM Reply Detection &amp; Response</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Welcome Series — New Subscriber (4 emails)</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Post-Purchase Thank You Flow</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Order Status &amp; Shipping Notifications</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Review Request Automation</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic Lead Qualification Flow</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Browse Abandonment Follow-Up</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Low Stock Urgency Trigger</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly Performance Report (Telegram)</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>FAQ Auto-Response (DM + Email)</div>
+            </div>
+            <a href="qualify.html" target="_blank" class="btn btn-primary">Get Core VIP →</a>
+          </div>
+
+          <!-- STANDARD VIP -->
+          <div class="wl-plan-section plan-featured" id="standard-vip">
+            <div class="wl-plan-header">
+              <div>
+                <span class="wl-plan-badge badge-standard" style="margin-bottom:8px; display:inline-block;">Most Popular</span>
+                <div class="wl-plan-name">Standard VIP</div>
+                <div class="wl-plan-price">from $3,000 setup + $1,000/month · 15–18 active workflows</div>
+              </div>
+              <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started →</a>
+            </div>
+            <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-bottom:20px;">Includes everything in Core VIP, plus:</p>
+            <div class="wl-plan-list">
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Past Buyer Reactivation — 60-Day</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Past Buyer Reactivation — 90-Day</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Win-Back Sequence — 120-Day Lapsed</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instagram Comment → DM Funnel</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>VIP Customer Identification &amp; Tagging</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Product Drop Launch Sequence</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Upsell / Cross-Sell Flow (post-purchase)</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly Performance Dashboard + Daily Briefing</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#e0f2fe"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Return &amp; Refund Process Automation</div>
+            </div>
+            <a href="qualify.html" target="_blank" class="btn btn-primary">Get Standard VIP →</a>
+          </div>
+
+          <!-- ULTIMATE VIP -->
+          <div class="wl-plan-section plan-ultimate" id="ultimate-vip">
+            <div class="wl-plan-header">
+              <div>
+                <span class="wl-plan-badge badge-ultimate" style="margin-bottom:8px; display:inline-block;">⭐ Ultimate VIP</span>
+                <div class="wl-plan-name">Ultimate VIP</div>
+                <div class="wl-plan-price">from $4,000 setup + $1,800/month · 20+ workflows + unlimited builds</div>
+              </div>
+              <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started →</a>
+            </div>
+            <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-bottom:20px;">Includes everything in Core + Standard VIP, plus:</p>
+            <div class="wl-plan-list">
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalised Product Recommendation Engine</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Dynamic Cart Recovery — Product-Aware AI</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Customer Lifetime Value Scoring</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>VIP Birthday &amp; Anniversary Flow</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Affiliate &amp; Referral Program Automation</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Influencer Collaboration Tracker</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>CEO Live Dashboard (web browser)</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp Lead Conversion Flow</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Seasonal Campaign Automation (BFCM, Xmas etc)</div>
+              <div class="wl-plan-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly Business Intelligence Report</div>
+              <div class="wl-plan-item" style="grid-column: span 2; color: rgba(255,255,255,0.8); font-weight: 600;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#fef3c7"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>+ Unlimited New Workflow Builds (first 3 months included free)</div>
+            </div>
+            <a href="qualify.html" target="_blank" class="btn btn-primary">Get Ultimate VIP →</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="wl-bottom-cta">
+    <div class="container">
+      <h2>Not Sure Which Plan Is Right for You?</h2>
+      <p>Get a free brand audit and we'll tell you exactly which workflows will move the needle most for your brand right now.</p>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
+        Get My Free Brand Audit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Home</a>
+          <a href="qualify.html" target="_blank">Get Free Audit</a>
+          <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight active nav item on scroll
+    const sections = document.querySelectorAll('.wl-category, .wl-plan-section');
+    const navLinks = document.querySelectorAll('.wl-nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+</body>
+</html>

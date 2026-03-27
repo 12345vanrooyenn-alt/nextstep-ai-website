@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Your Free Brand Audit — Nextstep AI</title>
+  <meta name="description" content="Submit your brand details and we'll send back a personalised breakdown of where you're losing revenue and exactly what we'd fix first." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Qualify page specific styles ── */
+    .qualify-hero {
+      background: var(--ink);
+      padding: calc(72px + 60px) 0 64px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .qualify-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .qualify-hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      max-width: 540px;
+      margin: 0 auto 24px;
+      line-height: 1.65;
+    }
+    .qualify-hero-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .qualify-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+    .qualify-badge-blue {
+      color: var(--sky);
+      background: rgba(14,165,233,0.1);
+      border-color: rgba(14,165,233,0.2);
+    }
+
+    /* ── Form layout ── */
+    .qualify-body {
+      background: var(--navy);
+      padding: 72px 0;
+    }
+    .qualify-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ── Form card ── */
+    .qualify-form-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+    }
+    .form-section-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(14,165,233,0.15);
+    }
+    .form-section-title:not(:first-child) { margin-top: 40px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+    }
+    .form-group label span.req { color: var(--sky); margin-left: 2px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .form-group select option { background: #0f1d2e; color: var(--white); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(14,165,233,0.5);
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* ── Checkboxes & Radios ── */
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .check-item:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .check-item input[type="checkbox"],
+    .check-item input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+    .check-item input[type="radio"] { border-radius: 50%; }
+    .check-item input[type="checkbox"]:checked,
+    .check-item input[type="radio"]:checked {
+      background: var(--sky);
+      border-color: var(--sky);
+    }
+    .check-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 1px;
+      width: 6px; height: 10px;
+      border: 2px solid white;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+    .check-item input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 4px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: white;
+    }
+    .check-item.checked {
+      background: rgba(14,165,233,0.06);
+      border-color: rgba(14,165,233,0.2);
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ── Plan selector ── */
+    .plan-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .plan-option {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .plan-option:hover { border-color: rgba(14,165,233,0.3); }
+    .plan-option input[type="radio"] {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      background: transparent;
+      appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .plan-option input[type="radio"]:checked {
+      background: var(--sky);
+      border-color: var(--sky);
+    }
+    .plan-option input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 4px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: white;
+    }
+    .plan-option.selected {
+      border-color: rgba(14,165,233,0.4);
+      background: rgba(14,165,233,0.05);
+    }
+    .plan-option-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .plan-option-price {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── Submit button ── */
+    .form-submit-wrap { margin-top: 32px; }
+    .btn-submit {
+      width: 100%;
+      padding: 18px;
+      font-size: 17px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--sky) 0%, var(--blue-light) 100%);
+      color: var(--ink);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .form-disclaimer {
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 14px;
+    }
+
+    /* ── Success state ── */
+    .qualify-success {
+      display: none;
+      text-align: center;
+      padding: 64px 32px;
+    }
+    .qualify-success.visible { display: block; }
+    .success-icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .qualify-success h2 {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .qualify-success p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── Sidebar ── */
+    .qualify-sidebar { position: sticky; top: 100px; }
+    .sidebar-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      margin-bottom: 20px;
+    }
+    .sidebar-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .sidebar-steps { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: var(--sky);
+      flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .step-content p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    .sidebar-trust { display: flex; flex-direction: column; gap: 10px; }
+    .trust-item {
+      display: flex; gap: 10px; align-items: center;
+      font-size: 13px; color: rgba(255,255,255,0.5);
+    }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .qualify-layout { grid-template-columns: 1fr; }
+      .qualify-sidebar { position: static; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .qualify-form-card { padding: 28px 20px; }
+      .plan-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav nav-scrolled" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="workflows.html" target="_blank">Workflows</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <a href="qualify.html" class="btn btn-primary btn-sm">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="qualify-hero">
+    <div class="container">
+      <div class="section-label" style="display:inline-block; margin-bottom:16px;">Free Brand Audit</div>
+      <h1>Tell Us About Your Brand.<br/>We'll Show You the Money.</h1>
+      <p>Fill in the form below. We'll analyse your store, your Instagram, and your current setup — then send you a personalised breakdown of exactly where you're losing revenue.</p>
+      <div class="qualify-hero-badges">
+        <span class="qualify-badge qualify-badge-blue">Takes under 3 minutes</span>
+        <span class="qualify-badge">No obligation</span>
+        <span class="qualify-badge">Real insights, not a template</span>
+        <span class="qualify-badge">Reply within 24 hours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM BODY -->
+  <div class="qualify-body">
+    <div class="container qualify-layout">
+
+      <!-- FORM -->
+      <div>
+        <div class="qualify-form-card" id="formCard">
+          <div class="qualify-success" id="successState">
+            <div class="success-icon">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M8 18l8 8 12-14" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h2>You're in the queue.</h2>
+            <p>We've received your audit request. Caleb will personally review your brand and send back a breakdown within 24 hours. Check your email — and your Instagram DMs, just in case.</p>
+          </div>
+
+          <form id="qualifyForm">
+            <!-- SECTION 1: ABOUT YOU -->
+            <div class="form-section-title">About You</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Caleb" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="van Rooyen" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@yourbrand.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+27 71 000 0000" required />
+              </div>
+            </div>
+
+            <!-- SECTION 2: YOUR BRAND -->
+            <div class="form-section-title">Your Brand</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="brandName">Brand Name <span class="req">*</span></label>
+                <input type="text" id="brandName" name="brandName" placeholder="Your Brand Co." required />
+              </div>
+              <div class="form-group">
+                <label for="instagram">Instagram Handle <span class="req">*</span></label>
+                <input type="text" id="instagram" name="instagram" placeholder="@yourbrand" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="website">Website URL <span class="req">*</span></label>
+                <input type="url" id="website" name="website" placeholder="https://yourbrand.com" required />
+              </div>
+              <div class="form-group">
+                <label for="niche">Brand Niche <span class="req">*</span></label>
+                <select id="niche" name="niche" required>
+                  <option value="" disabled selected>Select your niche</option>
+                  <option>Streetwear</option>
+                  <option>Women's Fashion</option>
+                  <option>Menswear</option>
+                  <option>Athleisure / Activewear</option>
+                  <option>Luxury / Premium</option>
+                  <option>Sustainable Fashion</option>
+                  <option>Kids / Youth</option>
+                  <option>Other Clothing</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- SECTION 3: QUALIFYING QUESTIONS -->
+            <div class="form-section-title">Qualifying Questions</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="revenue">Monthly Revenue <span class="req">*</span></label>
+                <select id="revenue" name="revenue" required>
+                  <option value="" disabled selected>Select range</option>
+                  <option>Under $3,000/mo</option>
+                  <option>$3,000 – $5,000/mo</option>
+                  <option>$5,000 – $10,000/mo</option>
+                  <option>$10,000 – $25,000/mo</option>
+                  <option>$25,000+/mo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="aov">Average Order Value <span class="req">*</span></label>
+                <select id="aov" name="aov" required>
+                  <option value="" disabled selected>Select range</option>
+                  <option>Under $30</option>
+                  <option>$30 – $60</option>
+                  <option>$60 – $100</option>
+                  <option>$100 – $200</option>
+                  <option>$200+</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Current Marketing Tools (select all that apply)</label>
+              <div class="check-group">
+                <label class="check-item"><input type="checkbox" name="tools" value="Klaviyo" /> Klaviyo</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="Omnisend" /> Omnisend</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="Mailchimp" /> Mailchimp</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="Shopify Email" /> Shopify Email</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="None — handling manually" /> None — handling manually</label>
+                <label class="check-item"><input type="checkbox" name="tools" value="Other" /> Other</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Biggest Challenge Right Now (select all that apply)</label>
+              <div class="check-group">
+                <label class="check-item"><input type="checkbox" name="challenges" value="Abandoned carts not being recovered" /> Abandoned carts not being recovered</label>
+                <label class="check-item"><input type="checkbox" name="challenges" value="Past buyers not coming back" /> Past buyers not coming back</label>
+                <label class="check-item"><input type="checkbox" name="challenges" value="Spending too much time on manual DMs" /> Spending too much time on manual DMs</label>
+                <label class="check-item"><input type="checkbox" name="challenges" value="No visibility into what's working" /> No visibility into what's working</label>
+                <label class="check-item"><input type="checkbox" name="challenges" value="Other" /> Other</label>
+              </div>
+            </div>
+
+            <!-- SECTION 4: PLAN INTEREST -->
+            <div class="form-section-title">Which Plan Are You Interested In?</div>
+            <div class="plan-options" id="planOptions">
+              <label class="plan-option">
+                <input type="radio" name="plan" value="Core VIP" />
+                <div class="plan-option-name">Core VIP</div>
+                <div class="plan-option-price">$1,000 setup + $350/mo</div>
+              </label>
+              <label class="plan-option">
+                <input type="radio" name="plan" value="Standard VIP" />
+                <div class="plan-option-name">Standard VIP</div>
+                <div class="plan-option-price">$3,000 setup + $1,000/mo</div>
+              </label>
+              <label class="plan-option">
+                <input type="radio" name="plan" value="Ultimate VIP" />
+                <div class="plan-option-name">Ultimate VIP</div>
+                <div class="plan-option-price">$4,000 setup + $1,800/mo</div>
+              </label>
+              <label class="plan-option">
+                <input type="radio" name="plan" value="Not sure yet" />
+                <div class="plan-option-name">Not sure yet</div>
+                <div class="plan-option-price">Help me decide</div>
+              </label>
+            </div>
+
+            <!-- NOTES -->
+            <div class="form-group" style="margin-top:28px;">
+              <label for="notes">Anything else we should know? (optional)</label>
+              <textarea id="notes" name="notes" placeholder="Tell us about your brand, your goals, or anything specific you want us to look at in the audit..."></textarea>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                Submit My Audit Request →
+              </button>
+              <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from Caleb.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="qualify-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">What happens next</div>
+          <div class="sidebar-steps">
+            <div class="sidebar-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>We review your brand</h4>
+                <p>Caleb personally looks at your Instagram, your store, and your current setup within 24 hours of your submission.</p>
+              </div>
+            </div>
+            <div class="sidebar-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>You get a personalised breakdown</h4>
+                <p>We send you a real analysis — not a template — showing exactly where you're losing money and what we'd build first.</p>
+              </div>
+            </div>
+            <div class="sidebar-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>We hop on a quick call (optional)</h4>
+                <p>If you're a fit, we'll schedule a 20-minute strategy call to walk through the plan and answer any questions before you commit to anything.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-title">Why brands choose us</div>
+          <div class="sidebar-trust">
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Live within 5–7 business days
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              30-day performance guarantee
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No long-term contracts
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              You own the workflows forever
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Weekly performance reports
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(14,165,233,0.15)"/><path d="M4.5 8l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              $50k+ revenue recovered to date
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Home</a>
+          <a href="workflows.html" target="_blank">Workflow Library</a>
+          <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Plan option selection highlight
+    document.querySelectorAll('.plan-option input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.querySelectorAll('.plan-option').forEach(opt => opt.classList.remove('selected'));
+        radio.closest('.plan-option').classList.add('selected');
+      });
+    });
+
+    // Checkbox highlight
+    document.querySelectorAll('.check-item input').forEach(cb => {
+      cb.addEventListener('change', () => {
+        cb.closest('.check-item').classList.toggle('checked', cb.checked);
+      });
+    });
+
+    // Form submit
+    const form = document.getElementById('qualifyForm');
+    const btn = document.getElementById('submitBtn');
+    const success = document.getElementById('successState');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      const data = {
+        firstName: form.firstName.value,
+        lastName: form.lastName.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        brandName: form.brandName.value,
+        instagram: form.instagram.value,
+        website: form.website.value,
+        niche: form.niche.value,
+        revenue: form.revenue.value,
+        aov: form.aov.value,
+        tools: [...form.querySelectorAll('input[name="tools"]:checked')].map(c => c.value).join(', '),
+        challenges: [...form.querySelectorAll('input[name="challenges"]:checked')].map(c => c.value).join(', '),
+        plan: form.querySelector('input[name="plan"]:checked')?.value || 'Not specified',
+        notes: form.notes.value
+      };
+
+      try {
+        await fetch('https://nextsttstepai.app.n8n.cloud/webhook/qualify-brand-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (_) {
+        // Silently fail — show success regardless
+      }
+
+      form.style.display = 'none';
+      success.classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
