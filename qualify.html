@@ -807,6 +807,259 @@
       left: 0;
       color: rgba(14,165,233,0.5);
     }
+
+    /* ═══════════════════════════════════════════════
+       WHAT HAPPENS ON THE CALL — PROCESS SECTION
+    ═══════════════════════════════════════════════ */
+    .qualify-process {
+      background: var(--ink);
+      padding: 80px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .qualify-process::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 500px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .qp-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .qp-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 14px;
+    }
+    .qp-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .qp-header p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.45);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Timeline steps */
+    .qp-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .qp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(14,165,233,0.5), rgba(14,165,233,0.05));
+    }
+    .qp-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .qp-step:last-child { border-bottom: none; }
+    .qp-step-num {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--sky);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .qp-step.active-step .qp-step-num {
+      background: rgba(14,165,233,0.18);
+      border-color: rgba(14,165,233,0.5);
+      box-shadow: 0 0 24px rgba(14,165,233,0.15);
+    }
+    .qp-step-body { padding-top: 10px; }
+    .qp-step-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(14,165,233,0.6);
+      margin-bottom: 8px;
+    }
+    .qp-step h3 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .qp-step p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 0;
+    }
+    .qp-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .qp-bullets li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .qp-bullets li::before {
+      content: '✓';
+      color: var(--sky);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .qp-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4ade80;
+      margin-top: 14px;
+    }
+    .qp-step-badge .bdot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+    .qp-step-badge.blue-badge {
+      background: rgba(14,165,233,0.1);
+      border-color: rgba(14,165,233,0.25);
+      color: var(--sky);
+    }
+    .qp-step-badge.blue-badge .bdot { background: var(--sky); }
+
+    /* Call anatomy card — appears inside step 3 */
+    .qp-call-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 20px;
+      max-width: 520px;
+    }
+    .qp-call-card-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .qp-call-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .qp-call-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .qp-call-time {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(14,165,233,0.7);
+      width: 48px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .qp-call-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    .qp-call-desc strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    /* Bottom CTA strip */
+    .qp-cta-strip {
+      background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(14,165,233,0.03));
+      border-top: 1px solid rgba(14,165,233,0.12);
+      padding: 48px 0;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .qp-cta-strip h3 {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .qp-cta-strip p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 24px;
+    }
+    .qp-guarantee-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .qp-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+    }
+    .qp-guarantee-item svg { opacity: 0.6; }
+
+    @media (max-width: 768px) {
+      .qp-timeline::before { left: 24px; }
+      .qp-step { grid-template-columns: 48px 1fr; gap: 18px; }
+      .qp-step-num { width: 48px; height: 48px; font-size: 16px; }
+      .qp-call-card { padding: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -1196,6 +1449,155 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WHAT HAPPENS AFTER YOU SUBMIT — PROCESS SECTION
+  ═══════════════════════════════════════════════ -->
+  <section class="qualify-process">
+    <div class="container">
+
+      <div class="qp-header reveal">
+        <div class="qp-label">The Process</div>
+        <h2>What Happens After<br/>You Hit Submit?</h2>
+        <p>No waiting room. No mystery. Here's exactly what happens — step by step — from the moment you submit to the moment you have a clear plan for your brand.</p>
+      </div>
+
+      <div class="qp-timeline">
+
+        <!-- STEP 1 -->
+        <div class="qp-step reveal">
+          <div class="qp-step-num">1</div>
+          <div class="qp-step-body">
+            <div class="qp-step-tag">Immediately after submission</div>
+            <h3>Your Brand Goes Into Review</h3>
+            <p>The moment you hit submit, your brand enters the Nextstep AI review queue. We look at your Instagram, your store, your current setup — and we do it personally. Not a bot. Not a VA in another country. Our team.</p>
+            <ul class="qp-bullets">
+              <li>Your Instagram engagement, DM activity, and follower quality</li>
+              <li>Your store checkout flow, cart abandonment gaps, and conversion signals</li>
+              <li>Your current automations — or the complete absence of them</li>
+              <li>Where money is most likely leaving your brand right now</li>
+            </ul>
+            <div class="qp-step-badge">
+              <div class="bdot"></div>
+              Reviewed within 24 hours of submission
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="qp-step reveal">
+          <div class="qp-step-num">2</div>
+          <div class="qp-step-body">
+            <div class="qp-step-tag">Within 24 hours</div>
+            <h3>You Receive a Real Revenue Breakdown</h3>
+            <p>We send you a personalised audit — not a template, not a copy-paste PDF. A real breakdown of what we found, what it's likely costing you per month, and what we'd fix first if we worked together.</p>
+            <ul class="qp-bullets">
+              <li>Specific gaps we found in your cart and checkout process</li>
+              <li>Estimated monthly revenue you're likely leaving on the table</li>
+              <li>The 2–3 workflows we'd prioritise for your brand specifically</li>
+              <li>A clear picture of what "fixed" actually looks like for you</li>
+            </ul>
+            <div class="qp-step-badge blue-badge">
+              <div class="bdot"></div>
+              Personalised for your brand — not generic advice
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="qp-step active-step reveal">
+          <div class="qp-step-num">3</div>
+          <div class="qp-step-body">
+            <div class="qp-step-tag">If you qualify — completely optional</div>
+            <h3>A 15-Minute Discovery Call — On Your Terms</h3>
+            <p>If your brand is a strong fit, we'll invite you to a short 15-minute call. This isn't a sales pitch. It's a conversation. We ask a few smart questions about your brand, listen to what's frustrating you, and give you honest clarity on what we'd do first and why.</p>
+            <p style="margin-top:12px;">We respect your time. The call is short, focused, and ends with a clear outcome — not a cliffhanger.</p>
+
+            <!-- Call anatomy card -->
+            <div class="qp-call-card">
+              <div class="qp-call-card-title">What the 15-minute call looks like</div>
+              <div class="qp-call-row">
+                <div class="qp-call-time">0–2 min</div>
+                <div class="qp-call-desc"><strong>Quick intro.</strong> We confirm who you are, what you sell, and what you most want out of the audit.</div>
+              </div>
+              <div class="qp-call-row">
+                <div class="qp-call-time">2–8 min</div>
+                <div class="qp-call-desc"><strong>We listen.</strong> You tell us about your brand, your frustrations, and how your store runs right now. We ask 4–5 focused questions. No rambling. No sales script. Real curiosity.</div>
+              </div>
+              <div class="qp-call-row">
+                <div class="qp-call-time">8–13 min</div>
+                <div class="qp-call-desc"><strong>We show you the gap.</strong> Based on what you share, we walk you through what we'd fix first and roughly what kind of revenue lift is realistic for your brand — with numbers, not guesses.</div>
+              </div>
+              <div class="qp-call-row">
+                <div class="qp-call-time">13–15 min</div>
+                <div class="qp-call-desc"><strong>Clear next step.</strong> We either book a second call to walk through a full plan and pricing — or we tell you honestly that it's not the right fit yet. No pressure. No chasing.</div>
+              </div>
+            </div>
+
+            <ul class="qp-bullets" style="margin-top:18px;">
+              <li>You will not be pressured to commit on this call. Ever.</li>
+              <li>You leave with clarity about your brand's gaps whether you work with us or not</li>
+              <li>If it's not a fit, we'll tell you honestly and point you in the right direction</li>
+            </ul>
+            <div class="qp-step-badge blue-badge">
+              <div class="bdot"></div>
+              15 minutes. Focused. On your schedule.
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="qp-step reveal">
+          <div class="qp-step-num">4</div>
+          <div class="qp-step-body">
+            <div class="qp-step-tag">If it's a mutual fit</div>
+            <h3>Onboarding — Personal Assistance From Day One</h3>
+            <p>If we both agree it makes sense to move forward, you get full hands-on onboarding. We collect what we need, set up access, and within 5–7 days your first workflows are live. You have one point of contact, and we keep communication clear and fast.</p>
+            <ul class="qp-bullets">
+              <li>Dedicated onboarding call — we handle setup so you don't have to figure it out alone</li>
+              <li>We define your Phase 1 goals together so expectations are clear from day one</li>
+              <li>First workflows go live within 5–7 business days of onboarding</li>
+              <li>Weekly updates so you always know what's running and what it's doing</li>
+              <li>Direct access to our team — not a ticketing system, not a chatbot</li>
+            </ul>
+            <div class="qp-step-badge">
+              <div class="bdot"></div>
+              Personal assistance — not an automated funnel
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /qp-timeline -->
+    </div><!-- /container -->
+
+    <!-- Bottom CTA -->
+    <div class="qp-cta-strip">
+      <div class="container">
+        <h3>Ready to See What's Costing You Right Now?</h3>
+        <p>Takes under 3 minutes. Free. No commitment. No spam.</p>
+        <a href="#formCard" class="btn btn-primary" style="font-size:15px;padding:14px 32px;">Submit My Brand — It's Free →</a>
+        <div class="qp-guarantee-row">
+          <div class="qp-guarantee-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            No obligation, ever
+          </div>
+          <div class="qp-guarantee-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Reviewed within 24 hours
+          </div>
+          <div class="qp-guarantee-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Real insights, not templates
+          </div>
+          <div class="qp-guarantee-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            15-min call — on your schedule
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ═══════════════════════════════════════════════
