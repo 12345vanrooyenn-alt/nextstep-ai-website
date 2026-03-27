@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Nextstep AI — Who We Are & Why We Build This</title>
+  <meta name="description" content="Nextstep AI is an AI workflow automation agency built specifically for e-commerce clothing brands. Meet the team and learn why we do what we do." />
+  <meta property="og:title" content="About Nextstep AI — Who We Are & Why We Build This" />
+  <meta property="og:description" content="Meet the team behind Nextstep AI — built for clothing brands that are done leaving money on the table." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/about.html" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── ABOUT HERO ─── */
+    .about-hero {
+      background: var(--ink);
+      padding: calc(72px + 80px) 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+    .about-hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 36px;
+    }
+    .about-hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .ahs-item { }
+    .ahs-num {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ahs-lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Right-side card */
+    .about-hero-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .ahc-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(14,165,233,0.7);
+      margin-bottom: 20px;
+    }
+    .ahc-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .ahc-row:last-child { border-bottom: none; }
+    .ahc-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .ahc-text { }
+    .ahc-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+    .ahc-role { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    /* ─── STORY SECTION ─── */
+    .about-story {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .story-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .story-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); margin-bottom: 16px;
+    }
+    .story-inner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .story-inner p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .story-values {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sv-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 3px solid rgba(14,165,233,0.5);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 20px;
+    }
+    .sv-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .sv-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    /* ─── TEAM SECTION ─── */
+    .about-team {
+      background: var(--ink);
+      padding: 96px 0;
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .team-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+    .team-header p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.4);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(14,165,233,0.7), rgba(14,165,233,0.1));
+    }
+    .team-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(14,165,233,0.05));
+      border: 2px solid rgba(14,165,233,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--sky);
+      margin-bottom: 20px;
+    }
+    .team-name {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 18px;
+    }
+    .team-bio {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .team-responsibilities {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .team-responsibilities li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .team-responsibilities li::before {
+      content: '→';
+      color: rgba(14,165,233,0.6);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    /* ─── WHY CLOTHING BRANDS ─── */
+    .about-why {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .why-header {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+    .why-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+    .why-header p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .why-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .why-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .why-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.75;
+    }
+
+    /* ─── NUMBERS SECTION ─── */
+    .about-numbers {
+      background: var(--ink);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .about-numbers h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4.2vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 56px;
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .num-item {
+      background: var(--ink);
+      padding: 36px 24px;
+    }
+    .num-val {
+      font-family: var(--font-head);
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .num-lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ─── RULES SECTION ─── */
+    .about-rules {
+      background: linear-gradient(135deg, rgba(14,165,233,0.07) 0%, transparent 60%);
+      border-top: 1px solid rgba(14,165,233,0.1);
+      padding: 80px 0;
+    }
+    .rules-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .rules-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .rules-header p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.4);
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+    }
+    .rule-num {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(14,165,233,0.6);
+      flex-shrink: 0;
+      width: 24px;
+      text-align: right;
+    }
+    .rule-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .rule-text strong { color: var(--white); font-weight: 700; }
+
+    /* ─── CTA ─── */
+    .about-cta {
+      background: var(--ink);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .about-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(34px, 4.8vw, 60px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    .about-cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-inner { grid-template-columns: 1fr; }
+      .about-hero-card { display: none; }
+      .story-inner { grid-template-columns: 1fr; gap: 40px; }
+      .team-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .rules-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .about-hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav nav-scrolled" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">← Back to Home</a>
+        <a href="workflows.html">Workflows</a>
+        <a href="case-study.html">Results</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <a href="qualify.html" class="btn btn-primary nav-cta">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-inner">
+        <div class="reveal">
+          <div class="section-label" style="display:inline-block;margin-bottom:20px;">About Us</div>
+          <h1>Built for Brands<br/>That Are Done<br/><span class="headline-gradient">Playing Small.</span></h1>
+          <p class="about-hero-sub">Nextstep AI is an AI workflow automation agency that does one thing: build revenue systems for e-commerce clothing brands that make more money without the owner working more hours.</p>
+          <div class="about-hero-stats">
+            <div class="ahs-item">
+              <div class="ahs-num">50+</div>
+              <div class="ahs-lbl">AI Workflows Built</div>
+            </div>
+            <div class="ahs-item">
+              <div class="ahs-num">$2k+</div>
+              <div class="ahs-lbl">Recovered in 14 Days</div>
+            </div>
+            <div class="ahs-item">
+              <div class="ahs-num">7 days</div>
+              <div class="ahs-lbl">From Audit to Live</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team preview card -->
+        <div class="about-hero-card reveal">
+          <div class="ahc-label">The Team</div>
+          <div class="ahc-row">
+            <div class="ahc-icon">C</div>
+            <div class="ahc-text">
+              <div class="ahc-name">Caleb Desmond van Rooyen</div>
+              <div class="ahc-role">CEO &amp; Workflow Architect</div>
+            </div>
+          </div>
+          <div class="ahc-row">
+            <div class="ahc-icon">B</div>
+            <div class="ahc-text">
+              <div class="ahc-name">Brayden Adrian</div>
+              <div class="ahc-role">Executive Operator</div>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Specialising In</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:12px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);border-radius:6px;padding:4px 10px;color:rgba(14,165,233,0.9);font-weight:600;">Cart Recovery</span>
+              <span style="font-size:12px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);border-radius:6px;padding:4px 10px;color:rgba(14,165,233,0.9);font-weight:600;">Reactivation</span>
+              <span style="font-size:12px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);border-radius:6px;padding:4px 10px;color:rgba(14,165,233,0.9);font-weight:600;">DM Automation</span>
+              <span style="font-size:12px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);border-radius:6px;padding:4px 10px;color:rgba(14,165,233,0.9);font-weight:600;">Clothing Brands</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STORY ═══ -->
+  <section class="about-story">
+    <div class="container">
+      <div class="story-inner">
+        <div class="reveal">
+          <div class="story-label">Our Story</div>
+          <h2>We Saw Clothing<br/>Brands Bleed Revenue.<br/><span class="headline-gradient">We Fixed It.</span></h2>
+          <p>Clothing brands are working harder than ever — posting daily, running drops, answering DMs at midnight — and still watching money disappear into abandoned carts and one-time buyers that never come back.</p>
+          <p>The problem isn't the product. It's not the audience. It's the gap between a customer showing interest and a brand actually capturing that sale. That gap is automation.</p>
+          <p>Nextstep AI was built to close that gap. We specialise in one niche — e-commerce clothing brands — because when you go deep on one problem, you solve it better than anyone else.</p>
+          <p>Every workflow we build is designed to do exactly one thing: <strong style="color:var(--white);">make the brand more money without the owner working more hours.</strong></p>
+        </div>
+        <div class="reveal">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;">How We Operate</div>
+          <div class="story-values">
+            <div class="sv-item">
+              <div class="sv-title">Payment before work. Always.</div>
+              <div class="sv-desc">We don't build workflows hoping you'll pay. Payment clears, then build begins. No exceptions — this protects both sides.</div>
+            </div>
+            <div class="sv-item">
+              <div class="sv-title">No retainer below $350. No setup below $1,000.</div>
+              <div class="sv-desc">Our pricing reflects our value. If these numbers feel high, we're probably not the right fit — and we'll tell you that honestly.</div>
+            </div>
+            <div class="sv-item">
+              <div class="sv-title">Results over activity. Always.</div>
+              <div class="sv-desc">We don't report on tasks. We report on revenue influenced, carts recovered, and time saved. Real numbers, every month.</div>
+            </div>
+            <div class="sv-item">
+              <div class="sv-title">We only work with brands we can help.</div>
+              <div class="sv-desc">If your volume or stage isn't right yet for automation, we'll tell you that on the discovery call — and point you to what actually matters right now.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM ═══ -->
+  <section class="about-team">
+    <div class="container">
+      <div class="team-header reveal">
+        <div class="section-label" style="margin-bottom:14px;">The People</div>
+        <h2>Small Team.<br/><span class="headline-gradient">Serious Output.</span></h2>
+        <p>Two operators. One focus. Every client gets direct access to both — no account managers, no handoffs.</p>
+      </div>
+      <div class="team-grid">
+
+        <!-- Caleb -->
+        <div class="team-card reveal">
+          <div class="team-avatar">C</div>
+          <div class="team-name">Caleb Desmond van Rooyen</div>
+          <div class="team-role">CEO &amp; Workflow Architect</div>
+          <p class="team-bio">Caleb founded Nextstep AI with one conviction: clothing brands are leaving thousands on the table every month because their follow-up systems are either broken or non-existent. He runs all strategy, sales, discovery calls, and workflow architecture for every client.</p>
+          <ul class="team-responsibilities">
+            <li>Leads all discovery and closing calls</li>
+            <li>Designs every automation strategy from scratch</li>
+            <li>Handles final QA on all workflows before go-live</li>
+            <li>Oversees monthly performance and optimisation</li>
+            <li>Your main point of contact for strategy decisions</li>
+          </ul>
+        </div>
+
+        <!-- Brayden -->
+        <div class="team-card reveal">
+          <div class="team-avatar" style="background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(139,92,246,0.05));border-color:rgba(167,139,250,0.25);color:#a78bfa;">B</div>
+          <div class="team-name">Brayden Adrian</div>
+          <div class="team-role" style="color:#a78bfa;">Executive Operator</div>
+          <p class="team-bio">Brayden is the operational backbone of Nextstep AI. He keeps the pipeline clean, leads qualify lead research, manages outreach, and ensures every client onboarding, report, and follow-up happens on time — without Caleb having to think about it.</p>
+          <ul class="team-responsibilities">
+            <li>Brand research and lead qualification</li>
+            <li>Pipeline management and outreach tracking</li>
+            <li>Client onboarding coordination</li>
+            <li>Weekly performance reports preparation</li>
+            <li>Internal workflow implementation support</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY CLOTHING BRANDS ═══ -->
+  <section class="about-why">
+    <div class="container">
+      <div class="why-header reveal">
+        <div class="story-label">Why Clothing Brands</div>
+        <h2>We Don't Do<br/><span class="headline-gradient">Everything for Everyone.</span></h2>
+        <p>We go deep on one niche — and that's why we're better at it. Clothing brands have a specific set of problems that AI automation solves better than any other approach.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <span class="why-icon">🛒</span>
+          <div class="why-title">60–80% Cart Abandonment</div>
+          <div class="why-desc">Fashion stores lose the majority of potential sales at checkout. Recovery flows directly address this — and the ROI is immediate and trackable.</div>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">🔁</span>
+          <div class="why-desc">Most clothing buyers shop once and never hear from the brand again. Reactivation flows bring them back without paid ads.</div>
+          <div class="why-title" style="margin-top:10px;margin-bottom:0;">High Customer Lifetime Value</div>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">📲</span>
+          <div class="why-title">DM Overload</div>
+          <div class="why-desc">Owners spend 6–12 hours a week in DMs answering the same questions. Support automation cuts this to minutes — without losing the human feel.</div>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">📦</span>
+          <div class="why-title">Drop Culture & Restocks</div>
+          <div class="why-desc">Clothing brands live on drops. Waitlist, back-in-stock, and pre-launch flows let you extract maximum revenue from every release — automatically.</div>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">📊</span>
+          <div class="why-title">Product Performance Gaps</div>
+          <div class="why-desc">Most owners don't know which products drive the most repeat buyers. AI insight flows surface this weekly — so every decision gets smarter.</div>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">⏱️</span>
+          <div class="why-title">Founder Time Drain</div>
+          <div class="why-desc">Clothing founders are often doing everything themselves. Operational automation gives back hours every week — permanently.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NUMBERS ═══ -->
+  <section class="about-numbers">
+    <div class="container">
+      <h2 class="reveal">The Numbers<br/><span class="headline-gradient">Speak for Themselves.</span></h2>
+      <div class="numbers-grid reveal">
+        <div class="num-item">
+          <div class="num-val">50+</div>
+          <div class="num-lbl">AI workflows in our catalogue</div>
+        </div>
+        <div class="num-item">
+          <div class="num-val">7</div>
+          <div class="num-lbl">Days average from audit to live workflow</div>
+        </div>
+        <div class="num-item">
+          <div class="num-val">$2,028</div>
+          <div class="num-lbl">Revenue recovered in first 2 weeks for a low-traffic brand</div>
+        </div>
+        <div class="num-item">
+          <div class="num-val">30</div>
+          <div class="num-lbl">Days to see first results — or it's on us to fix it</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RULES ═══ -->
+  <section class="about-rules">
+    <div class="container">
+      <div class="rules-header reveal">
+        <div class="story-label" style="margin-bottom:14px;">How We Work</div>
+        <h2>Non-Negotiables.<br/><span class="headline-gradient">On Both Sides.</span></h2>
+        <p>We hold ourselves to a high standard. We expect the same from the brands we work with.</p>
+      </div>
+      <div class="rules-grid reveal">
+        <div class="rule-item">
+          <div class="rule-num">01</div>
+          <div class="rule-text"><strong>Payment first. Work second.</strong> No workflows are built before payment clears. This is non-negotiable on every engagement.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">02</div>
+          <div class="rule-text"><strong>No retainer below $350/mo.</strong> If you can't invest the minimum, automation won't solve your problem yet.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">03</div>
+          <div class="rule-text"><strong>No templates. Ever.</strong> Every workflow is designed for your brand, your traffic, your customer behaviour.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">04</div>
+          <div class="rule-text"><strong>Weekly updates without being asked.</strong> You don't chase us for reports. They arrive every Friday, with numbers.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">05</div>
+          <div class="rule-text"><strong>We say no when it's not a fit.</strong> We don't take on brands we can't materially help. This protects your money and our reputation.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">06</div>
+          <div class="rule-text"><strong>Honest over comfortable.</strong> If something isn't working, we tell you and fix it — not hide it in a report.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="about-cta">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:16px;">Ready?</div>
+        <h2>Start With a<br/><span class="headline-gradient">Free Brand Audit.</span></h2>
+        <p>Takes under 3 minutes. We review your brand personally and send back a breakdown of what it's costing you — and what we'd fix first.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="qualify.html" class="btn btn-primary btn-lg">Submit My Brand — It's Free →</a>
+          <a href="case-study.html" class="btn btn-ghost btn-lg">See a Real Result</a>
+        </div>
+        <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.25);">No obligation · No spam · Reviewed within 24 hours</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+          <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">AI workflow automation for e-commerce clothing brands that want to make more money without working more hours.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Pages</div>
+          <a href="index.html">← Back to Home</a>
+          <a href="qualify.html">Free Audit</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="workflows.html">Workflow Library</a>
+          <a href="case-study.html">Case Study</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a href="legal.html#privacy">Privacy Policy</a>
+          <a href="legal.html#terms">Terms of Service</a>
+          <a href="legal.html#refund">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="https://instagram.com/caleb_automates" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="qualify.html">Free Audit</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2026 Nextstep AI. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="legal.html#privacy">Privacy Policy</a>
+        <a href="legal.html#terms">Terms of Service</a>
+        <span>nextstepai.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Outfit:wght@400;600&display=swap');
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #060c1a;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      position: relative;
+    }
+
+    /* Background glow */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -80px;
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: 0;
+      width: 500px; height: 400px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Top accent line */
+    .top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0ea5e9, #7dd3fc, #0ea5e9);
+    }
+
+    /* Left column */
+    .left {
+      flex: 1;
+      padding-right: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .logo-text span { color: #0ea5e9; }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 58px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    h1 .blue {
+      background: linear-gradient(135deg, #7dd3fc, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #7dd3fc;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    /* Right column — stat cards */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 28px;
+      width: 300px;
+    }
+    .stat-card.featured {
+      background: rgba(14,165,233,0.08);
+      border-color: rgba(14,165,233,0.25);
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-num .unit { font-size: 22px; color: #0ea5e9; }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+    }
+
+    .domain {
+      position: absolute;
+      bottom: 28px;
+      right: 80px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+
+  <div class="left">
+    <div class="logo-row">
+      <!-- Logo SVG -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="8" fill="#0f172a"/>
+        <defs>
+          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7dd3fc"/>
+            <stop offset="100%" stop-color="#0ea5e9"/>
+          </linearGradient>
+        </defs>
+        <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#g)"/>
+        <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#g)"/>
+        <polygon points="7,7 12,7 29,29 24,29" fill="url(#g)"/>
+        <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+      </svg>
+      <div class="logo-text">Nextstep <span>AI</span></div>
+    </div>
+
+    <h1>
+      Your Store<br/>
+      Is <span class="blue">Leaving<br/>Money</span><br/>
+      Behind.
+    </h1>
+
+    <p class="sub">AI automation systems that recover lost sales, reactivate past buyers, and run your follow-ups 24/7.</p>
+
+    <div class="pill">
+      <div class="dot"></div>
+      Free Brand Audit — No Obligation
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="stat-card featured">
+      <div class="stat-num"><span class="unit">$</span>2,028</div>
+      <div class="stat-label">recovered in 14 days — zero ads</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8× <span style="font-size:20px; color: rgba(255,255,255,0.4)">DM reply rate</span></div>
+      <div class="stat-label">Instagram automation</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">15<span class="unit">hrs</span></div>
+      <div class="stat-label">saved per week on follow-ups</div>
+    </div>
+  </div>
+
+  <div class="domain">nextstepai.com</div>
+</body>
+</html>
