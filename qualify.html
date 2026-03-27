@@ -14,13 +14,14 @@
        ANNOUNCEMENT BAR
     ═══════════════════════════════════════════════ */
     .announce-bar {
-      background: linear-gradient(90deg, rgba(14,165,233,0.15) 0%, rgba(56,189,248,0.1) 50%, rgba(14,165,233,0.15) 100%);
-      border-bottom: 1px solid rgba(14,165,233,0.2);
-      padding: 10px 0;
+      background: rgba(6,12,26,0.97);
+      border-top: 2px solid rgba(14,165,233,0.45);
+      border-bottom: 1px solid rgba(14,165,233,0.18);
+      padding: 11px 24px;
       text-align: center;
       font-size: 13px;
       font-weight: 600;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.8);
       letter-spacing: 0.01em;
     }
     .announce-bar strong { color: var(--sky); }
@@ -200,7 +201,7 @@
     /* Floating badge */
     .qualify-float-badge {
       position: absolute;
-      top: 48px; right: -16px;
+      top: -18px; left: 16px;
       background: var(--navy-card);
       border: 1px solid rgba(14,165,233,0.3);
       border-radius: 12px;
@@ -718,12 +719,78 @@
       .urgency-grid { grid-template-columns: 1fr; }
       .qualify-layout { grid-template-columns: 1fr; }
       .qualify-sidebar { position: static; }
+      .audit-scope-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .form-row { grid-template-columns: 1fr; }
       .qualify-form-card { padding: 28px 20px; }
       .plan-options { grid-template-columns: 1fr; }
       .trust-strip-inner { gap: 20px; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       WHAT WE AUDIT SECTION
+    ═══════════════════════════════════════════════ */
+    .qualify-audit-scope {
+      background: var(--navy);
+      padding: 56px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .audit-scope-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 28px;
+    }
+    .audit-scope-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .audit-scope-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .audit-scope-card:hover { border-color: rgba(14,165,233,0.25); }
+    .audit-scope-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.18);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .audit-scope-card h4 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .audit-scope-list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .audit-scope-list li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .audit-scope-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(14,165,233,0.5);
     }
   </style>
 </head>
@@ -732,8 +799,7 @@
   <!-- ANNOUNCEMENT BAR -->
   <div class="announce-bar">
     <span class="announce-dot"></span>
-    <strong>3 audit slots left this week</strong> — We review every submission personally.
-    Spots fill fast.
+    <strong>⚡ 3 audit slots left this week</strong> &mdash; Every submission is reviewed within 24 hours. Spots fill fast.
   </div>
 
   <!-- NAV -->
@@ -751,13 +817,11 @@
         <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html">← Back to Home</a></li>
+        <li><a href="workflows.html" target="_blank">Workflow Library</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
-        <li><a href="workflows.html" target="_blank">Workflows</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="index.html#about">About</a></li>
       </ul>
-      <a href="qualify.html" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <a href="#formCard" class="btn btn-primary btn-sm">Submit My Brand</a>
     </div>
   </nav>
 
@@ -769,8 +833,8 @@
       <div class="qualify-hero-inner">
         <div class="qualify-hero-copy reveal">
           <div class="section-label" style="display:inline-block;margin-bottom:20px;">Free Brand Revenue Audit</div>
-          <h1>Your Brand Is Sitting on<br/>Hidden Revenue.<br/><span class="text-blue">Let's Find It — Free.</span></h1>
-          <p class="qualify-hero-sub">Fill in the form. Caleb will personally audit your store, your Instagram, and your current automation setup — then send you a real breakdown of exactly where you're bleeding money and what we'd build first.</p>
+          <h1>Stop Leaving<br/><span class="text-blue">$3,000 a Month</span><br/>on the Table.</h1>
+          <p class="qualify-hero-sub">We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you and what we'd fix first. Free. No obligation. Real insights in 24 hours.</p>
           <div class="qualify-hero-badges">
             <span class="qualify-badge qualify-badge-blue">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#0ea5e9" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -789,7 +853,7 @@
         <div class="qualify-hero-visual reveal">
           <div class="qualify-float-badge">
             <span class="badge-dot"></span>
-            Caleb is reviewing submissions
+            Nextstep AI is reviewing submissions
           </div>
           <div class="hero-visual-card">
             <div class="hvc-label">Revenue Audit Preview</div>
@@ -865,15 +929,60 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════
+       WHAT WE AUDIT
+  ═══════════════════════════════════════════════ -->
+  <section class="qualify-audit-scope">
+    <div class="container">
+      <div class="audit-scope-label">What the audit covers</div>
+      <div class="audit-scope-grid">
+        <div class="audit-scope-card">
+          <div class="audit-scope-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#0ea5e9" stroke-width="1.5"/><path d="M7 12h10M7 8h7M7 16h5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Your Shopify Store</h4>
+          <ul class="audit-scope-list">
+            <li>Cart abandonment rate &amp; recovery gap</li>
+            <li>Conversion flow leaks</li>
+            <li>Post-purchase sequence gaps</li>
+            <li>Reactivation opportunity (past buyers)</li>
+          </ul>
+        </div>
+        <div class="audit-scope-card">
+          <div class="audit-scope-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#0ea5e9" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#0ea5e9" stroke-width="1.5"/><circle cx="17" cy="7" r="1.2" fill="#0ea5e9"/></svg>
+          </div>
+          <h4>Your Instagram</h4>
+          <ul class="audit-scope-list">
+            <li>DM response rate &amp; lead quality</li>
+            <li>Comment-to-DM funnel potential</li>
+            <li>Hours lost to manual replies</li>
+            <li>Missed follow-up sequences</li>
+          </ul>
+        </div>
+        <div class="audit-scope-card">
+          <div class="audit-scope-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3z" stroke="#0ea5e9" stroke-width="1.5"/><path d="M8 12h4l2-4" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Your Automations</h4>
+          <ul class="audit-scope-list">
+            <li>What you're missing entirely</li>
+            <li>What's running but underperforming</li>
+            <li>Which AI workflows would move the needle first</li>
+            <li>Exact revenue potential with the right system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        WHY NOW — URGENCY SECTION
   ═══════════════════════════════════════════════ -->
   <section class="qualify-urgency">
     <div class="container">
-      <div class="section-label" style="display:inline-block; margin-bottom:16px;">Why You Can't Wait</div>
-      <h2 style="font-family:var(--font-head); font-size:clamp(24px,3vw,36px); font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:8px; line-height:1.1;">
-        The AI Window Is Closing.<br/><span style="background:linear-gradient(135deg,#7dd3fc,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Early Movers Win the Most.</span>
-      </h2>
-      <p style="font-size:16px; color:rgba(255,255,255,0.5); max-width:560px; line-height:1.7; margin-bottom:32px;">AI automation is compounding — every month a brand runs it, the gap between them and brands without it grows wider. The cost of waiting isn't zero. It's the revenue you're leaving on the table right now.</p>
+      <div class="section-label" style="display:inline-block;margin-bottom:16px;">Why You Can't Wait</div>
+      <h2 class="section-title" style="margin-bottom:12px;">The AI Window Is Closing.<br/><span class="text-blue" style="background:linear-gradient(135deg,#7dd3fc,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Early Movers Win the Most.</span></h2>
+      <p class="section-sub" style="max-width:560px;margin-bottom:32px;">AI automation is compounding — every month a brand runs it, the gap between them and brands without it grows wider. The cost of waiting isn't zero. It's the revenue you're leaving on the table right now.</p>
       <div class="urgency-grid">
         <div class="urgency-card">
           <div class="urgency-card-icon">
@@ -923,21 +1032,37 @@
             <div class="success-icon">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M8 18l8 8 12-14" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h2>You're in. We'll be in touch.</h2>
-            <p>Caleb will personally review your brand and send back a real breakdown within 24 hours. Keep an eye on your email — and your Instagram DMs, just in case.</p>
+            <h2>You're In — Here's What Happens Next</h2>
+            <p>Your brand is now in the queue. The Nextstep AI team will review your store, your Instagram, and your current automation setup — and send you a real revenue breakdown, not a template.</p>
             <div class="success-next-steps">
               <div class="success-next-step">
                 <div class="success-step-num">1</div>
-                Check your email for a confirmation from hello@nextstepai.com
+                <div>
+                  <strong>We review within 24 hours</strong><br/>
+                  <span style="font-size:13px;color:rgba(255,255,255,0.4);">Your Instagram, your store, your flows — all analysed personally.</span>
+                </div>
               </div>
               <div class="success-next-step">
                 <div class="success-step-num">2</div>
-                Within 24 hours, you'll receive your personalised revenue breakdown
+                <div>
+                  <strong>You get a real revenue breakdown</strong><br/>
+                  <span style="font-size:13px;color:rgba(255,255,255,0.4);">Exact gaps, exact numbers — what's leaking and what we'd fix first.</span>
+                </div>
               </div>
               <div class="success-next-step">
                 <div class="success-step-num">3</div>
-                If you're a fit, we'll book a 20-min strategy call to walk through everything
+                <div>
+                  <strong>Strategy call (if you're a fit)</strong><br/>
+                  <span style="font-size:13px;color:rgba(255,255,255,0.4);">20 minutes, no pressure — just clarity on your next move.</span>
+                </div>
               </div>
+            </div>
+            <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);">
+              <p style="font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:12px;">While you wait, follow us on Instagram for daily AI automation insights:</p>
+              <a href="https://instagram.com/caleb_automates" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--sky);text-decoration:none;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3.5" stroke="#0ea5e9" stroke-width="1.4"/><circle cx="8" cy="8" r="3" stroke="#0ea5e9" stroke-width="1.4"/><circle cx="11.5" cy="4.5" r="0.75" fill="#0ea5e9"/></svg>
+                @caleb_automates
+              </a>
             </div>
           </div>
 
@@ -947,7 +1072,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name <span class="req">*</span></label>
-                <input type="text" id="firstName" name="firstName" placeholder="Caleb" required />
+                <input type="text" id="firstName" name="firstName" placeholder="Jordan" required />
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name <span class="req">*</span></label>
@@ -1127,7 +1252,7 @@
               <button type="submit" class="btn-submit" id="submitBtn">
                 Submit My Free Audit Request →
               </button>
-              <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from Caleb, personally.</p>
+              <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from our team — no obligation.</p>
             </div>
           </form>
         </div>
@@ -1141,8 +1266,8 @@
             <div class="sidebar-step">
               <div class="step-num">1</div>
               <div class="step-content">
-                <h4>Caleb reviews your brand personally</h4>
-                <p>Your Instagram, your store, your current setup — all reviewed within 24 hours of submission. Not outsourced, not automated.</p>
+                <h4>Nextstep AI reviews your brand</h4>
+                <p>Your Instagram, your store, your current automation setup — all reviewed within 24 hours of submission. Not templated. Not outsourced.</p>
               </div>
             </div>
             <div class="sidebar-step">
