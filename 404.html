@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Nextstep AI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .not-found {
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .not-found::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .nf-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+    .nf-code {
+      font-family: var(--font-head);
+      font-size: clamp(100px, 20vw, 180px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, rgba(14,165,233,0.15) 0%, rgba(14,165,233,0.04) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .nf-code::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-head);
+      font-size: clamp(100px, 20vw, 180px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.18;
+      filter: blur(18px);
+    }
+    .nf-heading {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin: 16px 0 14px;
+    }
+    .nf-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .nf-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(14,165,233,0.8);
+      margin-bottom: 28px;
+    }
+    .nf-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav nav-scrolled" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs>
+            <linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7dd3fc"/>
+              <stop offset="100%" stop-color="#0ea5e9"/>
+            </linearGradient>
+          </defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <a href="qualify.html" class="btn btn-primary btn-sm">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <section class="not-found">
+    <div class="nf-inner">
+      <div class="nf-badge"><div class="nf-dot"></div> Still here — just wrong page</div>
+      <div class="nf-code">404</div>
+      <h1 class="nf-heading">This page doesn't exist.<br/>Your revenue gaps do.</h1>
+      <p class="nf-sub">Whatever you were looking for isn't here — but we can point you somewhere that actually matters for your brand.</p>
+      <div class="nf-actions">
+        <a href="index.html" class="btn btn-outline">← Back to Home</a>
+        <a href="qualify.html" class="btn btn-primary">Get Free Brand Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="cookie.js"></script>
+</body>
+</html>
