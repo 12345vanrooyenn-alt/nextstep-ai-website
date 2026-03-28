@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile Pic — Nextstep AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: #060c1a;
+      font-family: 'Outfit', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* grid bg */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 65%);
+    }
+
+    .card {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px;
+    }
+
+    /* photo circle */
+    .ring {
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, rgba(14,165,233,0.3) 100%);
+      box-shadow:
+        0 0 0 12px rgba(14,165,233,0.06),
+        0 0 60px rgba(14,165,233,0.3),
+        0 24px 64px rgba(0,0,0,0.6);
+      margin-bottom: 48px;
+      flex-shrink: 0;
+    }
+    .ring-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .ring-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      display: block;
+    }
+
+    /* name */
+    .name {
+      font-family: 'Syne', sans-serif;
+      font-size: 68px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      letter-spacing: 0.01em;
+      margin-bottom: 36px;
+    }
+
+    /* logo row */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-n {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 0 16px rgba(14,165,233,0.4);
+    }
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: -0.01em;
+    }
+    .brand-name span { color: #0ea5e9; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="card">
+    <div class="ring">
+      <div class="ring-inner">
+        <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+      </div>
+    </div>
+
+    <div class="name">Caleb van Rooyen</div>
+    <div class="title">Founder &amp; CEO · Workflow Architect</div>
+
+    <div class="brand-row">
+      <div class="logo-n">N</div>
+      <div class="brand-name">Nextstep<span>AI</span></div>
+    </div>
+  </div>
+</body>
+</html>

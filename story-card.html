@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Card — Nextstep AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: #060c1a;
+      font-family: 'Outfit', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Background grid ── */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .bg-glow {
+      position: absolute;
+      top: 620px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── Card wrapper ── */
+    .card {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top logo bar ── */
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 72px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-n {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      color: #fff;
+      box-shadow: 0 0 24px rgba(14,165,233,0.45);
+    }
+    .logo-wordmark {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span { color: #0ea5e9; }
+    .top-chip {
+      background: rgba(14,165,233,0.12);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 40px;
+      padding: 12px 28px;
+      font-size: 19px;
+      font-weight: 600;
+      color: #0ea5e9;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Photo — upper half ── */
+    .photo-section {
+      position: relative;
+      width: 100%;
+      height: 1060px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .photo-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      display: block;
+    }
+    /* gradient fade into dark at bottom */
+    .photo-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background: linear-gradient(to bottom, transparent 0%, #060c1a 100%);
+    }
+    /* name overlay inside the photo fade */
+    .photo-overlay-name {
+      position: absolute;
+      bottom: 52px;
+      left: 72px;
+      right: 72px;
+      z-index: 2;
+    }
+    .overlay-role {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 40px;
+      padding: 10px 24px;
+      margin-bottom: 22px;
+    }
+    .overlay-dot {
+      width: 8px;
+      height: 8px;
+      background: #0ea5e9;
+      border-radius: 50%;
+    }
+    .overlay-role-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0ea5e9;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .overlay-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 88px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .overlay-sub {
+      font-size: 26px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      margin-top: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Lower content ── */
+    .lower {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 72px 80px;
+    }
+
+    /* divider */
+    .divider {
+      width: 72px;
+      height: 2px;
+      background: linear-gradient(90deg, #0ea5e9, transparent);
+      margin: 40px 0;
+    }
+
+    /* headline */
+    .headline {
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+    }
+    .headline span {
+      color: #0ea5e9;
+    }
+
+    /* feature pills */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 52px;
+    }
+    .feature-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 28px 32px;
+    }
+    .feat-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .feat-text {
+      padding-top: 4px;
+    }
+    .feat-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .feat-desc {
+      font-size: 20px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: auto;
+    }
+    .cta-btn {
+      flex: 1;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 20px;
+      padding: 32px 40px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(14,165,233,0.35);
+    }
+    .cta-btn-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .cta-btn-sub {
+      font-size: 19px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+    }
+    .cta-url {
+      font-size: 21px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="card">
+    <!-- Top logo -->
+    <div class="top-bar">
+      <div class="logo">
+        <div class="logo-n">N</div>
+        <div class="logo-wordmark">Nextstep<span>AI</span></div>
+      </div>
+      <div class="top-chip">Founder &amp; CEO</div>
+    </div>
+
+    <!-- Photo -->
+    <div class="photo-section">
+      <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+      <div class="photo-overlay-name">
+        <div class="overlay-role">
+          <div class="overlay-dot"></div>
+          <div class="overlay-role-text">Nextstep AI</div>
+        </div>
+        <div class="overlay-name">Caleb<br/>van Rooyen</div>
+        <div class="overlay-sub">Workflow Architect · Cape Town, SA</div>
+      </div>
+    </div>
+
+    <!-- Lower content -->
+    <div class="lower">
+      <div class="divider"></div>
+
+      <div class="headline">
+        This Isn't a Big Agency.<br/><span>That's the Point.</span>
+      </div>
+
+      <div class="features">
+        <div class="feature-row">
+          <div class="feat-icon">👕</div>
+          <div class="feat-text">
+            <div class="feat-title">Built for clothing brands only</div>
+            <div class="feat-desc">Deep specialisation — not a generic agency spreading thin</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-text">
+            <div class="feat-title">Live in 7 days, ROI in 30</div>
+            <div class="feat-desc">Automated cart recovery + DM flows running fast</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feat-icon">🎯</div>
+          <div class="feat-text">
+            <div class="feat-title">No junior staff. No templates.</div>
+            <div class="feat-desc">Every system custom-built personally by Caleb</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <div class="cta-btn">
+          <div class="cta-btn-label">Get your free audit →</div>
+          <div class="cta-btn-sub">nextstepai.com/qualify</div>
+        </div>
+        <div class="cta-url">nextstepai.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
