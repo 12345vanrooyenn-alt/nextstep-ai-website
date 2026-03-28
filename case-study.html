@@ -285,6 +285,53 @@
     .cs-results-table .td-delta { color: var(--sky); font-weight: 700; }
     .cs-results-table tr:hover td { background: rgba(255,255,255,0.02); }
 
+    /* ─── Proof screenshots ─── */
+    .cs-proof-section { background: var(--navy-2); }
+    .cs-proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .cs-proof-full { grid-column: 1 / -1; }
+    .cs-proof-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .cs-proof-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cs-proof-img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 380px;
+    }
+    .cs-proof-full .cs-proof-img { max-height: 440px; object-position: top; }
+    .cs-proof-caption {
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cs-proof-caption strong { font-size: 13px; }
+    .cs-proof-caption span { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.5; }
+    @media (max-width: 640px) {
+      .cs-proof-grid { grid-template-columns: 1fr; }
+      .cs-proof-full { grid-column: auto; }
+    }
+
     /* ─── CTA section ─── */
     .cs-cta {
       background: var(--ink);
@@ -397,11 +444,15 @@
       </div>
       <div class="cs-hero-tag">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#0ea5e9"/></svg>
-        Real Client · Clothing Brand · Low Traffic
+        Velour Fits · Clothing Brand · South Africa
       </div>
       <h1>$2,028 in Revenue.<br/><span class="hl">14 Days.</span><br/>Zero Paid Ads.</h1>
-      <p class="cs-hero-sub">How a low-traffic clothing brand went from leaking money at checkout to recovering thousands every week — just by turning the right systems on.</p>
+      <p class="cs-hero-sub">How Velour Fits went from leaking money at checkout to recovering thousands every week — just by turning the right systems on.</p>
       <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Brand</span>
+          <span class="cs-meta-val">Velour Fits 🇿🇦</span>
+        </div>
         <div class="cs-meta-item">
           <span class="cs-meta-label">Industry</span>
           <span class="cs-meta-val">E-Commerce Clothing</span>
@@ -711,8 +762,67 @@
 
             <div class="cs-quote-block">
               <div class="cs-quote-text">"Even with low traffic, this works. It's not about more visitors — it's about recovering the ones you already paid for and making sure every single one of them is followed up. The system does that now. I don't."</div>
-              <div class="cs-quote-attr">— Nextstep AI, on the first case study result</div>
+              <div class="cs-quote-attr">— Nextstep AI, on the Velour Fits result</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4B: REAL PROOF SCREENSHOTS -->
+    <section class="cs-section cs-proof-section">
+      <div class="container">
+        <div class="cs-section-grid">
+          <div class="cs-section-sidebar">
+            <div class="cs-section-tag">04b — The Evidence</div>
+            <h2 class="cs-section-title">The Actual Screenshots.</h2>
+            <p style="font-size:14px;color:rgba(255,255,255,0.4);line-height:1.6;margin-top:12px;">Real Shopify dashboards. Real emails. Real automation firing. Not mockups.</p>
+          </div>
+          <div class="cs-section-content">
+
+            <!-- Proof grid -->
+            <div class="cs-proof-grid">
+
+              <!-- Big Shopify dashboard -->
+              <div class="cs-proof-card cs-proof-full">
+                <div class="cs-proof-label">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#4ade80"/></svg>
+                  Shopify Dashboard — Velour Fits · After Automation
+                </div>
+                <img src="assets/proof-shopify-dashboard-big.jpg" alt="Velour Fits Shopify dashboard showing $8,433.19 total sales, 227 orders, 592% growth after AI automation" loading="lazy" class="cs-proof-img" />
+                <div class="cs-proof-caption">
+                  <strong style="color:#4ade80;">$8,433.19 total sales · 227 orders · ↑592% growth</strong>
+                  <span>Yesterday's snapshot — organic only, no paid ads running</span>
+                </div>
+              </div>
+
+              <!-- Two-column row: email notification + recovery email -->
+              <div class="cs-proof-card">
+                <div class="cs-proof-label">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#0ea5e9"/></svg>
+                  Automation Firing — Cart Sequence Completion Alert
+                </div>
+                <img src="assets/proof-cart-sequence-email.jpg" alt="Email notification confirming abandoned cart sequence completed — Riley, Cart $110" loading="lazy" class="cs-proof-img" />
+                <div class="cs-proof-caption">
+                  <strong style="color:var(--sky);">System notification: Abandoned cart sequence completed</strong>
+                  <span>Every completed recovery triggers a notification — full audit trail</span>
+                </div>
+              </div>
+
+              <div class="cs-proof-card">
+                <div class="cs-proof-label">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#a78bfa"/></svg>
+                  Live Recovery Email — Sent to Real Customer (Jane)
+                </div>
+                <img src="assets/proof-velour-fits-recovery-email.jpg" alt="Velour Fits cart recovery email — personalised final notice sent to Jane" loading="lazy" class="cs-proof-img" />
+                <div class="cs-proof-caption">
+                  <strong style="color:#a78bfa;">Velour Fits — personalised urgency email firing at 2-hour mark</strong>
+                  <span>"This is it, Jane." — dynamic name, product-aware, time-based trigger</span>
+                </div>
+              </div>
+
+            </div><!-- /cs-proof-grid -->
+
           </div>
         </div>
       </div>

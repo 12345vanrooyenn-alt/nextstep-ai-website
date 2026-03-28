@@ -70,7 +70,7 @@
   <div class="announce-bar" id="announceBar">
     <div class="announce-inner">
       <span class="announce-dot"></span>
-      <span><strong>April onboarding:</strong> Only <strong id="spotsCount">3</strong> spots left this month — brands are moving fast.</span>
+      <span><strong>April cohort closes April 30.</strong> Next opening: May 12. <strong id="spotsCount">3</strong> spots remaining.</span>
       <a href="qualify.html" target="_blank" class="announce-cta">Claim your spot →</a>
     </div>
     <button class="announce-close" id="announceClose" aria-label="Close">✕</button>
@@ -138,14 +138,14 @@
           Is Losing Them.
         </h1>
         <p class="hero-sub">
-          We build AI systems that recover lost checkouts, reactivate past buyers, and follow up automatically — so your brand earns more without you working more hours.
+          We build done-for-you AI systems that recover abandoned checkouts, reactivate past buyers, and follow up across email, SMS, and DM — live in 7 days, no tech skills needed.
         </p>
         <div class="hero-ctas">
-          <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">Book a Free Strategy Call</a>
-          <a href="qualify.html" target="_blank" class="btn btn-ghost btn-lg">
+          <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
             Get Your Free Brand Audit
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
+          <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Book a Free Call</a>
         </div>
         <p class="hero-trust">No retainer below $350/mo &nbsp;·&nbsp; No fluff &nbsp;·&nbsp; Measurable ROI only &nbsp;·&nbsp; <span class="hero-spots">Limited spots each month</span></p>
       </div>
@@ -164,23 +164,239 @@
       <div class="stat-item">
         <span class="stat-number">$<span class="counter" data-target="2028" data-suffix="">2,028</span></span>
         <span class="stat-label">Revenue Generated in First 2 Weeks</span>
+        <a href="case-study.html" target="_blank" class="stat-source">Clothing brand · SA · zero paid ads →</a>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-number">↑<span class="counter" data-target="260" data-suffix="%">260%</span></span>
         <span class="stat-label">Order Growth in 2 Weeks</span>
+        <a href="case-study.html" target="_blank" class="stat-source">Same brand · 14-day window →</a>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-number">↑<span class="counter" data-target="199" data-suffix="%">199%</span></span>
         <span class="stat-label">Conversion Rate Increase</span>
+        <a href="case-study.html" target="_blank" class="stat-source">Read the full case study →</a>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-number"><span class="counter" data-target="7" data-suffix="">7</span> Days</span>
         <span class="stat-label">Average Time to First Live Workflow</span>
+        <span class="stat-source">Across all active clients</span>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       LIVE WORKFLOW DEMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section demo-section" id="demo">
+    <div class="container">
+      <div class="section-label-light">Live Demo</div>
+      <h2 class="section-title-light">Watch the System <span class="headline-gradient">Work in Real Time.</span></h2>
+      <p class="section-sub-light">No recording. No slideshow. This is a live render of the exact cart recovery sequence your brand would run — automatically, 24 hours a day.</p>
+
+      <div class="demo-card" id="demoCard">
+
+        <!-- Header bar -->
+        <div class="demo-header">
+          <div class="demo-header-left">
+            <div class="demo-live-dot"></div>
+            <span class="demo-live-label">Live &mdash; Cart Recovery Workflow</span>
+          </div>
+          <div class="demo-revenue-counter">
+            <span class="demo-revenue-label">Recovered today</span>
+            <span class="demo-revenue-num" id="demoRevenue">$768</span>
+          </div>
+        </div>
+
+        <!-- Two-column body -->
+        <div class="demo-body">
+          <div class="demo-steps-panel">
+            <div class="demo-panel-label">Workflow Execution</div>
+            <div class="demo-steps" id="demoSteps">
+              <div class="demo-steps-idle">
+                <div class="demo-idle-dot"></div>
+                <span>Waiting for next cart abandonment event&hellip;</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-notif-panel">
+            <div class="demo-panel-label">Revenue Alerts</div>
+            <div class="demo-notifs" id="demoNotifs">
+              <div class="demo-notif demo-notif-green demo-notif-static">
+                <div class="demo-notif-title">💰 Cart Recovered</div>
+                <div class="demo-notif-text">Luca B. completed checkout &middot; <strong>$89.00</strong></div>
+                <div class="demo-notif-meta">Recovery Email 2 &middot; 14 min ago</div>
+              </div>
+              <div class="demo-notif demo-notif-blue demo-notif-static">
+                <div class="demo-notif-title">⭐ VIP Customer Detected</div>
+                <div class="demo-notif-text">Aisha N. &mdash; 3rd purchase &middot; tagged as VIP</div>
+                <div class="demo-notif-meta">VIP Tagging Flow &middot; 38 min ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer stats -->
+        <div class="demo-footer">
+          <div class="demo-foot-stat">
+            <span class="demo-foot-num" id="demoCartsToday">14</span>
+            <span class="demo-foot-lbl">carts triggered today</span>
+          </div>
+          <div class="demo-foot-div"></div>
+          <div class="demo-foot-stat">
+            <span class="demo-foot-num">38%</span>
+            <span class="demo-foot-lbl">recovery rate</span>
+          </div>
+          <div class="demo-foot-div"></div>
+          <div class="demo-foot-stat">
+            <span class="demo-foot-num">24/7</span>
+            <span class="demo-foot-lbl">always running</span>
+          </div>
+          <div class="demo-foot-div"></div>
+          <div class="demo-foot-stat">
+            <span class="demo-foot-num">0 hrs</span>
+            <span class="demo-foot-lbl">manual effort</span>
+          </div>
+        </div>
+
+      </div><!-- /demo-card -->
+
+      <div class="section-cta-row" style="margin-top:40px;">
+        <a href="qualify.html" target="_blank" class="btn btn-light btn-lg">
+          Get This Running for Your Brand
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var SVG_CART   = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 1.5h2l.8 4m0 0L5.5 10h7l1.5-4H4.3m0 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="12.5" r="1" fill="currentColor"/><circle cx="11.5" cy="12.5" r="1" fill="currentColor"/></svg>';
+      var SVG_AI     = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+      var SVG_EMAIL  = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 6l6.5 4 6.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+      var SVG_DM     = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 8c0 3.31-2.69 6-6 6a5.94 5.94 0 01-3-.81L2 14l.81-3A5.94 5.94 0 012 8c0-3.31 2.69-6 6-6s6 2.69 6 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8h.01M8 8h.01M10.5 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+      var SVG_CHECK  = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+      var STEPS = [
+        { id:'trigger',   icon:SVG_CART,  color:'#f59e0b', bg:'rgba(245,158,11,0.12)',   label:'Cart Abandoned',       sub:'Jamie K. left 2 items &mdash; $124.00 total',           status:'TRIGGER',     cls:'demo-status-trigger',   delay:500  },
+        { id:'ai',        icon:SVG_AI,    color:'#0ea5e9', bg:'rgba(14,165,233,0.12)',   label:'AI Personalising',     sub:'Analysing cart contents + buyer history&hellip;',        status:'PROCESSING',  cls:'demo-status-processing', delay:1500, updateDelay:1000 },
+        { id:'email',     icon:SVG_EMAIL, color:'#a78bfa', bg:'rgba(167,139,250,0.12)',  label:'Recovery Email Sent',  sub:'&ldquo;Hey Jamie, you left something behind&hellip;&rdquo;', status:'SENT ✓',  cls:'demo-status-sent',      delay:2800 },
+        { id:'dm',        icon:SVG_DM,    color:'#38bdf8', bg:'rgba(56,189,248,0.12)',   label:'Instagram DM Sent',    sub:'Follow-up message &mdash; 24-hour checkpoint',            status:'SENT ✓',     cls:'demo-status-sent',      delay:3900 },
+        { id:'recovered', icon:SVG_CHECK, color:'#4ade80', bg:'rgba(74,222,128,0.15)',   label:'Cart Recovered',       sub:'Jamie K. completed checkout &mdash; $124.00',             status:'+$124',      cls:'demo-status-recovered',  delay:5200 }
+      ];
+
+      var NOTIFS = [
+        { title:'💰 Cart Recovered',         text:'Jamie K. completed checkout &middot; <strong>$124.00</strong>', meta:'Recovery Email 1 &middot; just now',        color:'green', delay:3200 },
+        { title:'💬 DM Lead Qualified',       text:'Priya S. replied &mdash; intent detected &middot; sale likely',  meta:'DM Auto-Responder &middot; 6 min ago',   color:'blue',  delay:4600 },
+        { title:'🔄 Past Buyer Reactivated',  text:'Marcus K. &mdash; 91-day gap &rarr; <strong>$89</strong> order',  meta:'90-Day Reactivation &middot; 1 hr ago', color:'green', delay:5800 }
+      ];
+
+      var REV_BASE = 768, REV_ADD = 124, LOOP_MS = 9500;
+      var timers = [], started = false;
+
+      function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+
+      function $(id) { return document.getElementById(id); }
+
+      function setRevenue(v) {
+        var el = $('demoRevenue');
+        if (el) el.textContent = '$' + v.toLocaleString();
+      }
+
+      function animateRevenue(from, to, ms) {
+        var el = $('demoRevenue'); if (!el) return;
+        var t0 = performance.now();
+        (function tick(now) {
+          var p = Math.min((now - t0) / ms, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = '$' + Math.round(from + (to - from) * ease).toLocaleString();
+          if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+      }
+
+      function addStep(step, idx) {
+        var wrap = $('demoSteps'); if (!wrap) return;
+        var idle = wrap.querySelector('.demo-steps-idle');
+        if (idle) idle.remove();
+
+        var d = document.createElement('div');
+        d.className = 'demo-step';
+        d.innerHTML =
+          (idx > 0 ? '<div class="demo-step-line"></div>' : '') +
+          '<div class="demo-step-row">' +
+            '<div class="demo-step-icon" style="background:' + step.bg + ';color:' + step.color + ';border-color:' + step.color + '4d;">' + step.icon + '</div>' +
+            '<div class="demo-step-body">' +
+              '<div class="demo-step-label">' + step.label + '</div>' +
+              '<div class="demo-step-sub">' + step.sub + '</div>' +
+            '</div>' +
+            '<div class="demo-step-status ' + step.cls + '" id="dss-' + step.id + '">' +
+              (step.id === 'ai' ? '<span class="demo-spin"></span>' : step.status) +
+            '</div>' +
+          '</div>';
+        wrap.appendChild(d);
+
+        if (step.id === 'ai') {
+          timers.push(setTimeout(function() {
+            var s = document.getElementById('dss-ai');
+            if (s) { s.innerHTML = 'DONE ✓'; s.className = 'demo-step-status demo-status-sent'; }
+          }, step.delay + step.updateDelay));
+        }
+        if (step.id === 'recovered') {
+          timers.push(setTimeout(function() { animateRevenue(REV_BASE, REV_BASE + REV_ADD, 900); }, step.delay + 300));
+          var carts = $('demoCartsToday');
+          if (carts) {
+            timers.push(setTimeout(function() {
+              var v = parseInt(carts.textContent, 10) || 14;
+              carts.textContent = v + 1;
+            }, step.delay + 600));
+          }
+        }
+      }
+
+      function addNotif(notif) {
+        var wrap = $('demoNotifs'); if (!wrap) return;
+        var d = document.createElement('div');
+        d.className = 'demo-notif demo-notif-' + notif.color;
+        d.innerHTML =
+          '<div class="demo-notif-title">' + notif.title + '</div>' +
+          '<div class="demo-notif-text">' + notif.text + '</div>' +
+          '<div class="demo-notif-meta">' + notif.meta + '</div>';
+        wrap.insertBefore(d, wrap.firstChild);
+        var all = wrap.querySelectorAll('.demo-notif');
+        if (all.length > 4) all[all.length - 1].remove();
+      }
+
+      function resetIdle() {
+        var wrap = $('demoSteps'); if (!wrap) return;
+        wrap.innerHTML = '<div class="demo-steps-idle"><div class="demo-idle-dot"></div><span>Waiting for next cart abandonment event&hellip;</span></div>';
+        setRevenue(REV_BASE);
+      }
+
+      function runLoop() {
+        clearTimers();
+        resetIdle();
+        STEPS.forEach(function(step, i) {
+          timers.push(setTimeout(function() { addStep(step, i); }, step.delay));
+        });
+        NOTIFS.forEach(function(notif) {
+          timers.push(setTimeout(function() { addNotif(notif); }, notif.delay));
+        });
+        timers.push(setTimeout(runLoop, LOOP_MS));
+      }
+
+      var card = $('demoCard');
+      if (card && 'IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          if (!started && entries[0].isIntersecting) { started = true; runLoop(); obs.disconnect(); }
+        }, { threshold: 0.15 });
+        obs.observe(card);
+      } else {
+        runLoop();
+      }
+    })();
+    </script>
   </section>
 
   <!-- ═══════════════════════════════════════════════
@@ -195,7 +411,7 @@
         <span class="ticker-sep">·</span>
         <span class="ticker-item"><span class="ticker-check">✓</span> Luca B. &mdash; Menswear SA &mdash; <strong>15+ hrs/wk saved</strong></span>
         <span class="ticker-sep">·</span>
-        <span class="ticker-item"><span class="ticker-check">✓</span> Anonymous &mdash; Clothing Brand &mdash; <strong>$2,028 in 2 weeks</strong> from zero paid ads</span>
+        <span class="ticker-item"><span class="ticker-check">✓</span> Velour Fits &mdash; Clothing Brand, SA &mdash; <strong>$2,028 in 2 weeks</strong> from zero paid ads</span>
         <span class="ticker-sep">·</span>
         <span class="ticker-item"><span class="ticker-check">✓</span> Aisha N. &mdash; Athleisure Brand &mdash; <strong>Cart recovery up 260%</strong></span>
         <span class="ticker-sep">·</span>
@@ -208,7 +424,7 @@
         <span class="ticker-sep">·</span>
         <span class="ticker-item"><span class="ticker-check">✓</span> Luca B. &mdash; Menswear SA &mdash; <strong>15+ hrs/wk saved</strong></span>
         <span class="ticker-sep">·</span>
-        <span class="ticker-item"><span class="ticker-check">✓</span> Anonymous &mdash; Clothing Brand &mdash; <strong>$2,028 in 2 weeks</strong> from zero paid ads</span>
+        <span class="ticker-item"><span class="ticker-check">✓</span> Velour Fits &mdash; Clothing Brand, SA &mdash; <strong>$2,028 in 2 weeks</strong> from zero paid ads</span>
         <span class="ticker-sep">·</span>
         <span class="ticker-item"><span class="ticker-check">✓</span> Aisha N. &mdash; Athleisure Brand &mdash; <strong>Cart recovery up 260%</strong></span>
         <span class="ticker-sep">·</span>
@@ -262,11 +478,11 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       PRESS / AS FEATURED IN
+       WORKS WITH / STACK
   ═══════════════════════════════════════════════ -->
   <section class="press-bar">
     <div class="container">
-      <p class="press-label">Trusted by clothing brands across</p>
+      <p class="press-label">Works with the platforms your brand already runs on</p>
       <div class="press-logos">
         <div class="press-logo-item">
           <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="16" font-family="Georgia,serif" font-size="15" font-weight="700" fill="rgba(148,163,184,0.5)">Shopify</text></svg>
@@ -281,13 +497,13 @@
           <svg width="110" height="22" viewBox="0 0 110 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">WooCommerce</text></svg>
         </div>
         <div class="press-logo-item">
-          <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">Airtable</text></svg>
-        </div>
-        <div class="press-logo-item">
-          <svg width="110" height="22" viewBox="0 0 110 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">Meta Business</text></svg>
+          <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">Instagram</text></svg>
         </div>
         <div class="press-logo-item">
           <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">OpenAI</text></svg>
+        </div>
+        <div class="press-logo-item">
+          <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="rgba(148,163,184,0.5)">Airtable</text></svg>
         </div>
       </div>
     </div>
@@ -317,10 +533,10 @@
           <div class="cwc-result">DM 8% → 31%</div>
         </div>
         <div class="client-win-card cwc-featured">
-          <div class="cwc-flag">🏷️</div>
+          <div class="cwc-flag">🇿🇦</div>
           <div class="cwc-info">
-            <div class="cwc-brand">Anonymous Brand</div>
-            <div class="cwc-location">E-Commerce · Clothing</div>
+            <div class="cwc-brand">Velour Fits</div>
+            <div class="cwc-location">Clothing Brand · South Africa</div>
           </div>
           <div class="cwc-result cwc-result-highlight">$2,028 in 14 days</div>
         </div>
@@ -352,41 +568,42 @@
     </div>
   </section>
 
-  <!-- PLATFORM BADGES -->
+  <!-- TECH STACK BAR -->
   <section class="platform-badges-bar">
     <div class="container">
+      <p style="text-align:center;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:16px;">Built With</p>
       <div class="platform-badges-inner">
         <div class="platform-badge">
           <div class="pb-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#0ea5e9" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L3 5v5c0 4 2.7 7.5 6 8.5 3.3-1 6-4.5 6-8.5V5L9 2z" stroke="#0ea5e9" stroke-width="1.4" stroke-linejoin="round"/></svg>
           </div>
-          <span>Shopify Ecosystem Expert</span>
+          <span>n8n Automation Engine</span>
         </div>
         <div class="pb-divider"></div>
         <div class="platform-badge">
           <div class="pb-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#0ea5e9" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#0ea5e9" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
-          <span>Klaviyo Integration Certified</span>
+          <span>GPT-4o Powered</span>
         </div>
         <div class="pb-divider"></div>
         <div class="platform-badge">
           <div class="pb-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#0ea5e9" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5 2 2 5 2 9s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="#0ea5e9" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
-          <span>n8n Workflow Specialist</span>
+          <span>Shopify Native</span>
         </div>
         <div class="pb-divider"></div>
         <div class="platform-badge">
           <div class="pb-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#0ea5e9" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#0ea5e9" stroke-width="1.4"/><path d="M2 7l7 4 7-4" stroke="#0ea5e9" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
-          <span>GPT-4o Powered Automations</span>
+          <span>Multi-Channel (Email, DM, SMS)</span>
         </div>
         <div class="pb-divider"></div>
         <div class="platform-badge">
           <div class="pb-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#4ade80" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#4ade80" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#4ade80" stroke-width="1.4"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#4ade80" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
           <span class="pb-live">Live in 5–7 Days</span>
         </div>
@@ -405,7 +622,7 @@
         <img src="assets/results-visual.png" alt="Revenue growth visualization" loading="lazy" class="section-img" />
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(6,12,26,0.55) 0%,transparent 45%,transparent 60%,rgba(6,12,26,0.4) 100%);border-radius:inherit;pointer-events:none;"></div>
         <div style="position:absolute;top:28px;left:0;right:0;text-align:center;padding:0 24px;">
-          <p style="font-family:'Syne',sans-serif;font-size:clamp(13px,1.6vw,17px);font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;">One Client &nbsp;·&nbsp; Low Traffic &nbsp;·&nbsp; Zero Paid Ads</p>
+          <p style="font-family:'Syne',sans-serif;font-size:clamp(13px,1.6vw,17px);font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;">Velour Fits &nbsp;·&nbsp; South Africa &nbsp;·&nbsp; Zero Paid Ads</p>
           <p style="font-size:clamp(12px,1.4vw,15px);color:rgba(255,255,255,0.6);margin:0;font-weight:500;">Just AI automation running in the background.</p>
         </div>
       </div>
@@ -431,9 +648,27 @@
           <div class="result-label">Conversion Rate Increase</div>
         </div>
       </div>
+      <!-- Real Shopify proof screenshot -->
+      <div class="results-proof-wrap reveal">
+        <div class="results-proof-label">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#4ade80"/></svg>
+          Real Shopify Dashboard — Velour Fits · After Automation
+        </div>
+        <img src="assets/proof-shopify-dashboard-big.jpg" alt="Velour Fits Shopify dashboard — $8,433 total sales, 227 orders, 592% growth" loading="lazy" class="results-proof-img" />
+        <div class="results-proof-bar">
+          <div class="results-proof-stat"><span class="rpb-num">$8,433</span><span class="rpb-lbl">Total Sales</span></div>
+          <div class="results-proof-div"></div>
+          <div class="results-proof-stat"><span class="rpb-num">227</span><span class="rpb-lbl">Orders</span></div>
+          <div class="results-proof-div"></div>
+          <div class="results-proof-stat"><span class="rpb-num rpb-green">↑592%</span><span class="rpb-lbl">Sales Growth</span></div>
+          <div class="results-proof-div"></div>
+          <div class="results-proof-stat"><span class="rpb-num rpb-green">↑588%</span><span class="rpb-lbl">Order Growth</span></div>
+        </div>
+      </div>
+
       <div class="result-quote">
         <p class="result-quote-text">"Even with low traffic, this works. It's not about more visitors. It's about recovering the ones you already paid for."</p>
-        <p class="result-quote-attr">— Nextstep AI</p>
+        <p class="result-quote-attr">— Nextstep AI, on the Velour Fits result</p>
       </div>
       <div class="results-cta">
         <a href="qualify.html" target="_blank" class="btn btn-light btn-lg">
@@ -1721,6 +1956,14 @@
           <details class="faq-item">
             <summary class="faq-q">What's the minimum to get started? <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
             <div class="faq-a">Core VIP starts at $1,000 setup + $350/month. That covers 10–12 active workflows — enough to meaningfully impact your cart recovery and customer retention from day one.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">What does the setup fee cover exactly? <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+            <div class="faq-a">The setup fee covers everything it takes to get your systems live: custom workflow architecture designed around your brand, full store and platform integration, live testing against your real data, and deployment. It's not a consultation — it's a complete build. By the time you pay the first retainer, everything is already running.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">What exactly is the 30-day guarantee? <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+            <div class="faq-a">If the core workflows we deploy — cart recovery, DM automation, and buyer reactivation — don't generate measurable revenue within the first 30 days, we audit, rebuild, and re-optimise at zero extra cost. No excuses. We're confident because we only take on brands where we know the numbers will move.</div>
           </details>
         </div>
       </div>
