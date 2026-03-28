@@ -4,7 +4,7 @@
     #wa-btn {
       position: fixed;
       bottom: 28px;
-      right: 28px;
+      left: 28px;
       z-index: 9000;
       width: 56px;
       height: 56px;
@@ -29,7 +29,7 @@
     #wa-tooltip {
       position: fixed;
       bottom: 36px;
-      right: 92px;
+      left: 92px;
       z-index: 9000;
       background: rgba(11,20,36,0.95);
       border: 1px solid rgba(255,255,255,0.1);
@@ -42,7 +42,7 @@
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
-      transform: translateX(6px);
+      transform: translateX(-6px);
       transition: opacity 0.2s, transform 0.2s;
     }
     #wa-btn:hover + #wa-tooltip,
@@ -51,7 +51,7 @@
       transform: translateX(0);
     }
     @media (max-width: 600px) {
-      #wa-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+      #wa-btn { bottom: 20px; left: 20px; width: 50px; height: 50px; }
       #wa-tooltip { display: none; }
     }
   `;
