@@ -641,6 +641,73 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       BEFORE / AFTER TOGGLE
+  ═══════════════════════════════════════════════ -->
+  <section class="section before-after-section" id="transformation">
+    <div class="container">
+      <div class="section-label">The Transformation</div>
+      <h2 class="section-title">What Changes When You<br/><span class="text-blue">Plug In the System</span></h2>
+      <p class="section-sub" style="max-width:560px;margin:0 auto 48px;">Toggle between the two realities. This is the difference automation makes for clothing brands.</p>
+
+      <div class="ba-toggle-wrap">
+        <button class="ba-toggle-btn ba-active" id="ba-btn-before" onclick="setBA('before')">Before</button>
+        <button class="ba-toggle-btn" id="ba-btn-after" onclick="setBA('after')">After Nextstep AI</button>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-card" data-before="Manually replying to every DM — hours gone every day" data-after="AI handles DMs 24/7, qualifies leads while you sleep">
+          <div class="ba-icon">💬</div>
+          <div class="ba-card-text"></div>
+        </div>
+        <div class="ba-card" data-before="~70% of carts abandoned — no recovery system" data-after="Automated 4-touch recovery sequence recaptures lost revenue">
+          <div class="ba-icon">🛒</div>
+          <div class="ba-card-text"></div>
+        </div>
+        <div class="ba-card" data-before="Post-purchase silence — customers never come back" data-after="Retention flows bring customers back on autopilot">
+          <div class="ba-icon">🔁</div>
+          <div class="ba-card-text"></div>
+        </div>
+        <div class="ba-card" data-before="Guessing which products drive repeat buyers" data-after="Data-driven insights show exactly what to push and when">
+          <div class="ba-icon">📊</div>
+          <div class="ba-card-text"></div>
+        </div>
+        <div class="ba-card" data-before="Manual order updates clog your inbox and DMs" data-after="Instant automated order status updates on every channel">
+          <div class="ba-icon">📦</div>
+          <div class="ba-card-text"></div>
+        </div>
+        <div class="ba-card" data-before="Launch prep = 2 weeks of manual content scheduling" data-after="Drop campaign scheduled and deployed in under an hour">
+          <div class="ba-icon">🚀</div>
+          <div class="ba-card-text"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var state = 'before';
+        function setBA(mode) {
+          state = mode;
+          var cards = document.querySelectorAll('.ba-card');
+          cards.forEach(function(card) {
+            var txt = card.querySelector('.ba-card-text');
+            txt.style.opacity = '0';
+            setTimeout(function() {
+              txt.textContent = card.dataset[mode];
+              txt.style.opacity = '1';
+            }, 180);
+          });
+          document.getElementById('ba-btn-before').classList.toggle('ba-active', mode === 'before');
+          document.getElementById('ba-btn-after').classList.toggle('ba-active', mode === 'after');
+          document.querySelectorAll('.ba-card').forEach(function(c) {
+            c.classList.toggle('ba-is-after', mode === 'after');
+          });
+        }
+        window.setBA = setBA;
+        setBA('before');
+      })();
+    </script>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        COMPARISON: AI VS LEGACY TOOLS
   ═══════════════════════════════════════════════ -->
   <section class="section comparison-section" id="comparison">
