@@ -3874,6 +3874,15 @@ a   { color: inherit; text-decoration: none; }
   /* ── Services: compact for 2-col layout ── */
   .services-grid { gap: 10px; }
 
+  /* ── Workflow library: compact cards so titles don't stretch tall ── */
+  .workflow-grid { gap: 10px; }
+  .workflow-category { padding: 14px 12px; }
+  .wf-icon { width: 28px; height: 28px; border-radius: 7px; margin-bottom: 8px; }
+  .wf-icon svg { width: 14px; height: 14px; }
+  .workflow-category h4 { font-size: 11px; margin-bottom: 2px; line-height: 1.3; }
+  .workflow-category p { font-size: 10px; }
+  .wf-arrow { display: none; }
+
   /* ── ROI calculator: fix number overflow ── */
   .roi-result { padding: 24px 16px; }
   .roi-result-number { font-size: clamp(28px, 8vw, 40px); }
