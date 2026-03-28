@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story V3 — Nextstep AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+
+    .scaler {
+      position: fixed; top: 0; left: 0;
+      width: 1080px; height: 1920px;
+      transform-origin: top left;
+    }
+
+    /* Full-bleed photo — entire background */
+    .photo-bg {
+      position: absolute; inset: 0;
+    }
+    .photo-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 5%;
+      display: block;
+    }
+    /* Heavy dark overlay — makes text pop */
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(6,12,26,0.88) 0%,
+        rgba(6,12,26,0.55) 45%,
+        rgba(6,12,26,0.82) 100%
+      );
+    }
+    /* Blue accent strip on left edge */
+    .accent-strip {
+      position: absolute;
+      top: 0; left: 0;
+      width: 8px; height: 100%;
+      background: linear-gradient(to bottom, #0ea5e9, #38bdf8 50%, rgba(14,165,233,0.2));
+    }
+
+    .card {
+      position: relative;
+      width: 1080px; height: 1920px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 80px 96px 96px;
+    }
+
+    /* TOP section */
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 14px; }
+    .logo-n {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 26px; color: #fff;
+      box-shadow: 0 0 28px rgba(14,165,233,0.5);
+    }
+    .logo-word {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px; font-weight: 700; color: #fff;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+    .logo-word span { color: #0ea5e9; }
+
+    /* MIDDLE — main content */
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Big vertical role text */
+    .role-tag {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 36px;
+    }
+    .role-line {
+      width: 48px; height: 3px;
+      background: #0ea5e9;
+      border-radius: 2px;
+    }
+    .role-text {
+      font-size: 22px; font-weight: 600;
+      color: #0ea5e9;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Massive name */
+    .name {
+      font-family: 'Syne', sans-serif;
+      font-size: 124px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 0.88;
+      letter-spacing: -0.05em;
+      margin-bottom: 48px;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Title stack */
+    .titles {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 64px;
+    }
+    .title-main {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px; font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .title-sub {
+      font-size: 25px; font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.02em;
+    }
+
+    /* Quote block */
+    .quote-block {
+      border-left: 4px solid #0ea5e9;
+      padding: 24px 32px;
+      background: rgba(14,165,233,0.06);
+      border-radius: 0 16px 16px 0;
+      margin-bottom: 72px;
+      backdrop-filter: blur(8px);
+    }
+    .quote-text {
+      font-size: 28px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      font-style: italic;
+    }
+    .quote-text strong {
+      color: #fff;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    /* Metric pills */
+    .metrics {
+      display: flex; gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    .metric-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 16px 30px;
+      backdrop-filter: blur(12px);
+    }
+    .metric-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px; font-weight: 700;
+      color: #0ea5e9;
+      display: inline;
+    }
+    .metric-label {
+      font-size: 20px; color: rgba(255,255,255,0.45);
+      display: inline;
+      margin-left: 8px;
+    }
+
+    /* BOTTOM */
+    .bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 52px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .cta-pill {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 60px;
+      padding: 26px 52px;
+      font-family: 'Syne', sans-serif;
+      font-size: 26px; font-weight: 700; color: #fff;
+      box-shadow: 0 8px 40px rgba(14,165,233,0.4);
+      letter-spacing: -0.01em;
+    }
+    .bottom-url {
+      font-size: 20px; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="scaler" id="scaler">
+    <div class="photo-bg">
+      <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+    </div>
+    <div class="overlay"></div>
+    <div class="accent-strip"></div>
+
+    <div class="card">
+      <!-- Top -->
+      <div class="top">
+        <div class="logo">
+          <div class="logo-n">N</div>
+          <div class="logo-word">Nextstep<span>AI</span></div>
+        </div>
+      </div>
+
+      <!-- Middle -->
+      <div class="middle">
+        <div class="role-tag">
+          <div class="role-line"></div>
+          <div class="role-text">Founder &amp; CEO</div>
+        </div>
+
+        <div class="name">Caleb<br/>van<br/>Rooyen</div>
+
+        <div class="titles">
+          <div class="title-main">AI Workflow Architect</div>
+          <div class="title-sub">Cape Town, South Africa</div>
+        </div>
+
+        <div class="quote-block">
+          <div class="quote-text">
+            Clothing brands don't lose revenue from bad products —
+            they lose it from <strong>missing systems.</strong>
+            I build the systems that fix that.
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric-pill">
+            <span class="metric-num">7</span>
+            <span class="metric-label">days to live</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-num">30</span>
+            <span class="metric-label">days to ROI</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-num">24/7</span>
+            <span class="metric-label">automated</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="bottom">
+        <div class="cta-pill">Free audit →</div>
+        <div class="bottom-url">nextstepai.com</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scale() {
+      var s = document.getElementById('scaler');
+      var sc = Math.min(window.innerWidth/1080, window.innerHeight/1920);
+      s.style.transform = 'scale('+sc+')';
+      s.style.left = ((window.innerWidth - 1080*sc)/2)+'px';
+      s.style.top = ((window.innerHeight - 1920*sc)/2)+'px';
+    }
+    scale(); window.addEventListener('resize', scale);
+  </script>
+</body>
+</html>

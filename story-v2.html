@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story V2 — Nextstep AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #060c1a; }
+
+    .scaler {
+      position: fixed; top: 0; left: 0;
+      width: 1080px; height: 1920px;
+      transform-origin: top left;
+    }
+
+    /* Background */
+    .bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #0a1628 0%, #060c1a 50%, #030810 100%);
+    }
+    .bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    /* diagonal light sweep */
+    .bg-sweep {
+      position: absolute;
+      top: -200px; left: -200px;
+      width: 1400px; height: 1000px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.06) 0%, transparent 50%);
+      transform: rotate(-12deg);
+    }
+    .bg-glow {
+      position: absolute;
+      top: 550px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.08) 0%, transparent 65%);
+    }
+
+    .card {
+      position: relative;
+      width: 1080px; height: 1920px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 80px 96px;
+    }
+
+    /* Top logo */
+    .top-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 80px;
+    }
+    .logo { display: flex; align-items: center; gap: 14px; }
+    .logo-n {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 26px; color: #fff;
+      box-shadow: 0 0 28px rgba(14,165,233,0.45);
+    }
+    .logo-word {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px; font-weight: 700; color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .logo-word span { color: #0ea5e9; }
+    .top-label {
+      font-size: 19px; font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Photo — large centered with glow ring */
+    .photo-wrap {
+      position: relative;
+      margin-bottom: 72px;
+    }
+    .photo-ring-outer {
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #0ea5e9, #38bdf8, #0ea5e9 50%, rgba(14,165,233,0.1) 75%, #0ea5e9);
+      padding: 4px;
+      box-shadow:
+        0 0 80px rgba(14,165,233,0.3),
+        0 0 160px rgba(14,165,233,0.12),
+        0 32px 80px rgba(0,0,0,0.6);
+    }
+    .photo-ring-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #0f172a;
+      border: 6px solid #060c1a;
+    }
+    .photo-ring-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      display: block;
+    }
+    /* corner badge */
+    .photo-badge {
+      position: absolute;
+      bottom: 30px; right: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 20px;
+      padding: 14px 26px;
+      border: 3px solid #060c1a;
+      box-shadow: 0 8px 24px rgba(14,165,233,0.4);
+    }
+    .badge-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 19px; font-weight: 700; color: #fff;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+
+    /* Name block */
+    .name-block { text-align: center; margin-bottom: 44px; }
+    .name {
+      font-family: 'Syne', sans-serif;
+      font-size: 96px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+    .name-title {
+      font-size: 28px; font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.02em;
+    }
+
+    /* Sky line divider */
+    .sky-divider {
+      display: flex; align-items: center; gap: 20px;
+      width: 100%;
+      margin-bottom: 56px;
+    }
+    .sky-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(14,165,233,0.3), transparent);
+    }
+    .sky-diamond {
+      width: 10px; height: 10px;
+      background: #0ea5e9;
+      transform: rotate(45deg);
+      box-shadow: 0 0 12px rgba(14,165,233,0.6);
+    }
+
+    /* Tagline */
+    .tagline {
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 46px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .tagline span {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tagline-sub {
+      text-align: center;
+      font-size: 24px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      margin-bottom: 72px;
+      font-weight: 300;
+    }
+
+    /* Stats row */
+    .stats {
+      display: flex;
+      width: 100%;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 56px;
+      background: rgba(255,255,255,0.02);
+    }
+    .stat {
+      flex: 1;
+      padding: 40px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 56px; font-weight: 700;
+      letter-spacing: 0;
+      background: linear-gradient(135deg, #7dd3fc, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 18px; color: rgba(255,255,255,0.35);
+    }
+
+    /* CTA */
+    .cta {
+      width: 100%;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-radius: 22px;
+      padding: 38px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 48px rgba(14,165,233,0.4);
+      margin-bottom: 36px;
+    }
+    .cta-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 30px; font-weight: 700; color: #fff;
+    }
+    .cta-sub { font-size: 20px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+    .cta-arr { font-size: 42px; color: #fff; }
+
+    .footer { font-size: 19px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+  <div class="scaler" id="scaler">
+    <div class="bg"><div class="bg-grid"></div><div class="bg-sweep"></div><div class="bg-glow"></div></div>
+    <div class="card">
+      <div class="top-row">
+        <div class="logo">
+          <div class="logo-n">N</div>
+          <div class="logo-word">Nextstep<span>AI</span></div>
+        </div>
+        <div class="top-label">Founder Story</div>
+      </div>
+
+      <div class="photo-wrap">
+        <div class="photo-ring-outer">
+          <div class="photo-ring-inner">
+            <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+          </div>
+        </div>
+        <div class="photo-badge">
+          <div class="badge-text">CEO &amp; Founder</div>
+        </div>
+      </div>
+
+      <div class="name-block">
+        <div class="name">Caleb<br/>van Rooyen</div>
+        <div class="name-title">AI Workflow Architect · Cape Town, SA</div>
+      </div>
+
+      <div class="sky-divider">
+        <div class="sky-line"></div>
+        <div class="sky-diamond"></div>
+        <div class="sky-line"></div>
+      </div>
+
+      <div class="tagline">
+        Turning clothing brands'<br/>revenue leaks into<br/><span>automated income.</span>
+      </div>
+      <div class="tagline-sub">
+        E-commerce automation specialist — built for brands<br/>that are done leaving money on the table.
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">7</div>
+          <div class="stat-label">Days to live</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">System runs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30</div>
+          <div class="stat-label">Days to ROI</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div>
+          <div class="cta-label">Get your free audit</div>
+          <div class="cta-sub">nextstepai.com/qualify</div>
+        </div>
+        <div class="cta-arr">→</div>
+      </div>
+      <div class="footer">nextstepai.com</div>
+    </div>
+  </div>
+  <script>
+    function scale() {
+      var s = document.getElementById('scaler');
+      var sc = Math.min(window.innerWidth/1080, window.innerHeight/1920);
+      s.style.transform = 'scale('+sc+')';
+      s.style.left = ((window.innerWidth - 1080*sc)/2)+'px';
+      s.style.top = ((window.innerHeight - 1920*sc)/2)+'px';
+    }
+    scale(); window.addEventListener('resize', scale);
+  </script>
+</body>
+</html>
