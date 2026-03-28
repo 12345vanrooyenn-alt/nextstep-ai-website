@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
   <title>Pricing — What's Included | Nextstep AI</title>
   <meta name="description" content="See exactly what's included in each Nextstep AI plan — Core VIP, Standard VIP, and Ultimate VIP. Full workflow breakdowns and what each tier builds for your brand." />
   <meta property="og:title" content="Pricing — What's Included | Nextstep AI" />
@@ -425,6 +426,20 @@
         if (a.getAttribute('href') === hash) a.classList.add('active');
       });
     }
+  </script>
+  <div class="mobile-sticky-cta" id="mobileStickyCtaBar">
+    <div class="msc-info">
+      <div class="msc-info-title">Free Brand Audit — 3 Spots Left</div>
+      <div class="msc-info-sub">See exactly what we'd build for your brand.</div>
+    </div>
+    <a href="qualify.html" target="_blank" class="msc-btn">
+      Claim Now
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+    const mscBar = document.getElementById('mobileStickyCtaBar');
+    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('msc-visible', window.scrollY > 300); }, { passive: true });
   </script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>

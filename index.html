@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Nextstep AI — AI Workflow Agency for E-Commerce Clothing Brands</title>
   <meta name="description" content="We build AI automation systems that recover lost sales, reactivate past buyers, and run your follow-ups — so your clothing brand makes more money without you working more hours." />
   <meta property="og:title" content="Nextstep AI — AI Revenue Systems for Clothing Brands" />
@@ -152,6 +155,21 @@
       <div class="hero-visual-wrap">
         <div class="hero-visual-glow"></div>
         <img src="assets/hero-visual.png" alt="AI automation network visualization" class="hero-visual-img" loading="eager" />
+        <!-- Floating activity cards — animated, desktop only -->
+        <div class="hero-activity-card">
+          <div class="hac-dot"></div>
+          <div class="hac-body">
+            <div class="hac-title">💰 Cart Just Recovered</div>
+            <div class="hac-sub" id="hacSub">Jamie K. &mdash; $124.00 &middot; 2 min ago</div>
+          </div>
+        </div>
+        <div class="hero-activity-card-2">
+          <div class="hac2-emoji">📈</div>
+          <div>
+            <div class="hac2-val">↑260%</div>
+            <div class="hac2-lbl">Order growth<br/>this month</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2276,13 +2294,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Social proof notification queue
+    // Social proof notification queue — rich variety
     const proofNotifs = [
-      { name: 'Aisha N.', loc: 'Dubai, UAE', action: 'just requested an audit' },
-      { name: 'Jordan M.', loc: 'London, UK', action: 'recovered $1,800 this week' },
-      { name: 'Priya S.', loc: 'Cape Town, SA', action: 'just signed up — Core VIP' },
-      { name: 'Marcus K.', loc: 'Lagos, NG', action: 'just requested an audit' },
-      { name: 'Sophia A.', loc: 'Sydney, AU', action: 'recovered $940 this week' },
+      { name: 'Aisha N.', loc: 'Dubai, UAE 🇦🇪', action: 'just requested a free audit' },
+      { name: 'Jordan M.', loc: 'London, UK 🇬🇧', action: 'recovered $1,800 in 3 weeks' },
+      { name: 'Priya S.', loc: 'Cape Town, SA 🇿🇦', action: 'just signed up — Core VIP' },
+      { name: 'Marcus K.', loc: 'Lagos, NG 🇳🇬', action: 'just requested a free audit' },
+      { name: 'Sophia A.', loc: 'Sydney, AU 🇦🇺', action: 'cart recovery went live today' },
+      { name: 'Tariq B.', loc: 'Riyadh, SA 🇸🇦', action: 'DM automation live — 24/7' },
+      { name: 'Kezia L.', loc: 'Nairobi, KE 🇰🇪', action: 'just requested a free audit' },
+      { name: 'Mia V.', loc: 'Amsterdam, NL 🇳🇱', action: 'recovered $940 this week' },
     ];
     let proofIdx = 0;
     const proofEl = document.getElementById('proofNotif');
@@ -2291,14 +2312,23 @@
     const proofAction = document.getElementById('proofAction');
     function showProofNotif() {
       const p = proofNotifs[proofIdx % proofNotifs.length];
-      proofName.textContent = p.name;
-      proofLoc.textContent = p.loc;
-      proofAction.textContent = p.action;
-      proofEl.classList.add('proof-visible');
-      setTimeout(() => proofEl.classList.remove('proof-visible'), 4500);
+      proofEl.style.transition = 'opacity 0.3s, transform 0.3s';
+      proofEl.style.opacity = '0';
+      proofEl.style.transform = 'translateY(12px)';
+      setTimeout(() => {
+        proofName.textContent = p.name;
+        proofLoc.textContent = p.loc;
+        proofAction.textContent = p.action;
+        proofEl.classList.add('proof-visible');
+        proofEl.style.opacity = '';
+        proofEl.style.transform = '';
+      }, 300);
+      setTimeout(() => proofEl.classList.remove('proof-visible'), 5000);
       proofIdx++;
     }
-    setTimeout(() => { showProofNotif(); setInterval(showProofNotif, 9000); }, 6000);
+    // Randomise start index so it doesn't always show first entry
+    proofIdx = Math.floor(Math.random() * proofNotifs.length);
+    setTimeout(() => { showProofNotif(); setInterval(showProofNotif, 8000); }, 5000);
 
     // Number counter animation
     function animateCounter(el) {
@@ -2401,6 +2431,54 @@
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     })();
   </script>
+  <!-- Mobile Sticky CTA — replaces float-cta on iPhone/Android -->
+  <div class="mobile-sticky-cta" id="mobileStickyCtaBar">
+    <div class="msc-info">
+      <div class="msc-info-title">Free Brand Audit — 3 Spots Left</div>
+      <div class="msc-info-sub">We review your store, personally. No bots.</div>
+    </div>
+    <a href="qualify.html" target="_blank" class="msc-btn">
+      Claim Now
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // ── MOBILE STICKY CTA ──
+    const mscBar = document.getElementById('mobileStickyCtaBar');
+    if (mscBar) {
+      window.addEventListener('scroll', () => {
+        mscBar.classList.toggle('msc-visible', window.scrollY > 300);
+      }, { passive: true });
+    }
+
+    // ── CYCLING HERO ACTIVITY CARD ──
+    const hacMessages = [
+      { title: '💰 Cart Just Recovered', sub: 'Jamie K. &mdash; $124.00 &middot; 2 min ago' },
+      { title: '💬 DM Lead Qualified', sub: 'Priya S. &mdash; intent confirmed &middot; 8 min ago' },
+      { title: '🔄 Past Buyer Reactivated', sub: 'Marcus K. &mdash; $89.00 &middot; 15 min ago' },
+      { title: '💰 Cart Just Recovered', sub: 'Luca B. &mdash; $210.00 &middot; 22 min ago' },
+      { title: '⭐ VIP Customer Tagged', sub: 'Aisha N. &mdash; 4th purchase &middot; 31 min ago' },
+    ];
+    let hacIdx = 0;
+    const hacSub = document.getElementById('hacSub');
+    const hacCard = document.querySelector('.hero-activity-card');
+    if (hacCard && hacSub) {
+      setInterval(() => {
+        hacIdx = (hacIdx + 1) % hacMessages.length;
+        hacCard.style.opacity = '0';
+        hacCard.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          hacCard.querySelector('.hac-title').innerHTML = hacMessages[hacIdx].title;
+          hacSub.innerHTML = hacMessages[hacIdx].sub;
+          hacCard.style.opacity = '1';
+          hacCard.style.transform = '';
+        }, 350);
+      }, 4500);
+      hacCard.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    }
+  </script>
+
   <script src="cookie.js"></script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>

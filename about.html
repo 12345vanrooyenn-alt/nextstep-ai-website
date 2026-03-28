@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
   <title>About Nextstep AI — Who We Are & Why We Build This</title>
   <meta name="description" content="Nextstep AI is an AI workflow automation agency built specifically for e-commerce clothing brands. Meet the team and learn why we do what we do." />
   <meta property="og:title" content="About Nextstep AI — Who We Are & Why We Build This" />
@@ -655,7 +656,7 @@
       <div class="team-solo">
         <div class="team-card reveal">
           <div class="team-card-left">
-            <div class="team-avatar"><img src="caleb-headshot.jpg" alt="Caleb van Rooyen — Founder, Nextstep AI" /></div>
+            <div class="team-avatar"><img src="assets/caleb-headshot.jpg" alt="Caleb van Rooyen — Founder, Nextstep AI" /></div>
             <a href="https://instagram.com/caleb_automates" target="_blank" class="team-social-link">@caleb_automates</a>
           </div>
           <div class="team-card-right">
@@ -676,16 +677,16 @@
         <!-- Image gallery -->
         <div class="team-gallery reveal">
           <div class="tg-img">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80&fit=crop" alt="Working on automation workflows" loading="lazy" />
-            <div class="tg-img-overlay">Workflow Build</div>
+            <img src="assets/caleb-photo.jpg" alt="Caleb van Rooyen — Nextstep AI founder" loading="lazy" />
+            <div class="tg-img-overlay">Caleb · Founder</div>
           </div>
           <div class="tg-img">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80&fit=crop" alt="Analytics and results" loading="lazy" />
-            <div class="tg-img-overlay">Revenue Results</div>
+            <img src="assets/proof-shopify-dashboard-big.jpg" alt="Velour Fits — $8,433 Shopify result" loading="lazy" />
+            <div class="tg-img-overlay">Real Result</div>
           </div>
           <div class="tg-img">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" alt="Agency workspace" loading="lazy" />
-            <div class="tg-img-overlay">The Studio</div>
+            <img src="assets/proof-velour-fits-recovery-email.jpg" alt="Velour Fits cart recovery email live" loading="lazy" />
+            <div class="tg-img-overlay">Live Automation</div>
           </div>
         </div>
       </div>
@@ -867,6 +868,20 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+  <div class="mobile-sticky-cta" id="mobileStickyCtaBar">
+    <div class="msc-info">
+      <div class="msc-info-title">Free Brand Audit — 3 Spots Left</div>
+      <div class="msc-info-sub">Reviewed personally by Caleb, within 24hrs.</div>
+    </div>
+    <a href="qualify.html" target="_blank" class="msc-btn">
+      Claim Now
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+    const mscBar = document.getElementById('mobileStickyCtaBar');
+    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('msc-visible', window.scrollY > 300); }, { passive: true });
   </script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
