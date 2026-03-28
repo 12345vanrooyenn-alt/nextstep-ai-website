@@ -2,23 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Story Card — Nextstep AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      width: 1080px;
-      height: 1920px;
+    html, body {
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background: #060c1a;
-      font-family: 'Outfit', sans-serif;
-      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Scale the 1080×1920 design to fit any phone screen */
+    .scaler {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: top left;
     }
 
     /* ── Background ── */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #060c1a;
+    }
     .bg-grid {
       position: absolute;
       inset: 0;
@@ -27,41 +41,39 @@
         linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
       background-size: 80px 80px;
     }
-    .bg-glow {
+    .bg-glow-l {
       position: absolute;
-      top: 200px;
+      top: 100px;
       left: -100px;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 65%);
-      pointer-events: none;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(14,165,233,0.09) 0%, transparent 70%);
     }
     .bg-glow-r {
       position: absolute;
-      bottom: 300px;
+      top: 400px;
       right: -80px;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 65%);
-      pointer-events: none;
+      background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 70%);
     }
 
-    /* ── Outer card ── */
+    /* ── Card layout ── */
     .card {
       position: relative;
       width: 1080px;
       height: 1920px;
       display: flex;
       flex-direction: column;
-      padding: 72px 72px 80px;
+      padding: 80px 72px;
     }
 
-    /* ── Top nav strip ── */
+    /* ── Top nav ── */
     .top-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 72px;
+      margin-bottom: 64px;
     }
     .logo {
       display: flex;
@@ -69,108 +81,95 @@
       gap: 14px;
     }
     .logo-n {
-      width: 50px;
-      height: 50px;
+      width: 54px;
+      height: 54px;
       background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      border-radius: 13px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 24px;
+      font-size: 26px;
       color: #fff;
-      box-shadow: 0 0 24px rgba(14,165,233,0.4);
+      box-shadow: 0 0 28px rgba(14,165,233,0.45);
     }
     .logo-word {
       font-family: 'Syne', sans-serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
     }
     .logo-word span { color: #0ea5e9; }
-    .nav-badge {
-      background: rgba(14,165,233,0.1);
-      border: 1px solid rgba(14,165,233,0.25);
-      border-radius: 40px;
-      padding: 10px 26px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #0ea5e9;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
 
-    /* ── Section label ── */
-    .section-label-pill {
+    /* ── Section label pill ── */
+    .label-pill {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.2);
+      border: 1px solid rgba(14,165,233,0.22);
       border-radius: 40px;
-      padding: 10px 24px;
-      margin-bottom: 40px;
+      padding: 12px 28px;
+      margin-bottom: 56px;
+      align-self: flex-start;
     }
     .pill-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: #0ea5e9;
       border-radius: 50%;
     }
     .pill-text {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 600;
       color: #0ea5e9;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
     }
 
-    /* ── Two-column hero row ── */
+    /* ── Two-column hero ── */
     .hero-row {
       display: flex;
-      gap: 40px;
+      gap: 48px;
       align-items: flex-start;
-      margin-bottom: 56px;
+      margin-bottom: 72px;
     }
 
-    /* LEFT column */
+    /* LEFT: text */
     .hero-left {
       flex: 1;
-      display: flex;
-      flex-direction: column;
+      min-width: 0;
     }
     .main-heading {
       font-family: 'Syne', sans-serif;
-      font-size: 72px;
+      font-size: 78px;
       font-weight: 800;
       color: #fff;
       line-height: 1.0;
       letter-spacing: -0.03em;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
-    .main-heading .blue {
-      color: #0ea5e9;
-    }
+    .main-heading .blue { color: #0ea5e9; }
 
-    /* Founder chip — matches website exactly */
+    /* Founder chip */
     .founder-chip {
       display: flex;
       align-items: center;
       gap: 16px;
       background: rgba(14,165,233,0.05);
-      border: 1px solid rgba(14,165,233,0.18);
+      border: 1px solid rgba(14,165,233,0.15);
       border-radius: 16px;
-      padding: 16px 20px;
-      margin-bottom: 36px;
+      padding: 18px 22px;
+      margin-bottom: 40px;
     }
     .chip-avatar {
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid rgba(14,165,233,0.35);
+      border: 2px solid rgba(14,165,233,0.4);
       flex-shrink: 0;
     }
     .chip-avatar img {
@@ -180,42 +179,42 @@
       object-position: center top;
       display: block;
     }
-    .chip-info {}
     .chip-name {
       font-family: 'Syne', sans-serif;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       color: #fff;
     }
     .chip-role {
-      font-size: 17px;
+      font-size: 18px;
       color: rgba(255,255,255,0.4);
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
-    /* Bio text */
-    .bio-text {
-      font-size: 23px;
-      line-height: 1.65;
+    /* Bio */
+    .bio {
+      font-size: 25px;
+      line-height: 1.7;
       color: rgba(255,255,255,0.6);
       font-weight: 300;
     }
-    .bio-text strong {
+    .bio strong {
       color: #fff;
       font-weight: 600;
     }
 
-    /* RIGHT column — photo card */
+    /* RIGHT: photo card */
     .hero-right {
-      width: 380px;
+      width: 360px;
       flex-shrink: 0;
-      position: relative;
       border-radius: 24px;
       overflow: hidden;
-      background: #0f172a;
+      position: relative;
+      height: 580px;
       border: 1px solid rgba(14,165,233,0.12);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(14,165,233,0.08);
-      height: 560px;
+      box-shadow:
+        0 0 0 1px rgba(14,165,233,0.06),
+        0 24px 60px rgba(0,0,0,0.55);
     }
     .hero-right img {
       width: 100%;
@@ -224,28 +223,24 @@
       object-position: center 8%;
       display: block;
     }
-    /* gradient overlay at bottom of photo */
-    .photo-gradient {
+    .photo-fade {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 220px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(6,12,26,0.92) 100%);
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, rgba(6,12,26,0.9));
     }
-    /* name on photo */
-    .photo-name-block {
+    .photo-name-overlay {
       position: absolute;
-      bottom: 24px;
-      left: 22px;
-      right: 22px;
+      bottom: 22px;
+      left: 20px;
+      right: 20px;
     }
     .photo-name {
       font-family: 'Syne', sans-serif;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
       color: #fff;
-      line-height: 1.1;
+      line-height: 1.15;
     }
     .photo-title {
       font-size: 18px;
@@ -256,18 +251,18 @@
     /* ── Divider ── */
     .divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(14,165,233,0.2), transparent);
-      margin-bottom: 56px;
+      background: linear-gradient(90deg, rgba(14,165,233,0.25), transparent);
+      margin-bottom: 60px;
     }
 
-    /* ── Feature rows — matches website cards ── */
+    /* ── Feature list ── */
     .features {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      margin-bottom: 64px;
+      margin-bottom: 60px;
     }
-    .feat-row {
+    .feat {
       display: flex;
       align-items: flex-start;
       gap: 24px;
@@ -276,11 +271,11 @@
       border-radius: 20px;
       padding: 30px 32px;
     }
-    .feat-icon-wrap {
+    .feat-icon {
       width: 52px;
       height: 52px;
       background: rgba(14,165,233,0.1);
-      border: 1px solid rgba(14,165,233,0.2);
+      border: 1px solid rgba(14,165,233,0.18);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -288,7 +283,6 @@
       font-size: 24px;
       flex-shrink: 0;
     }
-    .feat-body {}
     .feat-title {
       font-family: 'Syne', sans-serif;
       font-size: 24px;
@@ -302,138 +296,155 @@
       line-height: 1.5;
     }
 
-    /* ── CTA button ── */
-    .cta-btn {
+    /* ── CTA ── */
+    .cta {
       width: 100%;
       background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      border-radius: 20px;
-      padding: 36px 48px;
+      border-radius: 22px;
+      padding: 38px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       box-shadow: 0 8px 40px rgba(14,165,233,0.35);
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
-    .cta-left {}
     .cta-label {
       font-family: 'Syne', sans-serif;
       font-size: 30px;
       font-weight: 700;
       color: #fff;
-      letter-spacing: -0.01em;
     }
     .cta-sub {
       font-size: 20px;
       color: rgba(255,255,255,0.65);
       margin-top: 6px;
     }
-    .cta-arrow {
-      font-size: 36px;
+    .cta-arr {
+      font-size: 40px;
       color: #fff;
     }
 
-    /* ── Footer url ── */
-    .footer {
+    .footer-url {
       text-align: center;
       font-size: 20px;
       color: rgba(255,255,255,0.2);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow"></div>
-  <div class="bg-glow-r"></div>
-
-  <div class="card">
-
-    <!-- Top nav -->
-    <div class="top-nav">
-      <div class="logo">
-        <div class="logo-n">N</div>
-        <div class="logo-word">Nextstep<span>AI</span></div>
-      </div>
-      <div class="nav-badge">About</div>
+  <div class="scaler" id="scaler">
+    <div class="bg">
+      <div class="bg-grid"></div>
+      <div class="bg-glow-l"></div>
+      <div class="bg-glow-r"></div>
     </div>
 
-    <!-- Section label -->
-    <div class="section-label-pill">
-      <div class="pill-dot"></div>
-      <div class="pill-text">About Nextstep AI</div>
-    </div>
-
-    <!-- Two-column: text left, photo right -->
-    <div class="hero-row">
-      <div class="hero-left">
-        <div class="main-heading">
-          This Isn't<br/>a Big<br/>Agency.<br/><span class="blue">That's the<br/>Point.</span>
+    <div class="card">
+      <!-- Top nav -->
+      <div class="top-nav">
+        <div class="logo">
+          <div class="logo-n">N</div>
+          <div class="logo-word">Nextstep<span>AI</span></div>
         </div>
+      </div>
 
-        <!-- Founder chip — exactly like website -->
-        <div class="founder-chip">
-          <div class="chip-avatar">
-            <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+      <!-- Label -->
+      <div class="label-pill">
+        <div class="pill-dot"></div>
+        <div class="pill-text">About Nextstep AI</div>
+      </div>
+
+      <!-- Two-column: heading + chip + bio LEFT | photo RIGHT -->
+      <div class="hero-row">
+        <div class="hero-left">
+          <div class="main-heading">
+            This Isn't<br/>a Big<br/>Agency.<br/><span class="blue">That's the<br/>Point.</span>
           </div>
-          <div class="chip-info">
-            <div class="chip-name">Caleb van Rooyen</div>
-            <div class="chip-role">Founder &amp; CEO — Workflow Architect</div>
+
+          <div class="founder-chip">
+            <div class="chip-avatar">
+              <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+            </div>
+            <div>
+              <div class="chip-name">Caleb van Rooyen</div>
+              <div class="chip-role">Founder &amp; CEO — Workflow Architect</div>
+            </div>
+          </div>
+
+          <div class="bio">
+            <strong>Nextstep AI</strong> is built and led by <strong>Caleb van Rooyen</strong> — an AI workflow architect who has spent years studying how e-commerce clothing brands bleed revenue in the post-checkout silence. Not from bad products. Not from poor marketing. From <strong>missing systems.</strong>
           </div>
         </div>
 
-        <div class="bio-text">
-          <strong>Nextstep AI</strong> is built and led by <strong>Caleb van Rooyen</strong> — an AI workflow architect who turns clothing brands' revenue leaks into automated income.
+        <div class="hero-right">
+          <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
+          <div class="photo-fade"></div>
+          <div class="photo-name-overlay">
+            <div class="photo-name">Caleb van Rooyen</div>
+            <div class="photo-title">Founder &amp; CEO — Nextstep AI</div>
+          </div>
         </div>
       </div>
 
-      <!-- Photo right -->
-      <div class="hero-right">
-        <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" />
-        <div class="photo-gradient"></div>
-        <div class="photo-name-block">
-          <div class="photo-name">Caleb van Rooyen</div>
-          <div class="photo-title">Founder &amp; CEO — Nextstep AI</div>
+      <div class="divider"></div>
+
+      <!-- Features -->
+      <div class="features">
+        <div class="feat">
+          <div class="feat-icon">👕</div>
+          <div>
+            <div class="feat-title">Built for clothing brands only</div>
+            <div class="feat-desc">Deep specialisation — not a generic agency working across every niche</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🔒</div>
+          <div>
+            <div class="feat-title">No black-box deliverables</div>
+            <div class="feat-desc">You see every workflow, every trigger, every result</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">⚡</div>
+          <div>
+            <div class="feat-title">Live in 7 days. ROI in 30.</div>
+            <div class="feat-desc">Systems running fast — not a 3-month agency project</div>
+          </div>
         </div>
       </div>
+
+      <!-- CTA -->
+      <div class="cta">
+        <div>
+          <div class="cta-label">Get your free audit</div>
+          <div class="cta-sub">nextstepai.com/qualify</div>
+        </div>
+        <div class="cta-arr">→</div>
+      </div>
+
+      <div class="footer-url">nextstepai.com</div>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- Feature rows -->
-    <div class="features">
-      <div class="feat-row">
-        <div class="feat-icon-wrap">👕</div>
-        <div class="feat-body">
-          <div class="feat-title">Built for clothing brands only</div>
-          <div class="feat-desc">Deep specialisation — not a generic agency spreading thin across every niche</div>
-        </div>
-      </div>
-      <div class="feat-row">
-        <div class="feat-icon-wrap">🔒</div>
-        <div class="feat-body">
-          <div class="feat-title">No black-box deliverables</div>
-          <div class="feat-desc">You see every workflow, every trigger, every result — full transparency</div>
-        </div>
-      </div>
-      <div class="feat-row">
-        <div class="feat-icon-wrap">⚡</div>
-        <div class="feat-body">
-          <div class="feat-title">Live in 7 days. ROI in 30.</div>
-          <div class="feat-desc">Systems built and running fast — not a 3-month agency project</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="cta-btn">
-      <div class="cta-left">
-        <div class="cta-label">Get your free audit</div>
-        <div class="cta-sub">nextstepai.com/qualify</div>
-      </div>
-      <div class="cta-arrow">→</div>
-    </div>
-
-    <div class="footer">nextstepai.com</div>
   </div>
+
+  <script>
+    // Scale the 1080×1920 card to fit the actual screen
+    function scale() {
+      var scaler = document.getElementById('scaler');
+      var sw = window.innerWidth;
+      var sh = window.innerHeight;
+      var scaleX = sw / 1080;
+      var scaleY = sh / 1920;
+      var s = Math.min(scaleX, scaleY);
+      scaler.style.transform = 'scale(' + s + ')';
+      // Center if letterboxed
+      var scaledW = 1080 * s;
+      var scaledH = 1920 * s;
+      scaler.style.left = ((sw - scaledW) / 2) + 'px';
+      scaler.style.top = ((sh - scaledH) / 2) + 'px';
+    }
+    scale();
+    window.addEventListener('resize', scale);
+  </script>
 </body>
 </html>
