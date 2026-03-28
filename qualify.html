@@ -1063,6 +1063,38 @@
       .qp-step-num { width: 48px; height: 48px; font-size: 16px; }
       .qp-call-card { padding: 18px; }
     }
+
+    /* ── Phone overrides (600px) ── */
+    @media (max-width: 600px) {
+      /* Urgency cards: 2 columns side by side */
+      .urgency-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .urgency-card { padding: 14px 12px; gap: 10px; }
+      .urgency-card-icon { width: 32px; height: 32px; border-radius: 8px; }
+      .urgency-card-icon svg { width: 16px; height: 16px; }
+      .urgency-card h4 { font-size: 13px; margin-bottom: 4px; }
+      .urgency-card p { font-size: 11px; line-height: 1.5; }
+
+      /* Audit scope cards: 2 columns side by side */
+      .audit-scope-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .audit-scope-card { padding: 14px 12px; }
+      .audit-scope-icon { width: 32px; height: 32px; border-radius: 8px; margin-bottom: 8px; }
+      .audit-scope-icon svg { width: 18px; height: 18px; }
+      .audit-scope-card h4 { font-size: 13px; margin-bottom: 8px; }
+      .audit-scope-list { gap: 4px; }
+      .audit-scope-list li { font-size: 11px; padding-left: 12px; }
+    }
+
+    /* ── Phone overrides (480px) — fix announce bar nav overlap ── */
+    @media (max-width: 480px) {
+      :root { --bar-h: 32px; }
+      .announce-bar {
+        padding: 6px 16px;
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   </style>
 </head>
 <body>
