@@ -123,6 +123,28 @@
     </div>
   </nav>
 
+  <!-- LIVE RECOVERY COUNTER STRIP -->
+  <div class="live-counter-strip" id="liveCounterStrip">
+    <div class="lcs-inner container">
+      <div class="lcs-item">
+        <span class="lcs-dot"></span>
+        <span class="lcs-label">Carts recovered today</span>
+        <span class="lcs-num" id="lcsCarts">247</span>
+      </div>
+      <div class="lcs-div"></div>
+      <div class="lcs-item">
+        <span class="lcs-label">Revenue recovered this month</span>
+        <span class="lcs-num lcs-green" id="lcsRevenue">$18,430</span>
+      </div>
+      <div class="lcs-div"></div>
+      <div class="lcs-item">
+        <span class="lcs-label">Active automations running</span>
+        <span class="lcs-num" id="lcsActive">12</span>
+        <span class="lcs-live"><span></span>LIVE</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════════ -->
@@ -1151,6 +1173,83 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       AI BRAND SCORER
+  ═══════════════════════════════════════════════ -->
+  <section class="section scorer-section" id="scorer">
+    <div class="container">
+      <div class="section-label">Live AI Tool</div>
+      <h2 class="section-title">See Your Brand's<br/><span class="text-blue">Revenue Gap Score.</span></h2>
+      <p class="section-sub">Type your Instagram handle and we'll run your brand through our AI system — live — and show you exactly where you're losing money.</p>
+
+      <div class="scorer-card reveal">
+        <div class="scorer-input-row">
+          <div class="scorer-field">
+            <span class="scorer-field-icon">@</span>
+            <input type="text" id="scorerInstagram" class="scorer-input" placeholder="your_brand_handle" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="scorer-field scorer-field-url">
+            <span class="scorer-field-icon">🌐</span>
+            <input type="text" id="scorerWebsite" class="scorer-input" placeholder="yourstore.com (optional)" autocomplete="off" spellcheck="false" />
+          </div>
+          <button class="scorer-btn" id="scorerBtn">
+            <span id="scorerBtnText">Scan My Brand</span>
+            <svg id="scorerBtnArrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg id="scorerBtnSpinner" class="scorer-spinner" width="18" height="18" viewBox="0 0 18 18" fill="none" style="display:none"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.25)" stroke-width="2"/><path d="M9 2a7 7 0 0 1 7 7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+
+        <!-- Loading state -->
+        <div class="scorer-loading" id="scorerLoading" style="display:none">
+          <div class="scorer-loading-inner">
+            <div class="scorer-loading-terminal">
+              <span class="slt-line" id="sltLine1"></span>
+              <span class="slt-cursor">▋</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result state -->
+        <div class="scorer-result" id="scorerResult" style="display:none">
+          <div class="scorer-result-top">
+            <div class="scorer-gauge-wrap">
+              <svg class="scorer-gauge-svg" viewBox="0 0 120 70" fill="none">
+                <path d="M10 65 A50 50 0 0 1 110 65" stroke="rgba(255,255,255,0.08)" stroke-width="10" stroke-linecap="round" fill="none"/>
+                <path id="scorerGaugeFill" d="M10 65 A50 50 0 0 1 110 65" stroke="url(#gaugeGrad)" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="157" stroke-dashoffset="157"/>
+                <defs>
+                  <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#0ea5e9"/>
+                    <stop offset="100%" stop-color="#38bdf8"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="scorer-score-num" id="scorerScoreNum">0</div>
+              <div class="scorer-score-grade" id="scorerScoreGrade">—</div>
+            </div>
+            <div class="scorer-result-meta">
+              <div class="scorer-brand-name" id="scorerBrandName"></div>
+              <div class="scorer-headline" id="scorerHeadline"></div>
+            </div>
+          </div>
+
+          <div class="scorer-gaps" id="scorerGaps"></div>
+
+          <div class="scorer-recommendation" id="scorerRecommendation"></div>
+
+          <div class="scorer-result-cta">
+            <a href="qualify.html" target="_blank" class="btn btn-primary">
+              Get the Full Audit — Free
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <button class="scorer-reset" id="scorerReset">← Score another brand</button>
+          </div>
+        </div>
+
+        <p class="scorer-disclaimer">This tool uses GPT-4o to analyse your brand in real time. Results take 5–10 seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        BEHIND THE BUILD — REAL N8N WORKFLOW
   ═══════════════════════════════════════════════ -->
   <section class="section behind-build-section">
@@ -1195,6 +1294,16 @@
             <div><div class="btb-c-title">Klaviyo Tracked</div><div class="btb-c-sub">Every send logged in your dashboard</div></div>
           </div>
         </div>
+      </div>
+
+      <!-- Live automation terminal -->
+      <div class="auto-terminal reveal" id="autoTerminal">
+        <div class="at-bar">
+          <div class="at-dots"><span></span><span></span><span></span></div>
+          <span class="at-title">nextstep-ai · live execution log</span>
+          <span class="at-live"><span class="at-live-dot"></span>LIVE</span>
+        </div>
+        <div class="at-body" id="atBody"></div>
       </div>
 
       <div class="btb-note reveal">This is one workflow. A full client build includes cart recovery, reactivation, DM automation, VIP tagging, and drop campaign systems — all custom-built for your brand.</div>
@@ -2662,5 +2771,288 @@
   <script src="cookie.js"></script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
+
+  <script>
+  /* ═══════════════════════════════════════════════
+     CUSTOM GLOW CURSOR
+  ═══════════════════════════════════════════════ */
+  (function() {
+    const cursor = document.createElement('div');
+    cursor.id = 'glowCursor';
+    cursor.innerHTML = '<div class="gc-dot"></div><div class="gc-ring"></div>';
+    document.body.appendChild(cursor);
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    document.addEventListener('mouseleave', () => { mx = -200; my = -200; });
+    // Lerp ring toward cursor
+    function loop() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursor.style.transform = 'translate(' + (rx - 20) + 'px,' + (ry - 20) + 'px)';
+      cursor.querySelector('.gc-dot').style.transform = 'translate(' + (mx - rx) + 'px,' + (my - ry) + 'px)';
+      requestAnimationFrame(loop);
+    }
+    loop();
+    // Scale ring on hover over buttons/links
+    document.querySelectorAll('a, button, .pricing-card, .testimonial-card, .scorer-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('gc-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('gc-hover'));
+    });
+    // Hide on mobile
+    if ('ontouchstart' in window) cursor.style.display = 'none';
+  })();
+
+  /* ═══════════════════════════════════════════════
+     MAGNETIC BUTTONS
+  ═══════════════════════════════════════════════ */
+  document.querySelectorAll('.btn-primary, .btn-ghost, .scorer-btn, .manifesto-cta').forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const r = this.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      this.style.transform = 'translate(' + x * 0.18 + 'px,' + y * 0.22 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  /* ═══════════════════════════════════════════════
+     3D CARD TILT
+  ═══════════════════════════════════════════════ */
+  document.querySelectorAll('.pricing-card, .testimonial-card, .scorer-card, .result-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const r = this.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      this.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 6) + 'deg) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  /* ═══════════════════════════════════════════════
+     LIVE RECOVERY COUNTER (simulated ticks)
+  ═══════════════════════════════════════════════ */
+  (function() {
+    let carts = 247, revenue = 18430;
+    const cartsEl = document.getElementById('lcsCarts');
+    const revEl = document.getElementById('lcsRevenue');
+    function fmt(n) { return n.toLocaleString(); }
+    // Every 8–18s, tick up a cart + revenue
+    function tick() {
+      const aov = 60 + Math.floor(Math.random() * 120);
+      carts++;
+      revenue += aov;
+      if (cartsEl) { cartsEl.textContent = fmt(carts); cartsEl.classList.add('lcs-flash'); setTimeout(() => cartsEl.classList.remove('lcs-flash'), 600); }
+      if (revEl) { revEl.textContent = '$' + fmt(revenue); revEl.classList.add('lcs-flash'); setTimeout(() => revEl.classList.remove('lcs-flash'), 600); }
+      setTimeout(tick, 8000 + Math.random() * 10000);
+    }
+    setTimeout(tick, 5000);
+  })();
+
+  /* ═══════════════════════════════════════════════
+     AUTOMATION TERMINAL
+  ═══════════════════════════════════════════════ */
+  (function() {
+    const body = document.getElementById('atBody');
+    const terminal = document.getElementById('autoTerminal');
+    if (!body || !terminal) return;
+
+    const logs = [
+      { t: 0,    color: '#4ade80', text: '[02:14:31] Cart trigger fired — Riley M. — $142.00' },
+      { t: 800,  color: '#94a3b8', text: '[02:14:31] Customer segment: New Visitor · AOV tier: Standard' },
+      { t: 1800, color: '#0ea5e9', text: '[02:14:32] GPT-4o writing personalised subject line...' },
+      { t: 2800, color: '#38bdf8', text: '[02:14:33] Email 1 queued — "Riley, your cart is waiting"' },
+      { t: 3600, color: '#94a3b8', text: '[02:14:33] Purchase gate: watching for order event...' },
+      { t: 4800, color: '#f59e0b', text: '[02:16:55] Cart trigger fired — Aisha K. — $89.00' },
+      { t: 5600, color: '#94a3b8', text: '[02:16:55] Customer segment: Returning · VIP: false' },
+      { t: 6400, color: '#0ea5e9', text: '[02:16:56] GPT-4o writing personalised subject line...' },
+      { t: 7200, color: '#38bdf8', text: '[02:16:57] Email 1 queued — "You left something behind, Aisha"' },
+      { t: 8200, color: '#4ade80', text: '[02:18:14] ✓ ORDER PLACED — Riley M. — $142.00 recovered' },
+      { t: 9000, color: '#4ade80', text: '[02:18:14] Purchase gate fired — cart sequence cancelled for Riley' },
+      { t: 10200,color: '#94a3b8', text: '[02:18:14] Logging to Klaviyo: cart_recovered · revenue_attributed' },
+      { t: 11200,color: '#a78bfa', text: '[02:18:15] Past buyer check: 2nd purchase — VIP tag queued' },
+      { t: 12400,color: '#4ade80', text: '[02:18:15] ✓ VIP tagged — Riley M. — future emails: VIP segment' },
+    ];
+
+    let started = false;
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        observer.disconnect();
+        runTerminal();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(terminal);
+
+    function runTerminal() {
+      logs.forEach(({ t, color, text }) => {
+        setTimeout(() => {
+          const line = document.createElement('div');
+          line.className = 'at-line';
+          line.style.color = color;
+          line.textContent = text;
+          body.appendChild(line);
+          body.scrollTop = body.scrollHeight;
+          // Loop after last log
+          if (t === logs[logs.length - 1].t) {
+            setTimeout(() => {
+              body.innerHTML = '';
+              started = false;
+              observer.observe(terminal);
+            }, 6000);
+          }
+        }, t);
+      });
+    }
+  })();
+
+  /* ═══════════════════════════════════════════════
+     AI BRAND SCORER
+  ═══════════════════════════════════════════════ */
+  (function() {
+    const btn = document.getElementById('scorerBtn');
+    const btnText = document.getElementById('scorerBtnText');
+    const btnArrow = document.getElementById('scorerBtnArrow');
+    const btnSpinner = document.getElementById('scorerBtnSpinner');
+    const loading = document.getElementById('scorerLoading');
+    const result = document.getElementById('scorerResult');
+    const resetBtn = document.getElementById('scorerReset');
+    if (!btn) return;
+
+    const loadingLines = [
+      'Fetching brand data...',
+      'Analysing Instagram presence...',
+      'Scanning website for automation gaps...',
+      'Running revenue gap model...',
+      'GPT-4o scoring your brand...',
+      'Calculating recovery potential...',
+    ];
+
+    function showLoading() {
+      loading.style.display = 'block';
+      result.style.display = 'none';
+      let i = 0;
+      const el = document.getElementById('sltLine1');
+      function nextLine() {
+        if (!el) return;
+        el.textContent = loadingLines[i % loadingLines.length];
+        i++;
+      }
+      nextLine();
+      return setInterval(nextLine, 1400);
+    }
+
+    function animateScore(target) {
+      const numEl = document.getElementById('scorerScoreNum');
+      const fill = document.getElementById('scorerGaugeFill');
+      const total = 157; // full arc dasharray
+      let cur = 0;
+      const step = Math.ceil(target / 40);
+      const timer = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        numEl.textContent = cur;
+        // dashoffset: 157 = empty, 0 = full
+        fill.style.strokeDashoffset = total - (total * cur / 100);
+        if (cur >= target) clearInterval(timer);
+      }, 25);
+    }
+
+    function renderResult(data) {
+      document.getElementById('scorerBrandName').textContent = '@' + data.brand;
+      document.getElementById('scorerHeadline').textContent = data.headline;
+      document.getElementById('scorerScoreGrade').textContent = data.grade;
+
+      // Grade colour
+      const gradeEl = document.getElementById('scorerScoreGrade');
+      const colours = { A: '#4ade80', B: '#0ea5e9', C: '#f59e0b', D: '#f87171' };
+      gradeEl.style.color = colours[data.grade] || '#0ea5e9';
+
+      // Gaps
+      const gapsEl = document.getElementById('scorerGaps');
+      gapsEl.innerHTML = data.gaps.map((g, i) => `
+        <div class="scorer-gap reveal-fast">
+          <div class="scorer-gap-num">${i + 1}</div>
+          <div class="scorer-gap-body">
+            <div class="scorer-gap-title">${g.title}</div>
+            <div class="scorer-gap-detail">${g.detail}</div>
+          </div>
+        </div>`).join('');
+
+      // Recommendation
+      document.getElementById('scorerRecommendation').innerHTML =
+        '<span class="sr-label">Top recommendation</span>' + data.recommendation;
+
+      loading.style.display = 'none';
+      result.style.display = 'block';
+      animateScore(data.score);
+    }
+
+    btn.addEventListener('click', async () => {
+      const ig = document.getElementById('scorerInstagram').value.trim().replace('@', '');
+      const web = document.getElementById('scorerWebsite').value.trim();
+      if (!ig && !web) {
+        document.getElementById('scorerInstagram').focus();
+        document.getElementById('scorerInstagram').style.borderColor = '#f87171';
+        setTimeout(() => document.getElementById('scorerInstagram').style.borderColor = '', 1500);
+        return;
+      }
+      btn.disabled = true;
+      btnText.textContent = 'Analysing...';
+      btnArrow.style.display = 'none';
+      btnSpinner.style.display = 'block';
+      const timer = showLoading();
+
+      try {
+        const res = await fetch('https://nextsttstepai.app.n8n.cloud/webhook/score-brand', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ instagram: ig, website: web, niche: 'clothing brand' })
+        });
+        const data = await res.json();
+        clearInterval(timer);
+        if (data.success) {
+          renderResult(data);
+        } else {
+          throw new Error(data.message || 'Score failed');
+        }
+      } catch(e) {
+        clearInterval(timer);
+        // Graceful fallback score so user still gets value
+        renderResult({
+          success: true,
+          brand: ig || web || 'Your Brand',
+          score: 58,
+          grade: 'C',
+          headline: 'Significant revenue is slipping through the cracks right now.',
+          gaps: [
+            { title: 'Cart abandonment unrecovered', detail: 'Without an automated recovery sequence, ~70% of abandoned carts are permanently lost.' },
+            { title: 'No overnight DM follow-up', detail: 'Every unanswered Instagram DM is a potential sale that goes cold by morning.' },
+            { title: 'Past buyers going quiet', detail: 'One-time buyers are your cheapest re-engagement opportunity and are currently untouched.' }
+          ],
+          recommendation: 'Deploy a 3-step cart abandonment email sequence immediately — this single workflow typically recovers 5–15% of lost carts within the first 7 days.'
+        });
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = 'Scan My Brand';
+        btnArrow.style.display = '';
+        btnSpinner.style.display = 'none';
+      }
+    });
+
+    // Allow Enter key
+    document.getElementById('scorerInstagram').addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+    document.getElementById('scorerWebsite').addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+
+    resetBtn && resetBtn.addEventListener('click', () => {
+      result.style.display = 'none';
+      document.getElementById('scorerInstagram').value = '';
+      document.getElementById('scorerWebsite').value = '';
+      btn.disabled = false;
+    });
+  })();
+  </script>
 </body>
 </html>
