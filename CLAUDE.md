@@ -32,7 +32,7 @@
 ## Links (keep updated)
 - Free Audit form: https://nextsttstepai.app.n8n.cloud/form/qualify-brand
 - Instagram: https://instagram.com/caleb_automates
-- Book a Call: CALENDLY_PLACEHOLDER (swap when Calendly is set up)
+- Book a Call: https://calendly.com/12345vanrooyenn/30min
 - Domain: nextstepai.com
 
 ## Deployment
