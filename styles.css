@@ -4628,3 +4628,133 @@ a, button { -webkit-tap-highlight-color: transparent; }
    52. COHORT COUNTDOWN IN ANNOUNCE BAR
 ═══════════════════════════════════════════════ */
 #cohortCountdown strong { color: #f59e0b; }
+
+
+/* ═══════════════════════════════════════════════
+   53. FOUNDER PHOTO COMPONENTS
+═══════════════════════════════════════════════ */
+
+/* ── Testimonials section founder row ── */
+.testimonials-founder-row {
+  margin-top: 52px;
+  display: flex;
+  justify-content: center;
+}
+.tfr-img-wrap {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+.tfr-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+  object-fit: cover;
+  max-height: 360px;
+}
+.tfr-caption {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tfr-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sky);
+  letter-spacing: 0.01em;
+}
+.tfr-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+}
+
+/* ── ROI Calculator founder wrap ── */
+.roi-founder-wrap {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.roi-founder-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  max-height: 300px;
+}
+.roi-founder-caption {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+.roi-founder-caption strong {
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
+}
+
+/* ── "Who This Is For" founder row ── */
+.fit-founder-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 36px auto 48px;
+  max-width: 440px;
+}
+.fit-founder-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+  object-fit: cover;
+  max-height: 340px;
+}
+.fit-founder-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.fit-founder-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sky);
+}
+.fit-founder-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+}
+
+/* ── Pricing section founder visual ── */
+.pricing-founder-visual {
+  margin: 40px auto 52px;
+  max-width: 520px;
+  text-align: center;
+}
+.pricing-founder-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(14,165,233,0.15);
+  box-shadow: 0 0 40px rgba(14,165,233,0.07);
+  display: block;
+  object-fit: cover;
+  max-height: 380px;
+}
+.pricing-founder-caption {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+.pricing-founder-caption strong {
+  color: rgba(255,255,255,0.75);
+}
