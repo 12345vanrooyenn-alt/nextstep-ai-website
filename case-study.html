@@ -131,20 +131,43 @@
     .cs-section-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
     .cs-section-sidebar {}
     .cs-section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--sky);
-      margin-bottom: 12px;
+      background: rgba(14,165,233,0.10);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 18px;
+    }
+    .cs-section-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--sky);
+      border-radius: 50%;
+      flex-shrink: 0;
     }
     .cs-section-title {
       font-family: var(--font-head);
-      font-size: clamp(22px, 2.5vw, 30px);
-      font-weight: 800;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 0;
+    }
+    .cs-section-title .hl {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--blue-light) 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .cs-section-content p {
       font-size: 16px;
@@ -445,14 +468,14 @@
       </div>
       <div class="cs-hero-tag">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#0ea5e9"/></svg>
-        Velour Fits · Clothing Brand · South Africa
+        Velour Fits · Clothing Brand · United States
       </div>
       <h1>$2,028 in Revenue.<br/><span class="hl">14 Days.</span><br/>Zero Paid Ads.</h1>
       <p class="cs-hero-sub">How Velour Fits went from leaking money at checkout to recovering thousands every week — just by turning the right systems on.</p>
       <div class="cs-hero-meta">
         <div class="cs-meta-item">
           <span class="cs-meta-label">Brand</span>
-          <span class="cs-meta-val">Velour Fits 🇿🇦</span>
+          <span class="cs-meta-val">Velour Fits 🇺🇸</span>
         </div>
         <div class="cs-meta-item">
           <span class="cs-meta-label">Industry</span>
