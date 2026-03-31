@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="Stop losing revenue to abandoned carts and manual follow-ups. We build AI systems that work 24/7." />
   <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -109,6 +110,7 @@
         <li><a href="about.html">About</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <a href="qualify.html" target="_blank" class="nav-sticky-cta" id="navStickyCta">Get Free Audit →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -173,6 +175,10 @@
           <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Book a Free Call</a>
         </div>
         <p class="hero-trust">No retainer below $350/mo &nbsp;·&nbsp; No fluff &nbsp;·&nbsp; Measurable ROI only &nbsp;·&nbsp; <span class="hero-spots">Limited spots each month</span></p>
+        <div class="hero-viewers" id="heroViewers">
+          <span class="hv-dot"></span>
+          <span id="hvCount">14</span> people viewing this page right now
+        </div>
       </div>
       <div class="hero-visual-wrap">
         <div class="hero-visual-glow"></div>
@@ -721,6 +727,62 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       RESULTS TIMELINE
+  ═══════════════════════════════════════════════ -->
+  <section class="section timeline-section">
+    <div class="container">
+      <div class="section-label">How It Rolls Out</div>
+      <h2 class="section-title">From Zero to <span class="text-blue">Fully Automated</span> in 30 Days.</h2>
+      <div class="timeline-strip">
+        <div class="tl-item reveal">
+          <div class="tl-dot"><span>1</span></div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 1–2</div>
+            <div class="tl-title">Brand Audit &amp; Strategy</div>
+            <div class="tl-desc">We review your store, Instagram, and existing setup. You get a written scope confirming exactly what we'll build.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal reveal-delay-1">
+          <div class="tl-dot"><span>2</span></div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 3–7</div>
+            <div class="tl-title">Cart Recovery Goes Live</div>
+            <div class="tl-desc">Core cart recovery + DM automation deployed and tested against your real data. First recoveries happen this week.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal reveal-delay-2">
+          <div class="tl-dot"><span>3</span></div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 8–14</div>
+            <div class="tl-title">Reactivation Stack Deployed</div>
+            <div class="tl-desc">Past buyer reactivation, VIP tagging, and post-purchase sequences go live. Your customer LTV starts climbing.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal reveal-delay-3">
+          <div class="tl-dot"><span>4</span></div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 15–30</div>
+            <div class="tl-title">Full System Running</div>
+            <div class="tl-desc">All workflows live, optimised, and generating weekly performance reports. You're fully automated and collecting recovered revenue.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal reveal-delay-4">
+          <div class="tl-dot tl-dot-live"><span>&#10003;</span></div>
+          <div class="tl-content">
+            <div class="tl-day" style="color:#4ade80;">Day 30+</div>
+            <div class="tl-title">Ongoing Revenue Recovery</div>
+            <div class="tl-desc">The system runs 24/7. You review the weekly report, collect the revenue, and decide whether to expand.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        TESTIMONIALS
   ═══════════════════════════════════════════════ -->
   <section class="section testimonials-section" id="testimonials">
@@ -856,6 +918,64 @@
         <a href="qualify.html" target="_blank" class="interstitial-cta">
           Find out your exact number — free →
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       REVENUE LEAK CALCULATOR
+  ═══════════════════════════════════════════════ -->
+  <section class="section leak-section" id="leak-calc">
+    <div class="container">
+      <div class="section-label">Revenue Leak Calculator</div>
+      <h2 class="section-title">Every Second You Wait, <span class="text-blue">Money Leaves.</span></h2>
+      <p class="section-sub">This is how much your store is leaking in abandoned carts while you read this page.</p>
+      <div class="leak-card reveal">
+        <div class="leak-ticker-wrap">
+          <div class="leak-ticker-label">Estimated revenue leaking from your store</div>
+          <div class="leak-amount" id="leakAmount">$0.00</div>
+          <div class="leak-since" id="leakSince">since you opened this page</div>
+        </div>
+        <div class="leak-inputs">
+          <div class="leak-input-group">
+            <label class="leak-label">Monthly store revenue</label>
+            <div class="leak-slider-row">
+              <input type="range" class="leak-slider" id="leakRevenue" min="1000" max="50000" step="500" value="8000" />
+              <span class="leak-val" id="leakRevenueVal">$8,000</span>
+            </div>
+          </div>
+          <div class="leak-input-group">
+            <label class="leak-label">Current cart abandonment rate</label>
+            <div class="leak-slider-row">
+              <input type="range" class="leak-slider" id="leakAbandonment" min="50" max="90" step="1" value="70" />
+              <span class="leak-val" id="leakAbandonmentVal">70%</span>
+            </div>
+          </div>
+          <div class="leak-input-group">
+            <label class="leak-label">Recovery rate with automation</label>
+            <div class="leak-slider-row">
+              <input type="range" class="leak-slider" id="leakRecovery" min="5" max="25" step="1" value="12" />
+              <span class="leak-val" id="leakRecoveryVal">12%</span>
+            </div>
+          </div>
+        </div>
+        <div class="leak-result-row">
+          <div class="leak-result-item">
+            <div class="leak-result-num" id="leakMonthly">$672</div>
+            <div class="leak-result-lbl">Recoverable per month</div>
+          </div>
+          <div class="leak-result-div"></div>
+          <div class="leak-result-item">
+            <div class="leak-result-num" id="leakYearly">$8,064</div>
+            <div class="leak-result-lbl">Recoverable per year</div>
+          </div>
+          <div class="leak-result-div"></div>
+          <div class="leak-result-item">
+            <div class="leak-result-num leak-result-red" id="leakPerDay">$22.40</div>
+            <div class="leak-result-lbl">Leaking per day right now</div>
+          </div>
+        </div>
+        <a href="qualify.html" target="_blank" class="btn btn-primary" style="margin-top:24px;">Stop the Leak — Get Free Audit</a>
       </div>
     </div>
   </section>
@@ -2835,6 +2955,236 @@
   <script src="cookie.js"></script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURE SCRIPTS: Scramble, Word Reveal, Viewer Count,
+       Parallax, Cursor Trail, Leak Calc, Nav Sticky CTA
+  ═══════════════════════════════════════════════ -->
+  <script>
+  /* ─── 1. TEXT SCRAMBLE ─── */
+  (function initScramble() {
+    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$';
+    var WORD_DUR = 600;
+    var STAGGER  = 80;
+
+    function scrambleEl(el) {
+      var words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words.map(function(w) {
+        return '<span class="sc-word" data-target="' + w + '">' + w + '</span>';
+      }).join(' ');
+      el.querySelectorAll('.sc-word').forEach(function(span, i) {
+        setTimeout(function() {
+          var target = span.dataset.target;
+          var start = performance.now();
+          (function tick(now) {
+            var p = Math.min((now - start) / WORD_DUR, 1);
+            if (p < 1) {
+              var scrambled = target.split('').map(function(ch) {
+                if (Math.random() < p) return ch;
+                return CHARS[Math.floor(Math.random() * CHARS.length)];
+              }).join('');
+              span.textContent = scrambled;
+              requestAnimationFrame(tick);
+            } else {
+              span.textContent = target;
+            }
+          })(performance.now());
+        }, i * STAGGER);
+      });
+    }
+
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting && !e.target.dataset.scrambled) {
+          e.target.dataset.scrambled = '1';
+          scrambleEl(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.section-title, .section-title-light').forEach(function(el) {
+      if (!el.closest('.hero')) io.observe(el);
+    });
+  })();
+
+  /* ─── 2. WORD-BY-WORD TEXT REVEAL ─── */
+  (function initWordReveal() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting && !e.target.dataset.revealed) {
+          e.target.dataset.revealed = '1';
+          var words = e.target.textContent.split(/\s+/);
+          e.target.innerHTML = words.map(function(w) {
+            return '<span class="wr-word" style="display:inline-block;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;">' + w + '&nbsp;</span>';
+          }).join('');
+          e.target.querySelectorAll('.wr-word').forEach(function(s, i) {
+            setTimeout(function() {
+              s.style.opacity = '1';
+              s.style.transform = 'translateY(0)';
+            }, i * 30);
+          });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.section-sub, .section-sub-light').forEach(function(el) {
+      if (!el.closest('.hero')) io.observe(el);
+    });
+  })();
+
+  /* ─── 3. LIVE VIEWER COUNT ─── */
+  (function() {
+    var el = document.getElementById('hvCount');
+    if (!el) return;
+    var count = 11 + Math.floor(Math.random() * 8);
+    el.textContent = count;
+    function tick() {
+      var delta = Math.floor(Math.random() * 3) + 1;
+      var dir = Math.random() < 0.5 ? 1 : -1;
+      count = Math.max(8, Math.min(22, count + dir * delta));
+      el.textContent = count;
+      setTimeout(tick, 12000 + Math.random() * 8000);
+    }
+    setTimeout(tick, 12000 + Math.random() * 8000);
+  })();
+
+  /* ─── 4. REVENUE LEAK CALCULATOR ─── */
+  (function() {
+    var pageOpenTime = Date.now();
+    var rEl = document.getElementById('leakRevenue');
+    var aEl = document.getElementById('leakAbandonment');
+    var rcEl = document.getElementById('leakRecovery');
+    if (!rEl) return;
+
+    var rvVal  = document.getElementById('leakRevenueVal');
+    var abVal  = document.getElementById('leakAbandonmentVal');
+    var rcVal  = document.getElementById('leakRecoveryVal');
+    var amtEl  = document.getElementById('leakAmount');
+    var mEl    = document.getElementById('leakMonthly');
+    var yEl    = document.getElementById('leakYearly');
+    var dEl    = document.getElementById('leakPerDay');
+
+    function calcRate() {
+      var rev   = parseFloat(rEl.value);
+      var ab    = parseFloat(aEl.value) / 100;
+      var rc    = parseFloat(rcEl.value) / 100;
+      return rev * ab * (1 - rc) / 2592000; // per second
+    }
+
+    function updateStatic() {
+      var rev = parseFloat(rEl.value);
+      var ab  = parseFloat(aEl.value) / 100;
+      var rc  = parseFloat(rcEl.value) / 100;
+      rvVal.textContent  = '$' + parseInt(rEl.value).toLocaleString();
+      abVal.textContent  = aEl.value + '%';
+      rcVal.textContent  = rcEl.value + '%';
+      var monthly  = rev * ab * rc;
+      var yearly   = monthly * 12;
+      var perDay   = rev * ab * (1 - rc) / 30;
+      if (mEl) mEl.textContent = '$' + monthly.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      if (yEl) yEl.textContent = '$' + yearly.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      if (dEl) dEl.textContent = '$' + perDay.toFixed(2);
+      pageOpenTime = Date.now();
+    }
+
+    function tick() {
+      var secs = (Date.now() - pageOpenTime) / 1000;
+      var val  = secs * calcRate();
+      if (amtEl) amtEl.textContent = '$' + val.toFixed(2);
+      requestAnimationFrame(tick);
+    }
+
+    [rEl, aEl, rcEl].forEach(function(el) { el.addEventListener('input', updateStatic); });
+    updateStatic();
+    requestAnimationFrame(tick);
+  })();
+
+  /* ─── 5. STICKY NAV CTA ─── */
+  (function() {
+    var cta = document.getElementById('navStickyCta');
+    if (!cta) return;
+    window.addEventListener('scroll', function() {
+      var hero = document.querySelector('.hero');
+      var heroGone = hero ? hero.getBoundingClientRect().bottom < 0 : false;
+      cta.classList.toggle('nav-cta-visible', heroGone);
+    }, { passive: true });
+  })();
+
+  /* ─── 6. PARALLAX HERO ORBS ─── */
+  (function() {
+    window.addEventListener('scroll', function() {
+      var heroOrbs = document.querySelectorAll('.ambient-orb');
+      heroOrbs.forEach(function(orb, i) {
+        orb.style.transform = 'translateY(' + (window.scrollY * (0.15 + i * 0.05)) + 'px)';
+      });
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       CURSOR TRAIL SPARKS
+  ═══════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    if ('ontouchstart' in window) return;
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9998;pointer-events:none;';
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    var W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    window.addEventListener('resize', function() {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+    });
+
+    var COLORS = ['#0ea5e9','#38bdf8','#7c3aed','#ffffff'];
+    var particles = [];
+    var mx = -1, my = -1;
+
+    window.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+
+    function spawnSpark() {
+      if (particles.length >= 60) return;
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 1.5 + Math.random() * 1.5;
+      particles.push({
+        x: mx, y: my,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 0,
+        maxLife: 28 + Math.floor(Math.random() * 13),
+        color: COLORS[Math.floor(Math.random() * COLORS.length)]
+      });
+    }
+
+    var frameCount = 0;
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      frameCount++;
+      if (mx > 0 && frameCount % 2 === 0) spawnSpark();
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.12; // gravity
+        p.life++;
+        var alpha = 0.7 * (1 - p.life / p.maxLife);
+        ctx.globalAlpha = Math.max(0, alpha);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        if (p.life >= p.maxLife) particles.splice(i, 1);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
 
   <script>
   /* ═══════════════════════════════════════════════

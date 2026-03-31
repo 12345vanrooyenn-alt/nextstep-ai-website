@@ -23,6 +23,16 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
   <style>
+    /* ─── Reading progress bar ─── */
+    .cs-read-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #0ea5e9, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s linear;
+    }
     /* ─── Case study page styles ─── */
     .cs-hero {
       background: var(--ink);
@@ -430,6 +440,8 @@
   </style>
 </head>
 <body>
+
+  <div id="csReadProgress" class="cs-read-progress"></div>
 
   <!-- NAV -->
   <nav class="nav nav-scrolled" id="nav">
@@ -968,5 +980,11 @@
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
 <script src="transitions.js"></script>
+  <script>
+  window.addEventListener('scroll', function() {
+    var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('csReadProgress').style.width = Math.min(pct,100) + '%';
+  }, {passive:true});
+  </script>
 </body>
 </html>

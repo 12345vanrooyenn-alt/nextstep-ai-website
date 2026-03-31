@@ -1,0 +1,12 @@
+{
+  "name": "Nextstep AI",
+  "short_name": "Nextstep AI",
+  "description": "AI workflow automation for e-commerce clothing brands",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060c1a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
