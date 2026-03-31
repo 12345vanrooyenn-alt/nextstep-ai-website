@@ -2961,53 +2961,6 @@
        Parallax, Cursor Trail, Leak Calc, Nav Sticky CTA
   ═══════════════════════════════════════════════ -->
   <script>
-  /* ─── 1. TEXT SCRAMBLE ─── */
-  (function initScramble() {
-    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$';
-    var WORD_DUR = 600;
-    var STAGGER  = 80;
-
-    function scrambleEl(el) {
-      var words = el.textContent.trim().split(/\s+/);
-      el.innerHTML = words.map(function(w) {
-        return '<span class="sc-word" data-target="' + w + '">' + w + '</span>';
-      }).join(' ');
-      el.querySelectorAll('.sc-word').forEach(function(span, i) {
-        setTimeout(function() {
-          var target = span.dataset.target;
-          var start = performance.now();
-          (function tick(now) {
-            var p = Math.min((now - start) / WORD_DUR, 1);
-            if (p < 1) {
-              var scrambled = target.split('').map(function(ch) {
-                if (Math.random() < p) return ch;
-                return CHARS[Math.floor(Math.random() * CHARS.length)];
-              }).join('');
-              span.textContent = scrambled;
-              requestAnimationFrame(tick);
-            } else {
-              span.textContent = target;
-            }
-          })(performance.now());
-        }, i * STAGGER);
-      });
-    }
-
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting && !e.target.dataset.scrambled) {
-          e.target.dataset.scrambled = '1';
-          scrambleEl(e.target);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.section-title, .section-title-light').forEach(function(el) {
-      if (!el.closest('.hero')) io.observe(el);
-    });
-  })();
-
   /* ─── 2. WORD-BY-WORD TEXT REVEAL ─── */
   (function initWordReveal() {
     var io = new IntersectionObserver(function(entries) {
