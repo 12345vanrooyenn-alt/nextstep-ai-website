@@ -5775,3 +5775,333 @@ details.faq-item[open] .faq-chevron svg {
   color: #fff;
   border-color: var(--sky);
 }
+
+/* ═══════════════════════════════════════════════
+   75. TECH STACK SECTION
+═══════════════════════════════════════════════ */
+.tech-stack-section {
+  background: var(--navy);
+  text-align: center;
+}
+.tech-stack-section .section-sub {
+  margin: 0 auto var(--sp-lg);
+}
+.tech-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}
+.tech-node {
+  text-align: center;
+  width: 130px;
+  flex-shrink: 0;
+}
+.tech-node-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+.tech-node:hover .tech-node-icon {
+  border-color: rgba(14,165,233,0.3);
+  background: rgba(14,165,233,0.06);
+}
+.tech-node-icon-main {
+  border-color: rgba(14,165,233,0.4) !important;
+  background: rgba(14,165,233,0.08) !important;
+  box-shadow: 0 0 24px rgba(14,165,233,0.15);
+}
+.tech-node-name {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.tech-node-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.4;
+}
+.tech-node-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sky);
+  background: rgba(14,165,233,0.12);
+  border: 1px solid rgba(14,165,233,0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-top: 8px;
+}
+.tech-flow-arrow {
+  flex: 1;
+  min-width: 32px;
+  max-width: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 2px;
+}
+.tfa-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(14,165,233,0.3), rgba(14,165,233,0.6), rgba(14,165,233,0.3));
+  animation: flowPulse 2s ease-in-out infinite;
+}
+.tfa-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: dotFlow 2s linear infinite;
+}
+@keyframes flowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes dotFlow {
+  0% { left: 0%; }
+  100% { left: 100%; }
+}
+.tech-stack-note {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 40px;
+}
+
+/* ═══════════════════════════════════════════════
+   76. VS COMPARISON TABLE
+═══════════════════════════════════════════════ */
+.vs-section {
+  background: var(--ink);
+}
+.vs-section .section-sub {
+  max-width: 560px;
+}
+.vs-table {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  margin-top: 48px;
+}
+.vs-table-header,
+.vs-row {
+  display: grid;
+  grid-template-columns: 220px repeat(4, 1fr);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.vs-row:last-child {
+  border-bottom: none;
+}
+.vs-row:nth-child(even) {
+  background: rgba(255,255,255,0.015);
+}
+.vs-table-header {
+  background: rgba(255,255,255,0.03);
+}
+.vs-col-label,
+.vs-col,
+.vs-row-label,
+.vs-cell {
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.vs-col-label {
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.vs-col {
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.vs-col:last-child {
+  border-right: none;
+}
+.vs-col-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+.vs-col-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sky);
+  margin-bottom: 4px;
+}
+.nextstep-col {
+  background: rgba(14,165,233,0.06);
+  border-left: 1px solid rgba(14,165,233,0.2);
+  border-right: 1px solid rgba(14,165,233,0.2) !important;
+}
+.vs-table-header .nextstep-col {
+  border-top: 2px solid var(--sky);
+}
+.nextstep-col .vs-col-name {
+  color: var(--sky);
+}
+.vs-row-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+}
+.vs-cell {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.vs-cell:last-child {
+  border-right: none;
+}
+.vs-win {
+  color: #4ade80;
+  font-weight: 600;
+}
+.vs-lose {
+  color: rgba(239,68,68,0.7);
+}
+.vs-muted {
+  color: rgba(255,255,255,0.25);
+  font-size: 13px;
+}
+.vs-row-cta {
+  background: rgba(255,255,255,0.02);
+}
+
+/* ═══════════════════════════════════════════════
+   77. SOCIAL PROOF WALL
+═══════════════════════════════════════════════ */
+.proof-wall-section {
+  background: var(--navy-2);
+}
+.proof-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.pw-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.pw-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(14,165,233,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.pw-card:hover {
+  border-color: rgba(14,165,233,0.2);
+  transform: translateY(-4px);
+  background: rgba(14,165,233,0.03);
+}
+.pw-card:hover::before {
+  opacity: 1;
+}
+.pw-flag {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 14px;
+}
+.pw-result {
+  font-family: var(--font-head);
+  font-size: 34px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--sky) 0%, var(--blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.pw-period {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 14px;
+}
+.pw-brand {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 10px;
+}
+.pw-system {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sky);
+  background: rgba(14,165,233,0.08);
+  border: 1px solid rgba(14,165,233,0.18);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.proof-wall-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ═══════════════════════════════════════════════
+   78. RESPONSIVE — NEW SECTIONS
+═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .tech-flow {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .tech-flow-arrow {
+    display: none;
+  }
+  .tech-node {
+    width: 100%;
+    max-width: 200px;
+  }
+  .vs-table-header,
+  .vs-row {
+    grid-template-columns: 140px repeat(4, 1fr);
+    min-width: 640px;
+  }
+  .proof-wall-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .proof-wall-grid {
+    grid-template-columns: 1fr;
+  }
+}

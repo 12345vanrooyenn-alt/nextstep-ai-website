@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <title>Book a Free Strategy Call — Nextstep AI</title>
+  <meta name="description" content="Book a free 30-minute strategy call with Nextstep AI. We'll review your brand, find your biggest revenue leaks, and tell you exactly what to build first." />
+  <meta property="og:title" content="Book a Free Strategy Call — Nextstep AI" />
+  <meta property="og:description" content="30 minutes. A clear plan. We review your brand, identify revenue leaks, and tell you exactly what AI automation to build first." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/book.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a Free Strategy Call — Nextstep AI" />
+  <meta name="twitter:description" content="30 minutes. A clear plan. We review your brand, identify revenue leaks, and tell you exactly what to build first." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <style>
+    /* ─── Book page specific styles ─── */
+    .book-hero {
+      background: var(--ink);
+      padding: calc(72px + 80px) 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 30%;
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .book-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .book-hero-left h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .book-hero-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+    }
+    .book-trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .book-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+    .book-badge::before {
+      content: '✓';
+      color: var(--sky);
+      font-size: 11px;
+    }
+    .book-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .book-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .book-bullet-icon {
+      width: 22px;
+      height: 22px;
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .book-bullet-icon svg { display: block; }
+    .book-hero-right {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .book-calendly-wrap {
+      padding: 4px;
+    }
+
+    /* What to expect strip */
+    .book-expect-section {
+      padding: 80px 0;
+      background: var(--navy);
+    }
+    .book-expect-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .book-expect-step {
+      text-align: center;
+      padding: 36px 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      position: relative;
+    }
+    .book-step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.25);
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .book-step-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .book-step-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* Trust bar */
+    .book-trust-bar {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .book-trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .btb-item {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btb-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.5);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .book-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .book-expect-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs>
+            <linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7dd3fc"/>
+              <stop offset="100%" stop-color="#0ea5e9"/>
+            </linearGradient>
+          </defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html#services">Services</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO — 2-column
+  ═══════════════════════════════════════════════ -->
+  <section class="book-hero">
+    <div class="container">
+      <div class="book-hero-grid">
+
+        <!-- Left column -->
+        <div class="book-hero-left">
+          <div class="section-label reveal">Book a Call</div>
+          <h1 class="reveal">30 Minutes. <span class="text-blue">A Clear Plan.</span></h1>
+          <p class="book-hero-sub reveal">On this call, we walk through your brand, identify your biggest revenue leaks, and tell you exactly what we'd build first — and what it would likely recover. No pressure. No pitch. Just clarity.</p>
+          <div class="book-trust-badges reveal">
+            <span class="book-badge">Free</span>
+            <span class="book-badge">30 minutes</span>
+            <span class="book-badge">No commitment</span>
+            <span class="book-badge">You'll leave with a plan</span>
+          </div>
+          <ul class="book-bullets reveal">
+            <li>
+              <span class="book-bullet-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              We review your Instagram and store before the call
+            </li>
+            <li>
+              <span class="book-bullet-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              You get a personalised automation roadmap
+            </li>
+            <li>
+              <span class="book-bullet-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              We tell you exactly what your first workflow should be
+            </li>
+            <li>
+              <span class="book-bullet-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Zero pressure — if it's not a fit, we'll tell you
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right column — Calendly -->
+        <div class="book-hero-right reveal">
+          <div class="book-calendly-wrap">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/12345vanrooyenn/30min?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WHAT TO EXPECT
+  ═══════════════════════════════════════════════ -->
+  <section class="book-expect-section">
+    <div class="container">
+      <div class="section-label reveal">What to Expect</div>
+      <h2 class="section-title reveal">Three steps. <span class="text-blue">Complete clarity.</span></h2>
+      <div class="book-expect-grid">
+
+        <div class="book-expect-step reveal">
+          <div class="book-step-num">1</div>
+          <div class="book-step-title">We prep before you arrive</div>
+          <p class="book-step-desc">Before the call, we audit your store, review your Instagram, and identify where you're losing the most revenue. You don't need to prepare anything.</p>
+        </div>
+
+        <div class="book-expect-step reveal reveal-delay-1">
+          <div class="book-step-num">2</div>
+          <div class="book-step-title">30-minute strategy session</div>
+          <p class="book-step-desc">We walk through what we found, show you the exact workflows we'd build, and give you a clear picture of the revenue opportunity sitting on the table.</p>
+        </div>
+
+        <div class="book-expect-step reveal reveal-delay-2">
+          <div class="book-step-num">3</div>
+          <div class="book-step-title">You leave with a clear plan</div>
+          <p class="book-step-desc">Whether you work with us or not, you'll leave the call knowing exactly what to build, in what order, and what results to expect. No fluff. Just the plan.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TRUST BAR
+  ═══════════════════════════════════════════════ -->
+  <section class="book-trust-bar">
+    <div class="container">
+      <div class="book-trust-bar-inner">
+        <div class="btb-item"><span class="btb-dot"></span>n8n Powered</div>
+        <div class="btb-item"><span class="btb-dot"></span>GPT-4o</div>
+        <div class="btb-item"><span class="btb-dot"></span>Shopify Compatible</div>
+        <div class="btb-item"><span class="btb-dot"></span>8+ Countries</div>
+        <div class="btb-item"><span class="btb-dot"></span>7-Day Delivery</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+          <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">AI Systems That Recover Lost Revenue</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="index.html#services">Cart Recovery</a>
+          <a href="index.html#services">DM Automation</a>
+          <a href="index.html#services">Reactivation</a>
+          <a href="index.html#services">Support Automation</a>
+          <a href="index.html#services">Owner Dashboards</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="results.html">All Results</a>
+          <a href="case-study.html" target="_blank">Case Study</a>
+          <a href="blog.html">Blog</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get Started</h5>
+          <a href="qualify.html" target="_blank">Free Brand Audit</a>
+          <a href="book.html">Book a Strategy Call</a>
+          <a href="index.html#pricing">View Pricing</a>
+          <a href="index.html#fit">Is This For Me?</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
+          <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
+          <a href="index.html#contact">All Contact Options</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="legal.html#privacy">Privacy Policy</a>
+          <a href="legal.html#terms">Terms of Service</a>
+          <span>nextstepai.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => { mobile.classList.toggle('open'); toggle.classList.toggle('active'); });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script src="transitions.js"></script>
+  <script src="whatsapp.js"></script>
+  <script src="cookie.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>

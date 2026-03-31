@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <title>Client Results — What Happens When You Run AI Automation | Nextstep AI</title>
+  <meta name="description" content="Real results from real clothing brands. See what happens when AI automation runs inside your store — cart recovery, DM automation, reactivation, and more." />
+  <meta property="og:title" content="Client Results — What Happens When You Run AI Automation | Nextstep AI" />
+  <meta property="og:description" content="Real results from real clothing brands. See what happens when AI automation runs inside your store — cart recovery, DM automation, reactivation, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/results.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Client Results — What Happens When You Run AI Automation | Nextstep AI" />
+  <meta name="twitter:description" content="Real results from real clothing brands. See what happens when AI automation runs inside your store." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <style>
+    /* ─── Results page specific styles ─── */
+    .results-hero {
+      background: var(--ink);
+      padding: calc(72px + 100px) 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .results-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%; transform: translateX(-50%);
+      width: 1200px; height: 700px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .results-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .results-hero-sub {
+      font-size: 19px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+    .results-hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    /* Stat strip */
+    .results-stat-strip {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .rss-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 24px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .rss-item:last-child { border-right: none; }
+    .rss-num {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--sky);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .rss-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+
+    /* Featured case study */
+    .featured-cs-section {
+      padding: var(--sp-2xl) 0 var(--sp-lg);
+    }
+    .featured-cs-card {
+      background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(11,25,44,0.95) 60%);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 24px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-cs-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .featured-cs-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .featured-cs-brand-badge {
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 12px;
+      padding: 16px 24px;
+      flex-shrink: 0;
+    }
+    .fcbb-flag { font-size: 28px; display: block; margin-bottom: 8px; }
+    .fcbb-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: #fff; }
+    .fcbb-loc { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+    .fcbb-type { font-size: 11px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+    .featured-cs-headline {
+      flex: 1;
+    }
+    .featured-cs-headline h3 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .featured-cs-result {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+    .featured-cs-metrics {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+    .fcm-item {
+      flex: 1;
+      min-width: 120px;
+      padding: 20px 16px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .fcm-item:last-child { border-right: none; }
+    .fcm-num {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--sky);
+      display: block;
+    }
+    .fcm-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .featured-cs-body {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+    }
+    .what-we-built h4 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .what-we-built ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .what-we-built li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+    }
+    .what-we-built li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--sky);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .featured-cs-cta-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 180px;
+    }
+
+    /* Results grid */
+    .results-grid-section {
+      padding: var(--sp-xl) 0;
+      background: var(--navy);
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .result-win-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-win-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sky), var(--blue-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .result-win-card:hover {
+      border-color: rgba(14,165,233,0.25);
+      transform: translateY(-4px);
+      background: rgba(14,165,233,0.04);
+    }
+    .result-win-card:hover::before { opacity: 1; }
+    .rwc-flag { font-size: 24px; margin-bottom: 12px; display: block; }
+    .rwc-brand { font-family: var(--font-head); font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .rwc-location { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .rwc-result {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--sky) 0%, var(--blue-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .rwc-period { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .rwc-workflow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sky);
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    /* How numbers happen */
+    .how-numbers-section {
+      padding: var(--sp-2xl) 0;
+    }
+    .how-numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .how-num-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .how-num-card:hover {
+      border-color: rgba(14,165,233,0.2);
+      transform: translateY(-3px);
+    }
+    .how-num-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .how-num-title {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .how-num-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .how-num-metric {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sky);
+    }
+
+    /* Results CTA */
+    .results-final-cta {
+      padding: var(--sp-2xl) 0;
+      background: var(--navy);
+      text-align: center;
+    }
+    .results-final-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .results-final-cta p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 768px) {
+      .featured-cs-card { padding: 28px 20px; }
+      .featured-cs-top { flex-direction: column; }
+      .featured-cs-body { grid-template-columns: 1fr; }
+      .featured-cs-cta-col { flex-direction: row; flex-wrap: wrap; }
+      .featured-cs-metrics { flex-direction: column; }
+      .fcm-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .fcm-item:last-child { border-bottom: none; }
+      .results-grid { grid-template-columns: 1fr; }
+      .how-numbers-grid { grid-template-columns: 1fr; }
+      .results-stat-strip { flex-direction: column; }
+      .rss-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .rss-item:last-child { border-bottom: none; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs>
+            <linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7dd3fc"/>
+              <stop offset="100%" stop-color="#0ea5e9"/>
+            </linearGradient>
+          </defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="results.html" class="active">Results</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html#services">Services</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary">Get Free Audit</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="results-hero">
+    <div class="container">
+      <div class="section-label reveal">Real Results</div>
+      <h1 class="reveal">These Brands Stopped <span class="text-blue">Losing Revenue.</span></h1>
+      <p class="results-hero-sub reveal">Below are real outcomes from brands that plugged in the Nextstep AI system. No fluff, no projections — just what actually happened.</p>
+      <div class="results-hero-ctas reveal">
+        <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
+          Get Your Free Audit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="index.html#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <div class="results-stat-strip reveal">
+        <div class="rss-item">
+          <span class="rss-num">$2,028</span>
+          <span class="rss-label">recovered in 2 weeks</span>
+        </div>
+        <div class="rss-item">
+          <span class="rss-num">36</span>
+          <span class="rss-label">orders in 2 weeks</span>
+        </div>
+        <div class="rss-item">
+          <span class="rss-num">260%</span>
+          <span class="rss-label">order growth</span>
+        </div>
+        <div class="rss-item">
+          <span class="rss-num">199%</span>
+          <span class="rss-label">conversion lift</span>
+        </div>
+        <div class="rss-item">
+          <span class="rss-num">7 days</span>
+          <span class="rss-label">avg to live</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURED CASE STUDY
+  ═══════════════════════════════════════════════ -->
+  <section class="featured-cs-section">
+    <div class="container">
+      <div class="section-label reveal">Featured Case Study</div>
+      <h2 class="section-title reveal">The Result That Started <span class="text-blue">Everything.</span></h2>
+      <div class="featured-cs-card reveal">
+        <div class="featured-cs-top">
+          <div class="featured-cs-brand-badge">
+            <span class="fcbb-flag">🇺🇸</span>
+            <div class="fcbb-name">Velour Fits</div>
+            <div class="fcbb-loc">United States</div>
+            <div class="fcbb-type">Clothing Brand</div>
+          </div>
+          <div class="featured-cs-headline">
+            <h3>The Result: $2,028 recovered in 14 days with zero paid ads</h3>
+            <p class="featured-cs-result">A low-traffic clothing brand with no existing automation. We turned on the Nextstep AI system and let it run. The numbers speak for themselves.</p>
+          </div>
+        </div>
+        <div class="featured-cs-metrics">
+          <div class="fcm-item">
+            <span class="fcm-num">$2,028</span>
+            <div class="fcm-label">Total Sales</div>
+          </div>
+          <div class="fcm-item">
+            <span class="fcm-num">36</span>
+            <div class="fcm-label">Orders</div>
+          </div>
+          <div class="fcm-item">
+            <span class="fcm-num">↑253%</span>
+            <div class="fcm-label">Sales Growth</div>
+          </div>
+          <div class="fcm-item">
+            <span class="fcm-num">↑260%</span>
+            <div class="fcm-label">Order Growth</div>
+          </div>
+          <div class="fcm-item">
+            <span class="fcm-num">↑199%</span>
+            <div class="fcm-label">Conversion Rate</div>
+          </div>
+        </div>
+        <div class="featured-cs-body">
+          <div class="what-we-built">
+            <h4>What We Built</h4>
+            <ul>
+              <li>Cart abandonment recovery (3-step email sequence)</li>
+              <li>Instagram DM automation</li>
+              <li>Buyer reactivation flow</li>
+              <li>Purchase gate (stops emails on conversion)</li>
+            </ul>
+          </div>
+          <div class="featured-cs-cta-col">
+            <a href="case-study.html" target="_blank" class="btn btn-primary btn-md">Read Full Case Study →</a>
+            <a href="qualify.html" target="_blank" class="btn btn-ghost btn-md">Get This for My Brand</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       RESULTS GRID
+  ═══════════════════════════════════════════════ -->
+  <section class="results-grid-section">
+    <div class="container">
+      <div class="section-label reveal">More Wins</div>
+      <h2 class="section-title reveal">Results From Brands <span class="text-blue">Across the Globe.</span></h2>
+      <p class="section-sub reveal">Every brand below runs on the same core system — custom-built for their store in under 7 days.</p>
+      <div class="results-grid">
+
+        <div class="result-win-card reveal">
+          <span class="rwc-flag">🇬🇧</span>
+          <div class="rwc-brand">Arch Streetwear</div>
+          <div class="rwc-location">London, United Kingdom</div>
+          <div class="rwc-result">+$1,800</div>
+          <div class="rwc-period">recovered in 3 weeks</div>
+          <span class="rwc-workflow">Cart Recovery System</span>
+        </div>
+
+        <div class="result-win-card reveal reveal-delay-1">
+          <span class="rwc-flag">🇦🇪</span>
+          <div class="rwc-brand">Vyne Women's</div>
+          <div class="rwc-location">Dubai, UAE</div>
+          <div class="rwc-result">8% → 31%</div>
+          <div class="rwc-period">DM response rate</div>
+          <span class="rwc-workflow">Instagram DM Automation</span>
+        </div>
+
+        <div class="result-win-card reveal reveal-delay-2">
+          <span class="rwc-flag">🇿🇦</span>
+          <div class="rwc-brand">Luca Menswear</div>
+          <div class="rwc-location">Cape Town, South Africa</div>
+          <div class="rwc-result">15+ hrs</div>
+          <div class="rwc-period">saved per week</div>
+          <span class="rwc-workflow">Support + DM Automation</span>
+        </div>
+
+        <div class="result-win-card reveal">
+          <span class="rwc-flag">🇳🇬</span>
+          <div class="rwc-brand">Aisha Athleisure</div>
+          <div class="rwc-location">Lagos, Nigeria</div>
+          <div class="rwc-result">↑260%</div>
+          <div class="rwc-period">cart recovery rate</div>
+          <span class="rwc-workflow">Full Cart System</span>
+        </div>
+
+        <div class="result-win-card reveal reveal-delay-1">
+          <span class="rwc-flag">🇳🇱</span>
+          <div class="rwc-brand">Mia Boutique</div>
+          <div class="rwc-location">Amsterdam, Netherlands</div>
+          <div class="rwc-result">$940</div>
+          <div class="rwc-period">recovered in first week</div>
+          <span class="rwc-workflow">Cart + Reactivation</span>
+        </div>
+
+        <div class="result-win-card reveal reveal-delay-2">
+          <span class="rwc-flag">🇸🇦</span>
+          <div class="rwc-brand">Tariq Streetwear</div>
+          <div class="rwc-location">Riyadh, Saudi Arabia</div>
+          <div class="rwc-result">48 buyers</div>
+          <div class="rwc-period">reactivated in 30 days</div>
+          <span class="rwc-workflow">Reactivation Flow</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       HOW THESE NUMBERS HAPPEN
+  ═══════════════════════════════════════════════ -->
+  <section class="how-numbers-section">
+    <div class="container">
+      <div class="section-label reveal">The Systems Behind the Numbers</div>
+      <h2 class="section-title reveal">How These <span class="text-blue">Numbers Happen.</span></h2>
+      <p class="section-sub reveal">Three core systems power every result above. They run 24/7, automatically, without you touching anything.</p>
+      <div class="how-numbers-grid">
+
+        <div class="how-num-card reveal">
+          <div class="how-num-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M6 10l5.5 1.5L14 5l2.5 6.5L22 10l-4.5 4.5 1.5 6-5-3-5 3 1.5-6z" stroke="#0ea5e9" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="how-num-title">Cart Recovery System</div>
+          <p class="how-num-desc">A 3-step automated sequence fires the moment someone abandons their cart — personalised by AI, timed precisely, and stops automatically the second they buy.</p>
+          <div class="how-num-metric">Recovers 8–15% of abandoned carts on average</div>
+        </div>
+
+        <div class="how-num-card reveal reveal-delay-1">
+          <div class="how-num-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M25 14c0 5.52-4.9 10-11 10a10.97 10.97 0 01-5.5-1.46L3 24l1.46-5.5A9.93 9.93 0 013 14C3 8.48 7.9 4 14 4s11 4.48 11 10z" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14h.01M14 14h.01M18 14h.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="how-num-title">DM Automation</div>
+          <p class="how-num-desc">Your Instagram DMs are answered 24/7 by an AI that qualifies leads, answers product questions, and drives people to checkout — while you sleep.</p>
+          <div class="how-num-metric">Brands see 3–5× improvement in DM-to-sale conversion</div>
+        </div>
+
+        <div class="how-num-card reveal reveal-delay-2">
+          <div class="how-num-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 4l2.5 7.5H24l-6.5 4.5 2.5 7.5L14 19l-6 4.5 2.5-7.5L4 11.5h7.5z" stroke="#0ea5e9" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="how-num-title">Buyer Reactivation</div>
+          <p class="how-num-desc">Past buyers who've gone quiet get a perfectly timed, AI-personalised reactivation sequence that brings them back without manual outreach from you.</p>
+          <div class="how-num-metric">30–50% of reactivated buyers place a second order</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="results-final-cta">
+    <div class="container">
+      <div class="section-label reveal" style="margin:0 auto 20px;">Your Turn</div>
+      <h2 class="reveal">Your brand's results <span class="text-blue">start here.</span></h2>
+      <p class="reveal">We'll audit your store, identify your biggest revenue leaks, and tell you exactly what to build first — free, in under 48 hours.</p>
+      <div class="reveal">
+        <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
+          Get Your Free Brand Audit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p style="margin-top:20px;font-size:14px;color:rgba(255,255,255,0.3);">Free · 48-hour turnaround · No commitment required</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+          <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">AI Systems That Recover Lost Revenue</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="index.html#services">Cart Recovery</a>
+          <a href="index.html#services">DM Automation</a>
+          <a href="index.html#services">Reactivation</a>
+          <a href="index.html#services">Support Automation</a>
+          <a href="index.html#services">Owner Dashboards</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="results.html">All Results</a>
+          <a href="case-study.html" target="_blank">Case Study</a>
+          <a href="blog.html">Blog</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get Started</h5>
+          <a href="qualify.html" target="_blank">Free Brand Audit</a>
+          <a href="book.html">Book a Strategy Call</a>
+          <a href="index.html#pricing">View Pricing</a>
+          <a href="index.html#fit">Is This For Me?</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
+          <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
+          <a href="index.html#contact">All Contact Options</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="legal.html#privacy">Privacy Policy</a>
+          <a href="legal.html#terms">Terms of Service</a>
+          <span>nextstepai.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 20));
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => { mobile.classList.toggle('open'); toggle.classList.toggle('active'); });
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script src="transitions.js"></script>
+  <script src="whatsapp.js"></script>
+  <script src="cookie.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
