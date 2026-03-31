@@ -3,7 +3,6 @@
 
 var CACHE_NAME = 'nextstep-ai-v1';
 var ASSETS = [
-  '/',
   '/index.html',
   '/styles.css',
   '/animations.js',
@@ -20,7 +19,7 @@ self.addEventListener('install', function(e) {
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(ASSETS);
     }).catch(function() {
-      // Cache failed — non-critical, page still loads from network
+      // Cache failed — non-critical
     })
   );
 });
@@ -39,34 +38,42 @@ self.addEventListener('activate', function(e) {
   );
 });
 
-// Fetch — cache first, fall back to network
+// Fetch — only intercept same-origin GET requests; let everything else pass through
 self.addEventListener('fetch', function(e) {
-  // Only handle GET requests for same-origin resources
   if (e.request.method !== 'GET') return;
-  var url = new URL(e.request.url);
-  if (url.origin !== location.origin) return;
+
+  var url;
+  try { url = new URL(e.request.url); } catch(err) { return; }
+
+  // Do NOT intercept cross-origin requests (fonts, GTM, Calendly, YouTube, etc.)
+  if (url.origin !== self.location.origin) return;
 
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       if (cached) return cached;
       return fetch(e.request).then(function(response) {
-        // Cache successful HTML/CSS/JS responses
+        // Only cache successful same-origin HTML/CSS/JS
         if (response && response.status === 200) {
           var ct = response.headers.get('content-type') || '';
           if (ct.includes('text/html') || ct.includes('text/css') || ct.includes('javascript')) {
             var clone = response.clone();
             caches.open(CACHE_NAME).then(function(cache) {
               cache.put(e.request, clone);
-            });
+            }).catch(function() {});
           }
         }
         return response;
+      }).catch(function() {
+        // Network failed — return cached index.html for HTML navigations
+        var accept = e.request.headers.get('accept') || '';
+        if (accept.includes('text/html')) {
+          return caches.match('/index.html').then(function(r) {
+            return r || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
+          });
+        }
+        // For other assets offline, return a 503 rather than undefined
+        return new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
       });
-    }).catch(function() {
-      // Offline fallback for HTML pages
-      if (e.request.headers.get('accept') && e.request.headers.get('accept').includes('text/html')) {
-        return caches.match('/index.html');
-      }
     })
   );
 });
