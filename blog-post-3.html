@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#060c1a" />
-  <title>The $2,028 Cart Recovery Playbook — Nextstep AI Blog</title>
-  <meta name="description" content="How we recovered $2,028 for a low-traffic clothing brand in 14 days with a 3-step AI cart recovery system. No paid ads. No extra traffic. Just automation." />
-  <meta property="og:title" content="The $2,028 Cart Recovery Playbook | Nextstep AI" />
-  <meta property="og:description" content="How we recovered $2,028 for a clothing brand in 14 days — with zero paid ads and a fully automated 3-step cart recovery system." />
+  <title>Why Most Klaviyo Flows Fail for Clothing Brands | Nextstep AI</title>
+  <meta name="description" content="Generic Klaviyo cart abandonment flows get 8% recovery. Nextstep AI's AI-augmented version gets 35–40%. Here's the exact difference." />
+  <meta property="og:title" content="Why Most Klaviyo Flows Fail for Clothing Brands | Nextstep AI" />
+  <meta property="og:description" content="Generic Klaviyo cart abandonment flows get 8% recovery. Nextstep AI's AI-augmented version gets 35–40%. Here's the exact difference." />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://nextstepai.com/blog-post-1.html" />
+  <meta property="og:url" content="https://nextstepai.com/blog-post-3.html" />
   <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The $2,028 Cart Recovery Playbook | Nextstep AI" />
-  <meta name="twitter:description" content="How we recovered $2,028 for a clothing brand in 14 days with zero paid ads." />
+  <meta name="twitter:title" content="Why Most Klaviyo Flows Fail for Clothing Brands | Nextstep AI" />
+  <meta name="twitter:description" content="Generic Klaviyo cart abandonment flows get 8% recovery. Nextstep AI's AI-augmented version gets 35–40%. Here's the exact difference." />
   <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
@@ -182,6 +182,43 @@
       border-radius: 50%;
       background: var(--sky);
     }
+    .bp-article ol {
+      padding: 0;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      list-style: none;
+      counter-reset: bp-counter;
+    }
+    .bp-article ol li {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      padding-left: 36px;
+      position: relative;
+      counter-increment: bp-counter;
+    }
+    .bp-article ol li::before {
+      content: counter(bp-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid rgba(14,165,233,0.25);
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 24px;
+      text-align: center;
+    }
     .bp-stat-callout {
       background: rgba(14,165,233,0.07);
       border: 1px solid rgba(14,165,233,0.2);
@@ -201,31 +238,6 @@
     .bp-stat-callout .bsc-label {
       font-size: 14px;
       color: rgba(255,255,255,0.5);
-    }
-    .bp-results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 28px 0;
-    }
-    .bp-result-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 20px 16px;
-      text-align: center;
-    }
-    .bp-result-num {
-      font-family: var(--font-head);
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--sky);
-      display: block;
-    }
-    .bp-result-lbl {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      margin-top: 4px;
     }
     .bp-sequence {
       background: rgba(255,255,255,0.02);
@@ -272,6 +284,41 @@
       color: var(--sky);
       margin-top: 6px;
     }
+    .cs-callout {
+      background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(124,58,237,0.08));
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 28px 0;
+    }
+    .cs-callout-stat {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .cs-callout-stat span {
+      color: var(--sky);
+    }
+    .cs-callout p {
+      font-size: 15px !important;
+      color: rgba(255,255,255,0.5) !important;
+      margin-bottom: 16px !important;
+      line-height: 1.6 !important;
+    }
+    .cs-callout a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--sky);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .cs-callout a:hover { gap: 10px; }
     .bp-article-cta {
       background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(11,25,44,0.9));
       border: 1px solid rgba(14,165,233,0.25);
@@ -373,10 +420,6 @@
     @media (max-width: 900px) {
       .bp-layout { grid-template-columns: 1fr; }
       .bp-sidebar { position: static; }
-      .bp-results-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .bp-results-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -441,11 +484,10 @@
         <span>›</span>
         <a href="blog.html">Blog</a>
         <span>›</span>
-        <span style="color:rgba(255,255,255,0.5)">Cart Recovery</span>
+        <span style="color:rgba(255,255,255,0.5)">Email Automation</span>
       </nav>
-      <div class="bp-hero-tag">Cart Recovery · Case Study</div>
-      <h1>The $2,028 Cart Recovery Playbook</h1>
-      <p class="bp-hero-subtitle">How We Recovered Lost Revenue for a Clothing Brand in 14 Days</p>
+      <div class="bp-hero-tag">Email Automation</div>
+      <h1>Why Most Klaviyo Flows Fail (And What We Do Differently for Clothing Brands)</h1>
       <div class="bp-hero-meta">
         <div class="bp-meta-author">
           <div class="bp-author-img">
@@ -454,7 +496,7 @@
           <span class="bp-author-name">Caleb van Rooyen</span>
         </div>
         <span class="bp-meta-divider">·</span>
-        <span class="bp-meta-item">8 min read</span>
+        <span class="bp-meta-item">7 min read</span>
         <span class="bp-meta-divider">·</span>
         <span class="bp-meta-item">March 2026</span>
       </div>
@@ -469,136 +511,78 @@
     <!-- Main article -->
     <article class="bp-article" id="bp-article">
 
-      <p>Most clothing brand owners assume cart abandonment is just a cost of doing business online. Somebody fills their basket, gets distracted, and disappears — and that's that. You've already paid to get them there. You're not getting them back.</p>
+      <p>Klaviyo is the most powerful email tool most clothing brands have — and the most underused. The average brand sets up a cart abandonment flow once, never touches it again, and wonders why they're only seeing 8–12% recovery. The ceiling is 35–40%. Here's why they're leaving that gap open.</p>
 
-      <p><strong>We disagree.</strong> And the $2,028 sitting in this brand's Shopify dashboard — generated in 14 days without a single paid ad — makes our case better than we ever could.</p>
+      <h2 id="section-failure-points">The 3 Failure Points We See in Every Audit</h2>
 
-      <h2 id="section-setup">The Setup</h2>
+      <ol>
+        <li><strong>Timing is wrong.</strong> Most brands send email #1 at 30 minutes — too early. The optimal window is 1 hour. Email 2 at 24 hours, email 3 at 72 hours.</li>
+        <li><strong>Generic copy.</strong> "You left something behind 👀" is tired. A subject line with the customer's first name and the actual product name outperforms generic every time.</li>
+        <li><strong>No segmentation.</strong> A VIP customer who's bought 5 times should never see the same message as a first-time visitor.</li>
+      </ol>
 
-      <p>Velour Fits is a US-based clothing brand running on Shopify. They had a real product people liked, decent organic traffic from Instagram, and a loyal base of past buyers. What they didn't have was any automation. No cart recovery sequence. No DM follow-up system. No past-buyer reactivation. Every sale was manual. Every abandoned cart was lost forever.</p>
+      <h2 id="section-architecture">The Nextstep AI Flow Architecture</h2>
 
-      <p>When we first audited their store, the numbers were familiar. Roughly 68% of carts were being abandoned — close to the industry average. Their conversion rate was sitting below 1.5%. And they had a list of past buyers who hadn't been contacted in months. Thousands of dollars in recoverable revenue, sitting completely untouched.</p>
-
-      <p>The store wasn't broken. It just had no system keeping money from walking out the door.</p>
-
-      <h2 id="section-what-we-built">What We Built</h2>
-
-      <p>We deployed the Nextstep AI core system: a 3-step cart recovery sequence powered by n8n and GPT-4o, an Instagram DM automation layer, and a buyer reactivation flow for the cold past-buyer list.</p>
-
-      <p>The whole stack was live in under 7 days. Here's what each piece does:</p>
-
-      <ul>
-        <li><strong>Cart abandonment recovery:</strong> A 3-email AI-personalised sequence fires automatically every time someone leaves without buying. The emails reference the exact products they left behind.</li>
-        <li><strong>Instagram DM automation:</strong> Every DM that comes in gets an intelligent, personalised reply — qualified, answered, and directed toward checkout without manual input.</li>
-        <li><strong>Buyer reactivation flow:</strong> Past buyers who hadn't purchased in 60+ days received a re-engagement sequence built around their previous purchase history.</li>
-        <li><strong>Purchase gate:</strong> The moment someone converts, all active sequences stop immediately — no awkward follow-ups after the sale is done.</li>
-      </ul>
-
-      <div class="bp-stat-callout">
-        <div class="bsc-num">$0</div>
-        <div class="bsc-label">Paid ad spend during the 14-day window. Every dollar recovered came from the automation system alone.</div>
-      </div>
-
-      <h2 id="section-results">The Results</h2>
-
-      <p>After 14 days, we pulled the numbers. Here's what the system generated:</p>
-
-      <div class="bp-results-grid">
-        <div class="bp-result-item">
-          <span class="bp-result-num">$2,028</span>
-          <div class="bp-result-lbl">Total revenue</div>
-        </div>
-        <div class="bp-result-item">
-          <span class="bp-result-num">36</span>
-          <div class="bp-result-lbl">Orders placed</div>
-        </div>
-        <div class="bp-result-item">
-          <span class="bp-result-num">↑253%</span>
-          <div class="bp-result-lbl">Sales growth</div>
-        </div>
-        <div class="bp-result-item">
-          <span class="bp-result-num">↑260%</span>
-          <div class="bp-result-lbl">Order growth</div>
-        </div>
-        <div class="bp-result-item">
-          <span class="bp-result-num">↑199%</span>
-          <div class="bp-result-lbl">Conversion rate</div>
-        </div>
-        <div class="bp-result-item">
-          <span class="bp-result-num">14</span>
-          <div class="bp-result-lbl">Days to results</div>
-        </div>
-      </div>
-
-      <p>These aren't projections. These are Shopify dashboard numbers, taken directly from the 14-day window after the system went live and compared to the equivalent window before.</p>
-
-      <h2 id="section-how-it-works">How It Works Step by Step</h2>
-
-      <p>The cart recovery system is the engine. Here's the exact sequence we deployed:</p>
+      <p>Here's what we build instead.</p>
 
       <div class="bp-sequence">
         <div class="bp-seq-step">
-          <div class="bp-seq-num">T</div>
-          <div class="bp-seq-body">
-            <div class="bp-seq-title">Trigger: Cart Abandoned</div>
-            <div class="bp-seq-desc">Shopify fires a webhook the moment a cart is abandoned. n8n picks it up, pulls the cart contents, and kicks off the sequence.</div>
-            <div class="bp-seq-timing">Immediately</div>
-          </div>
-        </div>
-        <div class="bp-seq-step">
           <div class="bp-seq-num">1</div>
           <div class="bp-seq-body">
-            <div class="bp-seq-title">Email 1 — "You left something behind"</div>
-            <div class="bp-seq-desc">GPT-4o writes a short, warm reminder email personalised to the exact items in the cart. No generic templates. No awkward copy.</div>
+            <div class="bp-seq-title">Email 1 — AI-personalised subject line</div>
+            <div class="bp-seq-desc">GPT-4o writes a custom subject line using the exact product name and customer first name. Body is short — 3 sentences. No fluff.</div>
             <div class="bp-seq-timing">1 hour after abandonment</div>
           </div>
         </div>
         <div class="bp-seq-step">
           <div class="bp-seq-num">2</div>
           <div class="bp-seq-body">
-            <div class="bp-seq-title">Email 2 — Social proof + urgency</div>
-            <div class="bp-seq-desc">The second email introduces a touch of urgency around stock levels and includes social proof relevant to the product category. Still personalised by AI.</div>
+            <div class="bp-seq-title">Email 2 — Social proof injection</div>
+            <div class="bp-seq-desc">Pulls a review for the specific product left in cart. If no review exists, defaults to a brand testimonial. Still personalised to the item.</div>
             <div class="bp-seq-timing">24 hours after abandonment</div>
           </div>
         </div>
         <div class="bp-seq-step">
           <div class="bp-seq-num">3</div>
           <div class="bp-seq-body">
-            <div class="bp-seq-title">Email 3 — Final nudge</div>
-            <div class="bp-seq-desc">One final, low-pressure email. This is the last touchpoint before the sequence closes. Often where the conversion happens for high-intent buyers who just needed time.</div>
-            <div class="bp-seq-timing">48 hours after abandonment</div>
+            <div class="bp-seq-title">Email 3 — Urgency or soft offer</div>
+            <div class="bp-seq-desc">If low stock: says so. If not: soft discount offer, auto-expires in 48 hours. No evergreen fake urgency.</div>
+            <div class="bp-seq-timing">72 hours after abandonment</div>
           </div>
         </div>
         <div class="bp-seq-step">
-          <div class="bp-seq-num">✓</div>
+          <div class="bp-seq-num">SMS</div>
           <div class="bp-seq-body">
-            <div class="bp-seq-title">Purchase Gate — Sequence stops</div>
-            <div class="bp-seq-desc">The moment a purchase is confirmed, n8n cancels all pending emails for that shopper. No follow-ups after conversion. Clean, professional, no awkward double-sends.</div>
-            <div class="bp-seq-timing">Instantly on purchase</div>
+            <div class="bp-seq-title">SMS — Short, direct, single link (optional)</div>
+            <div class="bp-seq-desc">No images. No fluff. Just a personalised one-liner with a direct checkout link. Converts at 2× email on mobile.</div>
+            <div class="bp-seq-timing">4 hours after abandonment</div>
           </div>
         </div>
       </div>
 
-      <h2 id="section-who-it-works-for">Can This Work for Your Brand?</h2>
+      <h2 id="section-proof">The Velour Fits Proof</h2>
 
-      <p>This system works for clothing brands that have real traffic and real customers — even if those numbers aren't huge. You don't need 10,000 monthly visitors to see results. Velour Fits was a small brand with organic Instagram traffic and a modest customer list.</p>
+      <div class="cs-callout">
+        <div class="cs-callout-stat"><span>36 orders placed. $2,028 recovered.</span> 14 days.</div>
+        <p>No paid ads — just a rebuilt Klaviyo flow and an SMS sequence.</p>
+        <a href="case-study.html">Read the full case study →</a>
+      </div>
 
-      <p>The system works when:</p>
+      <h2 id="section-why-clothing">Why Clothing Brands Specifically?</h2>
 
       <ul>
-        <li>Your brand has a functional Shopify store with email capture at checkout</li>
-        <li>You're getting at least some traffic — even 500–1,000 monthly sessions is enough</li>
-        <li>You have a list of past buyers (even a small one) who haven't been reactivated</li>
-        <li>You want automation running within 7 days — not 7 weeks</li>
+        <li><strong>High AOV.</strong> At £80–£250 per order, even 5 recovered carts per month is significant revenue — the math compounds fast.</li>
+        <li><strong>Visual products.</strong> Email design and product imagery matter more in fashion than almost any other niche. A well-built flow shows the product, not just a link.</li>
+        <li><strong>Seasonal buying patterns.</strong> Flows need to adapt to product drops, sales events, and restocks automatically — static templates can't keep up.</li>
       </ul>
 
-      <p>If your brand ticks those boxes, the conversation is worth having. We'll audit your store first — no charge, no obligation — and tell you exactly what we'd build and what it would realistically recover for your specific numbers.</p>
+      <p>The question isn't whether your current Klaviyo setup is leaving money on the table. It almost certainly is. The question is how much. Get the free audit and find out in 24 hours.</p>
 
       <div class="bp-article-cta">
-        <h3>Get a Free Audit for Your Brand</h3>
-        <p>We'll review your store, identify your biggest revenue leaks, and tell you exactly what we'd build first — and what results to expect. Free, in under 48 hours.</p>
+        <h3>Get My Free Audit</h3>
+        <p>We'll review your flows, identify the exact gaps, and tell you what a rebuilt sequence would realistically recover for your numbers. Free, in under 24 hours.</p>
         <a href="qualify.html" target="_blank" class="btn btn-primary btn-md">
-          Get Your Free Brand Audit
+          Get My Free Audit →
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -620,10 +604,10 @@
 
       <!-- CTA card -->
       <div class="bp-sidebar-card bp-sidebar-cta-card">
-        <h4>Get this built for your brand</h4>
-        <p>We'll audit your store for free and tell you exactly what your first workflow should be — and what it would recover.</p>
+        <h4>Ready to fix your flows?</h4>
+        <p>We'll audit your Klaviyo setup for free and show you exactly what's being left on the table — and how to recover it.</p>
         <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">
-          Get Free Audit →
+          Start Free Audit
         </a>
       </div>
 
@@ -631,11 +615,10 @@
       <div class="bp-sidebar-card bp-nav-card">
         <h5>In this article</h5>
         <ul class="bp-nav-links">
-          <li><a href="#section-setup">The Setup</a></li>
-          <li><a href="#section-what-we-built">What We Built</a></li>
-          <li><a href="#section-results">The Results</a></li>
-          <li><a href="#section-how-it-works">How It Works Step by Step</a></li>
-          <li><a href="#section-who-it-works-for">Can This Work for Your Brand?</a></li>
+          <li><a href="#section-failure-points">The 3 Failure Points</a></li>
+          <li><a href="#section-architecture">The Nextstep AI Flow Architecture</a></li>
+          <li><a href="#section-proof">The Velour Fits Proof</a></li>
+          <li><a href="#section-why-clothing">Why Clothing Brands Specifically?</a></li>
         </ul>
       </div>
 

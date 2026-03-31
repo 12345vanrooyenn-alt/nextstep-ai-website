@@ -215,6 +215,13 @@
         <a href="#standard-vip">Standard VIP — from $3k</a>
         <a href="#ultimate-vip">Ultimate VIP — from $4k</a>
       </div>
+      <div class="pricing-toggle-wrap" style="margin-top:32px;">
+        <span class="pricing-toggle-label active" id="toggleLabelMonthly">Monthly</span>
+        <button class="pricing-toggle" id="pricingToggle" aria-label="Toggle billing period">
+          <div class="pricing-toggle-pill"></div>
+        </button>
+        <span class="pricing-toggle-label" id="toggleLabelAnnual">Annual <span class="pricing-save-badge">Save 20%</span></span>
+      </div>
     </div>
   </section>
 
@@ -442,8 +449,28 @@
     if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('msc-visible', window.scrollY > 300); }, { passive: true });
   </script>
   <script src="animations.js"></script>
+  <script src="ui.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
-<script src="transitions.js"></script>
+  <script src="transitions.js"></script>
+  <script>
+  /* Pricing — monthly/annual toggle */
+  (function() {
+    var toggle = document.getElementById('pricingToggle');
+    if (!toggle) return;
+    var labelM = document.getElementById('toggleLabelMonthly');
+    var labelA = document.getElementById('toggleLabelAnnual');
+    var isAnnual = false;
+    toggle.addEventListener('click', function() {
+      isAnnual = !isAnnual;
+      toggle.classList.toggle('annual-active', isAnnual);
+      if (labelM) { labelM.classList.toggle('active', !isAnnual); }
+      if (labelA) { labelA.classList.toggle('active', isAnnual); }
+      if (window.NXS && window.NXS.toast) {
+        window.NXS.toast(isAnnual ? 'Annual pricing — save 20% · Contact us to apply' : 'Monthly pricing selected', 'info', 3000);
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

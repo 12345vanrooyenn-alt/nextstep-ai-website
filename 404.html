@@ -2,114 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Nextstep AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <title>Page Not Found | Nextstep AI</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to Nextstep AI and get your free brand revenue audit." />
+  <meta property="og:title" content="Page Not Found | Nextstep AI" />
+  <meta property="og:description" content="The page you're looking for doesn't exist. Return to Nextstep AI and get your free brand revenue audit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/404.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page Not Found | Nextstep AI" />
+  <meta name="twitter:description" content="The page you're looking for doesn't exist. Return to Nextstep AI." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
   <style>
-    .not-found {
-      min-height: 100vh;
+    /* ─── 404 page specific styles ─── */
+    .notfound-section {
+      min-height: calc(100vh - 72px);
       background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
       position: relative;
       overflow: hidden;
+      padding: 120px 24px 80px;
     }
-    .not-found::before {
-      content: '';
+
+    /* Floating sky-blue orbs */
+    .notfound-orb {
       position: absolute;
-      top: -200px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 600px;
-      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+      filter: blur(90px);
       pointer-events: none;
+      animation: nfOrbFloat 6s ease-in-out infinite;
     }
-    .nf-inner {
+    .notfound-orb-1 {
+      width: 440px;
+      height: 440px;
+      background: rgba(14, 165, 233, 0.09);
+      top: -100px;
+      left: -80px;
+      animation-delay: 0s;
+    }
+    .notfound-orb-2 {
+      width: 320px;
+      height: 320px;
+      background: rgba(125, 211, 252, 0.07);
+      bottom: -60px;
+      right: -60px;
+      animation-delay: 3s;
+    }
+
+    @keyframes nfOrbFloat {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50%       { transform: translateY(-24px) scale(1.04); }
+    }
+
+    .notfound-inner {
       position: relative;
       z-index: 1;
-      max-width: 560px;
+      max-width: 640px;
+      margin: 0 auto;
     }
-    .nf-code {
-      font-family: var(--font-head);
-      font-size: clamp(100px, 20vw, 180px);
+
+    .notfound-number {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(120px, 20vw, 220px);
       font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, rgba(14,165,233,0.15) 0%, rgba(14,165,233,0.04) 100%);
+      line-height: 0.9;
+      background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 60%, #0284c7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 0;
-      position: relative;
-    }
-    .nf-code::after {
-      content: '404';
-      position: absolute;
-      inset: 0;
-      font-family: var(--font-head);
-      font-size: clamp(100px, 20vw, 180px);
-      font-weight: 900;
-      line-height: 1;
+      margin-bottom: 28px;
       letter-spacing: -0.04em;
-      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0.18;
-      filter: blur(18px);
     }
-    .nf-heading {
-      font-family: var(--font-head);
-      font-size: clamp(24px, 3.5vw, 36px);
+
+    .notfound-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
       font-weight: 700;
-      color: var(--white);
+      color: #fff;
+      margin-bottom: 16px;
       letter-spacing: -0.015em;
-      line-height: 1.15;
-      margin: 16px 0 14px;
     }
-    .nf-sub {
+
+    .notfound-body {
       font-size: 16px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.5);
       line-height: 1.7;
       margin-bottom: 40px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .nf-actions {
+
+    .notfound-actions {
       display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .nf-badge {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.2);
-      border-radius: 100px;
-      padding: 7px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(14,165,233,0.8);
-      margin-bottom: 28px;
-    }
-    .nf-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav nav-scrolled" id="nav">
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
     <div class="nav-inner container">
       <a href="index.html" class="nav-logo">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
@@ -127,25 +138,124 @@
         </svg>
         <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
       </a>
-      <a href="qualify.html" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html#services">Services</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary">Get Free Audit</a>
     </div>
   </nav>
 
-  <section class="not-found">
-    <div class="nf-inner">
-      <div class="nf-badge"><div class="nf-dot"></div> Still here — just wrong page</div>
-      <div class="nf-code">404</div>
-      <h1 class="nf-heading">This page doesn't exist.<br/>Your revenue gaps do.</h1>
-      <p class="nf-sub">Whatever you were looking for isn't here — but we can point you somewhere that actually matters for your brand.</p>
-      <div class="nf-actions">
-        <a href="index.html" class="btn btn-outline">← Back to Home</a>
-        <a href="qualify.html" class="btn btn-primary">Get Free Brand Audit</a>
+  <!-- ═══════════════════════════════════════════════
+       404 MAIN CONTENT
+  ═══════════════════════════════════════════════ -->
+  <section class="notfound-section">
+    <!-- Floating orbs -->
+    <div class="notfound-orb notfound-orb-1" aria-hidden="true"></div>
+    <div class="notfound-orb notfound-orb-2" aria-hidden="true"></div>
+
+    <div class="notfound-inner">
+      <div class="notfound-number">404</div>
+      <h1 class="notfound-heading">This page doesn't exist.</h1>
+      <p class="notfound-body">You might have followed a broken link, or the page was moved.</p>
+      <div class="notfound-actions">
+        <a href="index.html" class="btn btn-primary">&larr; Back to Home</a>
+        <a href="book.html" class="btn btn-ghost">Book a Free Call</a>
       </div>
     </div>
   </section>
 
-  <script src="animations.js"></script>
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+          <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">AI Systems That Recover Lost Revenue</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="index.html#services">Cart Recovery</a>
+          <a href="index.html#services">DM Automation</a>
+          <a href="index.html#services">Reactivation</a>
+          <a href="index.html#services">Support Automation</a>
+          <a href="index.html#services">Owner Dashboards</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="results.html">All Results</a>
+          <a href="case-study.html" target="_blank">Case Study</a>
+          <a href="blog.html">Blog</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get Started</h5>
+          <a href="qualify.html" target="_blank">Free Brand Audit</a>
+          <a href="book.html">Book a Strategy Call</a>
+          <a href="index.html#pricing">View Pricing</a>
+          <a href="index.html#fit">Is This For Me?</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
+          <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
+          <a href="index.html#contact">All Contact Options</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>&copy; 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="legal.html#privacy">Privacy Policy</a>
+          <a href="legal.html#terms">Terms of Service</a>
+          <span>nextstepai.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => { mobile.classList.toggle('open'); toggle.classList.toggle('active'); });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script src="transitions.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
+  <script src="animations.js"></script>
+  <script src="ui.js"></script>
+  <script src="ui.js"></script>
 </body>
 </html>

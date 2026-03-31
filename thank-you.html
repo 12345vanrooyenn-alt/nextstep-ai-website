@@ -4,27 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#060c1a" />
-  <title>You're In — Nextstep AI</title>
+  <title>Application Received | Nextstep AI</title>
+  <meta name="description" content="Your free brand audit request has been received. Caleb reviews every application personally — you'll hear back within 24 hours." />
   <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="Application Received | Nextstep AI" />
+  <meta property="og:description" content="Your free brand audit request has been received. You'll get a full revenue gap report within 24 hours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/thank-you.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Application Received | Nextstep AI" />
+  <meta name="twitter:description" content="Your free brand audit request has been received." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
   <style>
-    .ty-page {
-      min-height: 100vh;
+    /* ─── Thank-you page specific styles ─── */
+    .thankyou-section {
+      min-height: calc(100vh - 72px);
       background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 24px 80px;
+      text-align: center;
       position: relative;
       overflow: hidden;
+      padding: 120px 24px 80px;
     }
-    .ty-page::before {
+
+    .thankyou-section::before {
       content: '';
       position: absolute;
       top: -150px; left: 50%; transform: translateX(-50%);
@@ -32,181 +46,166 @@
       background: radial-gradient(ellipse, rgba(14,165,233,0.08) 0%, transparent 65%);
       pointer-events: none;
     }
-    .ty-inner {
+
+    .thankyou-inner {
       position: relative;
       z-index: 1;
-      max-width: 640px;
+      max-width: 660px;
       width: 100%;
-      text-align: center;
+      margin: 0 auto;
     }
 
-    /* Check icon */
-    .ty-icon {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: rgba(34,197,94,0.1);
-      border: 2px solid rgba(34,197,94,0.35);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 28px;
-      animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
-    }
-    @keyframes pop-in {
-      from { transform: scale(0.5); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
+    /* Animated checkmark SVG */
+    .ty-checkmark-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
     }
 
-    .ty-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #22c55e;
-      margin-bottom: 14px;
+    .ty-checkmark-svg {
+      width: 80px;
+      height: 80px;
     }
+
+    .ty-checkmark-circle {
+      stroke-dasharray: 251;
+      stroke-dashoffset: 251;
+      animation: drawCircle 0.7s cubic-bezier(0.65, 0, 0.45, 1) 0.2s forwards;
+    }
+
+    .ty-checkmark-tick {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: drawTick 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+
+    @keyframes drawCircle {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes drawTick {
+      to { stroke-dashoffset: 0; }
+    }
+
     .ty-heading {
-      font-family: var(--font-head);
+      font-family: 'Syne', sans-serif;
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 800;
-      color: var(--white);
+      color: #fff;
       letter-spacing: -0.02em;
       line-height: 1.1;
       margin-bottom: 16px;
     }
-    .ty-heading span {
-      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+
+    .ty-heading .gradient-word {
+      background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 60%, #0284c7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .ty-sub {
+
+    .ty-subheading {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 16px;
+    }
+
+    .ty-body {
       font-size: 16px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.7;
-      margin-bottom: 48px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 52px;
     }
 
-    /* Timeline */
-    .ty-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      text-align: left;
-      margin-bottom: 48px;
-      position: relative;
-    }
-    .ty-timeline::before {
-      content: '';
-      position: absolute;
-      left: 22px; top: 44px; bottom: 44px;
-      width: 1px;
-      background: rgba(14,165,233,0.2);
-    }
-    .ty-step {
-      display: flex;
+    /* What happens next — 3-step strip */
+    .ty-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      align-items: flex-start;
-      padding: 20px 24px;
-      border-radius: 14px;
-      transition: background 0.2s;
+      margin-bottom: 48px;
+      text-align: center;
     }
-    .ty-step:hover { background: rgba(255,255,255,0.02); }
+
+    .ty-step-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 28px 20px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .ty-step-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(14, 165, 233, 0.2);
+    }
+
     .ty-step-num {
-      min-width: 44px; height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(14,165,233,0.1);
-      border: 1px solid rgba(14,165,233,0.25);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-head);
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--sky);
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .ty-step-body {}
-    .ty-step-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-      margin-bottom: 4px;
-    }
-    .ty-step-title {
-      font-family: var(--font-head);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 5px;
-      letter-spacing: -0.01em;
-    }
-    .ty-step-desc {
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.65;
-    }
-
-    /* Divider */
-    .ty-divider {
-      height: 1px;
-      background: rgba(255,255,255,0.06);
-      margin: 40px 0;
-    }
-
-    /* Instagram warm touchpoint */
-    .ty-insta {
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(14, 165, 233, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-bottom: 32px;
-      text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .ty-insta:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.12);
-    }
-    .ty-insta-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #f97316, #ec4899);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .ty-insta-text {}
-    .ty-insta-handle {
+      font-family: 'Syne', sans-serif;
       font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 2px;
-    }
-    .ty-insta-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
+      font-weight: 800;
+      color: #0ea5e9;
+      margin: 0 auto 14px;
     }
 
-    /* Actions */
-    .ty-actions {
+    .ty-step-icon {
+      margin-bottom: 12px;
+    }
+
+    .ty-step-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .ty-step-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.65;
+    }
+
+    .ty-cta-wrap {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ty-back-link {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .ty-back-link:hover {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    @media (max-width: 640px) {
+      .ty-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav nav-scrolled" id="nav">
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
     <div class="nav-inner container">
       <a href="index.html" class="nav-logo">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
@@ -224,89 +223,170 @@
         </svg>
         <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
       </a>
-      <a href="index.html" class="btn btn-outline btn-sm">← Back to Home</a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html#services">Services</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary">Get Free Audit</a>
     </div>
   </nav>
 
-  <section class="ty-page">
-    <div class="ty-inner">
+  <!-- ═══════════════════════════════════════════════
+       THANK-YOU MAIN CONTENT
+  ═══════════════════════════════════════════════ -->
+  <section class="thankyou-section">
+    <div class="thankyou-inner">
 
-      <!-- Check icon -->
-      <div class="ty-icon">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M7 16l6 6 12-12" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Animated checkmark SVG -->
+      <div class="ty-checkmark-wrap" aria-hidden="true">
+        <svg class="ty-checkmark-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ty-checkmark-circle" cx="40" cy="40" r="37" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" fill="none" transform="rotate(-90 40 40)"/>
+          <path class="ty-checkmark-tick" d="M22 40l12 13 24-26" stroke="#0ea5e9" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
-      <div class="ty-label">Submission received</div>
-      <h1 class="ty-heading">You're In.<br/><span>Here's What Happens Next.</span></h1>
-      <p class="ty-sub">Your brand is now in the Nextstep AI review queue. No waiting room, no mystery — here's exactly what to expect over the next 48 hours.</p>
+      <h1 class="ty-heading">You're In the <span class="gradient-word">Queue.</span></h1>
+      <p class="ty-subheading">Your free brand audit request has been received.</p>
+      <p class="ty-body">Caleb reviews every application personally. You'll receive a detailed revenue gap report within 24 hours — no templates, no bots.</p>
 
-      <!-- Timeline -->
-      <div class="ty-timeline">
+      <!-- What happens next — 3-step strip -->
+      <div class="ty-steps">
 
-        <div class="ty-step">
+        <div class="ty-step-card">
           <div class="ty-step-num">1</div>
-          <div class="ty-step-body">
-            <div class="ty-step-tag">Within 24 hours</div>
-            <div class="ty-step-title">We review your brand</div>
-            <div class="ty-step-desc">Caleb personally reviews your store, Instagram, and the gaps you described — not a bot, not a VA. You'll get a real look at what's costing you.</div>
+          <div class="ty-step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(14,165,233,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
           </div>
+          <div class="ty-step-title">We review your brand</div>
+          <p class="ty-step-desc">Caleb personally audits your store and social presence — not a bot, not a VA.</p>
         </div>
 
-        <div class="ty-step">
+        <div class="ty-step-card">
           <div class="ty-step-num">2</div>
-          <div class="ty-step-body">
-            <div class="ty-step-tag">24–48 hours</div>
-            <div class="ty-step-title">You receive a revenue breakdown</div>
-            <div class="ty-step-desc">We send back a personalised breakdown showing exactly where your revenue is leaking and what we'd fix first. Specific numbers, not vague advice.</div>
+          <div class="ty-step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(14,165,233,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
           </div>
+          <div class="ty-step-title">We find your revenue gaps</div>
+          <p class="ty-step-desc">We map exactly where your brand is losing money and what to fix first.</p>
         </div>
 
-        <div class="ty-step">
+        <div class="ty-step-card">
           <div class="ty-step-num">3</div>
-          <div class="ty-step-body">
-            <div class="ty-step-tag">If you're a fit</div>
-            <div class="ty-step-title">A 15-minute discovery call — on your terms</div>
-            <div class="ty-step-desc">If the numbers make sense for your brand, we'll invite you to a short call to walk through the plan. No pitch deck, no pressure — just a direct conversation about what we'd build and what it costs.</div>
-            <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;font-weight:700;color:var(--sky);text-decoration:none;border:1px solid rgba(14,165,233,0.3);border-radius:8px;padding:8px 16px;background:rgba(14,165,233,0.07);">
-              Book a slot now →
-            </a>
+          <div class="ty-step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(14,165,233,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
           </div>
+          <div class="ty-step-title">You get a full report in 24h</div>
+          <p class="ty-step-desc">Specific numbers, specific fixes — delivered straight to your inbox.</p>
         </div>
 
       </div>
 
-      <div class="ty-divider"></div>
-
-      <!-- Actions -->
-      <div class="ty-actions" style="margin-bottom:28px;">
-        <a href="index.html" class="btn btn-outline">← Back to Home</a>
-        <a href="about.html" class="btn btn-ghost">Meet the team</a>
+      <!-- CTA -->
+      <div class="ty-cta-wrap">
+        <a href="results.html" class="btn btn-primary">While you wait &mdash; See Case Studies &rarr;</a>
+        <a href="index.html" class="ty-back-link">&larr; Back to Home</a>
       </div>
-
-      <!-- Instagram touchpoint — after actions so next steps lead -->
-      <a href="https://instagram.com/caleb_automates" target="_blank" rel="noopener noreferrer" class="ty-insta">
-        <div class="ty-insta-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8"/>
-            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="white"/>
-          </svg>
-        </div>
-        <div class="ty-insta-text">
-          <div class="ty-insta-handle">@caleb_automates</div>
-          <div class="ty-insta-desc">Follow along while you wait — behind the scenes, builds, and results</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-left:auto;flex-shrink:0;opacity:0.3"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
 
     </div>
   </section>
 
-  <script src="animations.js"></script>
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+          <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">AI Systems That Recover Lost Revenue</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="index.html#services">Cart Recovery</a>
+          <a href="index.html#services">DM Automation</a>
+          <a href="index.html#services">Reactivation</a>
+          <a href="index.html#services">Support Automation</a>
+          <a href="index.html#services">Owner Dashboards</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="results.html">All Results</a>
+          <a href="case-study.html" target="_blank">Case Study</a>
+          <a href="blog.html">Blog</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get Started</h5>
+          <a href="qualify.html" target="_blank">Free Brand Audit</a>
+          <a href="book.html">Book a Strategy Call</a>
+          <a href="index.html#pricing">View Pricing</a>
+          <a href="index.html#fit">Is This For Me?</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
+          <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
+          <a href="index.html#contact">All Contact Options</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>&copy; 2026 Nextstep AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="legal.html#privacy">Privacy Policy</a>
+          <a href="legal.html#terms">Terms of Service</a>
+          <span>nextstepai.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => { mobile.classList.toggle('open'); toggle.classList.toggle('active'); });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script src="transitions.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
-<script src="transitions.js"></script>
+  <script src="animations.js"></script>
+  <script src="ui.js"></script>
+  <script src="ui.js"></script>
 </body>
 </html>

@@ -360,9 +360,18 @@
   <section class="blog-content-section">
     <div class="container">
 
+      <!-- Category filter bar -->
+      <div class="blog-filter-bar">
+        <button class="bfb-btn active" data-filter="all">All</button>
+        <button class="bfb-btn" data-filter="cart-recovery">Cart Recovery</button>
+        <button class="bfb-btn" data-filter="dm-automation">DM Automation</button>
+        <button class="bfb-btn" data-filter="email-flows">Email Flows</button>
+        <button class="bfb-btn" data-filter="strategy">Strategy</button>
+      </div>
+
       <!-- Featured article -->
       <div class="section-label reveal">Featured Article</div>
-      <a href="blog-post-1.html" class="blog-featured-card reveal" style="text-decoration:none;color:inherit;">
+      <a href="blog-post-1.html" class="blog-featured-card reveal" data-category="cart-recovery" style="text-decoration:none;color:inherit;">
         <div class="blog-featured-img">
           <div class="blog-featured-img-inner">
             <div class="bfi-icon">
@@ -410,18 +419,36 @@
           </div>
         </article>
 
-        <article class="blog-card reveal reveal-delay-1">
+        <article class="blog-card reveal reveal-delay-1" data-category="dm-automation">
           <div class="blog-card-img">
-            <div class="blog-card-img-stat">3×</div>
+            <div class="blog-card-img-stat">200+</div>
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
               <span class="blog-tag">DM Automation</span>
               <span class="blog-read-time">6 min read</span>
             </div>
-            <h3><a href="blog-post-1.html">Instagram DM Automation: Turn Followers Into Buyers While You Sleep</a></h3>
-            <p class="blog-card-excerpt">Your Instagram DMs are a goldmine you're not mining. Here's how an automated DM qualification system converts followers at 3x the rate of manual replies — and why most brands are still doing it wrong.</p>
-            <a href="blog-post-1.html" class="blog-card-link">
+            <h3><a href="blog-post-2.html">DM Automation: How to Reply to 200 Instagram DMs a Day Without Losing the Human Feel</a></h3>
+            <p class="blog-card-excerpt">Most DM automation feels robotic. Here's how Nextstep AI builds Instagram DM systems that feel personal at scale — and convert at 34%.</p>
+            <a href="blog-post-2.html" class="blog-card-link">
+              Read Article
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-2" data-category="email-flows">
+          <div class="blog-card-img">
+            <div class="blog-card-img-stat">35%</div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Email Flows</span>
+              <span class="blog-read-time">7 min read</span>
+            </div>
+            <h3><a href="blog-post-3.html">Why Most Klaviyo Flows Fail (And What We Do Differently for Clothing Brands)</a></h3>
+            <p class="blog-card-excerpt">Generic Klaviyo cart abandonment flows get 8% recovery. Nextstep AI's AI-augmented version gets 35–40%. Here's the exact difference.</p>
+            <a href="blog-post-3.html" class="blog-card-link">
               Read Article
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -522,5 +549,22 @@
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
   <script src="animations.js"></script>
+  <script src="ui.js"></script>
+  <script>
+  (function() {
+    var btns = document.querySelectorAll('.bfb-btn');
+    var articles = document.querySelectorAll('[data-category]');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var filter = this.dataset.filter;
+        articles.forEach(function(a) {
+          a.style.display = (filter === 'all' || a.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

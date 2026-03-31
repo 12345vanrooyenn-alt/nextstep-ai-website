@@ -2288,6 +2288,7 @@
     });
   </script>
   <script src="animations.js"></script>
+  <script src="ui.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
   <script src="transitions.js"></script>
@@ -2319,6 +2320,61 @@
 
     sections.forEach(s => io.observe(s));
     updateProgress(1);
+  })();
+  </script>
+  <script src="ui.js"></script>
+  <script>
+  /* Confetti on form submit */
+  (function() {
+    function launchConfetti() {
+      var canvas = document.createElement('canvas');
+      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+      document.body.appendChild(canvas);
+      var ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var colors = ['#0ea5e9','#38bdf8','#7dd3fc','#a78bfa','#4ade80','#f9fafb'];
+      var pieces = [];
+      for (var i = 0; i < 120; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: -10 - Math.random() * 60,
+          w: 8 + Math.random() * 8,
+          h: 4 + Math.random() * 6,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rot: Math.random() * 360,
+          rotV: (Math.random() - 0.5) * 6,
+          vy: 2 + Math.random() * 4,
+          vx: (Math.random() - 0.5) * 3
+        });
+      }
+      var frame;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var alive = 0;
+        pieces.forEach(function(p) {
+          p.y += p.vy; p.x += p.vx; p.rot += p.rotV;
+          if (p.y < canvas.height + 20) alive++;
+          ctx.save();
+          ctx.translate(p.x + p.w/2, p.y + p.h/2);
+          ctx.rotate(p.rot * Math.PI / 180);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.max(0, 1 - p.y / (canvas.height * 0.9));
+          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          ctx.restore();
+        });
+        if (alive > 0) { frame = requestAnimationFrame(draw); }
+        else { cancelAnimationFrame(frame); if (canvas.parentNode) canvas.remove(); }
+      }
+      draw();
+      setTimeout(function() { cancelAnimationFrame(frame); if (canvas.parentNode) canvas.remove(); }, 4000);
+    }
+    var forms = document.querySelectorAll('form');
+    forms.forEach(function(f) {
+      f.addEventListener('submit', function() { setTimeout(launchConfetti, 400); });
+    });
+    window.NXS = window.NXS || {};
+    window.NXS.confetti = launchConfetti;
   })();
   </script>
 </body>
