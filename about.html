@@ -565,15 +565,15 @@
       <div class="about-hero-inner">
         <div class="reveal">
           <div class="section-label" style="display:inline-block;margin-bottom:20px;">About Us</div>
-          <h1>One Specialist.<br/>One Niche.<br/><span class="headline-gradient">Your Revenue.</span></h1>
+          <h1>One Specialist.<br/>One Niche.<br/><span class="headline-gradient">Unlimited Revenue.</span></h1>
           <p class="about-hero-sub">Nextstep AI is the only done-for-you automation studio built exclusively for e-commerce clothing brands. We recover lost revenue, reactivate past buyers, and automate your follow-ups — live in 7 days, built personally by Caleb, no templates.</p>
           <div class="about-hero-stats">
             <div class="ahs-item">
-              <div class="ahs-num">50+</div>
+              <div class="ahs-num" data-count="50" data-suffix="+">0+</div>
               <div class="ahs-lbl">AI Workflows Built</div>
             </div>
             <div class="ahs-item">
-              <div class="ahs-num">$2k+</div>
+              <div class="ahs-num" data-count="2028" data-prefix="$" data-format="comma">$0</div>
               <div class="ahs-lbl">Recovered in 14 Days</div>
             </div>
             <div class="ahs-item">
@@ -698,7 +698,7 @@
     <div class="container">
       <div class="why-header reveal">
         <div class="story-label">Why Clothing Brands</div>
-        <h2>We Don't Do<br/><span class="headline-gradient">Everything for Everyone.</span></h2>
+        <h2>We Go Deep On One Niche.<br/><span class="headline-gradient">That's Why We Win.</span></h2>
         <p>We go deep on one niche — and that's why we're better at it. Clothing brands have a specific set of problems that AI automation solves better than any other approach.</p>
       </div>
       <div class="why-grid">
@@ -739,23 +739,23 @@
   <!-- ═══ NUMBERS ═══ -->
   <section class="about-numbers">
     <div class="container">
-      <h2 class="reveal">The Numbers<br/><span class="headline-gradient">Speak for Themselves.</span></h2>
+      <h2 class="reveal">The Numbers Don't<br/><span class="headline-gradient">Lie.</span></h2>
       <div class="numbers-grid reveal">
         <div class="num-item">
-          <div class="num-val">50+</div>
+          <div class="num-val" data-count="50" data-suffix="+">0</div>
           <div class="num-lbl">AI workflows in our catalogue</div>
         </div>
         <div class="num-item">
-          <div class="num-val">7</div>
-          <div class="num-lbl">Days average from audit to live workflow</div>
+          <div class="num-val" data-count="7" data-suffix=" days">0</div>
+          <div class="num-lbl">Average from audit to live workflow</div>
         </div>
         <div class="num-item">
-          <div class="num-val">$2,028</div>
-          <div class="num-lbl">Revenue recovered in first 2 weeks for a low-traffic brand</div>
+          <div class="num-val" data-count="2028" data-prefix="$" data-format="comma">$0</div>
+          <div class="num-lbl">Revenue recovered in first 2 weeks, low-traffic brand</div>
         </div>
         <div class="num-item">
-          <div class="num-val">30</div>
-          <div class="num-lbl">Days to see first results — or it's on us to fix it</div>
+          <div class="num-val" data-count="30" data-suffix=" days">0</div>
+          <div class="num-lbl">To see first results — or we fix it free</div>
         </div>
       </div>
     </div>
@@ -766,7 +766,7 @@
     <div class="container">
       <div class="rules-header reveal">
         <div class="story-label" style="margin-bottom:14px;">How We Work</div>
-        <h2>Non-Negotiables.<br/><span class="headline-gradient">On Both Sides.</span></h2>
+        <h2>The Rules We Live By.<br/><span class="headline-gradient">No Exceptions.</span></h2>
         <p>We hold ourselves to a high standard. We expect the same from the brands we work with.</p>
       </div>
       <div class="rules-grid reveal">
@@ -803,7 +803,7 @@
     <div class="container">
       <div class="reveal">
         <div class="section-label" style="margin-bottom:16px;">Ready?</div>
-        <h2>Start With a<br/><span class="headline-gradient">Free Brand Audit.</span></h2>
+        <h2>Your Revenue Gap<br/><span class="headline-gradient">Starts Here.</span></h2>
         <p>Takes under 3 minutes. We review your brand personally and send back a breakdown of what it's costing you — and what we'd fix first.</p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
           <a href="qualify.html" class="btn btn-primary btn-lg">Submit My Brand — It's Free →</a>
@@ -886,5 +886,82 @@
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
+  <script src="transitions.js"></script>
+  <script>
+  /* ── Animated number counters ── */
+  (function() {
+    function animateNum(el) {
+      const target = parseInt(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const fmt = el.dataset.format === 'comma';
+      let cur = 0;
+      const duration = 1400;
+      const steps = 50;
+      const inc = target / steps;
+      const timer = setInterval(() => {
+        cur = Math.min(cur + inc, target);
+        const val = Math.round(cur);
+        el.textContent = prefix + (fmt ? val.toLocaleString() : val) + suffix;
+        if (cur >= target) clearInterval(timer);
+      }, duration / steps);
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateNum(e.target);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
+  })();
+
+  /* ── Custom glow cursor (same as homepage) ── */
+  (function() {
+    const cursor = document.createElement('div');
+    cursor.id = 'glowCursor';
+    cursor.innerHTML = '<div class="gc-dot"></div><div class="gc-ring"></div>';
+    document.body.appendChild(cursor);
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    document.addEventListener('mouseleave', () => { mx = -200; my = -200; });
+    function loop() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursor.style.transform = 'translate(' + (rx - 20) + 'px,' + (ry - 20) + 'px)';
+      cursor.querySelector('.gc-dot').style.transform = 'translate(' + (mx - rx) + 'px,' + (my - ry) + 'px)';
+      requestAnimationFrame(loop);
+    }
+    loop();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('gc-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('gc-hover'));
+    });
+    if ('ontouchstart' in window) cursor.style.display = 'none';
+  })();
+
+  /* ── 3D tilt on why-cards ── */
+  document.querySelectorAll('.why-card, .rule-item, .team-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const r = this.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      this.style.transform = 'perspective(600px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 5) + 'deg) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', function() { this.style.transform = ''; });
+  });
+
+  /* ── Magnetic buttons ── */
+  document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const r = this.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      this.style.transform = 'translate(' + x * 0.18 + 'px,' + y * 0.22 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() { this.style.transform = ''; });
+  });
+  </script>
 </body>
 </html>
