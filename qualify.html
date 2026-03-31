@@ -612,6 +612,63 @@
       text-decoration: underline;
     }
 
+    /* ── Form Progress Bar ── */
+    .form-progress-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .fpb-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .fpb-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.35);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+    }
+    .fpb-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+    .fpb-line {
+      flex: 1;
+      height: 1.5px;
+      background: rgba(255,255,255,0.08);
+      margin: 0 8px;
+      margin-bottom: 18px;
+      transition: background 0.3s;
+    }
+    .fpb-step.fpb-active .fpb-dot {
+      background: rgba(14,165,233,0.18);
+      border-color: var(--sky);
+      color: var(--sky);
+    }
+    .fpb-step.fpb-active .fpb-label { color: var(--sky); }
+    .fpb-step.fpb-done .fpb-dot {
+      background: rgba(74,222,128,0.15);
+      border-color: #4ade80;
+      color: #4ade80;
+    }
+    .fpb-step.fpb-done .fpb-label { color: rgba(255,255,255,0.45); }
+    .fpb-step.fpb-done + .fpb-line { background: rgba(74,222,128,0.3); }
+
     /* ── Submit ── */
     .form-submit-wrap { margin-top: 24px; }
     .btn-submit {
@@ -1734,9 +1791,32 @@
             </div>
           </div>
 
+          <!-- FORM PROGRESS TRACKER -->
+          <div class="form-progress-bar" id="formProgressBar">
+            <div class="fpb-step fpb-active" data-step="1">
+              <div class="fpb-dot">1</div>
+              <span class="fpb-label">About You</span>
+            </div>
+            <div class="fpb-line"></div>
+            <div class="fpb-step" data-step="2">
+              <div class="fpb-dot">2</div>
+              <span class="fpb-label">Your Brand</span>
+            </div>
+            <div class="fpb-line"></div>
+            <div class="fpb-step" data-step="3">
+              <div class="fpb-dot">3</div>
+              <span class="fpb-label">Details</span>
+            </div>
+            <div class="fpb-line"></div>
+            <div class="fpb-step" data-step="4">
+              <div class="fpb-dot">4</div>
+              <span class="fpb-label">Submit</span>
+            </div>
+          </div>
+
           <form id="qualifyForm">
             <!-- SECTION 1: ABOUT YOU -->
-            <div class="form-section-title">About You</div>
+            <div class="form-section-title" data-form-section="1">About You</div>
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name <span class="req">*</span></label>
@@ -1799,7 +1879,7 @@
             </div>
 
             <!-- SECTION 2: YOUR BRAND -->
-            <div class="form-section-title">Your Brand</div>
+            <div class="form-section-title" data-form-section="2">Your Brand</div>
             <div class="form-row">
               <div class="form-group">
                 <label for="brandName">Brand Name <span class="req">*</span></label>
@@ -1835,7 +1915,7 @@
             </div>
 
             <!-- SECTION 3: QUALIFYING QUESTIONS -->
-            <div class="form-section-title">Your Numbers</div>
+            <div class="form-section-title" data-form-section="3">Your Numbers</div>
             <div class="form-row">
               <div class="form-group">
                 <label for="revenue">Monthly Revenue <span class="req">*</span></label>
@@ -1885,7 +1965,7 @@
             </div>
 
             <!-- SECTION 4: PLAN INTEREST -->
-            <div class="form-section-title">Which Plan Are You Interested In?</div>
+            <div class="form-section-title" data-form-section="4">Which Plan Are You Interested In?</div>
             <div class="plan-options" id="planOptions">
               <label class="plan-option">
                 <input type="radio" name="plan" value="Core VIP" />
@@ -2081,7 +2161,7 @@
         <div class="footer-bottom-links">
           <a href="index.html">← Back to Home</a>
           <a href="workflows.html" target="_blank">Workflow Library</a>
-          <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>
+          <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
         </div>
       </div>
     </div>
@@ -2108,15 +2188,15 @@
           </div>
           <div class="legal-item">
             <div class="legal-item-title">Service &amp; Cancellation Terms</div>
-            <div class="legal-item-text">All plans operate month-to-month. Cancellation requires 30 days written notice to hello@nextstepai.com. All custom-built workflows remain the client's intellectual property upon full payment. Nextstep AI retains the right to decline or terminate service if agreed terms are breached.</div>
+            <div class="legal-item-text">All plans operate month-to-month. Cancellation requires 30 days written notice to 12345vanrooyenn@gmail.com. All custom-built workflows remain the client's intellectual property upon full payment. Nextstep AI retains the right to decline or terminate service if agreed terms are breached.</div>
           </div>
           <div class="legal-item">
             <div class="legal-item-title">Audit &amp; Privacy Policy</div>
-            <div class="legal-item-text">Audit submissions are used solely to assess brand fit and deliver the requested audit. We do not sell or share your personal or business information with any third party. Submission of this form does not constitute a purchase or commitment. You may request deletion of your data at any time by emailing hello@nextstepai.com.</div>
+            <div class="legal-item-text">Audit submissions are used solely to assess brand fit and deliver the requested audit. We do not sell or share your personal or business information with any third party. Submission of this form does not constitute a purchase or commitment. You may request deletion of your data at any time by emailing 12345vanrooyenn@gmail.com.</div>
           </div>
         </div>
         <div class="legal-notice">
-          By submitting this form you confirm you have read and agree to the terms above. The free audit is provided at our discretion — submission does not guarantee a response if the brand does not meet our client criteria. Nextstep AI is operated by Caleb van Rooyen and governed by the laws of the Republic of South Africa. Contact: <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>.
+          By submitting this form you confirm you have read and agree to the terms above. The free audit is provided at our discretion — submission does not guarantee a response if the brand does not meet our client criteria. Nextstep AI is operated by Caleb van Rooyen and governed by the laws of the Republic of South Africa. Contact: <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>.
         </div>
       </div>
     </div>
@@ -2192,6 +2272,36 @@
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
-<script src="transitions.js"></script>
+  <script src="transitions.js"></script>
+  <script>
+  /* ── Form Progress Tracker ── */
+  (function() {
+    const steps = document.querySelectorAll('.fpb-step');
+    const lines = document.querySelectorAll('.fpb-line');
+    const sections = document.querySelectorAll('[data-form-section]');
+    if (!steps.length || !sections.length) return;
+
+    function updateProgress(activeStep) {
+      steps.forEach((step, i) => {
+        const n = i + 1;
+        step.classList.remove('fpb-active', 'fpb-done');
+        if (n < activeStep) step.classList.add('fpb-done');
+        else if (n === activeStep) step.classList.add('fpb-active');
+      });
+    }
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const n = parseInt(entry.target.dataset.formSection);
+          updateProgress(n);
+        }
+      });
+    }, { threshold: 0.5, rootMargin: '-20% 0px -50% 0px' });
+
+    sections.forEach(s => io.observe(s));
+    updateProgress(1);
+  })();
+  </script>
 </body>
 </html>

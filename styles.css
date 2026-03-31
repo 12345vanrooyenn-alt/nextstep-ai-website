@@ -5168,3 +5168,201 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .lcs-div { display: none; }
   .at-body { font-size: 11px; min-height: 160px; max-height: 180px; }
 }
+
+/* ═══════════════════════════════════════════════
+   60. VIDEO SECTION
+═══════════════════════════════════════════════ */
+.video-section {
+  background: var(--navy);
+}
+.video-embed-wrap {
+  margin-top: 48px;
+}
+.video-inner {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(14,165,233,0.2);
+  box-shadow: 0 0 60px rgba(14,165,233,0.1), 0 24px 64px rgba(0,0,0,0.4);
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+.video-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-caption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.video-caption-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4ade80;
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: 999px;
+  padding: 5px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.video-pulse {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: lcsPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.video-caption-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  max-width: 480px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .video-caption { flex-direction: column; align-items: center; gap: 10px; }
+}
+
+/* ═══════════════════════════════════════════════
+   61. WHATSAPP FLOATING BUTTON
+═══════════════════════════════════════════════ */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 88px;
+  right: 24px;
+  z-index: 9000;
+  width: 52px;
+  height: 52px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.35);
+}
+.whatsapp-tooltip {
+  position: absolute;
+  right: 62px;
+  background: rgba(6,12,26,0.95);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  border: 1px solid rgba(255,255,255,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .whatsapp-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
+  .whatsapp-tooltip { display: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   62. COOKIE CONSENT BANNER
+═══════════════════════════════════════════════ */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9500;
+  max-width: 420px;
+  background: rgba(15,29,47,0.97);
+  border: 1px solid rgba(14,165,233,0.25);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(16px);
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;
+}
+.cookie-banner.cookie-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.cookie-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cookie-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+.cookie-text strong { color: rgba(255,255,255,0.9); }
+.cookie-text a { color: var(--sky); text-decoration: underline; }
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+.cookie-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cookie-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.cookie-accept {
+  background: var(--sky);
+  color: #fff;
+  flex: 1;
+}
+.cookie-decline {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 480px) {
+  .cookie-banner { left: 12px; right: 12px; max-width: none; bottom: 80px; }
+}
+
+/* ═══════════════════════════════════════════════
+   63. FAQ CHEVRON ROTATION ON OPEN
+═══════════════════════════════════════════════ */
+.faq-chevron svg {
+  transition: transform 0.3s ease;
+}
+details.faq-item[open] .faq-chevron svg {
+  transform: rotate(180deg);
+}
+
+/* ═══════════════════════════════════════════════
+   64. NAV ACTIVE STATE
+═══════════════════════════════════════════════ */
+.nav-links a.nav-active {
+  color: var(--sky) !important;
+  font-weight: 600;
+}

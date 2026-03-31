@@ -1250,6 +1250,33 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       VIDEO — SEE IT IN ACTION
+  ═══════════════════════════════════════════════ -->
+  <section class="section video-section">
+    <div class="container">
+      <div class="section-label">See It in Action</div>
+      <h2 class="section-title">60 Seconds. <span class="headline-gradient">That's All It Takes.</span></h2>
+      <p class="section-sub">Watch how a single Nextstep AI workflow triggers, personalises, and recovers a cart — fully automated, running 24/7 inside your brand.</p>
+      <div class="video-embed-wrap reveal">
+        <div class="video-inner">
+          <iframe
+            src="https://www.youtube.com/embed/Bk07cET2cl8?start=0&end=16&modestbranding=1&rel=0&color=white&iv_load_policy=3"
+            title="Nextstep AI — See the automation in action"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="video-caption">
+          <span class="video-caption-badge"><span class="video-pulse"></span>Live workflow demo</span>
+          <span class="video-caption-text">Cart abandoned → AI triggers → personalised email sent → revenue recovered. All while you sleep.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        BEHIND THE BUILD — REAL N8N WORKFLOW
   ═══════════════════════════════════════════════ -->
   <section class="section behind-build-section">
@@ -2221,7 +2248,7 @@
           <!-- Founder chip -->
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;padding:14px 18px;background:rgba(14,165,233,0.05);border:1px solid rgba(14,165,233,0.15);border-radius:14px;">
             <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid rgba(14,165,233,0.35);flex-shrink:0;">
-              <img src="caleb-headshot.jpg" alt="Caleb van Rooyen" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+              <img src="assets/caleb-headshot.jpg" alt="Caleb van Rooyen" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
             </div>
             <div>
               <div style="font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--white);letter-spacing:-0.01em;">Caleb van Rooyen</div>
@@ -2265,7 +2292,7 @@
         <div class="about-right">
           <!-- Founder photo -->
           <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);margin-bottom:28px;position:relative;background:#0b1424;">
-            <img src="caleb-headshot.jpg" alt="Caleb van Rooyen — Founder, Nextstep AI" style="width:100%;display:block;object-fit:cover;object-position:center top;max-height:420px;" />
+            <img src="assets/caleb-headshot.jpg" alt="Caleb van Rooyen — Founder, Nextstep AI" loading="lazy" style="width:100%;display:block;object-fit:cover;object-position:center top;max-height:420px;" />
             <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(6,12,26,0.95));">
               <div style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);letter-spacing:-0.01em;">Caleb van Rooyen</div>
               <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:3px;">Founder &amp; CEO — Nextstep AI</div>
@@ -2578,18 +2605,39 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
 
-    // Smooth scroll
+    // Smooth scroll with nav offset
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const navH = nav.offsetHeight;
+          const barH = announceBar && !announceBar.classList.contains('hidden') ? announceBar.offsetHeight : 0;
+          const offset = target.getBoundingClientRect().top + window.scrollY - navH - barH - 16;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
           mobile.classList.remove('open');
           toggle.classList.remove('active');
         }
       });
     });
+
+    // Nav active state on scroll
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.toggle('nav-active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' });
+      sections.forEach(s => io.observe(s));
+    })();
+
 
     // Scroll Reveal System
     (function () {
