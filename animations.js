@@ -75,7 +75,7 @@
   }
 
   /* ─── STAGGERED CARD REVEALS — enhanced entrance ─── */
-  var cardGroups = document.querySelectorAll('.services-grid, .problem-grid, .steps-grid, .why-grid, .testimonials-row, .pricing-grid');
+  var cardGroups = document.querySelectorAll('.services-grid, .problem-grid, .steps-grid, .why-grid, .testimonials-row, .pricing-grid, .wwu-grid');
   cardGroups.forEach(function(group) {
     var cards = group.children;
     var groupObs = new IntersectionObserver(function(entries) {
@@ -91,6 +91,27 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
     groupObs.observe(group);
   });
+
+  /* ─── STANDALONE REVEAL-UP — elements outside observed grids ─── */
+  var allRevealUp = document.querySelectorAll('.reveal-up');
+  var observedGrids = document.querySelectorAll('.services-grid, .problem-grid, .steps-grid, .why-grid, .testimonials-row, .pricing-grid, .wwu-grid');
+  var gridChildren = new Set();
+  observedGrids.forEach(function(g) {
+    Array.prototype.forEach.call(g.children, function(c) { gridChildren.add(c); });
+  });
+  var standaloneReveals = Array.prototype.filter.call(allRevealUp, function(el) {
+    return !gridChildren.has(el);
+  });
+  if (standaloneReveals.length) {
+    var revealObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('revealed');
+        revealObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    standaloneReveals.forEach(function(el) { revealObs.observe(el); });
+  }
 
   /* ─── WORKFLOW CINEMATIC SEQUENCE ─── */
   /* When the Live System section scrolls into view, play a cinematic
