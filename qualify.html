@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#060c1a" />
-  <title>Get Your Free Brand Audit — Nextstep AI</title>
+  <title>Get Your Brand Audit — Nextstep AI</title>
   <meta name="description" content="Submit your brand details and we'll send back a personalised breakdown of where you're losing revenue and exactly what we'd fix first." />
-  <meta property="og:title" content="Get Your Free Brand Audit — Nextstep AI" />
-  <meta property="og:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. Free. No obligation." />
+  <meta property="og:title" content="Get Your Brand Audit — Nextstep AI" />
+  <meta property="og:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. No obligation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/qualify.html" />
   <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Get Your Free Brand Audit — Nextstep AI" />
-  <meta name="twitter:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. Free. No obligation." />
+  <meta name="twitter:title" content="Get Your Brand Audit — Nextstep AI" />
+  <meta name="twitter:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. No obligation." />
   <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -725,10 +725,10 @@
     .qualify-success h2 {
       font-family: var(--font-head);
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--white);
       margin-bottom: 12px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.015em;
     }
     .qualify-success p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.65; }
     .success-next-steps {
@@ -1244,9 +1244,21 @@
       <ul class="nav-links">
         <li><a href="index.html">← Back to Home</a></li>
         <li><a href="workflows.html" target="_blank">Workflow Library</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
       </ul>
-      <a href="#formCard" class="btn btn-primary btn-sm">Submit My Brand</a>
+      <a href="#formCard" class="btn btn-primary btn-sm nav-cta">Submit My Brand</a>
+      <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -1257,9 +1269,9 @@
     <div class="container">
       <div class="qualify-hero-inner">
         <div class="qualify-hero-copy reveal">
-          <div class="section-label" style="display:inline-block;margin-bottom:20px;">Free Brand Revenue Audit</div>
+          <div class="section-label" style="display:inline-block;margin-bottom:20px;">Brand Revenue Audit</div>
           <h1>Stop Leaving<br/><span class="text-blue">$3,000 a Month</span><br/>on the Table.</h1>
-          <p class="qualify-hero-sub">We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you and what we'd fix first. Free. No obligation. Real insights in 24 hours.</p>
+          <p class="qualify-hero-sub">We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you and what we'd fix first. No obligation. Real insights in 24 hours.</p>
           <div class="qualify-hero-badges">
             <span class="qualify-badge qualify-badge-blue">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#0ea5e9" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -1828,7 +1840,9 @@
           </div>
 
           <form id="qualifyForm">
-            <!-- SECTION 1: ABOUT YOU -->
+
+            <!-- STEP 1: ABOUT YOU -->
+            <div class="form-step form-step-active" data-step="1">
             <div class="form-section-title" data-form-section="1">About You</div>
             <div class="form-row">
               <div class="form-group">
@@ -1891,7 +1905,13 @@
               </div>
             </div>
 
-            <!-- SECTION 2: YOUR BRAND -->
+            <div class="form-next-wrap">
+              <button type="button" class="btn-next" data-next="2">Next: Your Brand →</button>
+            </div>
+            </div><!-- /step 1 -->
+
+            <!-- STEP 2: YOUR BRAND -->
+            <div class="form-step" data-step="2">
             <div class="form-section-title" data-form-section="2">Your Brand</div>
             <div class="form-row">
               <div class="form-group">
@@ -1927,7 +1947,13 @@
               </div>
             </div>
 
-            <!-- SECTION 3: QUALIFYING QUESTIONS -->
+            <div class="form-next-wrap">
+              <button type="button" class="btn-next" data-next="3">Next: Your Numbers →</button>
+            </div>
+            </div><!-- /step 2 -->
+
+            <!-- STEP 3: YOUR NUMBERS -->
+            <div class="form-step" data-step="3">
             <div class="form-section-title" data-form-section="3">Your Numbers</div>
             <div class="form-row">
               <div class="form-group">
@@ -1977,7 +2003,13 @@
               </div>
             </div>
 
-            <!-- SECTION 4: PLAN INTEREST -->
+            <div class="form-next-wrap">
+              <button type="button" class="btn-next" data-next="4">Next: Choose Your Plan →</button>
+            </div>
+            </div><!-- /step 3 -->
+
+            <!-- STEP 4: PLAN + SUBMIT -->
+            <div class="form-step" data-step="4">
             <div class="form-section-title" data-form-section="4">Which Plan Are You Interested In?</div>
             <div class="plan-options" id="planOptions">
               <label class="plan-option">
@@ -1995,10 +2027,10 @@
                 <div class="plan-option-name">Ultimate VIP</div>
                 <div class="plan-option-price">$4,000 setup + $1,800/mo</div>
               </label>
-              <label class="plan-option plan-option-free">
-                <input type="radio" name="plan" value="Free Brand Audit" />
-                <div class="plan-option-name">Free Brand Audit <span class="plan-free-badge">FREE</span></div>
-                <div class="plan-option-price">No cost · No commitment</div>
+              <label class="plan-option">
+                <input type="radio" name="plan" value="Brand Audit" />
+                <div class="plan-option-name">Brand Audit</div>
+                <div class="plan-option-price">No commitment</div>
               </label>
               <label class="plan-option">
                 <input type="radio" name="plan" value="Not sure yet" />
@@ -2021,17 +2053,18 @@
               </label>
               <label class="form-terms-item">
                 <input type="checkbox" id="terms2" name="terms2" required />
-                <span class="form-terms-text">I understand that the free brand audit is provided at Nextstep AI's sole discretion. Submission does not guarantee a response — brands that do not meet our current client criteria will not be contacted. Results from any future engagement may vary and are not guaranteed.</span>
+                <span class="form-terms-text">I understand that the brand audit is provided at Nextstep AI's sole discretion. Submission does not guarantee a response — brands that do not meet our current client criteria will not be contacted. Results from any future engagement may vary and are not guaranteed.</span>
               </label>
             </div>
 
             <!-- SUBMIT -->
             <div class="form-submit-wrap">
               <button type="submit" class="btn-submit" id="submitBtn">
-                Submit My Free Audit Request →
+                Submit My Audit Request →
               </button>
               <p class="form-disclaimer">No spam. No sales calls you didn't ask for. Just a real audit from our team — no obligation.</p>
             </div>
+            </div><!-- /step 4 -->
           </form>
         </div>
       </div>
@@ -2214,7 +2247,7 @@
           </div>
         </div>
         <div class="legal-notice">
-          By submitting this form you confirm you have read and agree to the terms above. The free audit is provided at our discretion — submission does not guarantee a response if the brand does not meet our client criteria. Nextstep AI is operated by Caleb van Rooyen and governed by the laws of the Republic of South Africa. Contact: <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>.
+          By submitting this form you confirm you have read and agree to the terms above. The audit is provided at our discretion — submission does not guarantee a response if the brand does not meet our client criteria. Nextstep AI is operated by Caleb van Rooyen and governed by the laws of the Republic of South Africa. Contact: <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>.
         </div>
       </div>
     </div>
@@ -2292,34 +2325,85 @@
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
   <script src="transitions.js"></script>
+  <style>
+    .form-step { display: none; }
+    .form-step.form-step-active { display: block; }
+    .form-next-wrap { margin-top: 28px; }
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      border: none;
+      border-radius: 999px;
+      padding: 14px 32px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(14,165,233,0.3), 0 4px 12px rgba(14,165,233,0.15);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(14,165,233,0.5), 0 8px 24px rgba(14,165,233,0.25);
+    }
+    .fpb-line.fpb-line-done { background: rgba(74,222,128,0.5); }
+  </style>
   <script>
-  /* ── Form Progress Tracker ── */
+  /* ── Multi-Step Form Navigation ── */
   (function() {
-    const steps = document.querySelectorAll('.fpb-step');
-    const lines = document.querySelectorAll('.fpb-line');
-    const sections = document.querySelectorAll('[data-form-section]');
-    if (!steps.length || !sections.length) return;
+    var currentStep = 1;
+    var totalSteps = 4;
+    var formSteps = document.querySelectorAll('.form-step');
+    var progressSteps = document.querySelectorAll('.fpb-step');
+    var progressLines = document.querySelectorAll('.fpb-line');
 
-    function updateProgress(activeStep) {
-      steps.forEach((step, i) => {
-        const n = i + 1;
-        step.classList.remove('fpb-active', 'fpb-done');
-        if (n < activeStep) step.classList.add('fpb-done');
-        else if (n === activeStep) step.classList.add('fpb-active');
+    function showStep(n) {
+      formSteps.forEach(function(s) { s.classList.remove('form-step-active'); });
+      var target = document.querySelector('.form-step[data-step="' + n + '"]');
+      if (target) {
+        target.classList.add('form-step-active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      progressSteps.forEach(function(s, i) {
+        s.classList.remove('fpb-active', 'fpb-done');
+        var sn = i + 1;
+        if (sn < n) s.classList.add('fpb-done');
+        else if (sn === n) s.classList.add('fpb-active');
       });
+      progressLines.forEach(function(l, i) {
+        l.classList.toggle('fpb-line-done', i < n - 1);
+      });
+      currentStep = n;
     }
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const n = parseInt(entry.target.dataset.formSection);
-          updateProgress(n);
+    function validateStep(n) {
+      var step = document.querySelector('.form-step[data-step="' + n + '"]');
+      if (!step) return true;
+      var required = step.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function(field) {
+        if (!field.value || (field.tagName === 'SELECT' && !field.value)) {
+          field.style.borderColor = '#f87171';
+          setTimeout(function() { field.style.borderColor = ''; }, 2000);
+          valid = false;
         }
       });
-    }, { threshold: 0.5, rootMargin: '-20% 0px -50% 0px' });
+      return valid;
+    }
 
-    sections.forEach(s => io.observe(s));
-    updateProgress(1);
+    document.querySelectorAll('.btn-next').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var next = parseInt(this.dataset.next);
+        if (validateStep(currentStep)) {
+          showStep(next);
+        }
+      });
+    });
+
+    showStep(1);
   })();
   </script>
   <script src="ui.js"></script>

@@ -46,9 +46,9 @@
     .pricing-page-hero h1 {
       font-family: var(--font-head);
       font-size: clamp(36px, 5vw, 64px);
-      font-weight: 800;
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.015em;
       line-height: 1.05;
       margin-bottom: 20px;
     }
@@ -125,9 +125,9 @@
     .pricing-cta-footer h2 {
       font-family: var(--font-head);
       font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800;
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.025em;
+      letter-spacing: -0.015em;
       margin-bottom: 16px;
       line-height: 1.1;
     }
@@ -194,11 +194,23 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">← Back to Home</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="workflows.html" target="_blank">Workflows</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
-      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
+      <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -241,7 +253,7 @@
               Book a Call to Get Started
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Free Audit First</a>
+            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -283,7 +295,7 @@
               Book a Call to Get Started
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Free Audit First</a>
+            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -325,7 +337,7 @@
               Book a Call to Get Started
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Free Audit First</a>
+            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -350,18 +362,18 @@
   ═══════════════════════════════════════════════ -->
   <section class="pricing-cta-footer">
     <div class="container">
-      <a href="index.html#pricing" class="pricing-back-link">
+      <a href="pricing.html" class="pricing-back-link">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to pricing overview
       </a>
-      <h2>Not Sure Which Plan Fits?<br/><span style="background:linear-gradient(135deg,#7dd3fc,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Start with the free audit.</span></h2>
+      <h2>Not Sure Which Plan Fits?<br/><span style="background:linear-gradient(135deg,#7dd3fc,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Start with a brand audit.</span></h2>
       <p>We'll review your brand and tell you exactly which tier makes sense — and why. No commitment, no pressure.</p>
       <div class="pricing-cta-btn-row">
         <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
-          Get Your Free Brand Audit
+          Get Your Brand Audit
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="index.html#pricing" class="btn btn-ghost btn-lg">View Pricing Overview</a>
+        <a href="pricing.html" class="btn btn-ghost btn-lg">View Pricing Overview</a>
       </div>
     </div>
   </section>
@@ -374,7 +386,7 @@
         <div class="footer-bottom-links">
           <a href="index.html">← Back to Home</a>
           <a href="workflows.html" target="_blank">Workflow Library</a>
-          <a href="qualify.html" target="_blank">Get Free Audit</a>
+          <a href="qualify.html" target="_blank">Get Started</a>
           <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>
         </div>
       </div>
@@ -436,7 +448,7 @@
   </script>
   <div class="mobile-sticky-cta" id="mobileStickyCtaBar">
     <div class="msc-info">
-      <div class="msc-info-title">Free Brand Audit — 3 Spots Left</div>
+      <div class="msc-info-title">Brand Audit — 3 Spots Left</div>
       <div class="msc-info-sub">See exactly what we'd build for your brand.</div>
     </div>
     <a href="qualify.html" target="_blank" class="msc-btn">

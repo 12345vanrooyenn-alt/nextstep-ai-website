@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <title>30-Day Money-Back Guarantee | Nextstep AI</title>
+  <meta name="description" content="If you don't see measurable results within 30 days, we refund your setup fee. No questions asked. That's the Nextstep AI guarantee." />
+  <meta property="og:title" content="30-Day Money-Back Guarantee | Nextstep AI" />
+  <meta property="og:description" content="Results in 30 days or your money back. See the full terms of our guarantee." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/guarantee.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="30-Day Money-Back Guarantee | Nextstep AI" />
+  <meta name="twitter:description" content="Results in 30 days or your money back. See the full terms of our guarantee." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <style>
+    /* ─── GUARANTEE HERO ─── */
+    .guar-hero {
+      background: var(--ink);
+      padding: calc(72px + 96px) 0 96px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .guar-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .guar-shield {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      background: rgba(14,165,233,0.1);
+      border: 2px solid rgba(14,165,233,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .guar-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .guar-hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ─── GUARANTEE DETAILS ─── */
+    .guar-details {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .guar-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 56px 48px;
+    }
+    .guar-card h2 {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .guar-card p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .guar-card p:last-child {
+      margin-bottom: 0;
+    }
+    .guar-highlight {
+      background: rgba(14,165,233,0.08);
+      border-left: 3px solid var(--sky);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 32px 0;
+    }
+    .guar-highlight p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .guar-how {
+      background: var(--ink);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .guar-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .guar-step {
+      text-align: center;
+      padding: 40px 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      transition: border-color 0.3s;
+    }
+    .guar-step:hover {
+      border-color: rgba(14,165,233,0.25);
+    }
+    .guar-step-num {
+      font-family: var(--font-head);
+      font-size: 40px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .guar-step h3 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .guar-step p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+    }
+
+    /* ─── WHY WE OFFER THIS ─── */
+    .guar-why {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .guar-why-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .guar-why h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .guar-why p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ─── CTA ─── */
+    .guar-cta {
+      background: var(--ink);
+      padding: 96px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .guar-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    .guar-cta p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .guar-steps { grid-template-columns: 1fr; max-width: 400px; }
+    }
+    @media (max-width: 600px) {
+      .guar-hero { padding: calc(72px + 48px) 0 64px; }
+      .guar-details, .guar-how, .guar-why, .guar-cta { padding: 64px 0; }
+      .guar-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav nav-scrolled" id="nav">
+  <div class="nav-inner container">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#0f172a"/>
+        <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+        <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+        <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+        <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+        <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+      </svg>
+      <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="qualify.html" class="btn btn-primary nav-cta">Get Started</a>
+    <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="guar-hero">
+  <div class="container reveal">
+    <div class="guar-shield">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+    </div>
+    <div class="section-label">Our Guarantee</div>
+    <h1>Results in 30 Days. <span class="text-blue">Or Your Money Back.</span></h1>
+    <p class="guar-hero-sub">We don't ask you to trust a promise. We ask you to judge us by the numbers. If the results aren't there, neither is your bill.</p>
+  </div>
+</section>
+
+<!-- ─── GUARANTEE DETAILS ─── -->
+<section class="guar-details">
+  <div class="container">
+    <div class="guar-card reveal">
+      <h2>The 30-Day Guarantee</h2>
+      <p>When you sign up with Nextstep AI, we commit to delivering measurable results within your first 30 days. This means recovered revenue, automated workflows running live, and clear performance data you can verify yourself.</p>
+
+      <div class="guar-highlight">
+        <p>If you don't see measurable results from our automation systems within 30 days of going live, we will refund your setup fee in full. No questions asked. No hoops to jump through.</p>
+      </div>
+
+      <p><strong style="color:var(--white);">What counts as "measurable results"?</strong></p>
+      <p>At least one of the following within the first 30 days:</p>
+      <p style="padding-left:20px;">
+        &bull; Revenue recovered from abandoned carts<br>
+        &bull; Orders influenced by automation workflows<br>
+        &bull; Customer support queries handled automatically<br>
+        &bull; Past buyers reactivated through automated flows
+      </p>
+
+      <p><strong style="color:var(--white);">What's covered:</strong></p>
+      <p>The setup fee you paid when you signed up. This is refunded in full if we don't deliver results. Retainer payments for the month are non-refundable, as they cover the ongoing maintenance and support provided during that period.</p>
+
+      <p><strong style="color:var(--white);">What we ask from you:</strong></p>
+      <p>Provide the access and information we request during onboarding (Shopify, email platform, socials) within the first 48 hours. We can't recover revenue from systems we can't connect to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="guar-how">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal">Simple. Transparent. Fair.</h2>
+    <div class="guar-steps">
+      <div class="guar-step reveal">
+        <div class="guar-step-num">1</div>
+        <h3>We Build</h3>
+        <p>Your custom AI workflows go live within 7 days. We handle everything from setup to deployment.</p>
+      </div>
+      <div class="guar-step reveal">
+        <div class="guar-step-num">2</div>
+        <h3>We Measure</h3>
+        <p>You get weekly reports showing exactly how much revenue your automations are recovering.</p>
+      </div>
+      <div class="guar-step reveal">
+        <div class="guar-step-num">3</div>
+        <h3>You Decide</h3>
+        <p>If the results aren't there after 30 days, request a refund and get your setup fee back in full.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY WE OFFER THIS ─── -->
+<section class="guar-why">
+  <div class="container">
+    <div class="guar-why-inner reveal">
+      <h2>Why We Offer This Guarantee</h2>
+      <p>Because we've seen what our systems do. Our first client, Velour Fits, recovered $8,433 in lost sales. When you build automation that works, backing it with a guarantee isn't risky — it's the obvious thing to do.</p>
+      <p>We don't sell hours. We sell outcomes. And we stand behind every one of them.</p>
+      <p style="color:rgba(255,255,255,0.35);font-size:14px;margin-top:32px;">Every workflow we build is tied to measurable ROI. If it doesn't make you money, we don't charge you for it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="guar-cta">
+  <div class="container reveal">
+    <h2>Zero Risk. <span class="text-blue">Maximum Upside.</span></h2>
+    <p>Get a brand audit and see the exact revenue you're leaving on the table. If we can't recover it, you don't pay.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="qualify.html" class="btn btn-primary">Get Started</a>
+      <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-top container">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="margin-bottom:16px;display:inline-flex;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs><linearGradient id="nGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad2)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad2)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad2)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <p class="footer-tagline">AI workflow automation for e-commerce clothing brands.</p>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-col-title">Pages</div>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="results.html">Results</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Resources</div>
+        <a href="workflows.html">Workflow Library</a>
+        <a href="case-study.html">Case Study</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="guarantee.html">Guarantee</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="legal.html#terms">Terms of Service</a>
+        <a href="legal.html#refund">Refund Policy</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="https://instagram.com/caleb_automates" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="qualify.html">Brand Audit</a>
+        <a href="book.html">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <span>&copy; 2026 Nextstep AI. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="legal.html#terms">Terms of Service</a>
+      <span>nextstepai.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+<script src="animations.js"></script>
+<script src="whatsapp.js"></script>
+<script src="cookie.js"></script>
+<script src="transitions.js"></script>
+
+<script src="ui.js"></script>
+</body>
+</html>

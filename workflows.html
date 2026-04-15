@@ -31,9 +31,9 @@
     .wl-hero h1 {
       font-family: var(--font-head);
       font-size: clamp(32px, 4vw, 52px);
-      font-weight: 800;
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.015em;
       line-height: 1.1;
       margin-bottom: 16px;
     }
@@ -127,9 +127,21 @@
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .wl-card:hover {
-      border-color: rgba(14,165,233,0.2);
-      box-shadow: 0 8px 32px rgba(14,165,233,0.06);
+      border-color: rgba(14,165,233,0.3);
+      box-shadow: 0 8px 32px rgba(14,165,233,0.08);
+      transform: translateY(-2px);
     }
+    .wl-card::after {
+      content: 'View Details →';
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sky);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .wl-card:hover::after { opacity: 1; }
     .wl-card-header {
       display: flex;
       align-items: flex-start;
@@ -239,9 +251,9 @@
     .wl-bottom-cta h2 {
       font-family: var(--font-head);
       font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 800;
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.015em;
       margin-bottom: 16px;
     }
     .wl-bottom-cta p {
@@ -281,13 +293,25 @@
         <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="workflows.html">Workflows</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="index.html#about">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
-      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm">Get Free Audit</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
+      <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -297,7 +321,7 @@
       <div class="section-label" style="display:inline-block; margin-bottom:16px;">Workflow Library</div>
       <h1>50+ AI Workflows.<br/><span style="color:#0ea5e9;">Every One Built for Revenue.</span></h1>
       <p>Browse every automation we deploy for clothing brands. Click a category to explore — or jump straight to a plan to see exactly what's included.</p>
-      <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">Get Your Free Brand Audit</a>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">Get Your Brand Audit</a>
     </div>
   </div>
 
@@ -853,9 +877,9 @@
   <div class="wl-bottom-cta">
     <div class="container">
       <h2>Not Sure Which Plan Is Right for You?</h2>
-      <p>Get a free brand audit and we'll tell you exactly which workflows will move the needle most for your brand right now.</p>
+      <p>Get a brand audit and we'll tell you exactly which workflows will move the needle most for your brand right now.</p>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-lg">
-        Get My Free Brand Audit
+        Get My Brand Audit
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -868,7 +892,7 @@
         <span>© 2026 Nextstep AI. All rights reserved.</span>
         <div class="footer-bottom-links">
           <a href="index.html">Back to Home</a>
-          <a href="qualify.html" target="_blank">Get Free Audit</a>
+          <a href="qualify.html" target="_blank">Get Started</a>
           <a href="mailto:hello@nextstepai.com">hello@nextstepai.com</a>
         </div>
       </div>
@@ -910,9 +934,33 @@
       });
     });
   </script>
+  <script src="workflows-data.js"></script>
+  <script>
+    // Make workflow cards clickable
+    (function() {
+      var cards = document.querySelectorAll('.wl-card');
+      cards.forEach(function(card) {
+        var nameEl = card.querySelector('.wl-card-name');
+        if (!nameEl) return;
+        var name = nameEl.textContent.trim();
+        var wf = window.WORKFLOWS.find(function(w) { return w.name === name; });
+        if (!wf) return;
+        card.style.cursor = 'pointer';
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('click', function() {
+          window.location.href = 'workflow.html?id=' + wf.id;
+        });
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') window.location.href = 'workflow.html?id=' + wf.id;
+        });
+      });
+    })();
+  </script>
   <script src="animations.js"></script>
   <script src="whatsapp.js"></script>
   <script src="cookie.js"></script>
 <script src="transitions.js"></script>
+<script src="ui.js"></script>
 </body>
 </html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Individual Workflows — Nextstep AI</title>
+  <meta name="description" content="Pick the exact AI workflows you need — deployed, tested, and optimized individually for your clothing brand."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ─── Individual Workflows Page ─── */
+    .iwp-hero {
+      padding: 140px 0 64px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(14,165,233,0.06) 0%, transparent 60%);
+    }
+    .iwp-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .iwp-hero p {
+      color: var(--gray-300);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Pricing overview */
+    .iwp-pricing {
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .iwp-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 640px;
+      margin: 32px auto 0;
+    }
+    .iwp-price-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .iwp-price-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+      margin-bottom: 8px;
+    }
+    .iwp-price-range {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--sky);
+    }
+    .iwp-price-note {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 8px;
+    }
+
+    /* Calculator */
+    .iwp-calc {
+      padding: 96px 0;
+    }
+    .iwp-calc-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 48px;
+    }
+    .iwp-calc h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .iwp-calc > .container > p {
+      text-align: center;
+      color: var(--gray-400);
+      margin-bottom: 40px;
+    }
+    .iwp-calc-field {
+      margin-bottom: 28px;
+    }
+    .iwp-calc-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-300);
+      margin-bottom: 8px;
+    }
+    .iwp-calc-field select,
+    .iwp-calc-field input[type="range"] {
+      width: 100%;
+    }
+    .iwp-calc-field select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: var(--font-body);
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%2394a3b8'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+    .iwp-calc-field select:focus {
+      outline: none;
+      border-color: var(--sky);
+    }
+    .iwp-calc-field select option {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .iwp-range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 6px;
+    }
+    .iwp-range-value {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--sky);
+      margin-top: 8px;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--sky);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(14,165,233,0.4);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: var(--sky);
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Results */
+    .iwp-calc-results {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .iwp-result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .iwp-result-item {
+      text-align: center;
+      padding: 20px 16px;
+      background: rgba(14,165,233,0.06);
+      border: 1px solid rgba(14,165,233,0.12);
+      border-radius: 12px;
+    }
+    .iwp-result-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+      margin-bottom: 4px;
+    }
+    .iwp-result-value {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 700;
+      color: var(--white);
+    }
+    .iwp-result-value.highlight { color: #22c55e; }
+    .iwp-result-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 16px;
+    }
+
+    /* Workflow browser */
+    .iwp-browse {
+      padding: 96px 0;
+    }
+    .iwp-browse h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .iwp-browse > .container > p {
+      text-align: center;
+      color: var(--gray-400);
+      margin-bottom: 48px;
+    }
+    .iwp-cat-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      margin-top: 48px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .iwp-cat-title:first-of-type { margin-top: 0; }
+    .iwp-wf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .iwp-wf-card {
+      display: block;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .iwp-wf-card:hover {
+      border-color: rgba(14,165,233,0.3);
+      transform: translateY(-2px);
+    }
+    .iwp-wf-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .iwp-wf-meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .iwp-wf-plan {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .iwp-wf-plan-core { color: #38bdf8; background: rgba(56,189,248,0.1); }
+    .iwp-wf-plan-standard { color: #a78bfa; background: rgba(167,139,250,0.1); }
+    .iwp-wf-plan-ultimate { color: #fbbf24; background: rgba(251,191,36,0.1); }
+    .iwp-wf-arrow {
+      margin-left: auto;
+      color: var(--gray-500);
+      font-size: 14px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .iwp-wf-card:hover .iwp-wf-arrow {
+      color: var(--sky);
+      transform: translateX(3px);
+    }
+
+    /* CTA */
+    .iwp-cta {
+      padding: 96px 0;
+      text-align: center;
+    }
+    .iwp-cta h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .iwp-cta p {
+      color: var(--gray-400);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    @media (max-width: 768px) {
+      .iwp-pricing-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .iwp-calc-inner { padding: 32px 20px; }
+      .iwp-result-grid { grid-template-columns: 1fr; }
+      .iwp-wf-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav nav-scrolled" id="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0f172a"/>
+          <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+          <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+          <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+        </svg>
+        <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
+      <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="iwp-hero">
+    <div class="container">
+      <div class="section-label" style="display:inline-block;margin-bottom:16px;">Individual Workflows</div>
+      <h1>One Workflow. Full Power.<br/><span style="color:var(--sky);">No Plan Required.</span></h1>
+      <p>Pick the exact automation you need — we build it, test it, and optimize it for your brand. No bundles, no filler, no fluff.</p>
+    </div>
+  </section>
+
+  <!-- PRICING OVERVIEW -->
+  <section class="iwp-pricing">
+    <div class="container">
+      <h2 style="font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;letter-spacing:-0.015em;color:var(--white);text-align:center;">Transparent Pricing</h2>
+      <p style="text-align:center;color:var(--gray-400);margin-top:8px;">Every individual workflow follows the same simple pricing structure.</p>
+      <div class="iwp-pricing-grid">
+        <div class="iwp-price-card">
+          <div class="iwp-price-label">One-Time Setup</div>
+          <div class="iwp-price-range">$650 – $1,500</div>
+          <div class="iwp-price-note">Build, connect, test &amp; launch</div>
+        </div>
+        <div class="iwp-price-card">
+          <div class="iwp-price-label">Monthly Optimization</div>
+          <div class="iwp-price-range">$350 – $850/mo</div>
+          <div class="iwp-price-note">Monitoring, A/B testing &amp; scaling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section class="iwp-calc">
+    <div class="container">
+      <div class="iwp-calc-inner">
+        <h2>Estimate Your ROI</h2>
+        <p style="text-align:center;color:var(--gray-400);margin-bottom:40px;">See what a single workflow could recover or generate for your brand.</p>
+
+        <div class="iwp-calc-field">
+          <label for="calcCategory">Workflow Category</label>
+          <select id="calcCategory">
+            <option value="cart-recovery">Cart & Checkout Recovery</option>
+            <option value="reactivation">Reactivation & Winback</option>
+            <option value="dm-automation">DM & Social Automation</option>
+            <option value="vip-flows">VIP & Loyalty Flows</option>
+            <option value="support">Support & Post-Purchase</option>
+            <option value="product-performance">Product Performance</option>
+            <option value="dashboards">Dashboards & Reporting</option>
+            <option value="launch-flows">Launch & Drop Flows</option>
+          </select>
+        </div>
+
+        <div class="iwp-calc-field" id="revenueField">
+          <label for="calcRevenue">Monthly Revenue</label>
+          <input type="range" id="calcRevenue" min="5000" max="200000" step="5000" value="30000"/>
+          <div class="iwp-range-labels"><span>$5K</span><span>$200K</span></div>
+          <div class="iwp-range-value" id="calcRevenueDisplay">$30,000/mo</div>
+        </div>
+
+        <div class="iwp-calc-field" id="complexityField">
+          <label for="calcComplexity">Workflow Complexity</label>
+          <select id="calcComplexity">
+            <option value="simple">Simple (single channel, 1-2 steps)</option>
+            <option value="moderate" selected>Moderate (multi-step, personalized)</option>
+            <option value="advanced">Advanced (AI-powered, multi-channel)</option>
+          </select>
+        </div>
+
+        <div class="iwp-calc-results" id="calcResults">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE WORKFLOWS -->
+  <section class="iwp-browse">
+    <div class="container">
+      <h2>Browse All Workflows</h2>
+      <p>Click any workflow to see full details, expected ROI, and how it works.</p>
+      <div id="workflowBrowser"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="iwp-cta">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Tell us which workflow you need and we'll scope it out — free, no obligation.</p>
+      <a href="qualify.html" class="btn btn-primary btn-lg">Get My Workflow Scoped</a>
+      <br/><br/>
+      <a href="pricing.html" style="color:var(--gray-400);font-weight:500;">Or view full plans →</a>
+    </div>
+  </section>
+
+  <script src="workflows-data.js"></script>
+  <script>
+    (function() {
+      /* ─── CALCULATOR ─── */
+      var catSelect = document.getElementById('calcCategory');
+      var revenueSlider = document.getElementById('calcRevenue');
+      var revenueDisplay = document.getElementById('calcRevenueDisplay');
+      var complexitySelect = document.getElementById('calcComplexity');
+      var resultsDiv = document.getElementById('calcResults');
+      var revenueField = document.getElementById('revenueField');
+
+      /* Category config: which have ROI, recovery rates, setup/monthly ranges */
+      var catConfig = {
+        'cart-recovery':        { hasROI: true, recoveryRate: [0.08, 0.15], abandonRate: 0.70, setupMin: 650, setupMax: 1200, moMin: 350, moMax: 650 },
+        'reactivation':         { hasROI: true, recoveryRate: [0.03, 0.08], abandonRate: 1, setupMin: 750, setupMax: 1300, moMin: 400, moMax: 700 },
+        'dm-automation':        { hasROI: true, recoveryRate: [0.02, 0.06], abandonRate: 1, setupMin: 700, setupMax: 1200, moMin: 350, moMax: 650 },
+        'vip-flows':            { hasROI: true, recoveryRate: [0.05, 0.12], abandonRate: 1, setupMin: 850, setupMax: 1500, moMin: 450, moMax: 850 },
+        'support':              { hasROI: false, setupMin: 650, setupMax: 1000, moMin: 350, moMax: 550 },
+        'product-performance':  { hasROI: false, setupMin: 800, setupMax: 1300, moMin: 400, moMax: 700 },
+        'dashboards':           { hasROI: false, setupMin: 650, setupMax: 1000, moMin: 350, moMax: 550 },
+        'launch-flows':         { hasROI: true, recoveryRate: [0.04, 0.10], abandonRate: 1, setupMin: 900, setupMax: 1500, moMin: 450, moMax: 850 }
+      };
+
+      function formatMoney(n) {
+        return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+      }
+
+      function updateCalc() {
+        var cat = catSelect.value;
+        var config = catConfig[cat];
+        var complexity = complexitySelect.value;
+        var revenue = parseInt(revenueSlider.value);
+
+        revenueDisplay.textContent = formatMoney(revenue) + '/mo';
+
+        /* Complexity multiplier for pricing */
+        var cMul = complexity === 'simple' ? 0 : complexity === 'moderate' ? 0.5 : 1;
+        var setup = Math.round(config.setupMin + (config.setupMax - config.setupMin) * cMul);
+        var monthly = Math.round(config.moMin + (config.moMax - config.moMin) * cMul);
+
+        if (config.hasROI) {
+          revenueField.style.display = '';
+          var lowRate = config.recoveryRate[0];
+          var highRate = config.recoveryRate[1];
+          var base = cat === 'cart-recovery' ? revenue * config.abandonRate : revenue;
+          var lowRec = Math.round(base * lowRate);
+          var highRec = Math.round(base * highRate);
+
+          resultsDiv.innerHTML =
+            '<div class="iwp-result-grid">' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">Setup Fee</div>' +
+                '<div class="iwp-result-value">' + formatMoney(setup) + '</div>' +
+              '</div>' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">Monthly</div>' +
+                '<div class="iwp-result-value">' + formatMoney(monthly) + '/mo</div>' +
+              '</div>' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">Est. Monthly ROI</div>' +
+                '<div class="iwp-result-value highlight">' + formatMoney(lowRec) + ' – ' + formatMoney(highRec) + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<p class="iwp-result-note">Estimated ' + Math.round(lowRate*100) + '–' + Math.round(highRate*100) + '% recovery/uplift rate based on industry averages. Actual results vary by brand.</p>';
+        } else {
+          revenueField.style.display = 'none';
+          resultsDiv.innerHTML =
+            '<div class="iwp-result-grid">' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">Setup Fee</div>' +
+                '<div class="iwp-result-value">' + formatMoney(setup) + '</div>' +
+              '</div>' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">Monthly</div>' +
+                '<div class="iwp-result-value">' + formatMoney(monthly) + '/mo</div>' +
+              '</div>' +
+              '<div class="iwp-result-item">' +
+                '<div class="iwp-result-label">ROI</div>' +
+                '<div class="iwp-result-value" style="font-size:0.9rem;">Operational — not direct revenue</div>' +
+              '</div>' +
+            '</div>' +
+            '<p class="iwp-result-note">This workflow improves operations, support quality, or visibility — direct revenue attribution not applicable.</p>';
+        }
+      }
+
+      catSelect.addEventListener('change', updateCalc);
+      revenueSlider.addEventListener('input', updateCalc);
+      complexitySelect.addEventListener('change', updateCalc);
+      updateCalc();
+
+      /* ─── WORKFLOW BROWSER ─── */
+      var browser = document.getElementById('workflowBrowser');
+      var catNames = {
+        'cart-recovery': 'Cart & Checkout Recovery',
+        'reactivation': 'Reactivation & Winback',
+        'dm-automation': 'DM & Social Automation',
+        'support': 'Support & Post-Purchase',
+        'product-performance': 'Product Performance',
+        'vip-flows': 'VIP & Loyalty Flows',
+        'dashboards': 'Dashboards & Reporting',
+        'launch-flows': 'Launch & Drop Flows'
+      };
+      var catOrder = ['cart-recovery','reactivation','dm-automation','support','product-performance','vip-flows','dashboards','launch-flows'];
+      var html = '';
+
+      catOrder.forEach(function(cat) {
+        var wfs = window.WORKFLOWS.filter(function(w) { return w.category === cat; });
+        if (!wfs.length) return;
+        html += '<h3 class="iwp-cat-title">' + (catNames[cat] || cat) + '</h3>';
+        html += '<div class="iwp-wf-grid">';
+        wfs.forEach(function(wf) {
+          var planClass = 'iwp-wf-plan-' + wf.plan;
+          var planLabel = wf.plan === 'core' ? 'Core' : wf.plan === 'standard' ? 'Standard' : 'Ultimate';
+          html += '<a href="workflow.html?id=' + wf.id + '" class="iwp-wf-card">' +
+            '<div class="iwp-wf-name">' + wf.name + '</div>' +
+            '<div class="iwp-wf-meta">' +
+              '<span class="iwp-wf-plan ' + planClass + '">' + planLabel + '</span>' +
+              '<span class="iwp-wf-arrow">→</span>' +
+            '</div>' +
+          '</a>';
+        });
+        html += '</div>';
+      });
+
+      browser.innerHTML = html;
+    })();
+  </script>
+  <script src="ui.js"></script>
+</body>
+</html>

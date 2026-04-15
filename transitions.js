@@ -24,6 +24,14 @@
     });
   });
 
+  // Fix bfcache: browser back button restores page with overlay stuck at opacity:1
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+    }
+  });
+
   // Intercept same-origin link clicks
   document.addEventListener('click', function(e) {
     const link = e.target.closest('a');
@@ -34,10 +42,12 @@
     if (link.target === '_blank') return;
     if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
     if (href.startsWith('http') && !href.includes(location.hostname)) return;
-    // Skip qualify.html opens in new tab typically but catch internal pages
-    const internalPages = ['index.html', 'about.html', 'pricing.html', 'case-study.html', 'qualify.html', 'thank-you.html', 'workflows.html', 'legal.html'];
-    const isInternal = internalPages.some(p => href.includes(p)) || href === '/' || href === './';
-    if (!isInternal) return;
+
+    // Check if same-origin HTML page
+    try {
+      const url = new URL(href, location.href);
+      if (url.origin !== location.origin) return;
+    } catch (err) { return; }
 
     e.preventDefault();
     overlay.style.opacity = '1';

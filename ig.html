@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nextstep AI — Done-For-You AI Automation for Clothing Brands</title>
+  <meta name="description" content="Recover abandoned carts, reactivate past buyers, and follow up on DMs automatically. First results in 7 days." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #060c1a;
+      --navy: #0c1524;
+      --sky: #0ea5e9;
+      --sky-dim: rgba(14,165,233,0.15);
+      --sky-glow: rgba(14,165,233,0.3);
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.08);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(14,165,233,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(14,165,233,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── FOUNDER BLOCK ── */
+    .founder-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .founder-photo-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+    }
+
+    .founder-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--sky);
+      display: block;
+    }
+
+    .founder-online-dot {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
+      background: #22c55e;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+    }
+
+    .founder-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .founder-handle {
+      font-size: 0.85rem;
+      color: var(--sky);
+      text-decoration: none;
+    }
+    .founder-handle:hover { text-decoration: underline; }
+
+    .founder-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── HEADLINE ── */
+    .headline-block {
+      text-align: center;
+    }
+
+    .headline-block h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.65rem, 5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .headline-block h1 em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .headline-block p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* ── PROOF CARD ── */
+    .proof-card {
+      width: 100%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .proof-card-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
+
+    .proof-card-headline {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .proof-card-headline span {
+      color: var(--sky);
+    }
+
+    .proof-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .proof-stat {
+      background: var(--sky-dim);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sky);
+    }
+
+    .proof-card-screenshot {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+
+    .proof-card-screenshot img {
+      width: 100%;
+      display: block;
+    }
+
+    .proof-card-footnote {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── TRUST BADGES ── */
+    .trust-badges {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .trust-badge {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 14px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .trust-badge-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .trust-badge-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-block {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-main {
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      padding: 18px 32px;
+      background: var(--sky);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 28px var(--sky-glow), 0 4px 16px rgba(14,165,233,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(14,165,233,0.5), 0 8px 24px rgba(14,165,233,0.25);
+    }
+
+    .btn-main:active {
+      transform: translateY(0);
+    }
+
+    .cta-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .cta-sub a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+    .cta-sub a:hover { text-decoration: underline; }
+
+    /* ── WHAT HAPPENS NEXT ── */
+    .steps-block {
+      width: 100%;
+    }
+
+    .steps-title {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sky-dim);
+      border: 1px solid rgba(14,165,233,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--sky);
+    }
+
+    .step-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .step-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    .ig-footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 8px;
+    }
+
+    .ig-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .ig-footer a:hover { color: var(--sky); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 420px) {
+      .page-wrap { padding: 36px 18px 56px; gap: 24px; }
+      .trust-badges { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .trust-badge { padding: 12px 6px; }
+      .trust-badge-icon { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- Founder -->
+  <div class="founder-block">
+    <div class="founder-photo-wrap">
+      <img src="assets/caleb-professional-1.jpg" alt="Caleb van Rooyen" class="founder-photo" />
+      <div class="founder-online-dot"></div>
+    </div>
+    <div>
+      <div class="founder-name">Caleb van Rooyen</div>
+      <a href="https://instagram.com/caleb_automates" target="_blank" class="founder-handle">@caleb_automates</a><br />
+      <span class="founder-tagline">AI Automation for Clothing Brands</span>
+    </div>
+  </div>
+
+  <!-- Headline -->
+  <div class="headline-block">
+    <h1>Your Store Is Making Sales.<br /><em>Your Automation Is Losing Them.</em></h1>
+    <p>I build done-for-you AI systems that recover abandoned carts, reactivate past buyers, and follow up across email, Instagram DM, and WhatsApp — live in 7 days, zero setup from you.</p>
+  </div>
+
+  <!-- CTA — above the fold -->
+  <div class="cta-block">
+    <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" class="btn-main">
+      Book a Free 15-Min Strategy Call →
+    </a>
+    <div class="cta-sub">
+      No pitch. No pressure. You'll leave with a clear picture of what's leaking.<br />
+      <a href="qualify.html">Or get a free written audit first →</a>
+    </div>
+  </div>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🛡️</div>
+      <div class="trust-badge-text">30-Day Performance Guarantee</div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">⚡</div>
+      <div class="trust-badge-text">Live in 7 Days Flat</div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🔒</div>
+      <div class="trust-badge-text">No Lock-In Contract</div>
+    </div>
+  </div>
+
+  <!-- Proof Card — Velour Fits -->
+  <div class="proof-card">
+    <div class="proof-card-label">Real Result · December 2024</div>
+    <div class="proof-card-headline">Velour Fits recovered <span>$2,028</span> in their first 14 days</div>
+    <div class="proof-card-meta">
+      <span class="proof-stat">$2,028 recovered</span>
+      <span class="proof-stat">↑260% email open rate</span>
+      <span class="proof-stat">↑199% click rate</span>
+    </div>
+    <div class="proof-card-screenshot">
+      <img src="assets/proof-shopify-dashboard-small.jpg" alt="Velour Fits Shopify dashboard showing recovered revenue" loading="lazy" />
+    </div>
+    <div class="proof-card-footnote">Shopify analytics screenshot · United States · Dec 2024 · Result verified</div>
+  </div>
+
+  <!-- What Happens Next -->
+  <div class="steps-block">
+    <div class="steps-title">What happens on the call</div>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>I audit your current setup</strong> — what's leaking, where, and roughly how much per month.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>I show you the exact system</strong> I'd build — specific sequences, channels, and triggers for your brand.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>If it's a fit, I send a proposal</strong> — fixed monthly, no hidden fees, cancel any time.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA repeat -->
+  <div class="cta-block">
+    <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" class="btn-main">
+      Book My Free Strategy Call →
+    </a>
+    <div class="cta-sub">
+      Limited to 4 brands/month · April cohort open now
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="ig-footer">
+    <a href="index.html">nextstepai.co</a> &nbsp;·&nbsp;
+    <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
+  </div>
+
+</div>
+
+</body>
+</html>

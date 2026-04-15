@@ -1,0 +1,16 @@
+.git
+.wrangler
+.netlify
+.gitignore
+.assetsignore
+wrangler.jsonc
+nano-banana
+*.bak
+CLAUDE.md
+.env
+.env.*
+.claude
+nano-banana-setup.md
+brand-assets
+me photos
+proof photos

@@ -66,7 +66,7 @@ box-shadow: 0 8px 32px rgba(14,165,233,0.08);
 - **Never:** Salesy buzzwords, emoji in web copy, generic AI claims
 
 ## Button Hierarchy
-1. **Primary CTA** — Sky blue fill (`#0ea5e9`) — "Get Free Audit", "Book a Call"
+1. **Primary CTA** — Sky blue fill (`#0ea5e9`) — "Get Started", "Book a Call"
 2. **Ghost CTA** — Transparent with border — secondary actions
 3. **Dark CTAs** — White fill on navy sections
 

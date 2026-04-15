@@ -51,7 +51,7 @@
       transform: translateX(0);
     }
     @media (max-width: 600px) {
-      #wa-btn { bottom: 20px; left: 20px; width: 50px; height: 50px; }
+      #wa-btn { bottom: calc(80px + env(safe-area-inset-bottom)); left: 16px; width: 48px; height: 48px; }
       #wa-tooltip { display: none; }
     }
   `;

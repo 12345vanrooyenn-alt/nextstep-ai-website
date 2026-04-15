@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060c1a" />
+  <title>Services — AI Workflow Automation for Clothing Brands | Nextstep AI</title>
+  <meta name="description" content="Revenue automation, operational automation, and growth insights — 50+ proven AI workflows built specifically for e-commerce clothing brands." />
+  <meta property="og:title" content="Services — AI Workflow Automation for Clothing Brands | Nextstep AI" />
+  <meta property="og:description" content="Three systems that print revenue. Revenue automation, operational automation, and growth insights — all custom-built for your clothing brand." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/services.html" />
+  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services — AI Workflow Automation for Clothing Brands | Nextstep AI" />
+  <meta name="twitter:description" content="Three systems that print revenue. 50+ proven AI workflows built for e-commerce clothing brands." />
+  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <style>
+    /* ─── SERVICES HERO ─── */
+    .svc-hero {
+      background: var(--ink);
+      padding: calc(72px + 80px) 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .svc-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .svc-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .svc-hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+    .svc-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .svc-stat-num {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--sky) 0%, #38bdf8 60%, #7dd3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .svc-stat-lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ─── THREE PILLARS ─── */
+    .svc-pillars {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .svc-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .svc-pillar {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .svc-pillar:hover {
+      border-color: rgba(14,165,233,0.25);
+      transform: translateY(-4px);
+    }
+    .svc-pillar-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .svc-pillar-icon svg {
+      width: 28px; height: 28px;
+    }
+    .svc-pillar h3 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .svc-pillar-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .svc-pillar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .svc-pillar li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      padding: 8px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .svc-pillar li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--sky);
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    /* ─── WORKFLOW CATALOGUE ─── */
+    .svc-catalogue {
+      background: var(--ink);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .svc-cat-group {
+      margin-bottom: 56px;
+    }
+    .svc-cat-group:last-child {
+      margin-bottom: 0;
+    }
+    .svc-cat-group-num {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sky);
+      opacity: 0.7;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .svc-cat-group h3 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .svc-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .svc-cat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .svc-cat-card:hover {
+      border-color: rgba(14,165,233,0.2);
+      background: rgba(14,165,233,0.04);
+    }
+
+    /* ─── WHAT WE DON'T DO ─── */
+    .svc-dont {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .svc-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .svc-dont-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .svc-dont-list li {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .svc-dont-list li svg {
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+    .svc-dont-focus {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .svc-dont-focus h3 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .svc-dont-focus p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* ─── CTA ─── */
+    .svc-cta {
+      background: var(--ink);
+      padding: 96px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-cta::before {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .svc-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    .svc-cta p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .svc-pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .svc-dont-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+    @media (max-width: 600px) {
+      .svc-hero { padding: calc(72px + 48px) 0 48px; }
+      .svc-hero-stats { gap: 28px; }
+      .svc-pillars, .svc-catalogue, .svc-dont, .svc-cta { padding: 64px 0; }
+      .svc-cat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .svc-cat-card { padding: 14px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav nav-scrolled" id="nav">
+  <div class="nav-inner container">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#0f172a"/>
+        <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+        <rect x="7" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+        <rect x="24" y="7" width="5" height="22" rx="1" fill="url(#nGrad)"/>
+        <polygon points="7,7 12,7 29,29 24,29" fill="url(#nGrad)"/>
+        <circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/>
+      </svg>
+      <span class="nav-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">← Back to Home</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="case-study.html">Results</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <a href="qualify.html" class="btn btn-primary nav-cta">Get Started</a>
+    <div class="nav-dots-menu">
+        <button class="nav-dots-btn" id="navDotsBtn" aria-label="More pages" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="1.8"/><circle cx="10" cy="10" r="1.8"/><circle cx="10" cy="16" r="1.8"/></svg>
+        </button>
+        <div class="nav-dots-dropdown" id="navDotsDropdown">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="about.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="qualify.html">Get Started</a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="svc-hero">
+  <div class="container reveal">
+    <div class="section-label">Our Services</div>
+    <h1>Three Systems That Print Revenue. <span class="text-blue">One Agency That Builds Them.</span></h1>
+    <p class="svc-hero-sub">We don't sell hours. We build AI-powered workflow systems that recover lost sales, automate operations, and give you clarity — all custom-built for your clothing brand.</p>
+    <div class="svc-hero-stats">
+      <div>
+        <div class="svc-stat-num">50+</div>
+        <div class="svc-stat-lbl">Workflows Available</div>
+      </div>
+      <div>
+        <div class="svc-stat-num">7-Day</div>
+        <div class="svc-stat-lbl">Deployment</div>
+      </div>
+      <div>
+        <div class="svc-stat-num">24/7</div>
+        <div class="svc-stat-lbl">Automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THREE PILLARS ─── -->
+<section class="svc-pillars">
+  <div class="container reveal">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">Three Service Categories</h2>
+    <div class="svc-pillars-grid">
+
+      <!-- Revenue Automation -->
+      <div class="svc-pillar">
+        <div class="svc-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <h3>Revenue Automation</h3>
+        <p class="svc-pillar-desc">Systems that directly boost sales</p>
+        <ul>
+          <li>Abandoned cart recovery</li>
+          <li>Checkout follow-ups</li>
+          <li>Upsell triggers</li>
+          <li>Restock notifications</li>
+          <li>Product drop reminders</li>
+          <li>VIP customer flows</li>
+        </ul>
+      </div>
+
+      <!-- Operational Automation -->
+      <div class="svc-pillar">
+        <div class="svc-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </div>
+        <h3>Operational Automation</h3>
+        <p class="svc-pillar-desc">Systems that reduce wasted time</p>
+        <ul>
+          <li>Automated customer responses</li>
+          <li>Delivery query automation</li>
+          <li>Order status updates</li>
+          <li>FAQ handling</li>
+          <li>Support triage</li>
+          <li>DM inbox automation</li>
+        </ul>
+      </div>
+
+      <!-- Growth & Insights -->
+      <div class="svc-pillar">
+        <div class="svc-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3>Growth &amp; Insights</h3>
+        <p class="svc-pillar-desc">Systems that give you clarity</p>
+        <ul>
+          <li>Product performance prediction</li>
+          <li>Restock alerts</li>
+          <li>Customer trend tracking</li>
+          <li>Workflow performance reports</li>
+          <li>Conversion tracking</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WORKFLOW CATALOGUE ─── -->
+<section class="svc-catalogue">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:56px;">
+      <div class="section-label">The Workflow Catalogue</div>
+      <h2 class="section-title">50+ Proven Workflows, Built for Clothing Brands</h2>
+    </div>
+
+    <!-- 1. Attract & Pre-Visit -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">01</div>
+      <h3>Attract &amp; Pre-Visit</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">New Drop Hype Bot</div>
+        <div class="svc-cat-card">Waitlist to Launch</div>
+        <div class="svc-cat-card">Content to Store Nudge</div>
+        <div class="svc-cat-card">Influencer Follow-Up</div>
+        <div class="svc-cat-card">Style Quiz to Suggestions</div>
+      </div>
+    </div>
+
+    <!-- 2. On-Site Engagement -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">02</div>
+      <h3>On-Site Engagement</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">Smart Welcome Flow</div>
+        <div class="svc-cat-card">Product View Reminder</div>
+        <div class="svc-cat-card">Browse Abandonment</div>
+        <div class="svc-cat-card">Size/Fit FAQ Assistant</div>
+        <div class="svc-cat-card">Low-Stock Alert</div>
+      </div>
+    </div>
+
+    <!-- 3. Cart & Checkout Recovery -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">03</div>
+      <h3>Cart &amp; Checkout Recovery</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">Standard 3-Step Recovery</div>
+        <div class="svc-cat-card">High-Intent Fast Trigger</div>
+        <div class="svc-cat-card">Channel-Specific Recovery</div>
+        <div class="svc-cat-card">FAQ &amp; Objection Recovery</div>
+        <div class="svc-cat-card">Payment Issue Support</div>
+        <div class="svc-cat-card">Coupon Abandonment</div>
+        <div class="svc-cat-card">Smart Timing Optimiser</div>
+      </div>
+    </div>
+
+    <!-- 4. Post-Purchase & Retention -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">04</div>
+      <h3>Post-Purchase &amp; Retention</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">Welcome Journey</div>
+        <div class="svc-cat-card">Second Purchase Nudge</div>
+        <div class="svc-cat-card">Review &amp; UGC Request</div>
+        <div class="svc-cat-card">Size Fit Follow-Up</div>
+        <div class="svc-cat-card">VIP Upgrade</div>
+        <div class="svc-cat-card">Birthday / Anniversary</div>
+        <div class="svc-cat-card">Care &amp; Styling Guide</div>
+      </div>
+    </div>
+
+    <!-- 5. Customer Support -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">05</div>
+      <h3>Customer Support</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">Order Status Bot</div>
+        <div class="svc-cat-card">Shipping &amp; Returns FAQ</div>
+        <div class="svc-cat-card">Product FAQ</div>
+        <div class="svc-cat-card">DM to Ticket Router</div>
+        <div class="svc-cat-card">Peak Season Load Balancer</div>
+        <div class="svc-cat-card">Sentiment Alert</div>
+      </div>
+    </div>
+
+    <!-- 6. Reactivation & Win-Back -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">06</div>
+      <h3>Reactivation &amp; Win-Back</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">90-Day Reactivation</div>
+        <div class="svc-cat-card">Lapsed Cart Re-Engagement</div>
+        <div class="svc-cat-card">Engagement Drop-Off</div>
+        <div class="svc-cat-card">Seasonal Reactivation</div>
+        <div class="svc-cat-card">VIP Dormant Reactivation</div>
+      </div>
+    </div>
+
+    <!-- 7. Insights & Prediction -->
+    <div class="svc-cat-group reveal">
+      <div class="svc-cat-group-num">07</div>
+      <h3>Insights &amp; Prediction</h3>
+      <div class="svc-cat-grid">
+        <div class="svc-cat-card">Weekly Performance Snapshot</div>
+        <div class="svc-cat-card">Daily KPI Brief</div>
+        <div class="svc-cat-card">Support Load Report</div>
+        <div class="svc-cat-card">Customer Feedback Digest</div>
+        <div class="svc-cat-card">Churn Risk Alert</div>
+        <div class="svc-cat-card">High-Intent Buyer Watchlist</div>
+        <div class="svc-cat-card">Product Prediction</div>
+        <div class="svc-cat-card">Restock Demand Predictor</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── WHAT WE DON'T DO ─── -->
+<section class="svc-dont">
+  <div class="container reveal">
+    <div class="section-label">Laser Focus</div>
+    <h2 class="section-title">What We Don't Do</h2>
+    <div class="svc-dont-grid">
+      <ul class="svc-dont-list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          Run ads or manage campaigns
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          Create graphics or content
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          Do influencer marketing
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          Handle inventory logistics
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          Full website redesign
+        </li>
+      </ul>
+      <div class="svc-dont-focus">
+        <h3>We stay focused on one thing.</h3>
+        <p>Automation and revenue systems. That's it. We don't try to be a full-service agency. We build AI-powered workflows that recover lost sales, automate your operations, and give you real-time clarity on your business — so you can focus on designing, creating, and growing your brand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="svc-cta">
+  <div class="container reveal">
+    <div class="section-label">Next Step</div>
+    <h2>Ready to See What's <span class="text-blue">Leaking?</span></h2>
+    <p>Get a brand audit and we'll show you exactly which workflows would move the needle for your store.</p>
+    <a href="qualify.html" class="btn btn-primary">Get Started &rarr;</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1e293b"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="7" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><rect x="24" y="7" width="5" height="22" rx="1" fill="url(#fGrad)"/><polygon points="7,7 12,7 29,29 24,29" fill="url(#fGrad)"/><circle cx="20.5" cy="18" r="2" fill="white" opacity="0.9"/></svg>
+        <span class="nav-logo-text footer-logo-text">Nextstep <span class="nav-logo-ai">AI</span></span>
+      </a>
+      <p class="footer-tagline">AI workflow automation for e-commerce clothing brands that want to make more money without working more hours.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Pages</div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="results.html">Results</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Resources</div>
+        <a href="workflows.html">Workflow Library</a>
+        <a href="case-study.html">Case Study</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="guarantee.html">Guarantee</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="legal.html#privacy">Privacy Policy</a>
+        <a href="legal.html#terms">Terms of Service</a>
+        <a href="legal.html#refund">Refund Policy</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="https://instagram.com/caleb_automates" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="qualify.html">Brand Audit</a>
+        <a href="book.html">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <span>&copy; 2026 Nextstep AI. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="legal.html#privacy">Privacy Policy</a>
+      <a href="legal.html#terms">Terms of Service</a>
+      <span>nextstepai.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+<script src="animations.js"></script>
+<script src="whatsapp.js"></script>
+<script src="cookie.js"></script>
+<script src="transitions.js"></script>
+
+<script src="ui.js"></script>
+</body>
+</html>

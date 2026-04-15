@@ -30,12 +30,21 @@
 - Logo: Dark navy background (#0f172a) + sky-blue gradient N mark with circuit node
 
 ## Links (keep updated)
-- Free Audit form: https://nextsttstepai.app.n8n.cloud/form/qualify-brand
+- Qualify form: https://nextsttstepai.app.n8n.cloud/form/qualify-brand
 - Instagram: https://instagram.com/caleb_automates
 - Book a Call: https://calendly.com/12345vanrooyenn/30min
 - Domain: nextstepai.com
 
 ## Deployment
-- Target: Netlify (drag-and-drop or GitHub integration)
-- Always remind user to connect nextstepai.com domain after deploy
-- GitHub repo name: nextstep-ai-website
+- Platform: Cloudflare Workers via Wrangler
+- Deploy command: `npx wrangler deploy` (uses wrangler.jsonc config)
+- Live URL: nextstep-ai-website.12345vanrooyenn.workers.dev
+- Domain: nextstepai.com
+
+## Image Generation
+- Nano Banana 2 setup: see `nano-banana-setup.md` in this workspace
+- Generation script: `nano-banana/scripts/generate_gemini.py`
+- Brand colors for prompts: deep navy (#0f172a), sky blue (#0ea5e9), light blue (#38bdf8)
+
+## Heading Standard
+- All headings: Syne weight 700 + letter-spacing -0.015em
