@@ -16,28 +16,40 @@
   var mobile = document.getElementById('navMobile');
   if (!toggle || !mobile) return;
 
-  toggle.addEventListener('click', function(e) {
+  function toggleMenu(e) {
+    e.preventDefault();
     e.stopPropagation();
     mobile.classList.toggle('open');
     toggle.classList.toggle('active');
     document.body.classList.toggle('menu-open');
+  }
+
+  function closeMenu() {
+    mobile.classList.remove('open');
+    toggle.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+
+  /* Listen for both click and touchend for maximum mobile compatibility */
+  var handled = false;
+  toggle.addEventListener('touchend', function(e) {
+    handled = true;
+    toggleMenu(e);
+  }, { passive: false });
+  toggle.addEventListener('click', function(e) {
+    if (handled) { handled = false; return; }
+    toggleMenu(e);
   });
 
   /* Close mobile nav on any link tap */
   mobile.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      mobile.classList.remove('open');
-      toggle.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    });
+    a.addEventListener('click', closeMenu);
   });
 
   /* Close menu when tapping outside */
   document.addEventListener('click', function(e) {
     if (mobile.classList.contains('open') && !mobile.contains(e.target) && !toggle.contains(e.target)) {
-      mobile.classList.remove('open');
-      toggle.classList.remove('active');
-      document.body.classList.remove('menu-open');
+      closeMenu();
     }
   });
 })();
