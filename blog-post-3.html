@@ -698,9 +698,6 @@
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 20));
     // Mobile nav toggle
-    const toggle = document.getElementById('navToggle');
-    const mobile = document.getElementById('navMobile');
-    toggle.addEventListener('click', () => { mobile.classList.toggle('open'); toggle.classList.toggle('active'); });
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {

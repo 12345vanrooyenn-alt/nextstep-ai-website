@@ -11,6 +11,14 @@
     mobile.classList.toggle('open');
     toggle.classList.toggle('active');
   });
+
+  /* Close mobile nav on any link tap */
+  mobile.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mobile.classList.remove('open');
+      toggle.classList.remove('active');
+    });
+  });
 })();
 
 /* ─── SERVICE WORKER REGISTRATION ─── */
