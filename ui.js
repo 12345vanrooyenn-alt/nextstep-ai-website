@@ -1,13 +1,23 @@
 /* Nextstep AI — Shared UI */
 'use strict';
 
+/* ─── NAV SCROLL BACKGROUND ─── */
+(function() {
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 20);
+  }, { passive: true });
+})();
+
 /* ─── HAMBURGER MOBILE MENU ─── */
 (function() {
   var toggle = document.getElementById('navToggle');
   var mobile = document.getElementById('navMobile');
   if (!toggle || !mobile) return;
 
-  toggle.addEventListener('click', function() {
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
     mobile.classList.toggle('open');
     toggle.classList.toggle('active');
     document.body.classList.toggle('menu-open');
@@ -20,6 +30,15 @@
       toggle.classList.remove('active');
       document.body.classList.remove('menu-open');
     });
+  });
+
+  /* Close menu when tapping outside */
+  document.addEventListener('click', function(e) {
+    if (mobile.classList.contains('open') && !mobile.contains(e.target) && !toggle.contains(e.target)) {
+      mobile.classList.remove('open');
+      toggle.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
   });
 })();
 

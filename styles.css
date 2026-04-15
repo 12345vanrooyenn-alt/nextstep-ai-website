@@ -323,6 +323,12 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 768px) {
   .nav-links, .nav > .nav-inner > .nav-cta { display: none; }
   .nav-toggle { display: flex; }
+  /* Always give nav a solid background on mobile so taps register */
+  .nav {
+    background: rgba(6,12,26,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
 }
 
 /* Secondary links in mobile menu — smaller, dimmer */
