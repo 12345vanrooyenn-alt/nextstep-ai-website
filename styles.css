@@ -307,81 +307,20 @@ a   { color: inherit; text-decoration: none; }
   padding: 8px 0;
 }
 
-/* ─── Three-Dot Menu ─── */
-.nav-dots-menu {
-  position: relative;
-  margin-left: 8px;
-}
-
-.nav-dots-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  cursor: pointer;
-  color: var(--gray-400);
-  transition: all var(--trans);
-}
-
-.nav-dots-btn:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.2);
-}
-
-.nav-dots-btn[aria-expanded="true"] {
-  color: var(--sky);
-  background: rgba(14,165,233,0.1);
-  border-color: rgba(14,165,233,0.3);
-}
-
-.nav-dots-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 200px;
-  padding: 8px 0;
-  background: rgba(15,23,42,0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-  z-index: 1001;
-  flex-direction: column;
-}
-
-.nav-dots-dropdown.open {
-  display: flex;
-}
-
-.nav-dots-dropdown a {
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-300);
-  transition: all var(--trans);
-  white-space: nowrap;
-}
-
-.nav-dots-dropdown a:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.06);
-}
-
+/* ─── Mobile Nav ─── */
 @media (max-width: 768px) {
   .nav-links, .nav > .nav-inner > .nav-cta { display: none; }
   .nav-toggle { display: flex; }
-  .nav-dots-menu { margin-left: auto; margin-right: 8px; }
-  .nav-dots-dropdown {
-    right: -8px;
-    min-width: 180px;
-  }
+}
+
+/* Secondary links in mobile menu — smaller, dimmer */
+.nav-mobile-secondary {
+  font-size: 13px !important;
+  color: var(--gray-500) !important;
+}
+
+.nav-mobile-secondary:hover {
+  color: var(--gray-300) !important;
 }
 
 /* ─── 8. HERO ──────────────────────────────── */
@@ -2093,15 +2032,17 @@ a   { color: inherit; text-decoration: none; }
   .hero .hero-headline .reveal-fade:nth-child(3) { transition-delay: 0.1s !important; }
   .hero .hero-ctas { transition-delay: 0.15s !important; }
 
-  /* Safety net: if JS hasn't added .revealed, force visible via animation */
+  /* Safety net: if JS hasn't added .revealed/.visible, force visible via animation */
   .reveal-fade,
-  .reveal-up {
+  .reveal-up,
+  .reveal,
+  .section-header-animate {
     animation: forceReveal 0s 1s forwards;
   }
 }
 
 @keyframes forceReveal {
-  to { opacity: 1; transform: none; }
+  to { opacity: 1; transform: none; filter: none; }
 }
 
 /* ─── 28. MOBILE NAV ENHANCEMENTS ────────── */

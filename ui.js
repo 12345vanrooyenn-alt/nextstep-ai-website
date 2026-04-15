@@ -1,26 +1,15 @@
 /* Nextstep AI — Shared UI */
 'use strict';
 
-/* ─── THREE-DOT MENU ─── */
+/* ─── HAMBURGER MOBILE MENU ─── */
 (function() {
-  var dotsBtn = document.getElementById('navDotsBtn');
-  var dotsDropdown = document.getElementById('navDotsDropdown');
-  if (!dotsBtn || !dotsDropdown) return;
+  var toggle = document.getElementById('navToggle');
+  var mobile = document.getElementById('navMobile');
+  if (!toggle || !mobile) return;
 
-  dotsBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    var isOpen = dotsDropdown.classList.toggle('open');
-    dotsBtn.setAttribute('aria-expanded', isOpen);
-  });
-  document.addEventListener('click', function() {
-    dotsDropdown.classList.remove('open');
-    dotsBtn.setAttribute('aria-expanded', 'false');
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      dotsDropdown.classList.remove('open');
-      dotsBtn.setAttribute('aria-expanded', 'false');
-    }
+  toggle.addEventListener('click', function() {
+    mobile.classList.toggle('open');
+    toggle.classList.toggle('active');
   });
 })();
 
