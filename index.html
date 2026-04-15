@@ -1029,8 +1029,11 @@
           const navH = nav.offsetHeight;
           const offset = target.getBoundingClientRect().top + window.scrollY - navH - 16;
           window.scrollTo({ top: offset, behavior: 'smooth' });
-          mobile.classList.remove('open');
-          toggle.classList.remove('active');
+          var m = document.getElementById('navMobile');
+          var t = document.getElementById('navToggle');
+          if (m) m.classList.remove('open');
+          if (t) t.classList.remove('active');
+          document.body.classList.remove('menu-open');
         }
       });
     });
