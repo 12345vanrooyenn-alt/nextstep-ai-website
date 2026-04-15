@@ -1,7 +1,7 @@
 /* Nextstep AI — Service Worker v1 */
 'use strict';
 
-var CACHE_NAME = 'nextstep-ai-v8';
+var CACHE_NAME = 'nextstep-ai-v9';
 var ASSETS = [
   '/index.html',
   '/styles.css',
