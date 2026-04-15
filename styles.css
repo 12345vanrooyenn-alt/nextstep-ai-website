@@ -296,9 +296,21 @@ a   { color: inherit; text-decoration: none; }
   padding: 24px;
   background: var(--navy);
   border-top: 1px solid rgba(255,255,255,0.06);
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  z-index: 999;
 }
 
 .nav-mobile.open { display: flex; }
+
+/* Lock body scroll when mobile menu is open */
+body.menu-open { overflow: hidden; }
 
 .nav-mobile a {
   font-size: 16px;

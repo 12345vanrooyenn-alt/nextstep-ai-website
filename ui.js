@@ -10,6 +10,7 @@
   toggle.addEventListener('click', function() {
     mobile.classList.toggle('open');
     toggle.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
   });
 
   /* Close mobile nav on any link tap */
@@ -17,6 +18,7 @@
     a.addEventListener('click', function() {
       mobile.classList.remove('open');
       toggle.classList.remove('active');
+      document.body.classList.remove('menu-open');
     });
   });
 })();
