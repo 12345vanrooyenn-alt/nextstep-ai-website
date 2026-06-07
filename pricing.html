@@ -10,11 +10,12 @@
   <meta property="og:description" content="See exactly what's included in each Nextstep AI plan — Core VIP, Standard VIP, and Ultimate VIP." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/pricing.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing — What's Included | Nextstep AI" />
   <meta name="twitter:description" content="See exactly what's included in each Nextstep AI plan — Core VIP, Standard VIP, and Ultimate VIP." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/pricing.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +23,84 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Workflow Automation for E-Commerce Clothing Brands",
+    "serviceType": "AI Workflow Automation",
+    "provider": {
+      "@type": "Organization",
+      "name": "Nextstep AI",
+      "url": "https://nextstepai.com"
+    },
+    "areaServed": "Worldwide",
+    "url": "https://nextstepai.com/pricing.html",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Core VIP",
+        "description": "Cart abandonment recovery, Instagram DM automation, and past buyer reactivation.",
+        "priceSpecification": [
+          {
+            "@type": "PriceSpecification",
+            "price": "1000",
+            "priceCurrency": "USD",
+            "description": "Setup fee"
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "350",
+            "priceCurrency": "USD",
+            "unitCode": "MON",
+            "description": "Monthly retainer"
+          }
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "Standard VIP",
+        "description": "Full AI stack plus lead qualification flows and monthly performance reports.",
+        "priceSpecification": [
+          {
+            "@type": "PriceSpecification",
+            "price": "3000",
+            "priceCurrency": "USD",
+            "description": "Setup fee"
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "1000",
+            "priceCurrency": "USD",
+            "unitCode": "MON",
+            "description": "Monthly retainer"
+          }
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "Ultimate VIP",
+        "description": "Complete AI automation suite with priority builds, weekly reviews, and unlimited workflows.",
+        "priceSpecification": [
+          {
+            "@type": "PriceSpecification",
+            "price": "4000",
+            "priceCurrency": "USD",
+            "description": "Setup fee"
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "1800",
+            "priceCurrency": "USD",
+            "unitCode": "MON",
+            "description": "Monthly retainer"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     /* ─── Pricing page hero ─── */
     .pricing-page-hero {
@@ -60,7 +139,7 @@
     }
     .pricing-page-hero p {
       font-size: 18px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.72);
       max-width: 560px;
       margin: 0 auto 40px;
       line-height: 1.7;
@@ -133,7 +212,7 @@
     }
     .pricing-cta-footer p {
       font-size: 17px;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-secondary);
       max-width: 480px;
       margin: 0 auto 36px;
       line-height: 1.65;
@@ -150,7 +229,7 @@
       gap: 6px;
       font-size: 14px;
       font-weight: 600;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-muted);
       text-decoration: none;
       margin-bottom: 48px;
       transition: color 0.2s;
@@ -167,12 +246,13 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="announce-bar" id="announceBar">
     <div class="announce-inner">
       <span class="announce-dot"></span>
-      <span><strong>April cohort closes April 30.</strong> Next opening: May 12. <strong>3</strong> spots remaining.</span>
+      <span><strong>Limited intake.</strong> We only onboard 3 new brands per month. <strong>Spots fill fast.</strong></span>
       <a href="qualify.html" target="_blank" class="announce-cta">Claim your spot →</a>
     </div>
     <button class="announce-close" id="announceClose" aria-label="Close">✕</button>
@@ -199,7 +279,7 @@
         <li><a href="blog.html">Blog</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -218,6 +298,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- ═══════════════════════════════════════════════
        HERO
@@ -255,10 +336,10 @@
           <p class="section-sub">10–12 active workflows covering the essential automations every clothing brand needs to stop losing money day one.</p>
           <div class="vip-detail-actions">
             <a href="qualify.html" target="_blank" class="btn btn-primary">
-              Book a Call to Get Started
+              Get Your Brand Audit
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
+            <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Book a Call Directly</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -297,10 +378,10 @@
           </div>
           <div class="vip-detail-actions">
             <a href="qualify.html" target="_blank" class="btn btn-primary">
-              Book a Call to Get Started
+              Get Your Brand Audit
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
+            <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Book a Call Directly</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -339,10 +420,10 @@
           </div>
           <div class="vip-detail-actions">
             <a href="qualify.html" target="_blank" class="btn btn-primary">
-              Book a Call to Get Started
+              Get Your Brand Audit
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="qualify.html" target="_blank" class="btn btn-ghost">Get Started First</a>
+            <a href="https://calendly.com/12345vanrooyenn/30min" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Book a Call Directly</a>
           </div>
         </div>
         <div class="vip-detail-right">
@@ -363,11 +444,29 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       SOCIAL PROOF
+  ═══════════════════════════════════════════════ -->
+  <section class="pricing-proof">
+    <div class="container">
+      <a href="case-study.html" target="_blank" class="pricing-proof-inner">
+        <div>
+          <div class="pricing-proof-stat">+592%</div>
+          <span class="pricing-proof-stat-label">Sales Growth · 14 Days · Zero Paid Ads</span>
+        </div>
+        <div>
+          <div class="pricing-proof-quote">"Same traffic. Same products. $2,028 more in 14 days."</div>
+          <span class="pricing-proof-attr">Velour Fits · United States · Client since 2025</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        CTA FOOTER
   ═══════════════════════════════════════════════ -->
   <section class="pricing-cta-footer">
     <div class="container">
-      <a href="pricing.html" class="pricing-back-link">
+      <a href="index.html#pricing" class="pricing-back-link">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to pricing overview
       </a>
@@ -378,7 +477,7 @@
           Get Your Brand Audit
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="pricing.html" class="btn btn-ghost btn-lg">View Pricing Overview</a>
+        <a href="index.html#pricing" class="btn btn-ghost btn-lg">View Pricing Overview</a>
       </div>
     </div>
   </section>
@@ -463,13 +562,13 @@
   </div>
   <script>
     const mscBar = document.getElementById('mobileStickyCtaBar');
-    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('msc-visible', window.scrollY > 300); }, { passive: true });
+    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('visible', window.scrollY > 300); }, { passive: true });
   </script>
-  <script src="animations.js"></script>
-  <script src="ui.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="transitions.js"></script>
+  <script src="animations.js" defer></script>
+  <script src="ui.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="transitions.js" defer></script>
   <script>
   /* Pricing — monthly/annual toggle */
   (function() {

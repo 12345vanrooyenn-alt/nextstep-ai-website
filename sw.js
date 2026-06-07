@@ -1,13 +1,21 @@
 /* Nextstep AI — Service Worker v1 */
 'use strict';
 
-var CACHE_NAME = 'nextstep-ai-v9';
+var CACHE_NAME = 'nextstep-ai-v19';
 var ASSETS = [
   '/index.html',
+  '/services.html',
+  '/pricing.html',
+  '/about.html',
+  '/contact.html',
+  '/book.html',
+  '/qualify.html',
   '/styles.css',
   '/animations.js',
   '/transitions.js',
   '/ui.js',
+  '/analytics.js',
+  '/cookie.js',
   '/hero-scroll.css',
   '/hero-scroll.js',
   '/favicon.svg',

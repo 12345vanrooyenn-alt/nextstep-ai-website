@@ -10,15 +10,32 @@
   <meta property="og:description" content="Meet the team behind Nextstep AI — built for clothing brands that are done leaving money on the table." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/about.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://nextstepai.com/about.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nextstep AI",
+    "url": "https://nextstepai.com",
+    "logo": "https://nextstepai.com/favicon.svg",
+    "image": "https://nextstepai.com/og-image.png",
+    "description": "AI workflow automation agency built specifically for e-commerce clothing brands.",
+    "founder": { "@type": "Person", "name": "Caleb Desmond van Rooyen" },
+    "foundingDate": "2025",
+    "areaServed": "Worldwide",
+    "sameAs": ["https://instagram.com/caleb_automates"]
+  }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     /* ─── ABOUT HERO ─── */
     .about-hero {
@@ -534,6 +551,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav nav-scrolled" id="nav">
@@ -556,7 +574,7 @@
         <a href="pricing.html">Pricing</a>
       </div>
       <a href="qualify.html" class="btn btn-primary nav-cta">Get Started</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -575,6 +593,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- ═══ HERO ═══ -->
   <section class="about-hero">
@@ -604,7 +623,7 @@
         <div class="about-hero-card reveal">
           <div class="ahc-label">The Team</div>
           <div class="ahc-row">
-            <div class="ahc-icon"><img src="assets/caleb-headshot.jpg" alt="Caleb van Rooyen" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
+            <div class="ahc-icon"><img src="assets/caleb-headshot.jpg" width="1024" height="1024" alt="Caleb van Rooyen" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
             <div class="ahc-text">
               <div class="ahc-name">Caleb Desmond van Rooyen</div>
               <div class="ahc-role">Founder &amp; CEO — Workflow Architect</div>
@@ -673,7 +692,7 @@
       <div class="team-solo">
         <div class="team-card reveal">
           <div class="team-card-left">
-            <div class="team-avatar"><img src="assets/caleb-headshot.jpg" alt="Caleb van Rooyen — Founder, Nextstep AI" /></div>
+            <div class="team-avatar"><img src="assets/caleb-headshot.jpg" width="1024" height="1024" alt="Caleb van Rooyen — Founder, Nextstep AI" loading="lazy" /></div>
             <a href="https://instagram.com/caleb_automates" target="_blank" class="team-social-link">@caleb_automates</a>
           </div>
           <div class="team-card-right">
@@ -694,15 +713,15 @@
         <!-- Image gallery -->
         <div class="team-gallery reveal">
           <div class="tg-img">
-            <img src="assets/caleb-professional-1.jpg" alt="Caleb van Rooyen — Nextstep AI founder" loading="lazy" />
+            <img src="assets/caleb-professional-1.jpg" width="1024" height="1024" alt="Caleb van Rooyen — Nextstep AI founder" loading="lazy" />
             <div class="tg-img-overlay">Caleb van Rooyen — Founder &amp; AI Automation Specialist</div>
           </div>
           <div class="tg-img">
-            <img src="assets/proof-shopify-dashboard-big.jpg" alt="Velour Fits — $8,433 Shopify result" loading="lazy" />
+            <img src="assets/proof-shopify-dashboard-big.jpg" width="527" height="614" alt="Velour Fits — $8,433 Shopify result" loading="lazy" />
             <div class="tg-img-overlay">Real Result</div>
           </div>
           <div class="tg-img">
-            <img src="assets/proof-velour-fits-recovery-email.jpg" alt="Velour Fits cart recovery email live" loading="lazy" />
+            <img src="assets/proof-velour-fits-recovery-email.jpg" width="720" height="1600" alt="Velour Fits cart recovery email live" loading="lazy" />
             <div class="tg-img-overlay">Live Automation</div>
           </div>
         </div>
@@ -949,12 +968,12 @@
   </div>
   <script>
     const mscBar = document.getElementById('mobileStickyCtaBar');
-    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('msc-visible', window.scrollY > 300); }, { passive: true });
+    if (mscBar) window.addEventListener('scroll', () => { mscBar.classList.toggle('visible', window.scrollY > 300); }, { passive: true });
   </script>
-  <script src="animations.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="transitions.js"></script>
+  <script src="animations.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="transitions.js" defer></script>
   <script>
   /* ── Animated number counters ── */
   (function() {
@@ -1031,10 +1050,10 @@
     btn.addEventListener('mouseleave', function() { this.style.transform = ''; });
   });
   </script>
-  <script src="animations.js"></script>
-  <script src="ui.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="transitions.js"></script>
+  <script src="animations.js" defer></script>
+  <script src="ui.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="transitions.js" defer></script>
 </body>
 </html>

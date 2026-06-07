@@ -1,0 +1,84 @@
+# Netlify deploy config — Nextstep AI website
+# Static site at repo root. Form submissions proxy to the Cloudflare Worker
+# so the browser sees same-origin POSTs to /api/*.
+
+[build]
+  publish = "."
+
+# ─────────────────────────────────────────────────────────
+# Permanent redirect: workflow.html (deleted detail template)
+# is consolidated into the workflows.html listing. Query
+# strings are dropped (no `?id=...` carry-through) since
+# there is no detail view to deep-link into anymore.
+# ─────────────────────────────────────────────────────────
+[[redirects]]
+  from = "/workflow.html"
+  to = "/workflows.html"
+  status = 301
+  force = true
+
+# ─────────────────────────────────────────────────────────
+# Same-origin proxy: forms POST relative URLs; the worker
+# does the Telegram + Resend fanout. Status 200 = rewrite,
+# not a redirect, so the browser never sees the worker URL.
+# ─────────────────────────────────────────────────────────
+[[redirects]]
+  from = "/api/qualify-submit"
+  to = "https://nextstep-ai-website.12345vanrooyenn.workers.dev/api/qualify-submit"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/contact-submit"
+  to = "https://nextstep-ai-website.12345vanrooyenn.workers.dev/api/contact-submit"
+  status = 200
+  force = true
+
+# ─────────────────────────────────────────────────────────
+# Security headers (apply to every response)
+# CSP is Report-Only for the first week so violations log
+# without breaking pages. Flip to Content-Security-Policy
+# (no -Report-Only suffix) once the report inbox is clean.
+# ─────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://assets.calendly.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' blob:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.clarity.ms https://assets.calendly.com https://nextstep-ai-website.12345vanrooyenn.workers.dev; frame-src https://calendly.com https://www.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+
+# Cache: HTML is short-lived (5 min) so content updates show fast.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Service worker must always revalidate so updates roll out.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+# Static assets: 1 day fresh, 7 days stale-while-revalidate.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

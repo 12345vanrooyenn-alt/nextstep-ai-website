@@ -41,7 +41,7 @@
       flex-shrink: 0;
     }
     #cookie-accept {
-      background: #0ea5e9;
+      background: #0369a1;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -52,10 +52,10 @@
       cursor: pointer;
       transition: background 0.2s;
     }
-    #cookie-accept:hover { background: #38bdf8; }
+    #cookie-accept:hover { background: #0284c7; }
     #cookie-decline {
       background: transparent;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.65);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 8px;
       padding: 9px 16px;

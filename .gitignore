@@ -9,3 +9,15 @@ nano-banana/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Local Netlify folder
+.netlify
+
+# Cloudflare wrangler local state
+.wrangler/
+
+# Claude Code project state
+.claude/
+
+# Lighthouse audit reports and helper scripts (local-only)
+.lighthouse/

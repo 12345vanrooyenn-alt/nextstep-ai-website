@@ -19,12 +19,14 @@
   function openMenu() {
     mobile.classList.add('open');
     toggle.classList.add('active');
+    toggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('menu-open');
   }
 
   function closeMenu() {
     mobile.classList.remove('open');
     toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
   }
 

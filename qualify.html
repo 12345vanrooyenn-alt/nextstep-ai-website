@@ -10,11 +10,12 @@
   <meta property="og:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. No obligation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/qualify.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Get Your Brand Audit — Nextstep AI" />
   <meta name="twitter:description" content="We audit your store, your Instagram, and your automation gaps — then show you exactly what it's costing you. No obligation." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/qualify.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +23,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     /* ═══════════════════════════════════════════════
        ANNOUNCEMENT BAR
@@ -297,7 +299,7 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .urgency-card h4 {
+    .urgency-card h3 {
       font-size: 15px;
       font-weight: 700;
       color: var(--white);
@@ -655,7 +657,7 @@
     .fpb-label {
       font-size: 11px;
       font-weight: 600;
-      color: rgba(255,255,255,0.25);
+      color: var(--text-muted);
       letter-spacing: 0.04em;
       white-space: nowrap;
       transition: color 0.3s;
@@ -679,7 +681,7 @@
       border-color: #4ade80;
       color: #4ade80;
     }
-    .fpb-step.fpb-done .fpb-label { color: rgba(255,255,255,0.45); }
+    .fpb-step.fpb-done .fpb-label { color: var(--text-secondary); }
     .fpb-step.fpb-done + .fpb-line { background: rgba(74,222,128,0.3); }
 
     /* ── Submit ── */
@@ -786,8 +788,8 @@
       font-size: 12px; font-weight: 700; color: var(--sky);
       flex-shrink: 0;
     }
-    .step-content h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-    .step-content p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    .step-content h3 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
     .sidebar-trust { display: flex; flex-direction: column; gap: 10px; }
     .trust-item {
       display: flex; gap: 10px; align-items: center;
@@ -904,7 +906,7 @@
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 16px;
     }
-    .audit-scope-card h4 {
+    .audit-scope-card h3 {
       font-family: var(--font-head);
       font-size: 16px;
       font-weight: 700;
@@ -1193,7 +1195,7 @@
       .urgency-card { padding: 14px 12px; gap: 10px; }
       .urgency-card-icon { width: 32px; height: 32px; border-radius: 8px; }
       .urgency-card-icon svg { width: 16px; height: 16px; }
-      .urgency-card h4 { font-size: 13px; margin-bottom: 4px; }
+      .urgency-card h3 { font-size: 13px; margin-bottom: 4px; }
       .urgency-card p { font-size: 11px; line-height: 1.5; }
 
       /* Audit scope cards: 2 columns side by side */
@@ -1201,7 +1203,7 @@
       .audit-scope-card { padding: 14px 12px; }
       .audit-scope-icon { width: 32px; height: 32px; border-radius: 8px; margin-bottom: 8px; }
       .audit-scope-icon svg { width: 18px; height: 18px; }
-      .audit-scope-card h4 { font-size: 13px; margin-bottom: 8px; }
+      .audit-scope-card h3 { font-size: 13px; margin-bottom: 8px; }
       .audit-scope-list { gap: 4px; }
       .audit-scope-list li { font-size: 11px; padding-left: 12px; }
     }
@@ -1220,11 +1222,12 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="announce-bar">
     <span class="announce-dot"></span>
-    <strong>⚡ April cohort closes April 30</strong> &mdash; 3 slots remaining. Reviewed within 24 hours, personally by Caleb.
+    Reviewed within 24 hours, personally by Caleb.
   </div>
 
   <!-- NAV -->
@@ -1247,7 +1250,7 @@
         <li><a href="pricing.html">Pricing</a></li>
       </ul>
       <a href="#formCard" class="btn btn-primary btn-sm nav-cta">Submit My Brand</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1266,6 +1269,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- ═══════════════════════════════════════════════
        HERO
@@ -1451,13 +1455,13 @@
   ═══════════════════════════════════════════════ -->
   <section class="qualify-audit-scope">
     <div class="container">
-      <div class="audit-scope-label">What the audit covers</div>
+      <h2 class="audit-scope-label">What the audit covers</h2>
       <div class="audit-scope-grid">
         <div class="audit-scope-card">
           <div class="audit-scope-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#0ea5e9" stroke-width="1.5"/><path d="M7 12h10M7 8h7M7 16h5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <h4>Your Shopify Store</h4>
+          <h3>Your Shopify Store</h3>
           <ul class="audit-scope-list">
             <li>Cart abandonment rate &amp; recovery gap</li>
             <li>Conversion flow leaks</li>
@@ -1469,7 +1473,7 @@
           <div class="audit-scope-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#0ea5e9" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#0ea5e9" stroke-width="1.5"/><circle cx="17" cy="7" r="1.2" fill="#0ea5e9"/></svg>
           </div>
-          <h4>Your Instagram</h4>
+          <h3>Your Instagram</h3>
           <ul class="audit-scope-list">
             <li>DM response rate &amp; lead quality</li>
             <li>Comment-to-DM funnel potential</li>
@@ -1481,7 +1485,7 @@
           <div class="audit-scope-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3z" stroke="#0ea5e9" stroke-width="1.5"/><path d="M8 12h4l2-4" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h4>Your Automations</h4>
+          <h3>Your Automations</h3>
           <ul class="audit-scope-list">
             <li>What you're missing entirely</li>
             <li>What's running but underperforming</li>
@@ -1507,7 +1511,7 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2a9 9 0 100 18A9 9 0 0011 2z" stroke="#0ea5e9" stroke-width="1.5"/><path d="M11 6v5l3 3" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
           <div>
-            <h4>AI moves in real time</h4>
+            <h3>AI moves in real time</h3>
             <p>While you're manually responding to DMs and following up by hand, AI-powered brands are recovering sales at 3AM — automatically, every single night.</p>
           </div>
         </div>
@@ -1516,7 +1520,7 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11h16M11 3l8 8-8 8" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <h4>Your competitors aren't waiting</h4>
+            <h3>Your competitors aren't waiting</h3>
             <p>The brands in your niche that implement AI now will compound results for months before you start. The gap compounds just like interest — silently and fast.</p>
           </div>
         </div>
@@ -1525,7 +1529,7 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 17l4-8 4 8M8.5 13h5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <h4>The audit costs you nothing</h4>
+            <h3>The audit costs you nothing</h3>
             <p>There is zero downside to knowing where your revenue gaps are. The audit is free. The breakdown is real. The only thing you lose by not submitting is information.</p>
           </div>
         </div>
@@ -1867,7 +1871,7 @@
               <div class="form-group">
                 <label for="phone">Phone Number <span class="req">*</span></label>
                 <div class="phone-input-wrap">
-                  <select id="countryCode" name="countryCode" class="phone-country-select">
+                  <select id="countryCode" name="countryCode" class="phone-country-select" aria-label="Country code">
                     <option value="+27">🇿🇦 +27</option>
                     <option value="+1">🇺🇸 +1</option>
                     <option value="+44">🇬🇧 +44</option>
@@ -2082,21 +2086,21 @@
             <div class="sidebar-step">
               <div class="step-num">1</div>
               <div class="step-content">
-                <h4>Nextstep AI reviews your brand</h4>
+                <h3>Nextstep AI reviews your brand</h3>
                 <p>Your Instagram, your store, your current automation setup — all reviewed within 24 hours of submission. Not templated. Not outsourced.</p>
               </div>
             </div>
             <div class="sidebar-step">
               <div class="step-num">2</div>
               <div class="step-content">
-                <h4>You get a real revenue breakdown</h4>
+                <h3>You get a real revenue breakdown</h3>
                 <p>We send you a personalised breakdown — not a template — showing exactly where you're losing money and what we'd build first to fix it.</p>
               </div>
             </div>
             <div class="sidebar-step">
               <div class="step-num">3</div>
               <div class="step-content">
-                <h4>Strategy call (if you're a fit)</h4>
+                <h3>Strategy call (if you're a fit)</h3>
                 <p>If you qualify, we'll book a 20-minute call to walk through the plan and answer questions before you commit to anything.</p>
               </div>
             </div>
@@ -2310,26 +2314,26 @@
         submittedAt: new Date().toISOString()
       };
 
-      // Fire and forget — always redirect to thank-you regardless of response.
-      // The n8n webhook is active and will process the data even if CORS
-      // prevents us from reading the response status.
+      // Same-origin POST to the Cloudflare Worker handler.
+      // Worker is fire-and-safe: it logs every submission and forwards to
+      // Telegram + email in the background, so we redirect regardless of
+      // the network outcome.
       try {
-        fetch('https://nextsttstepai.app.n8n.cloud/webhook/qualify-brand-form', {
+        fetch('/api/qualify-submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
       } catch (_) { /* silent — redirect happens below regardless */ }
 
-      // Give the request ~400ms to leave the browser, then redirect
       setTimeout(() => { window.location.href = 'thank-you.html'; }, 400);
     });
   </script>
-  <script src="animations.js"></script>
-  <script src="ui.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="transitions.js"></script>
+  <script src="animations.js" defer></script>
+  <script src="ui.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="transitions.js" defer></script>
   <style>
     .form-step { display: none; }
     .form-step.form-step-active { display: block; }
@@ -2411,7 +2415,7 @@
     showStep(1);
   })();
   </script>
-  <script src="ui.js"></script>
+  <script src="ui.js" defer></script>
   <script>
   /* Confetti on form submit */
   (function() {

@@ -10,11 +10,12 @@
   <meta property="og:description" content="Brand diagnostic on Day 1. Live workflows by Day 7. See our proven 3-phase process." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/how-it-works.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How It Works — From Audit to Live in 7 Days | Nextstep AI" />
   <meta name="twitter:description" content="Brand diagnostic on Day 1. Live workflows by Day 7. See our proven 3-phase process." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/how-it-works.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +23,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     /* ─── HOW IT WORKS HERO ─── */
     .hiw-hero {
@@ -303,6 +305,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ─── NAV ─── -->
 <nav class="nav nav-scrolled" id="nav">
@@ -325,7 +328,7 @@
       <a href="about.html">About</a>
     </div>
     <a href="qualify.html" class="btn btn-primary nav-cta">Get Started</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -344,6 +347,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
 <!-- ─── HERO ─── -->
 <section class="hiw-hero">
@@ -583,11 +587,11 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="animations.js"></script>
-<script src="whatsapp.js"></script>
-<script src="cookie.js"></script>
-<script src="transitions.js"></script>
+<script src="animations.js" defer></script>
+<script src="whatsapp.js" defer></script>
+<script src="cookie.js" defer></script>
+<script src="transitions.js" defer></script>
 
-<script src="ui.js"></script>
+<script src="ui.js" defer></script>
 </body>
 </html>

@@ -14,3 +14,7 @@ nano-banana-setup.md
 brand-assets
 me photos
 proof photos
+src
+package.json
+package-lock.json
+node_modules

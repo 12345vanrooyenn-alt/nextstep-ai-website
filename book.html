@@ -10,11 +10,12 @@
   <meta property="og:description" content="30 minutes. A clear plan. We review your brand, identify revenue leaks, and tell you exactly what AI automation to build first." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/book.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Book a Free Strategy Call — Nextstep AI" />
   <meta name="twitter:description" content="30 minutes. A clear plan. We review your brand, identify revenue leaks, and tell you exactly what to build first." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/book.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +24,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     /* ─── Book page specific styles ─── */
     .book-hero {
@@ -227,6 +229,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══════════════════════════════════════════════
        NAVIGATION
@@ -257,7 +260,7 @@
         <li><a href="blog.html">Blog</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -276,6 +279,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- ═══════════════════════════════════════════════
        HERO — 2-column
@@ -399,7 +403,7 @@
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Services</h5>
+          <h3>Services</h3>
           <a href="services.html">Cart Recovery</a>
           <a href="services.html">DM Automation</a>
           <a href="services.html">Reactivation</a>
@@ -407,7 +411,7 @@
           <a href="services.html">Owner Dashboards</a>
         </div>
         <div class="footer-col">
-          <h5>Company</h5>
+          <h3>Company</h3>
           <a href="about.html">About</a>
           <a href="how-it-works.html">How It Works</a>
           <a href="results.html">All Results</a>
@@ -416,14 +420,14 @@
           <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col">
-          <h5>Get Started</h5>
+          <h3>Get Started</h3>
           <a href="qualify.html" target="_blank">Brand Audit</a>
           <a href="book.html">Book a Strategy Call</a>
           <a href="pricing.html">View Pricing</a>
           <a href="qualify.html">Is This For Me?</a>
         </div>
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h3>Contact</h3>
           <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
           <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
           <a href="contact.html">All Contact Options</a>
@@ -451,10 +455,10 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
-  <script src="transitions.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="animations.js"></script>
-  <script src="ui.js"></script>
+  <script src="transitions.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="animations.js" defer></script>
+  <script src="ui.js" defer></script>
 </body>
 </html>

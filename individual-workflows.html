@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Individual Workflows — Nextstep AI</title>
   <meta name="description" content="Pick the exact AI workflows you need — deployed, tested, and optimized individually for your clothing brand."/>
+  <link rel="canonical" href="https://nextstepai.com/individual-workflows.html" />
+  <meta property="og:title" content="Individual Workflows — Nextstep AI" />
+  <meta property="og:description" content="Pick the exact AI workflows you need — deployed, tested, and optimized individually for your clothing brand." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextstepai.com/individual-workflows.html" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Individual Workflows — Nextstep AI" />
+  <meta name="twitter:description" content="Pick the exact AI workflows you need — deployed, tested, and optimized individually for your clothing brand." />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -17,7 +28,7 @@
       background: linear-gradient(180deg, rgba(14,165,233,0.06) 0%, transparent 60%);
     }
     .iwp-hero h1 {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700;
       letter-spacing: -0.015em;
@@ -25,7 +36,7 @@
       margin-bottom: 16px;
     }
     .iwp-hero p {
-      color: var(--gray-300);
+      color: var(--gray-400);
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto;
@@ -60,7 +71,7 @@
       margin-bottom: 8px;
     }
     .iwp-price-range {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(1.4rem, 2.5vw, 1.8rem);
       font-weight: 700;
       color: var(--sky);
@@ -84,7 +95,7 @@
       padding: 48px;
     }
     .iwp-calc h2 {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(1.4rem, 2.5vw, 1.8rem);
       font-weight: 700;
       letter-spacing: -0.015em;
@@ -104,7 +115,7 @@
       display: block;
       font-size: 14px;
       font-weight: 600;
-      color: var(--gray-300);
+      color: var(--gray-400);
       margin-bottom: 8px;
     }
     .iwp-calc-field select,
@@ -143,7 +154,7 @@
     }
     .iwp-range-value {
       text-align: center;
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--sky);
@@ -202,7 +213,7 @@
       margin-bottom: 4px;
     }
     .iwp-result-value {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(1.1rem, 2vw, 1.4rem);
       font-weight: 700;
       color: var(--white);
@@ -220,7 +231,7 @@
       padding: 96px 0;
     }
     .iwp-browse h2 {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -0.015em;
@@ -234,7 +245,7 @@
       margin-bottom: 48px;
     }
     .iwp-cat-title {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--white);
@@ -300,7 +311,7 @@
       text-align: center;
     }
     .iwp-cta h2 {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -0.015em;
@@ -322,6 +333,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <nav class="nav nav-scrolled" id="nav">
     <div class="nav-inner container">
@@ -344,7 +356,7 @@
         <li><a href="blog.html">Blog</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -363,6 +375,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- HERO -->
   <section class="iwp-hero">
@@ -376,7 +389,7 @@
   <!-- PRICING OVERVIEW -->
   <section class="iwp-pricing">
     <div class="container">
-      <h2 style="font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;letter-spacing:-0.015em;color:var(--white);text-align:center;">Transparent Pricing</h2>
+      <h2 style="font-family:var(--font-head);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;letter-spacing:-0.015em;color:var(--white);text-align:center;">Transparent Pricing</h2>
       <p style="text-align:center;color:var(--gray-400);margin-top:8px;">Every individual workflow follows the same simple pricing structure.</p>
       <div class="iwp-pricing-grid">
         <div class="iwp-price-card">
@@ -570,7 +583,7 @@
         wfs.forEach(function(wf) {
           var planClass = 'iwp-wf-plan-' + wf.plan;
           var planLabel = wf.plan === 'core' ? 'Core' : wf.plan === 'standard' ? 'Standard' : 'Ultimate';
-          html += '<a href="workflow.html?id=' + wf.id + '" class="iwp-wf-card">' +
+          html += '<a href="qualify.html" class="iwp-wf-card" aria-label="' + wf.name + ' — get a brand audit">' +
             '<div class="iwp-wf-name">' + wf.name + '</div>' +
             '<div class="iwp-wf-meta">' +
               '<span class="iwp-wf-plan ' + planClass + '">' + planLabel + '</span>' +
@@ -584,6 +597,6 @@
       browser.innerHTML = html;
     })();
   </script>
-  <script src="ui.js"></script>
+  <script src="ui.js" defer></script>
 </body>
 </html>

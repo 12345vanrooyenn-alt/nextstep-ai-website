@@ -10,11 +10,12 @@
   <meta property="og:description" content="Three systems that print revenue. Revenue automation, operational automation, and growth insights — all custom-built for your clothing brand." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/services.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Services — AI Workflow Automation for Clothing Brands | Nextstep AI" />
   <meta name="twitter:description" content="Three systems that print revenue. 50+ proven AI workflows built for e-commerce clothing brands." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/services.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +23,38 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Workflow Automation for E-Commerce Clothing Brands",
+    "serviceType": "AI Workflow Automation",
+    "url": "https://nextstepai.com/services.html",
+    "provider": {
+      "@type": "Organization",
+      "name": "Nextstep AI",
+      "url": "https://nextstepai.com/",
+      "logo": "https://nextstepai.com/favicon.svg"
+    },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "E-commerce clothing brands"
+    },
+    "description": "Three systems that print revenue: revenue automation (cart recovery, DM automation, buyer reactivation), operational automation (DM triage, order ops, customer support flows), and growth insights (ad intelligence, weekly reports, conversion analytics) — all custom-built for your clothing brand.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Nextstep AI Workflow Catalogue",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cart Abandonment Recovery", "description": "Multi-step, multi-channel sequences across email, DM, and WhatsApp that recover lost checkouts." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Instagram DM Automation", "description": "Reply detection, lead qualification, and automated follow-up sequences in Instagram DMs." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buyer Reactivation", "description": "AI flows that bring back lapsed customers without ad spend." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Audit System", "description": "Automated branded audit delivered in minutes — pinpoints where revenue is being lost." } }
+      ]
+    }
+  }
+  </script>
   <style>
     /* ─── SERVICES HERO ─── */
     .svc-hero {
@@ -124,7 +157,7 @@
     }
     .svc-pillar-desc {
       font-size: 15px;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-secondary);
       margin-bottom: 20px;
       line-height: 1.6;
     }
@@ -168,7 +201,6 @@
       font-size: 13px;
       font-weight: 700;
       color: var(--sky);
-      opacity: 0.7;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -308,6 +340,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ─── NAV ─── -->
 <nav class="nav nav-scrolled" id="nav">
@@ -330,7 +363,7 @@
       <a href="pricing.html">Pricing</a>
     </div>
     <a href="qualify.html" class="btn btn-primary nav-cta">Get Started</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -349,6 +382,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
 <!-- ─── HERO ─── -->
 <section class="svc-hero">
@@ -661,11 +695,11 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="animations.js"></script>
-<script src="whatsapp.js"></script>
-<script src="cookie.js"></script>
-<script src="transitions.js"></script>
+<script src="animations.js" defer></script>
+<script src="whatsapp.js" defer></script>
+<script src="cookie.js" defer></script>
+<script src="transitions.js" defer></script>
 
-<script src="ui.js"></script>
+<script src="ui.js" defer></script>
 </body>
 </html>

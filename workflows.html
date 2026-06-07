@@ -9,11 +9,12 @@
   <meta property="og:description" content="Browse every workflow we build for clothing brands — cart recovery, DM automation, reactivation, VIP flows, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextstepai.com/workflows.html" />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Workflow Library — Nextstep AI" />
   <meta name="twitter:description" content="Browse every workflow we build for clothing brands — cart recovery, DM automation, reactivation, VIP flows, and more." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/workflows.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +22,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     .wl-hero {
       background: var(--ink);
@@ -277,6 +279,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav nav-scrolled" id="nav">
@@ -300,7 +303,7 @@
         <li><a href="about.html">About</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -319,6 +322,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- HERO -->
   <div class="wl-hero">
@@ -941,31 +945,26 @@
   </script>
   <script src="workflows-data.js"></script>
   <script>
-    // Make workflow cards clickable
+    // Workflow cards route to qualify.html — clicking a specific automation
+    // is a high-intent signal; send the visitor straight to the audit form.
     (function() {
-      var cards = document.querySelectorAll('.wl-card');
-      cards.forEach(function(card) {
-        var nameEl = card.querySelector('.wl-card-name');
-        if (!nameEl) return;
-        var name = nameEl.textContent.trim();
-        var wf = window.WORKFLOWS.find(function(w) { return w.name === name; });
-        if (!wf) return;
+      document.querySelectorAll('.wl-card').forEach(function(card) {
         card.style.cursor = 'pointer';
         card.setAttribute('role', 'link');
         card.setAttribute('tabindex', '0');
-        card.addEventListener('click', function() {
-          window.location.href = 'workflow.html?id=' + wf.id;
-        });
+        card.setAttribute('aria-label', (card.querySelector('.wl-card-name')?.textContent || 'Workflow') + ' — get a brand audit');
+        var go = function() { window.location.href = 'qualify.html'; };
+        card.addEventListener('click', go);
         card.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') window.location.href = 'workflow.html?id=' + wf.id;
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
         });
       });
     })();
   </script>
-  <script src="animations.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-<script src="transitions.js"></script>
-<script src="ui.js"></script>
+  <script src="animations.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+<script src="transitions.js" defer></script>
+<script src="ui.js" defer></script>
 </body>
 </html>

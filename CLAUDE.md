@@ -30,10 +30,16 @@
 - Logo: Dark navy background (#0f172a) + sky-blue gradient N mark with circuit node
 
 ## Links (keep updated)
-- Qualify form: https://nextsttstepai.app.n8n.cloud/form/qualify-brand
+- Qualify form: https://nextstepai.com/qualify.html (native form → POSTs to /api/qualify-submit Cloudflare Worker → Telegram + email via Resend)
 - Instagram: https://instagram.com/caleb_automates
 - Book a Call: https://calendly.com/12345vanrooyenn/30min
 - Domain: nextstepai.com
+
+## Form submission delivery
+- Worker handler: src/worker.js (route: /api/qualify-submit)
+- Required CF Worker secrets: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, RESEND_API_KEY, NOTIFY_EMAIL (optional: RESEND_FROM)
+- Set with: `npx wrangler secret put <NAME>`
+- Fallback: every submission is also written to CF logs (`npx wrangler tail`) so nothing is lost if delivery fails
 
 ## Deployment
 - Platform: Cloudflare Workers via Wrangler

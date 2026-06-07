@@ -11,11 +11,12 @@
   <meta property="og:url" content="https://nextstepai.com/contact.html" />
   <meta property="og:title" content="Contact — Nextstep AI" />
   <meta property="og:description" content="Get in touch with Nextstep AI. Reach Caleb via email, Instagram DM, or WhatsApp." />
-  <meta property="og:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta property="og:image" content="https://nextstepai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact — Nextstep AI" />
   <meta name="twitter:description" content="Get in touch with Nextstep AI. Response within 24 hours." />
-  <meta name="twitter:image" content="https://nextstep-ai-website.12345vanrooyenn.workers.dev/og-image.png" />
+  <meta name="twitter:image" content="https://nextstepai.com/og-image.png" />
+  <link rel="canonical" href="https://nextstepai.com/contact.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6P919NKD"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9V6P919NKD');</script>
+  <script src="analytics.js" defer></script>
   <style>
     .contact-hero {
       background: var(--ink);
@@ -108,6 +110,27 @@
     .contact-form-note a:hover {
       text-decoration: underline;
     }
+    .contact-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      border: 1px solid;
+      backdrop-filter: blur(8px);
+    }
+    .contact-status.is-visible { display: block; }
+    .contact-status.is-success {
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.3);
+      color: #86efac;
+    }
+    .contact-status.is-error {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
     .contact-or-bar {
       display: flex;
       align-items: center;
@@ -129,6 +152,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══ NAV ═══ -->
   <nav class="nav" id="nav">
@@ -158,7 +182,7 @@
         <li><a href="blog.html">Blog</a></li>
       </ul>
       <a href="qualify.html" target="_blank" class="btn btn-primary btn-sm nav-cta">Get Started</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -177,6 +201,7 @@
       <a href="qualify.html" target="_blank" class="btn btn-primary">Get Started</a>
     </div>
   </nav>
+  <div id="main" tabindex="-1"></div>
 
   <!-- ═══ HERO ═══ -->
   <section class="contact-hero">
@@ -229,13 +254,17 @@
         <!-- Right — contact form -->
         <div class="contact-right reveal reveal-delay-1">
           <h2>Send a Message</h2>
-          <!-- TODO: wire to n8n webhook -->
-          <form class="contact-form" id="contactForm" action="#" method="POST">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Your email" required />
-            <input type="text" name="brand" placeholder="Your brand / store URL (optional)" />
-            <textarea name="message" placeholder="What's on your mind?" rows="5" required></textarea>
+          <form class="contact-form" id="contactForm" action="/api/contact-submit" method="POST">
+            <label for="contact-name" class="sr-only">Your name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required />
+            <label for="contact-email" class="sr-only">Your email</label>
+            <input type="email" id="contact-email" name="email" placeholder="Your email" autocomplete="email" required />
+            <label for="contact-brand" class="sr-only">Your brand or store URL (optional)</label>
+            <input type="text" id="contact-brand" name="brand" placeholder="Your brand / store URL (optional)" autocomplete="organization" />
+            <label for="contact-message" class="sr-only">Message</label>
+            <textarea id="contact-message" name="message" placeholder="What's on your mind?" rows="5" required></textarea>
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+            <div class="contact-status" id="contactStatus" role="status" aria-live="polite"></div>
           </form>
           <p class="contact-form-note">Prefer to skip the form? <a href="book.html">Book a free 30-min strategy call →</a></p>
         </div>
@@ -256,7 +285,7 @@
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Services</h5>
+          <h3>Services</h3>
           <a href="services.html">Cart Recovery</a>
           <a href="services.html">DM Automation</a>
           <a href="services.html">Reactivation</a>
@@ -264,7 +293,7 @@
           <a href="services.html">Owner Dashboards</a>
         </div>
         <div class="footer-col">
-          <h5>Company</h5>
+          <h3>Company</h3>
           <a href="about.html">About</a>
           <a href="how-it-works.html">How It Works</a>
           <a href="results.html">All Results</a>
@@ -273,14 +302,14 @@
           <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col">
-          <h5>Get Started</h5>
+          <h3>Get Started</h3>
           <a href="qualify.html" target="_blank">Brand Audit</a>
           <a href="book.html">Book a Strategy Call</a>
           <a href="pricing.html">View Pricing</a>
           <a href="qualify.html">Is This For Me?</a>
         </div>
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h3>Contact</h3>
           <a href="mailto:12345vanrooyenn@gmail.com">12345vanrooyenn@gmail.com</a>
           <a href="https://instagram.com/caleb_automates" target="_blank">@caleb_automates</a>
           <a href="contact.html">Contact Page</a>
@@ -308,22 +337,61 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Contact form — toast feedback
+    // Contact form — POSTs to /api/contact-submit Worker
     const form = document.getElementById('contactForm');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
+      const status = document.getElementById('contactStatus');
+
+      function showStatus(message, kind) {
+        if (!status) return;
+        status.textContent = message;
+        status.classList.remove('is-success', 'is-error');
+        status.classList.add('is-visible', kind === 'error' ? 'is-error' : 'is-success');
+      }
+
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        if (window.NXS && window.NXS.toast) {
-          window.NXS.toast("Message sent! Caleb will reply within 24 hours.", 'success');
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
         }
-        form.reset();
+        if (status) status.classList.remove('is-visible');
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.submittedAt = new Date().toISOString();
+
+        try {
+          const res = await fetch('/api/contact-submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          const result = await res.json().catch(() => ({}));
+
+          if (res.ok && result.ok) {
+            showStatus("Message sent — Caleb will reply within 24 hours.", 'success');
+            form.reset();
+          } else {
+            throw new Error(result.error || 'submit_failed');
+          }
+        } catch (err) {
+          showStatus("Couldn't send right now. Email 12345vanrooyenn@gmail.com directly or try again in a minute.", 'error');
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        }
       });
     }
   </script>
-  <script src="transitions.js"></script>
-  <script src="whatsapp.js"></script>
-  <script src="cookie.js"></script>
-  <script src="animations.js"></script>
-  <script src="ui.js"></script>
+  <script src="transitions.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="animations.js" defer></script>
+  <script src="ui.js" defer></script>
 </body>
 </html>
