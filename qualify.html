@@ -1848,7 +1848,9 @@
             </div>
           </div>
 
-          <form id="qualifyForm">
+          <form id="qualifyForm" name="qualify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="qualify" />
+            <p hidden><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
 
             <!-- STEP 1: ABOUT YOU -->
             <div class="form-step form-step-active" data-step="1">
@@ -2304,22 +2306,23 @@
         submittedAt: new Date().toISOString()
       };
 
-      // Same-origin POST to the Cloudflare Worker handler. Await the result
+      // Submit to Netlify Forms (form name "qualify"). Netlify captures the
+      // submission, shows it in the dashboard, and emails it. Await the result
       // and only show the thank-you page on a confirmed success, so a lead is
       // never lost behind a fake confirmation.
+      const encode = (o) => Object.keys(o).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(o[k])).join('&');
       try {
-        const res = await fetch('/api/qualify-submit', {
+        const res = await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'qualify', ...data })
         });
-        const result = await res.json().catch(() => ({}));
 
-        if (res.ok && result.ok) {
+        if (res.ok) {
           window.location.href = 'thank-you.html';
           return;
         }
-        throw new Error(result.error || 'submit_failed');
+        throw new Error('submit_failed');
       } catch (err) {
         if (errorEl) {
           errorEl.innerHTML = 'Something went wrong sending your request. Please email me directly at <a href="mailto:12345vanrooyenn@gmail.com" style="color:#7dd3fc;">12345vanrooyenn@gmail.com</a> and I\'ll run your audit — or try again in a moment.';

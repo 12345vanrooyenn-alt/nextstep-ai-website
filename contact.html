@@ -251,7 +251,9 @@
         <!-- Right — contact form -->
         <div class="contact-right reveal reveal-delay-1">
           <h2>Send a Message</h2>
-          <form class="contact-form" id="contactForm" action="/api/contact-submit" method="POST">
+          <form class="contact-form" id="contactForm" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
             <label for="contact-name" class="sr-only">Your name</label>
             <input type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required />
             <label for="contact-email" class="sr-only">Your email</label>
@@ -327,7 +329,7 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Contact form — POSTs to /api/contact-submit Worker
+    // Contact form — submits to Netlify Forms (form name "contact")
     const form = document.getElementById('contactForm');
     if (form) {
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -353,19 +355,20 @@
         const data = Object.fromEntries(new FormData(form).entries());
         data.submittedAt = new Date().toISOString();
 
+        // Submit to Netlify Forms (form name "contact"). Success = HTTP 200.
+        const encode = (o) => Object.keys(o).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(o[k])).join('&');
         try {
-          const res = await fetch('/api/contact-submit', {
+          const res = await fetch('/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'contact', ...data })
           });
-          const result = await res.json().catch(() => ({}));
 
-          if (res.ok && result.ok) {
+          if (res.ok) {
             showStatus("Message sent — Caleb will reply within 24 hours.", 'success');
             form.reset();
           } else {
-            throw new Error(result.error || 'submit_failed');
+            throw new Error('submit_failed');
           }
         } catch (err) {
           showStatus("Couldn't send right now. Email 12345vanrooyenn@gmail.com directly or try again in a minute.", 'error');

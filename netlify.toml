@@ -66,21 +66,11 @@
   force = true
 
 # ─────────────────────────────────────────────────────────
-# Same-origin proxy: forms POST relative URLs; the worker
-# does the Telegram + Resend fanout. Status 200 = rewrite,
-# not a redirect, so the browser never sees the worker URL.
+# Lead forms use Netlify Forms (native). Both qualify.html and
+# contact.html carry data-netlify="true" and POST to "/", so no
+# external form backend or proxy is needed. src/worker.js is
+# retained on disk but unused.
 # ─────────────────────────────────────────────────────────
-[[redirects]]
-  from = "/api/qualify-submit"
-  to = "https://nextstep-ai-website.12345vanrooyenn.workers.dev/api/qualify-submit"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/api/contact-submit"
-  to = "https://nextstep-ai-website.12345vanrooyenn.workers.dev/api/contact-submit"
-  status = 200
-  force = true
 
 # ─────────────────────────────────────────────────────────
 # Security headers (apply to every response)
