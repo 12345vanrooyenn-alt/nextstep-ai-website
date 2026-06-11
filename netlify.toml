@@ -6,14 +6,62 @@
   publish = "."
 
 # ─────────────────────────────────────────────────────────
-# Permanent redirect: workflow.html (deleted detail template)
-# is consolidated into the workflows.html listing. Query
-# strings are dropped (no `?id=...` carry-through) since
-# there is no detail view to deep-link into anymore.
+# Lean-core consolidation. These pages were removed from the
+# nav/footer/sitemap; the files may remain on disk, so
+# `force = true` makes the 301 win over the static file and
+# preserves any inbound SEO links to the nearest kept page.
 # ─────────────────────────────────────────────────────────
 [[redirects]]
+  from = "/services.html"
+  to = "/how-it-works.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/results.html"
+  to = "/case-study.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pricing.html"
+  to = "/qualify.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guarantee.html"
+  to = "/faq.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/workflows.html"
+  to = "/how-it-works.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/workflow.html"
-  to = "/workflows.html"
+  to = "/how-it-works.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/individual-workflows.html"
+  to = "/how-it-works.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-post-2.html"
+  to = "/blog.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-post-3.html"
+  to = "/blog.html"
   status = 301
   force = true
 
