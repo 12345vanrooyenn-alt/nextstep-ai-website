@@ -62,7 +62,7 @@
 
   const link = document.createElement('a');
   link.id = 'wa-btn';
-  link.href = 'https://wa.me/27736466567?text=Hi%20Caleb%2C%20I%20saw%20your%20website%20and%20I%27m%20interested%20in%20a%20free%20brand%20audit.';
+  link.href = 'https://wa.me/27633038209?text=Hi%20Caleb%2C%20I%20saw%20your%20website%20and%20I%27m%20interested%20in%20a%20free%20brand%20audit.';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
   link.setAttribute('aria-label', 'Chat on WhatsApp');
