@@ -1,5 +1,5 @@
 # Netlify deploy config — Nextstep AI website
-# redeploy: 2026-06-15 — force fresh build for Netlify Forms detection
+# redeploy: 2026-06-15b — Netlify Forms detection enabled, re-registering forms
 # Static site at repo root. Form submissions proxy to the Cloudflare Worker
 # so the browser sees same-origin POSTs to /api/*.
 
