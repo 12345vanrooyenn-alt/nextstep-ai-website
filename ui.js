@@ -14,7 +14,14 @@
 (function() {
   var toggle = document.getElementById('navToggle');
   var mobile = document.getElementById('navMobile');
-  if (!toggle || !mobile) return;
+  if (!toggle || !mobile) {
+    if (window.console) console.warn('[nav] menu toggle skipped — #navToggle or #navMobile missing');
+    return;
+  }
+
+  function isOpen() {
+    return mobile.classList.contains('open');
+  }
 
   function openMenu() {
     mobile.classList.add('open');
@@ -33,18 +40,35 @@
   toggle.addEventListener('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    if (mobile.classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    if (isOpen()) closeMenu(); else openMenu();
   });
 
   /* Close mobile nav on any link tap */
   mobile.addEventListener('click', function(e) {
-    if (e.target.tagName === 'A') {
-      closeMenu();
-    }
+    if (e.target.closest('a')) closeMenu();
+  });
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen()) closeMenu();
+  });
+
+  /* Close on tap/click outside the nav while open */
+  document.addEventListener('click', function(e) {
+    if (!isOpen()) return;
+    if (e.target.closest('#nav')) return;
+    closeMenu();
+  });
+
+  /* Force-close when resizing up to desktop so state never gets stuck */
+  var DESKTOP_BP = 768;
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > DESKTOP_BP && isOpen()) closeMenu();
+  }, { passive: true });
+
+  /* Reset menu state on bfcache restore (back/forward navigation) */
+  window.addEventListener('pageshow', function() {
+    if (isOpen()) closeMenu();
   });
 })();
 

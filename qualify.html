@@ -2139,7 +2139,7 @@
         <!-- FOUNDER NOTE -->
         <div class="sidebar-testimonial">
           <div class="sbt-quote">"</div>
-          <p class="sbt-text">I'm just starting out, so I won't show you fake results. Here's my deal instead: I audit your store for free, tell you the truth about what it's losing, and you only pay for the build if it hits the target we set together. The risk is mine, not yours.</p>
+          <p class="sbt-text">Here's my deal: I audit your store for free, tell you the truth about what it's losing, and you only pay for the build if it hits the target we set together. The risk is mine, not yours — because I'm confident in the system.</p>
           <div class="sbt-footer">
             <div class="sbt-avatar">C</div>
             <div>
@@ -2259,14 +2259,19 @@
       // Submit to Netlify Forms (form name "qualify"). Netlify captures the
       // submission, shows it in the dashboard, and emails it. Await the result
       // and only show the thank-you page on a confirmed success, so a lead is
-      // never lost behind a fake confirmation.
+      // never lost behind a fake confirmation. A timeout guards against the
+      // request hanging and leaving the button stuck on "Submitting…".
       const encode = (o) => Object.keys(o).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(o[k])).join('&');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
       try {
         const res = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'qualify', ...data })
+          body: encode({ 'form-name': 'qualify', ...data }),
+          signal: controller.signal
         });
+        clearTimeout(timeoutId);
 
         if (res.ok) {
           window.location.href = 'thank-you.html';
@@ -2274,10 +2279,13 @@
         }
         throw new Error('submit_failed');
       } catch (err) {
+        clearTimeout(timeoutId);
         if (errorEl) {
           errorEl.innerHTML = 'Something went wrong sending your request. Please email me directly at <a href="mailto:12345vanrooyenn@gmail.com" style="color:#7dd3fc;">12345vanrooyenn@gmail.com</a> and I\'ll run your audit — or try again in a moment.';
           errorEl.style.display = 'block';
+          errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+        // Keep the visitor's answers intact; just let them retry.
         btn.disabled = false;
         btn.textContent = btnDefaultText;
       }

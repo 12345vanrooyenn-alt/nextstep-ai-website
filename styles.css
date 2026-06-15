@@ -105,6 +105,16 @@ body {
   background: var(--ink);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  /* `clip` can't establish a max-width on its own; cap to the viewport so a
+     stray wide child can never push the page sideways. */
+  max-width: 100%;
+}
+
+/* iOS Safari < 16 silently treats `overflow: clip` as `visible`, which lets
+   horizontal overflow reappear. Apply a hidden fallback on <html> only (not
+   <body>) so the fixed nav keeps working while sideways drift is killed. */
+@supports not (overflow: clip) {
+  html { overflow-x: hidden; }
 }
 
 img { display: block; max-width: 100%; }

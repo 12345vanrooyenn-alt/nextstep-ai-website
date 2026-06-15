@@ -357,11 +357,14 @@
 
         // Submit to Netlify Forms (form name "contact"). Success = HTTP 200.
         const encode = (o) => Object.keys(o).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(o[k])).join('&');
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
         try {
           const res = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact', ...data })
+            body: encode({ 'form-name': 'contact', ...data }),
+            signal: controller.signal
           });
 
           if (res.ok) {
@@ -373,6 +376,7 @@
         } catch (err) {
           showStatus("Couldn't send right now. Email 12345vanrooyenn@gmail.com directly or try again in a minute.", 'error');
         } finally {
+          clearTimeout(timeoutId);
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = originalBtnText;

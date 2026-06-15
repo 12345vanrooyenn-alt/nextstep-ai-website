@@ -24,16 +24,22 @@
     });
   });
 
-  // Fix bfcache: browser back button restores page with overlay stuck at opacity:1
-  window.addEventListener('pageshow', function(e) {
-    if (e.persisted) {
-      overlay.style.opacity = '0';
-      overlay.style.pointerEvents = 'none';
-    }
-  });
+  function resetOverlay() {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+  }
+
+  // Always reset on show/hide so the overlay can never be left covering the
+  // page (bfcache restore, or a navigation that was cancelled by the browser).
+  window.addEventListener('pageshow', resetOverlay);
+  window.addEventListener('pagehide', resetOverlay);
 
   // Intercept same-origin link clicks
   document.addEventListener('click', function(e) {
+    // Never interfere while the mobile menu is open — let ui.js handle the tap
+    // (close the menu / navigate). Prevents the overlay from swallowing menu taps.
+    if (document.body.classList.contains('menu-open')) return;
+
     const link = e.target.closest('a');
     if (!link) return;
     const href = link.getAttribute('href');
@@ -53,5 +59,7 @@
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'all';
     setTimeout(() => { window.location.href = href; }, 380);
+    // Safety net: if navigation is blocked/cancelled, never leave the page covered.
+    setTimeout(resetOverlay, 3000);
   });
 })();
