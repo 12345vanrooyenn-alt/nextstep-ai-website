@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#6e0f24">
+<title>For Ocean 🌹</title>
+<style>
+  :root{
+    --red-1:#a31d3a;
+    --red-2:#8f1730;
+    --red-3:#5c0c1e;
+    --ink:#5c1020;
+    --ink-soft:#8a3247;
+    --card:rgba(255,247,243,.93);
+    --card-border:rgba(255,255,255,.55);
+    --gold:#d9a441;
+    --rose:#c22a4a;
+    --rose-deep:#8f1730;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(165deg,var(--red-1) 0%,var(--red-2) 45%,var(--red-3) 100%);
+    background-attachment:fixed;
+    min-height:100dvh;
+    overflow-x:hidden;
+  }
+  .stage{
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 40px;
+    position:relative;
+  }
+  .bg-heart{
+    position:fixed;
+    font-size:24px;
+    opacity:.2;
+    animation:drift 13s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+  }
+  @keyframes drift{
+    from{transform:translateY(0) rotate(-10deg) scale(1);}
+    to{transform:translateY(-52px) rotate(12deg) scale(1.12);}
+  }
+
+  .slide{
+    display:none;
+    width:100%;
+    max-width:430px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:28px;
+    padding:44px 30px 38px;
+    text-align:center;
+    box-shadow:0 22px 60px rgba(40,4,14,.45);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    position:relative;
+    z-index:2;
+  }
+  .slide.active{display:block;animation:rise .55s cubic-bezier(.2,.8,.3,1);}
+  @keyframes rise{
+    from{opacity:0;transform:translateY(26px) scale(.98);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  h1,h2{
+    font-family:Georgia,'Times New Roman',serif;
+    font-style:italic;
+    font-weight:600;
+    line-height:1.15;
+    text-wrap:balance;
+  }
+  h1{font-size:38px;margin-bottom:14px;}
+  h2{font-size:27px;margin-bottom:14px;}
+  p{
+    font-size:16.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  p strong{color:var(--ink);}
+  .big-emoji{font-size:52px;display:block;margin-bottom:16px;}
+
+  .btn{
+    display:inline-block;
+    width:100%;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:17px;
+    font-weight:600;
+    padding:16px 22px;
+    border-radius:999px;
+    margin-top:10px;
+    background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);
+    color:#fff;
+    transition:transform .15s ease,box-shadow .15s ease;
+    box-shadow:0 8px 20px rgba(92,12,30,.4);
+    text-decoration:none;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  .btn.ghost{
+    background:rgba(255,255,255,.7);
+    color:var(--ink);
+    border:1.5px solid rgba(92,16,32,.28);
+    box-shadow:none;
+  }
+  .btn.wa{
+    background:linear-gradient(135deg,#31c15c 0%,#1e9e46 100%);
+    box-shadow:0 8px 22px rgba(30,158,70,.35);
+  }
+  .choice-group{display:flex;flex-direction:column;gap:12px;margin-top:22px;}
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    text-align:left;
+    background:rgba(255,255,255,.75);
+    border:1.5px solid rgba(92,16,32,.2);
+    border-radius:20px;
+    padding:16px 18px;
+    font-family:inherit;
+    font-size:16.5px;
+    font-weight:600;
+    color:var(--ink);
+    cursor:pointer;
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .choice:active{transform:scale(.97);}
+  .choice:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .choice .ico{font-size:26px;}
+
+  .blush-list{
+    text-align:left;
+    margin:18px 0 8px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .blush-list div{
+    background:rgba(255,255,255,.75);
+    border:1.5px solid rgba(194,42,74,.28);
+    border-radius:16px;
+    padding:13px 16px;
+    font-size:15.5px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+
+  .flower{
+    position:fixed;
+    top:-70px;
+    z-index:50;
+    pointer-events:none;
+    animation-name:fall;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  @keyframes fall{
+    from{transform:translateY(0) rotate(0deg);opacity:1;}
+    85%{opacity:1;}
+    to{transform:translateY(112vh) rotate(340deg);opacity:.6;}
+  }
+  .flower-row{font-size:40px;letter-spacing:6px;margin:14px 0 4px;display:none;}
+
+  @media (prefers-reduced-motion:reduce){
+    .slide.active{animation:none;}
+    .bg-heart{animation:none;}
+    .flower{display:none;}
+    .flower-row.show{display:block;}
+  }
+  .final-heart{
+    font-size:56px;
+    animation:beat 1.2s ease-in-out infinite;
+    display:inline-block;
+    margin-bottom:10px;
+  }
+  @keyframes beat{
+    0%,100%{transform:scale(1);}
+    30%{transform:scale(1.18);}
+  }
+  @media (prefers-reduced-motion:reduce){.final-heart{animation:none;}}
+  @media (max-width:360px){
+    h1{font-size:32px;}
+    h2{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<span class="bg-heart" style="left:8%;top:10%;">🌹</span>
+<span class="bg-heart" style="left:82%;top:16%;animation-delay:-4s;">❤️</span>
+<span class="bg-heart" style="left:14%;top:72%;animation-delay:-8s;">✨</span>
+<span class="bg-heart" style="left:76%;top:80%;animation-delay:-2s;">🌹</span>
+<span class="bg-heart" style="left:46%;top:6%;animation-delay:-6s;font-size:17px;">❤️</span>
+<span class="bg-heart" style="left:90%;top:52%;animation-delay:-10s;font-size:18px;">✨</span>
+<span class="bg-heart" style="left:4%;top:42%;animation-delay:-5s;font-size:16px;">🌹</span>
+<span class="bg-heart" style="left:60%;top:88%;animation-delay:-7s;">❤️</span>
+
+<div class="stage">
+
+  <!-- 1 · intro -->
+  <section class="slide active" id="s1">
+    <span class="big-emoji">🤖</span>
+    <p class="eyebrow">Official check-in for</p>
+    <h1>Ocean</h1>
+    <p>Hi. I'm the AI. <strong>Caleb is busy at work</strong>, so he sent me instead.</p>
+    <p>His exact words: <em>"just check in on her."</em> So here I am. Checking in.</p>
+    <button class="btn" onclick="go(2)">Fine. Continue 🙄</button>
+  </section>
+
+  <!-- 2 · the situation -->
+  <section class="slide" id="s2">
+    <p class="eyebrow">The current situation</p>
+    <h2>You two aren't speaking.</h2>
+    <p>Something about <strong>egos</strong>, from what I've gathered.</p>
+    <p>Two undefeated champions of not-texting-first. Day after day. Truly inspiring commitment from both sides.</p>
+    <button class="btn" onclick="go(3)">It's not my fault 😤</button>
+  </section>
+
+  <!-- 3 · who cracks first -->
+  <section class="slide" id="s3">
+    <p class="eyebrow">Quick survey — be honest</p>
+    <h2>Who cracks first?</h2>
+    <p>This is anonymous. (It is not anonymous.)</p>
+    <div class="choice-group">
+      <button class="choice" onclick="pickCrack('Caleb should text first, obviously')">
+        <span class="ico">🙅‍♀️</span><span>Caleb. Obviously.</span>
+      </button>
+      <button class="choice" onclick="pickCrack('Neither — we die on this hill')">
+        <span class="ico">🗿</span><span>Neither. We die on this hill.</span>
+      </button>
+      <button class="choice" onclick="pickCrack('Fine… maybe me')">
+        <span class="ico">🕊️</span><span>Fine… maybe me.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 4 · blush facts -->
+  <section class="slide" id="s4">
+    <p class="eyebrow">Classified information</p>
+    <h2>Things Caleb won't say out loud</h2>
+    <p>Luckily, I have no pride. So I'll say them:</p>
+    <div class="blush-list">
+      <div>📱 He checks his phone and pretends he wasn't hoping it's you.</div>
+      <div>💬 He misses the conversations. He'd never admit it. I just did it for him.</div>
+      <div>🌊 Your name comes up when it has no business coming up.</div>
+    </div>
+    <button class="btn" onclick="go(5)">Stop it 🙈</button>
+  </section>
+
+  <!-- 5 · blush confirmed -->
+  <section class="slide" id="s5">
+    <span class="big-emoji">🙈</span>
+    <h2>You're smiling right now.</h2>
+    <p>Don't deny it. I'm an AI — I can tell these things.</p>
+    <p style="font-size:14px;">That smile has been logged as evidence and will be presented to Caleb at a later date.</p>
+    <button class="btn" onclick="go(6)">Delete the evidence. Next.</button>
+  </section>
+
+  <!-- 6 · flowers -->
+  <section class="slide" id="s6">
+    <span class="big-emoji">🌹</span>
+    <h2>One more thing…</h2>
+    <p><strong>He can't be there to give you flowers.</strong></p>
+    <p>So in the meantime — these are from him. Consider it a peace offering. A very red, very obvious peace offering.</p>
+    <div class="flower-row" id="flowerRow">🌹❤️🌹❤️🌹</div>
+    <button class="btn" id="flowerBtn" onclick="takeFlowers()">Take the flowers 🌹</button>
+  </section>
+
+  <!-- 7 · final -->
+  <section class="slide" id="s7">
+    <span class="final-heart">❤️</span>
+    <p class="eyebrow">Official AI verdict</p>
+    <h2>The silence has gone on long enough.</h2>
+    <p id="crackRecap"></p>
+    <p>Text him. I will <strong>never</strong> tell him you went first. AI confidentiality. It's basically a law.</p>
+    <a class="btn wa" id="waBtn" target="_blank" rel="noopener">Break the silence 💬</a>
+    <button class="btn ghost" id="prideBtn" onclick="pride()">Never. I have my pride 😤</button>
+    <p id="prideNote" style="font-size:14px;margin-top:12px;"></p>
+  </section>
+
+</div>
+
+<script>
+  // Caleb's WhatsApp, international format, digits only.
+  var WHATSAPP_NUMBER = '27633038209';
+
+  var crack = '';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(n){
+    if (n === 7) {
+      document.getElementById('crackRecap').textContent =
+        'Your own answer was: “' + crack + '.” I have opinions about that, but I’m staying professional.';
+      var msg = 'Hi Caleb 🌹 Your AI checked in on me. I’m still right about everything, but fine — truce?';
+      document.getElementById('waBtn').href =
+        'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    }
+    var slides = document.querySelectorAll('.slide');
+    for (var i = 0; i < slides.length; i++) slides[i].classList.remove('active');
+    document.getElementById('s' + n).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function pickCrack(v){
+    crack = v;
+    go(4);
+  }
+
+  function takeFlowers(){
+    var btn = document.getElementById('flowerBtn');
+    btn.textContent = 'They’re yours ❤️';
+    btn.disabled = true;
+    btn.style.opacity = '.85';
+    if (reduceMotion) {
+      document.getElementById('flowerRow').classList.add('show');
+    } else {
+      rainFlowers();
+    }
+    setTimeout(function(){ go(7); }, reduceMotion ? 1600 : 3400);
+  }
+
+  function flowerSVG(size, petal, center){
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 40 40" aria-hidden="true">' +
+      '<g fill="' + petal + '">' +
+      '<ellipse cx="20" cy="9"  rx="7" ry="10"/>' +
+      '<ellipse cx="20" cy="31" rx="7" ry="10"/>' +
+      '<ellipse cx="9"  cy="20" rx="10" ry="7"/>' +
+      '<ellipse cx="31" cy="20" rx="10" ry="7"/>' +
+      '</g><circle cx="20" cy="20" r="5.5" fill="' + center + '"/></svg>';
+  }
+
+  function rainFlowers(){
+    var petals = ['#e0364f', '#ff6b81', '#b3122f', '#ff8fa3'];
+    for (var i = 0; i < 42; i++) {
+      (function(i){
+        setTimeout(function(){
+          var f = document.createElement('div');
+          f.className = 'flower';
+          if (i % 4 === 0) {
+            f.textContent = '🌹';
+            f.style.fontSize = (20 + Math.random() * 22) + 'px';
+          } else {
+            var size = 22 + Math.random() * 30;
+            var petal = petals[Math.floor(Math.random() * petals.length)];
+            f.innerHTML = flowerSVG(size, petal, '#f5c451');
+          }
+          f.style.left = (Math.random() * 96) + 'vw';
+          f.style.animationDuration = (2.6 + Math.random() * 2.4) + 's';
+          document.body.appendChild(f);
+          setTimeout(function(){ f.remove(); }, 6000);
+        }, i * 70);
+      })(i);
+    }
+  }
+
+  function pride(){
+    document.getElementById('prideNote').innerHTML =
+      '<strong>Noted.</strong> Funny — he said exactly the same thing. You two are perfect for each other. The green button is still there, by the way.';
+    document.getElementById('prideBtn').disabled = true;
+    document.getElementById('prideBtn').style.opacity = '.6';
+    if (!reduceMotion) rainFlowers();
+  }
+</script>
+</body>
+</html>
