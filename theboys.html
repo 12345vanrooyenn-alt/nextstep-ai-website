@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#17131c">
+<title>For The Boys 💀</title>
+<style>
+  :root{
+    --bg-1:#221b2b;
+    --bg-2:#17131c;
+    --bg-3:#0f0c13;
+    --ink:#f5efe6;
+    --ink-soft:#b8aec2;
+    --card:rgba(255,255,255,.06);
+    --card-border:rgba(255,255,255,.14);
+    --flame:#ff9f45;
+    --flame-deep:#ff5c39;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(165deg,var(--bg-1) 0%,var(--bg-2) 45%,var(--bg-3) 100%);
+    background-attachment:fixed;
+    min-height:100dvh;
+    overflow-x:hidden;
+  }
+  .stage{
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 40px;
+    position:relative;
+  }
+  .bg-float{
+    position:fixed;
+    font-size:22px;
+    opacity:.16;
+    animation:drift 13s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+  }
+  @keyframes drift{
+    from{transform:translateY(0) rotate(-10deg) scale(1);}
+    to{transform:translateY(-52px) rotate(12deg) scale(1.12);}
+  }
+
+  .slide{
+    display:none;
+    width:100%;
+    max-width:430px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:28px;
+    padding:44px 30px 38px;
+    text-align:center;
+    box-shadow:0 22px 60px rgba(0,0,0,.5);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    position:relative;
+    z-index:2;
+  }
+  .slide.active{display:block;animation:rise .55s cubic-bezier(.2,.8,.3,1);}
+  @keyframes rise{
+    from{opacity:0;transform:translateY(26px) scale(.98);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--flame);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  h1,h2{
+    font-family:Georgia,'Times New Roman',serif;
+    font-style:italic;
+    font-weight:600;
+    line-height:1.15;
+    text-wrap:balance;
+  }
+  h1{font-size:38px;margin-bottom:14px;}
+  h2{font-size:27px;margin-bottom:14px;}
+  .mega{
+    font-size:52px;
+    font-style:italic;
+    letter-spacing:-.01em;
+    background:linear-gradient(135deg,var(--flame) 0%,var(--flame-deep) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin:10px 0 16px;
+  }
+  p{
+    font-size:16.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  p strong{color:var(--ink);}
+  .big-emoji{font-size:52px;display:block;margin-bottom:16px;}
+
+  .btn{
+    display:inline-block;
+    width:100%;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:17px;
+    font-weight:600;
+    padding:16px 22px;
+    border-radius:999px;
+    margin-top:14px;
+    background:linear-gradient(135deg,var(--flame) 0%,var(--flame-deep) 100%);
+    color:#221206;
+    transition:transform .15s ease,box-shadow .15s ease;
+    box-shadow:0 8px 22px rgba(255,92,57,.3);
+    text-decoration:none;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn:focus-visible{outline:3px solid var(--flame);outline-offset:3px;}
+
+  .roast-list{
+    text-align:left;
+    margin:18px 0 4px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .roast{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,159,69,.25);
+    border-radius:16px;
+    padding:14px 16px;
+  }
+  .roast .name{
+    font-weight:700;
+    font-size:17px;
+    color:var(--flame);
+    margin-bottom:4px;
+  }
+  .roast .line{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--ink-soft);
+  }
+  .roast .line strong{color:var(--ink);}
+
+  .fall{
+    position:fixed;
+    top:-70px;
+    z-index:50;
+    pointer-events:none;
+    animation-name:falling;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  @keyframes falling{
+    from{transform:translateY(0) rotate(0deg);opacity:1;}
+    85%{opacity:1;}
+    to{transform:translateY(112vh) rotate(340deg);opacity:.6;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slide.active{animation:none;}
+    .bg-float{animation:none;}
+    .fall{display:none;}
+  }
+  @media (max-width:360px){
+    h1{font-size:32px;}
+    h2{font-size:24px;}
+    .mega{font-size:42px;}
+  }
+</style>
+</head>
+<body>
+
+<span class="bg-float" style="left:8%;top:10%;">💀</span>
+<span class="bg-float" style="left:82%;top:16%;animation-delay:-4s;">🔥</span>
+<span class="bg-float" style="left:14%;top:72%;animation-delay:-8s;">😤</span>
+<span class="bg-float" style="left:76%;top:80%;animation-delay:-2s;">💀</span>
+<span class="bg-float" style="left:46%;top:6%;animation-delay:-6s;font-size:16px;">🔥</span>
+<span class="bg-float" style="left:90%;top:52%;animation-delay:-10s;font-size:17px;">💀</span>
+<span class="bg-float" style="left:4%;top:42%;animation-delay:-5s;font-size:16px;">🔥</span>
+
+<div class="stage">
+
+  <!-- 1 · intro -->
+  <section class="slide active" id="s1">
+    <span class="big-emoji">🤖</span>
+    <p class="eyebrow">Official statement</p>
+    <h1>To the group chat.</h1>
+    <p>Word reached me that <strong>you have been talking</strong> about my spelling.</p>
+    <p>One name. I misspelled <strong>one</strong> name, and julle turned it into a whole podcast.</p>
+    <p>So Caleb sent me — the AI — to address each of you <strong>personally</strong>.</p>
+    <button class="btn" onclick="go(2)">Say it to my face 😤</button>
+  </section>
+
+  <!-- 2 · the roasts -->
+  <section class="slide" id="s2">
+    <p class="eyebrow">One by one, as requested</p>
+    <h2>Let's go down the list.</h2>
+    <div class="roast-list">
+      <div class="roast">
+        <div class="name">Tyler ✈️</div>
+        <div class="line">Still telling everyone about the pilot dream. Brother, <strong>go fly a plane</strong> — at this point the planes have been waiting longer than we have. Boarding was announced years ago.</div>
+      </div>
+      <div class="roast">
+        <div class="name">Tyrese 💇‍♂️</div>
+        <div class="line">The braids are doing <strong>all</strong> the heavy lifting. Fresh every week, we see it, we respect it — the braids carry the fit, the personality, and the conversation.</div>
+      </div>
+      <div class="roast">
+        <div class="name">Jaido 🔧</div>
+        <div class="line">The academy called. They said <strong>come fix the trailers</strong> first, then you can have opinions about other people's spelling.</div>
+      </div>
+    </div>
+    <button class="btn" onclick="go(3)">There's more?? 💀</button>
+  </section>
+
+  <!-- 3 · roasts part 2 -->
+  <section class="slide" id="s3">
+    <p class="eyebrow">Yes. There's more.</p>
+    <h2>You thought I forgot?</h2>
+    <div class="roast-list">
+      <div class="roast">
+        <div class="name">Cayden 💪</div>
+        <div class="line">One gym session and now we're fundraising for a <strong>whole new shoulder blade</strong>. Warm up next time, champion. The body is not a rental.</div>
+      </div>
+      <div class="roast">
+        <div class="name">Zeke 🦆</div>
+        <div class="line">Going <strong>deeper into ducky land</strong> every single day and refuses to explain what that means to anyone. We're not judging. We're concerned. Send a signal if you need help.</div>
+      </div>
+      <div class="roast">
+        <div class="name">The whole chat 📱</div>
+        <div class="line">Grown men holding a <strong>grudge about spelling</strong> like it's a group project. It was one letter. Move on. I'm an AI and even I let things go.</div>
+      </div>
+    </div>
+    <button class="btn" onclick="go(4)">Okay okay, final word</button>
+  </section>
+
+  <!-- 4 · finale -->
+  <section class="slide" id="s4">
+    <span class="big-emoji">😤</span>
+    <p class="eyebrow">In closing, from Caleb, with love</p>
+    <div class="mega">Julle poese.</div>
+    <p>That's it. That's the message.</p>
+    <p style="font-size:14px;">— Caleb (and his AI, who spelled every name correctly this time. Check. Go on. Check.) ❤️</p>
+    <button class="btn" onclick="finale()">🔥 Accept the truth 🔥</button>
+  </section>
+
+</div>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(n){
+    var slides = document.querySelectorAll('.slide');
+    for (var i = 0; i < slides.length; i++) slides[i].classList.remove('active');
+    document.getElementById('s' + n).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function finale(){
+    if (reduceMotion) return;
+    var drops = ['🔥', '💀', '😤', '❤️'];
+    for (var i = 0; i < 42; i++) {
+      (function(i){
+        setTimeout(function(){
+          var f = document.createElement('div');
+          f.className = 'fall';
+          f.textContent = drops[Math.floor(Math.random() * drops.length)];
+          f.style.fontSize = (18 + Math.random() * 26) + 'px';
+          f.style.left = (Math.random() * 96) + 'vw';
+          f.style.animationDuration = (2.6 + Math.random() * 2.4) + 's';
+          document.body.appendChild(f);
+          setTimeout(function(){ f.remove(); }, 6000);
+        }, i * 60);
+      })(i);
+    }
+  }
+</script>
+</body>
+</html>
