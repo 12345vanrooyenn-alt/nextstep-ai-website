@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffb3c8">
+<title>For Resegofetse 💌</title>
+<style>
+  :root{
+    --pink-1:#ffd3df;
+    --pink-2:#ffb3c8;
+    --pink-3:#ff9db9;
+    --ink:#61203c;
+    --ink-soft:#8a3f60;
+    --card:rgba(255,255,255,.74);
+    --card-border:rgba(255,255,255,.92);
+    --rose:#d64072;
+    --rose-deep:#a12652;
+    --blue:#4f8ff7;
+    --blue-deep:#2f6fe0;
+    --blue-soft:#7db4ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,var(--pink-1) 0%,var(--pink-2) 55%,var(--pink-3) 100%);
+    background-attachment:fixed;
+    min-height:100dvh;
+    overflow-x:hidden;
+  }
+  .stage{
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 40px;
+    position:relative;
+  }
+  /* valentine floating hearts */
+  .bg-heart{
+    position:fixed;
+    font-size:24px;
+    opacity:.22;
+    animation:drift 13s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+  }
+  @keyframes drift{
+    from{transform:translateY(0) rotate(-10deg) scale(1);}
+    to{transform:translateY(-52px) rotate(12deg) scale(1.12);}
+  }
+
+  .slide{
+    display:none;
+    width:100%;
+    max-width:430px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:28px;
+    padding:44px 30px 38px;
+    text-align:center;
+    box-shadow:0 18px 50px rgba(190,45,100,.22);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    position:relative;
+    z-index:2;
+  }
+  .slide.active{display:block;animation:rise .55s cubic-bezier(.2,.8,.3,1);}
+  @keyframes rise{
+    from{opacity:0;transform:translateY(26px) scale(.98);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--rose);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  h1,h2{
+    font-family:Georgia,'Times New Roman',serif;
+    font-style:italic;
+    font-weight:600;
+    line-height:1.15;
+    text-wrap:balance;
+  }
+  h1{font-size:38px;margin-bottom:14px;}
+  h2{font-size:27px;margin-bottom:14px;}
+  p{
+    font-size:16.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  p strong{color:var(--ink);}
+  .big-emoji{font-size:52px;display:block;margin-bottom:16px;}
+
+  .btn{
+    display:inline-block;
+    width:100%;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:17px;
+    font-weight:600;
+    padding:16px 22px;
+    border-radius:999px;
+    margin-top:10px;
+    background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);
+    color:#fff;
+    transition:transform .15s ease,box-shadow .15s ease;
+    box-shadow:0 8px 20px rgba(161,38,82,.32);
+    text-decoration:none;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px;}
+  .btn.ghost{
+    background:rgba(255,255,255,.75);
+    color:var(--ink);
+    border:1.5px solid rgba(97,32,60,.25);
+    box-shadow:none;
+  }
+  .btn.blue{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%);
+    box-shadow:0 8px 22px rgba(47,111,224,.35);
+  }
+  .btn.wa{
+    background:linear-gradient(135deg,#31c15c 0%,#1e9e46 100%);
+    box-shadow:0 8px 22px rgba(30,158,70,.35);
+  }
+  .choice-group{display:flex;flex-direction:column;gap:12px;margin-top:22px;}
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    text-align:left;
+    background:rgba(255,255,255,.8);
+    border:1.5px solid rgba(97,32,60,.18);
+    border-radius:20px;
+    padding:16px 18px;
+    font-family:inherit;
+    font-size:16.5px;
+    font-weight:600;
+    color:var(--ink);
+    cursor:pointer;
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  }
+  .choice:active{transform:scale(.97);}
+  .choice:focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
+  .choice .ico{font-size:26px;}
+  .choice small{display:block;font-weight:400;color:var(--ink-soft);font-size:13.5px;margin-top:2px;}
+
+  /* score */
+  .score-num{
+    font-family:Georgia,serif;
+    font-size:76px;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+    line-height:1;
+    margin:18px 0 6px;
+  }
+  .score-note{min-height:52px;}
+
+  /* date details */
+  .detail-card{
+    background:rgba(255,255,255,.85);
+    border:1.5px dashed rgba(214,64,114,.45);
+    border-radius:20px;
+    padding:20px 16px;
+    margin:20px 0 6px;
+  }
+  .detail-card .row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:9px 6px;
+    font-size:16px;
+  }
+  .detail-card .row + .row{border-top:1px solid rgba(97,32,60,.12);}
+  .detail-card .lbl{color:var(--ink-soft);font-size:13px;text-transform:uppercase;letter-spacing:.14em;align-self:center;}
+  .detail-card .val{font-weight:700;color:var(--ink);text-align:right;}
+
+  /* blush list */
+  .blush-list{
+    text-align:left;
+    margin:18px 0 8px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .blush-list div{
+    background:rgba(255,255,255,.8);
+    border:1.5px solid rgba(214,64,114,.25);
+    border-radius:16px;
+    padding:13px 16px;
+    font-size:15.5px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+
+  /* falling blue flowers + hearts */
+  .flower{
+    position:fixed;
+    top:-70px;
+    z-index:50;
+    pointer-events:none;
+    animation-name:fall;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  @keyframes fall{
+    from{transform:translateY(0) rotate(0deg);opacity:1;}
+    85%{opacity:1;}
+    to{transform:translateY(112vh) rotate(340deg);opacity:.6;}
+  }
+  .flower-row{font-size:40px;letter-spacing:6px;margin:14px 0 4px;display:none;}
+
+  @media (prefers-reduced-motion:reduce){
+    .slide.active{animation:none;}
+    .bg-heart{animation:none;}
+    .flower{display:none;}
+    .flower-row.show{display:block;}
+  }
+  .final-heart{
+    font-size:56px;
+    animation:beat 1.2s ease-in-out infinite;
+    display:inline-block;
+    margin-bottom:10px;
+  }
+  @keyframes beat{
+    0%,100%{transform:scale(1);}
+    30%{transform:scale(1.18);}
+  }
+  @media (prefers-reduced-motion:reduce){.final-heart{animation:none;}}
+  @media (max-width:360px){
+    h1{font-size:32px;}
+    h2{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<span class="bg-heart" style="left:8%;top:10%;">❤️</span>
+<span class="bg-heart" style="left:82%;top:16%;animation-delay:-4s;">💘</span>
+<span class="bg-heart" style="left:14%;top:72%;animation-delay:-8s;">🩷</span>
+<span class="bg-heart" style="left:76%;top:80%;animation-delay:-2s;">💝</span>
+<span class="bg-heart" style="left:46%;top:6%;animation-delay:-6s;font-size:17px;">💗</span>
+<span class="bg-heart" style="left:90%;top:52%;animation-delay:-10s;font-size:18px;">❤️</span>
+<span class="bg-heart" style="left:4%;top:42%;animation-delay:-5s;font-size:16px;">💘</span>
+<span class="bg-heart" style="left:60%;top:88%;animation-delay:-7s;">🩷</span>
+
+<div class="stage">
+
+  <!-- 1 · intro -->
+  <section class="slide active" id="s1">
+    <span class="big-emoji">💘</span>
+    <p class="eyebrow">A message for</p>
+    <h1>Resegofetse</h1>
+    <p>Someone has something to ask you.<br>It will only take a minute.</p>
+    <p style="font-size:14px;">(No pressure. Okay… a little pressure.)</p>
+    <button class="btn" onclick="go(2)">Open it 💌</button>
+  </section>
+
+  <!-- 2 · save the date -->
+  <section class="slide" id="s2">
+    <p class="eyebrow">First — save the date</p>
+    <h2>Keep this evening free</h2>
+    <div class="detail-card">
+      <div class="row"><span class="lbl">Day</span><span class="val">Saturday, 1 August</span></div>
+      <div class="row"><span class="lbl">Time</span><span class="val">19:00</span></div>
+      <div class="row"><span class="lbl">With</span><span class="val">Navandre</span></div>
+      <div class="row"><span class="lbl">Dress code</span><span class="val">You, as you are 🌷</span></div>
+    </div>
+    <button class="btn" onclick="go(3)">Noted. What's the plan?</button>
+  </section>
+
+  <!-- 3 · her pick -->
+  <section class="slide" id="s3">
+    <p class="eyebrow">The plan is yours to choose</p>
+    <h2>Where are we going?</h2>
+    <p>Lady's choice. There is no wrong answer.</p>
+    <div class="choice-group">
+      <button class="choice" onclick="pickVenue('Spur 🥩')">
+        <span class="ico">🥩</span>
+        <span>Spur<small>Ribs, burgers, that famous sauce.</small></span>
+      </button>
+      <button class="choice" onclick="pickVenue('Panarottis 🍕')">
+        <span class="ico">🍕</span>
+        <span>Panarottis<small>Pizza, good lighting, better company.</small></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 4 · quiz -->
+  <section class="slide" id="s4">
+    <p class="eyebrow">Quick test — one question</p>
+    <h2>What does Navandre like most?</h2>
+    <p>Choose carefully. You are being scored.</p>
+    <div class="choice-group">
+      <button class="choice" onclick="answer(70,'Strong guess — he does love the gym…')">
+        <span class="ico">🏋️</span><span>Going to the gym</span>
+      </button>
+      <button class="choice" onclick="answer(85,'A good and holy answer…')">
+        <span class="ico">📖</span><span>Reading the Bible</span>
+      </button>
+      <button class="choice" onclick="answer(100,'Correct. It was never even close.')">
+        <span class="ico">💬</span><span>Talking to you</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 5 · score -->
+  <section class="slide" id="s5">
+    <p class="eyebrow">Your score</p>
+    <div class="score-num" id="scoreNum">0%</div>
+    <p class="score-note" id="scoreNote"></p>
+    <button class="btn" onclick="go(6)">Continue</button>
+  </section>
+
+  <!-- 6 · flowers -->
+  <section class="slide" id="s6">
+    <span class="big-emoji">🌸</span>
+    <h2>One more thing…</h2>
+    <p><strong>I know you don't like flowers.</strong><br>
+    And Navandre isn't there to hand you any.</p>
+    <p>But here are flowers anyway — the blue kind, because you're not like everyone else.</p>
+    <div class="flower-row" id="flowerRow">🪻💙🪻💙🪻</div>
+    <button class="btn blue" id="flowerBtn" onclick="takeFlowers()">Take the flowers 💐</button>
+  </section>
+
+  <!-- 7 · the message -->
+  <section class="slide" id="s7">
+    <span class="big-emoji">🤭</span>
+    <h2>Okay, honest moment</h2>
+    <p><strong>Navandre talks about you all the time.</strong></p>
+    <p>He says he likes to focus. He does not focus. Somehow, every conversation finds its way back to you.</p>
+    <p>And on the nights you miss your dad — he notices. That's why he keeps reminding you how special and valued you are. He means every word of it.</p>
+    <button class="btn" onclick="go(10)">There's more?</button>
+  </section>
+
+  <!-- 10 · blush facts -->
+  <section class="slide" id="s10">
+    <p class="eyebrow">Classified information</p>
+    <h2>Facts on file (source: Navandre)</h2>
+    <div class="blush-list">
+      <div>🙂 When your name comes up, he smiles first and denies it after.</div>
+      <div>📱 He rereads your messages. More than once. Sometimes twice in a row.</div>
+      <div>⭐ He doesn't call you a distraction from his focus. He calls you the highlight.</div>
+    </div>
+    <button class="btn" onclick="go(11)">Stop, I'm blushing 🙈</button>
+  </section>
+
+  <!-- 11 · blush confirmed -->
+  <section class="slide" id="s11">
+    <span class="big-emoji">🙈</span>
+    <h2>Too late. You're blushing.</h2>
+    <p>Yes, you. Right now. Don't fight it — it matches the page.</p>
+    <p style="font-size:14px;">This moment has been recorded and will be used as evidence.</p>
+    <button class="btn" onclick="go(8)">Fine. Ask me the question.</button>
+  </section>
+
+  <!-- 8 · the ask -->
+  <section class="slide" id="s8">
+    <span class="final-heart">💙</span>
+    <p class="eyebrow">The actual question</p>
+    <h2>So, Resegofetse —<br>will you take this date?</h2>
+    <p id="recap"></p>
+    <div class="choice-group">
+      <button class="btn blue" onclick="finish('yes')">Yes 💙</button>
+      <button class="btn ghost" onclick="finish('maybe')">Maybe…</button>
+    </div>
+  </section>
+
+  <!-- 9 · done -->
+  <section class="slide" id="s9">
+    <span class="big-emoji" id="finalEmoji">🥳</span>
+    <h2 id="finalTitle"></h2>
+    <p id="finalText"></p>
+    <div class="detail-card">
+      <div class="row"><span class="lbl">Answer</span><span class="val" id="sumAnswer"></span></div>
+      <div class="row"><span class="lbl">Venue</span><span class="val" id="sumVenue"></span></div>
+      <div class="row"><span class="lbl">When</span><span class="val">Sat 1 Aug · 19:00</span></div>
+    </div>
+    <a class="btn wa" id="waBtn" style="display:none;" target="_blank" rel="noopener">Send your answer to Navandre 💬</a>
+    <p id="fallbackNote" style="margin-top:14px;"><strong>📸 Screenshot this and send it to Navandre.</strong><br>He is refreshing his phone as we speak.</p>
+  </section>
+
+</div>
+
+<script>
+  // Navandre's WhatsApp number in international format, digits only.
+  var WHATSAPP_NUMBER = '27836260914';
+
+  var venue = '';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(n){
+    if (n === 8) {
+      document.getElementById('recap').textContent =
+        (venue ? venue + ' · ' : '') + 'Saturday 1 August · 19:00';
+    }
+    var slides = document.querySelectorAll('.slide');
+    for (var i = 0; i < slides.length; i++) slides[i].classList.remove('active');
+    document.getElementById('s' + n).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function pickVenue(v){
+    venue = v;
+    go(4);
+  }
+
+  function answer(score, note){
+    go(5);
+    var el = document.getElementById('scoreNum');
+    var noteEl = document.getElementById('scoreNote');
+    noteEl.textContent = note;
+    var current = 0;
+    var timer = setInterval(function(){
+      current += 2;
+      if (current >= score) {
+        current = score;
+        clearInterval(timer);
+        if (score < 100) {
+          setTimeout(function(){
+            noteEl.innerHTML = 'But the real answer is <strong>talking to you</strong> — so we’re rounding you up to 100%.';
+            countTo100(current);
+          }, 1100);
+        }
+      }
+      el.textContent = current + '%';
+    }, 18);
+  }
+
+  function countTo100(from){
+    var el = document.getElementById('scoreNum');
+    var current = from;
+    var timer = setInterval(function(){
+      current += 1;
+      el.textContent = current + '%';
+      if (current >= 100) clearInterval(timer);
+    }, 40);
+  }
+
+  function takeFlowers(){
+    var btn = document.getElementById('flowerBtn');
+    btn.textContent = 'They’re yours 💙';
+    btn.disabled = true;
+    btn.style.opacity = '.85';
+    if (reduceMotion) {
+      document.getElementById('flowerRow').classList.add('show');
+    } else {
+      rainFlowers();
+    }
+    setTimeout(function(){ go(7); }, reduceMotion ? 1600 : 3400);
+  }
+
+  function flowerSVG(size, petal, center){
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 40 40" aria-hidden="true">' +
+      '<g fill="' + petal + '">' +
+      '<ellipse cx="20" cy="9"  rx="7" ry="10"/>' +
+      '<ellipse cx="20" cy="31" rx="7" ry="10"/>' +
+      '<ellipse cx="9"  cy="20" rx="10" ry="7"/>' +
+      '<ellipse cx="31" cy="20" rx="10" ry="7"/>' +
+      '</g><circle cx="20" cy="20" r="5.5" fill="' + center + '"/></svg>';
+  }
+
+  function rainFlowers(withHearts){
+    var petals = ['#4f8ff7', '#7db4ff', '#2f6fe0', '#9cc6ff'];
+    for (var i = 0; i < 42; i++) {
+      (function(i){
+        setTimeout(function(){
+          var f = document.createElement('div');
+          f.className = 'flower';
+          if (withHearts && i % 4 === 0) {
+            f.textContent = '❤️';
+            f.style.fontSize = (18 + Math.random() * 22) + 'px';
+          } else {
+            var size = 22 + Math.random() * 30;
+            var petal = petals[Math.floor(Math.random() * petals.length)];
+            f.innerHTML = flowerSVG(size, petal, '#ffd166');
+          }
+          f.style.left = (Math.random() * 96) + 'vw';
+          f.style.animationDuration = (2.6 + Math.random() * 2.4) + 's';
+          document.body.appendChild(f);
+          setTimeout(function(){ f.remove(); }, 6000);
+        }, i * 70);
+      })(i);
+    }
+  }
+
+  function finish(kind){
+    var title = document.getElementById('finalTitle');
+    var text = document.getElementById('finalText');
+    var emoji = document.getElementById('finalEmoji');
+    var answerText;
+    document.getElementById('sumVenue').textContent = venue || 'Surprise me';
+    if (kind === 'yes') {
+      emoji.textContent = '🥳';
+      title.textContent = 'She said yes!';
+      text.textContent = 'Best decision you’ve made all year. Saturday, 1 August, 19:00 — it’s official.';
+      answerText = 'YES 💙';
+    } else {
+      emoji.textContent = '😌';
+      title.textContent = '“Maybe” — noted.';
+      text.textContent = 'Quick translation note: in Navandre’s language, “maybe” means yes. So this is also official.';
+      answerText = 'Maybe (= yes) 😌';
+    }
+    document.getElementById('sumAnswer').textContent = answerText;
+
+    var waBtn = document.getElementById('waBtn');
+    var fallback = document.getElementById('fallbackNote');
+    if (WHATSAPP_NUMBER) {
+      var msg = 'Hi Navandre 💌 My answer is: ' + answerText +
+        ' — ' + (venue || 'you pick the place') + ' · Saturday 1 August · 19:00. — Resegofetse';
+      waBtn.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+      waBtn.style.display = 'inline-block';
+      fallback.innerHTML = 'Or just screenshot this. Either way — he’s refreshing his phone as we speak.';
+    }
+    go(9);
+    if (!reduceMotion) rainFlowers(true);
+  }
+</script>
+</body>
+</html>
