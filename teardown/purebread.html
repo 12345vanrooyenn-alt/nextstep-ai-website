@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout Teardown — Purebread Los Angeles | Nextstep AI</title>
+  <meta name="description" content="A record of what happened to a real abandoned cart on purebreadlosangeles.store, how cart recovery actually works, and what the gap is worth." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="teardown.css" />
+</head>
+<body>
+
+<header class="brandbar">
+  <div class="inner">
+    <a class="wordmark" href="https://nextstepai-agency.netlify.app"><span class="node"></span>Nextstep AI</a>
+    <span class="role">Prepared for Purebread LA</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">Checkout teardown</p>
+    <h1>What happens after someone leaves a cart on purebreadlosangeles.store</h1>
+    <p class="dek">
+      I put a $100 hoodie in a cart on your store, typed my details in at checkout, and walked away &mdash;
+      the same way most of your traffic does. This is a record of everything that happened next,
+      everything that didn&rsquo;t, and exactly what I&rsquo;d build to fix it.
+    </p>
+    <div class="slugline">
+      <span>Cart placed 4 Aug 2026, evening</span>
+      <span>Checked 5 Aug, morning</span>
+      <span>Yours to keep</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>The test</h2>
+    <h3>I shopped your store like a customer, not like someone selling you something</h3>
+    <p>
+      No tools, no scraping, no guesswork. I went to your site, picked the piece I&rsquo;d actually buy,
+      and took it all the way to the last screen before payment.
+    </p>
+
+    <div class="receipt">
+      <div class="rhead">Order that never happened</div>
+      <div class="rrow"><span class="k">Red / White 2 Stripe Signature Hoodie</span><span class="v">$100.00</span></div>
+      <div class="rrow"><span class="k">Reached checkout</span><span class="v pos">Yes</span></div>
+      <div class="rrow"><span class="k">Email entered at checkout</span><span class="v pos">Yes</span></div>
+      <div class="rrow"><span class="k">Completed the purchase</span><span class="v neg">No</span></div>
+      <div class="rtotal"><span class="k">Left sitting in your store</span><span class="v">$100.00</span></div>
+    </div>
+
+    <p>
+      That last detail is the one that matters. <strong>You had my email before I left.</strong>
+      Not a guess, not a tracking pixel &mdash; I typed it in myself. From that second on, you had
+      everything you needed to come and get me.
+    </p>
+  </section>
+
+  <section>
+    <h2>The result</h2>
+    <h3>Nothing came</h3>
+    <p>
+      I left the cart on the evening of 4 August. I checked again the next morning &mdash; inbox, spam,
+      promotions, and my phone.
+    </p>
+
+    <div class="receipt">
+      <div class="rhead">Follow-up received in the ~10 hours after I left</div>
+      <div class="rrow"><span class="k">Recovery email</span><span class="v neg">None</span></div>
+      <div class="rrow"><span class="k">Recovery SMS</span><span class="v neg">None</span></div>
+      <div class="rrow"><span class="k">Any message of any kind</span><span class="v neg">None</span></div>
+    </div>
+
+    <p>
+      That cart is still sitting there. So is every other one like it. And the part worth sitting with:
+      <strong>the hard half already works.</strong> Your store took my details cleanly. Nothing is broken.
+      There is just nothing standing behind the checkout doing anything with what it collects.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why this gap is the expensive one</h2>
+    <h3>These aren&rsquo;t cold visitors. They&rsquo;re your warmest buyers.</h3>
+    <p>
+      It&rsquo;s easy to file abandoned carts under &ldquo;people who weren&rsquo;t going to buy.&rdquo;
+      That&rsquo;s the opposite of what they are. Someone who reaches your checkout has already done
+      every hard thing you spend money to make happen:
+    </p>
+    <p>
+      They found you. They liked the brand enough to browse. They picked a specific piece in a specific
+      colourway. They accepted the price. They started typing their personal details into a form.
+      <strong>Then they got distracted, or hesitated for ten seconds, and closed the tab.</strong>
+    </p>
+    <p>
+      Across ecommerce, roughly <strong>7 in 10 carts</strong> end that way, and the reasons are almost
+      never &ldquo;I changed my mind about the product.&rdquo; They&rsquo;re shipping cost appearing late,
+      an unexpected step, a payment method that isn&rsquo;t there &mdash; or, most often, simply life
+      interrupting at the wrong moment.
+    </p>
+    <p>
+      You have already paid for every one of these people. The ad, the post, the drop, the years of
+      building something people want &mdash; all of it is already spent by the time someone reaches
+      checkout. <strong>Recovering them is the cheapest revenue in the entire store, and it&rsquo;s
+      usually the least worked.</strong>
+    </p>
+  </section>
+
+  <section>
+    <h2>How recovery actually works</h2>
+    <h3>It&rsquo;s not one reminder. It&rsquo;s three messages with three different jobs.</h3>
+    <p>
+      This is where most brands that <em>do</em> something still leave the money behind. They send one
+      generic email a day later that says &ldquo;you left something in your cart&rdquo; &mdash; the same
+      message whether you dropped a $60 tee or a $200 set. It ticks a box. It doesn&rsquo;t go and get
+      the cart back.
+    </p>
+    <p>A sequence that works is timed, and each touch does a different job:</p>
+
+    <div class="seq">
+      <div class="touch">
+        <div class="when">Touch one <b>&mdash; about an hour later</b></div>
+        <h4>The nudge</h4>
+        <p>
+          They&rsquo;re probably still on their phone. This one assumes nothing is wrong &mdash; it just
+          puts the exact item back in front of them, by name and colourway, with a one-tap route back to
+          a pre-filled checkout.
+        </p>
+        <div class="say">Still thinking about the Red / White 2 Stripe hoodie? It&rsquo;s held for you &mdash; here&rsquo;s your cart, same as you left it.</div>
+      </div>
+
+      <div class="touch">
+        <div class="when">Touch two <b>&mdash; six to eight hours later</b></div>
+        <h4>The objection</h4>
+        <p>
+          If they didn&rsquo;t come back, something stopped them. This touch answers the most likely
+          reason before they have to ask &mdash; sizing, shipping cost and timeline, returns. Not a
+          discount. Just the information that was missing at the moment they hesitated.
+        </p>
+        <div class="say">Sizing runs true &mdash; if it&rsquo;s not right we&rsquo;ll swap it. Shipping&rsquo;s [X], arrives in [Y] days.</div>
+      </div>
+
+      <div class="touch">
+        <div class="when">Touch three <b>&mdash; around 24 hours</b></div>
+        <h4>The close</h4>
+        <p>
+          The last honest reason to act now. For a brand that drops in limited runs, that reason already
+          exists and doesn&rsquo;t need inventing &mdash; colourways sell through, and the one they picked
+          may not be there next week. Truth converts better than a discount, and it doesn&rsquo;t train
+          people to wait for one.
+        </p>
+        <div class="say">Red / White is moving &mdash; didn&rsquo;t want you to miss the size you had.</div>
+      </div>
+    </div>
+
+    <p>
+      Three touches, spread across a day and a half, each one naming the actual piece they left.
+      That&rsquo;s the whole mechanism. It isn&rsquo;t clever &mdash; it&rsquo;s just done properly and on
+      time, every single time, without anyone having to remember to do it.
+    </p>
+  </section>
+
+  <section>
+    <h2>The part most brands miss</h2>
+    <h3>A perfect message nobody opens is worth nothing</h3>
+    <p>
+      Brands spend their energy on what the recovery message <em>says</em>. The bigger lever is whether it
+      gets seen at all &mdash; and that&rsquo;s decided by the channel, before a single word is read.
+    </p>
+
+    <div class="compare">
+      <div class="cell dim">
+        <div class="lab">Email &mdash; typical open rate</div>
+        <div class="big">~20%</div>
+        <p>Four out of five people never see the message you wrote. It isn&rsquo;t rejected. It&rsquo;s unopened.</p>
+      </div>
+      <div class="cell hot">
+        <div class="lab">WhatsApp &mdash; typical open rate</div>
+        <div class="big">~95%</div>
+        <p>It lands where they already talk to people. It gets read, usually within minutes.</p>
+      </div>
+    </div>
+
+    <p>
+      This is why email-only recovery tends to claw back only a few percent of abandoned revenue, while
+      email and WhatsApp layered together &mdash; the same three touches, split across both channels so
+      they never double up &mdash; lands in a completely different range.
+    </p>
+    <p>
+      Same customers. Same carts. Same messages. The only thing that changed is whether anyone saw them.
+    </p>
+  </section>
+
+  <section>
+    <h2>What this is worth on your store</h2>
+    <h3>Using your number, not one I invented</h3>
+    <p>
+      You told me you&rsquo;ve got hella carts. I&rsquo;m not going to pretend I know your traffic, so
+      here&rsquo;s the arithmetic with the assumption showing:
+    </p>
+
+    <div class="figure">
+      <div class="n">$5,000 / week</div>
+      <p>
+        50 abandoned carts a week &times; $100 &mdash; the price of the hoodie I left.
+        Change the 50 and the whole number changes; you know that figure far better than I do.
+      </p>
+    </div>
+
+    <p>
+      And that&rsquo;s the floor, not the ceiling. <strong>The hoodie and the sweats are a matching set at
+      $100 each</strong> &mdash; so a set buyer isn&rsquo;t a $100 cart, they&rsquo;re a $200 one. Every
+      cart with both pieces in it doubles the line.
+    </p>
+    <p>
+      A properly built email-and-WhatsApp sequence typically recovers somewhere in the range of
+      <strong>$800&ndash;1,400 a week</strong> out of a leak that size. Not from more traffic, not from a
+      bigger audience &mdash; from the people who already chose the piece and typed their details in.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I don&rsquo;t know</h2>
+    <div class="honest">
+      <h4>Being straight about the limits of this</h4>
+      <ul>
+        <li>
+          <strong>I have no access to your analytics.</strong> Every weekly figure above is modelled from
+          the cart volume you described to me, not measured. If your real number is 20 carts a week,
+          divide everything by two and a half.
+        </li>
+        <li>
+          <strong>I tested one cart, once.</strong> It&rsquo;s possible something fires on a different
+          trigger, or for logged-in customers, or after longer than I waited. If so, tell me and
+          I&rsquo;ll correct this page.
+        </li>
+        <li>
+          <strong>The open rates are industry benchmarks</strong>, not results I&rsquo;m claiming for your
+          store. Your own numbers will differ.
+        </li>
+        <li>
+          <strong>None of this touches your product, your photography or your brand</strong> &mdash;
+          those are working, which is exactly why the gap after checkout is worth closing.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="close">
+    <p>
+      That&rsquo;s the whole teardown. If you take nothing else from it: the expensive part of your funnel
+      is already built and working. People are reaching checkout and handing over their details.
+      There&rsquo;s just nothing behind that door going out to get them.
+    </p>
+    <p>
+      There&rsquo;s a specific way I&rsquo;d sequence the email and the WhatsApp touches for Purebread so
+      they complement each other instead of doubling up &mdash; much easier to show you live than to
+      write out. <strong>Want me to walk you through the exact flow?</strong>
+    </p>
+    <p>Either way, this one&rsquo;s yours. &#129309;</p>
+
+    <p class="sign">
+      <b>Caleb van Rooyen</b> &mdash; Nextstep AI<br />
+      Cart-recovery systems for clothing brands<br />
+      Teardown prepared 5 August 2026
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
