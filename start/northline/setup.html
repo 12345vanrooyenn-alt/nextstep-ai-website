@@ -41,26 +41,24 @@
     <section class="group" data-sc-in aria-labelledby="g1">
       <div class="group__head"><h2 id="g1">About you</h2><p>So the messages sound like Northline, and replies reach the right person.</p></div>
       <div class="fields">
-        <label class="f" for="name">Your name <span class="req" aria-hidden="true">*</span><input type="text" id="name" name="name" autocomplete="name" required value="Jordan"></label>
-        <label class="f" for="email">Your email <span class="req" aria-hidden="true">*</span><input type="email" id="email" name="email" autocomplete="email" required></label>
-        <label class="f" for="phone">Your WhatsApp number<small>For quick questions while I build.</small><input type="tel" id="phone" name="whatsapp" autocomplete="tel" placeholder="+1 555 123 4567"></label>
-        <label class="f" for="country">Where are most of your customers? <span class="req" aria-hidden="true">*</span>
-          <select id="country" name="customers_in" required><option value="">Pick one</option><option>United States</option><option>United Kingdom</option><option>Europe</option><option>Australia or New Zealand</option><option>Canada</option><option>Somewhere else</option></select></label>
-        <label class="f" for="from">The name your customers see <span class="req" aria-hidden="true">*</span><small>Usually just your brand name.</small><input type="text" id="from" name="sender_name" required value="Northline Apparel"></label>
-        <label class="f" for="replyto">Where customer replies should go <span class="req" aria-hidden="true">*</span><small>Like hello@ or support@ your domain.</small><input type="email" id="replyto" name="reply_to" required></label>
-        <label class="f" for="who">Who answers those replies?<input type="text" id="who" name="replies_by" placeholder="Me, or someone on the team"></label>
-        <label class="f" for="logo">Your logo<small>PNG, SVG or JPG under 5 MB. Skip it and I'll use the one on your store.</small><input type="file" id="logo" name="logo" accept="image/png,image/svg+xml,image/jpeg"></label>
+        <div class="f"><label for="name">Your name <span class="req" aria-hidden="true">*</span></label><input type="text" id="name" name="name" autocomplete="name" required value="Jordan"></div>
+        <div class="f"><label for="email">Your email <span class="req" aria-hidden="true">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+        <div class="f"><label for="phone">Your WhatsApp number</label><small>For quick questions while I build.</small><input type="tel" id="phone" name="whatsapp" autocomplete="tel" placeholder="+1 555 123 4567"></div>
+        <div class="f"><label for="country">Where are most of your customers? <span class="req" aria-hidden="true">*</span></label><select id="country" name="customers_in" required><option value="">Pick one</option><option>United States</option><option>United Kingdom</option><option>Europe</option><option>Australia or New Zealand</option><option>Canada</option><option>Somewhere else</option></select></div>
+        <div class="f"><label for="from">The name your customers see <span class="req" aria-hidden="true">*</span></label><small>Usually just your brand name.</small><input type="text" id="from" name="sender_name" required value="Northline Apparel"></div>
+        <div class="f"><label for="replyto">Where customer replies should go <span class="req" aria-hidden="true">*</span></label><small>Like hello@ or support@ your domain.</small><input type="email" id="replyto" name="reply_to" required></div>
+        <div class="f"><label for="who">Who answers those replies?</label><input type="text" id="who" name="replies_by" placeholder="Me, or someone on the team"></div>
+        <div class="f"><label for="logo">Your logo</label><small>PNG, SVG or JPG under 5 MB. Skip it and I'll use the one on your store.</small><input type="file" id="logo" name="logo" accept="image/png,image/svg+xml,image/jpeg"></div>
       </div>
     </section>
 
     <section class="group" data-sc-in aria-labelledby="g2">
       <div class="group__head"><h2 id="g2">Your Shopify store</h2><p>So I can send you an access request. You approve it, and there's no password involved.</p></div>
       <div class="fields">
-        <label class="f" for="store">Your store's web address <span class="req" aria-hidden="true">*</span><input type="text" inputmode="url" id="store" name="store_url" required value="https://northlineapparel.com"></label>
-        <label class="f" for="myshopify">Your myshopify address<small>If you know it. It's under Settings, then Domains.</small><input type="text" id="myshopify" name="myshopify" placeholder="northline.myshopify.com"></label>
-        <label class="f" for="code">Collaborator code<small>Only if your store has one.</small><input type="text" id="code" name="collab_code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}"></label>
-        <label class="f" for="apps">Custom app development <span class="req" aria-hidden="true">*</span>
-          <select id="apps" name="custom_apps" required><option value="">Pick one</option><option>I've switched it on</option><option>Let's do it together on the call</option><option>I'm not the store owner</option></select></label>
+        <div class="f"><label for="store">Your store's web address <span class="req" aria-hidden="true">*</span></label><input type="text" inputmode="url" id="store" name="store_url" required value="https://northlineapparel.com"></div>
+        <div class="f"><label for="myshopify">Your myshopify address</label><small>If you know it. It's under Settings, then Domains.</small><input type="text" id="myshopify" name="myshopify" placeholder="northline.myshopify.com"></div>
+        <div class="f"><label for="code">Collaborator code</label><small>Only if your store has one.</small><input type="text" id="code" name="collab_code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}"></div>
+        <div class="f"><label for="apps">Custom app development <span class="req" aria-hidden="true">*</span></label><select id="apps" name="custom_apps" required><option value="">Pick one</option><option>I've switched it on</option><option>Let's do it together on the call</option><option>I'm not the store owner</option></select></div>
         <div class="how full">
           <p><b>Two quick things in your Shopify admin.</b></p>
           <p>The collaborator code, if you have one, is under Settings, then Users and permissions, then Security.</p>
@@ -72,45 +70,39 @@
     <section class="group" data-sc-in aria-labelledby="g3">
       <div class="group__head"><h2 id="g3">Email and your domain</h2><p>So your messages land in the inbox, not spam, and nobody gets the same email twice.</p></div>
       <div class="fields">
-        <label class="f" for="esp">Your email marketing app <span class="req" aria-hidden="true">*</span>
-          <select id="esp" name="email_app" required><option value="">Pick one</option><option>Klaviyo</option><option>Shopify Email</option><option>Omnisend</option><option>Mailchimp</option><option>Something else</option><option>I don't use one</option><option>Not sure</option></select></label>
-        <label class="f" for="inbox">Where your business inbox lives <span class="req" aria-hidden="true">*</span>
-          <select id="inbox" name="inbox_provider" required><option value="">Pick one</option><option>Google Workspace (Gmail)</option><option>Microsoft 365 / Outlook</option><option>Zoho</option><option>My domain host's email</option><option>I only use a personal Gmail</option><option>Not sure</option></select></label>
-        <label class="f" for="current">What happens now when someone leaves checkout?
-          <select id="current" name="current_cart_emails"><option value="">Pick one</option><option>Shopify sends its own reminder</option><option>My email app sends a flow</option><option>Nothing goes out</option><option>Not sure</option></select></label>
-        <label class="f" for="dns">Where you bought your domain <span class="req" aria-hidden="true">*</span>
-          <select id="dns" name="domain_host" required><option value="">Pick one</option><option>Shopify</option><option>GoDaddy</option><option>Namecheap</option><option>Cloudflare</option><option>Squarespace or Google Domains</option><option>Wix</option><option>Somewhere else</option><option>Not sure</option></select></label>
-        <label class="f full" for="dnswho">Who can change your domain settings?<small>If it's someone else, add their name and email.</small><input type="text" id="dnswho" name="domain_contact" placeholder="Me, or their name and email"></label>
-        <label class="f full" for="addr">Your business address <span class="req" aria-hidden="true">*</span><small>By law it goes at the bottom of every marketing email. A PO box works.</small><input type="text" id="addr" name="postal_address" required autocomplete="street-address"></label>
+        <div class="f"><label for="esp">Your email marketing app <span class="req" aria-hidden="true">*</span></label><select id="esp" name="email_app" required><option value="">Pick one</option><option>Klaviyo</option><option>Shopify Email</option><option>Omnisend</option><option>Mailchimp</option><option>Something else</option><option>I don't use one</option><option>Not sure</option></select></div>
+        <div class="f"><label for="inbox">Where your business inbox lives <span class="req" aria-hidden="true">*</span></label><select id="inbox" name="inbox_provider" required><option value="">Pick one</option><option>Google Workspace (Gmail)</option><option>Microsoft 365 / Outlook</option><option>Zoho</option><option>My domain host's email</option><option>I only use a personal Gmail</option><option>Not sure</option></select></div>
+        <div class="f"><label for="current">What happens now when someone leaves checkout?</label><select id="current" name="current_cart_emails"><option value="">Pick one</option><option>Shopify sends its own reminder</option><option>My email app sends a flow</option><option>Nothing goes out</option><option>Not sure</option></select></div>
+        <div class="f"><label for="dns">Where you bought your domain <span class="req" aria-hidden="true">*</span></label><select id="dns" name="domain_host" required><option value="">Pick one</option><option>Shopify</option><option>GoDaddy</option><option>Namecheap</option><option>Cloudflare</option><option>Squarespace or Google Domains</option><option>Wix</option><option>Somewhere else</option><option>Not sure</option></select></div>
+        <div class="f full"><label for="dnswho">Who can change your domain settings?</label><small>If it's someone else, add their name and email.</small><input type="text" id="dnswho" name="domain_contact" placeholder="Me, or their name and email"></div>
+        <div class="f full"><label for="addr">Your business address <span class="req" aria-hidden="true">*</span></label><small>By law it goes at the bottom of every marketing email. A PO box works.</small><input type="text" id="addr" name="postal_address" required autocomplete="street-address"></div>
       </div>
     </section>
 
     <section class="group" data-sc-in aria-labelledby="g4">
       <div class="group__head"><h2 id="g4">The messages</h2><p>Your voice, your rules.</p></div>
       <div class="fields">
-        <label class="f" for="tone">How does Northline talk to customers? <span class="req" aria-hidden="true">*</span><small>Two or three words is plenty.</small><input type="text" id="tone" name="tone" required value="Relaxed, short, a bit cheeky"></label>
-        <label class="f" for="disc">A discount in message 3?<small>Leave it empty for no discount.</small><input type="text" id="disc" name="discount" placeholder="Like 10% off, once per customer"></label>
-        <label class="f full" for="review">A review you're happy for me to use<small>Or leave it and I'll pick a good one from your store.</small><textarea id="review" name="review"></textarea></label>
-        <label class="f full" for="skip">Anything that should never get a reminder?<small>Pre-orders, gift cards, samples, that kind of thing.</small><input type="text" id="skip" name="exclude_products"></label>
-        <label class="f full" for="other">Anything else I should know?<small>A drop coming up, another agency on your emails, whatever's on your mind.</small><textarea id="other" name="notes"></textarea></label>
+        <div class="f"><label for="tone">How does Northline talk to customers? <span class="req" aria-hidden="true">*</span></label><small>Two or three words is plenty.</small><input type="text" id="tone" name="tone" required value="Relaxed, short, a bit cheeky"></div>
+        <div class="f"><label for="disc">A discount in message 3?</label><small>Leave it empty for no discount.</small><input type="text" id="disc" name="discount" placeholder="Like 10% off, once per customer"></div>
+        <div class="f full"><label for="review">A review you're happy for me to use</label><small>Or leave it and I'll pick a good one from your store.</small><textarea id="review" name="review"></textarea></div>
+        <div class="f full"><label for="skip">Anything that should never get a reminder?</label><small>Pre-orders, gift cards, samples, that kind of thing.</small><input type="text" id="skip" name="exclude_products"></div>
+        <div class="f full"><label for="other">Anything else I should know?</label><small>A drop coming up, another agency on your emails, whatever's on your mind.</small><textarea id="other" name="notes"></textarea></div>
       </div>
     </section>
 
     <section class="group" data-sc-in aria-labelledby="g5">
       <div class="group__head"><h2 id="g5">Your results</h2><p>Every order it brings back lands in a Google Sheet you can open whenever you like.</p></div>
       <div class="fields">
-        <label class="f full" for="gmail">Which Google email should I share it with?<input type="email" id="gmail" name="results_email"></label>
+        <div class="f full"><label for="gmail">Which Google email should I share it with?</label><input type="email" id="gmail" name="results_email"></div>
       </div>
     </section>
 
     <section class="group" data-only="wa" hidden aria-labelledby="g6">
       <div class="group__head"><h2 id="g6">WhatsApp</h2><p>Your customers are mostly outside the US, so the first message can also go out on WhatsApp to people who said yes to it at checkout.</p></div>
       <div class="fields">
-        <label class="f" for="wanum">Your business WhatsApp number<small>The one customers know, not your personal number.</small><input type="tel" id="wanum" name="wa_number"></label>
-        <label class="f" for="optin">Does your checkout ask for a phone number and permission to message?
-          <select id="optin" name="wa_optin"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
-        <label class="f full" for="meta">Do you have a Meta Business account? It's the one behind your Instagram or Facebook ads.
-          <select id="meta" name="meta_business"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+        <div class="f"><label for="wanum">Your business WhatsApp number</label><small>The one customers know, not your personal number.</small><input type="tel" id="wanum" name="wa_number"></div>
+        <div class="f"><label for="optin">Does your checkout ask for a phone number and permission to message?</label><select id="optin" name="wa_optin"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+        <div class="f full"><label for="meta">Do you have a Meta Business account? It's the one behind your Instagram or Facebook ads.</label><select id="meta" name="meta_business"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
       </div>
     </section>
 

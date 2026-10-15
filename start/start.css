@@ -270,3 +270,13 @@ label.f .req { color: var(--sky-deep); }
 
 .btn--wa { background: #25d366; color: #0b3d1f; }
 @media (hover: hover) and (pointer: fine) { .btn--wa:hover { background: #1fbe5b; } }
+
+/* fields: label, hint and control are siblings, so Netlify's email shows only the question */
+div.f { display: block; }
+div.f > label { display: block; font-weight: 600; font-size: 15px; color: var(--navy); }
+div.f > small { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); }
+div.f > input, div.f > select, div.f > textarea { display: block; margin-top: 8px; font: 400 16px/1.4 var(--sc-font-text); color: var(--navy); background: var(--sc-canvas); width: 100%; border: 1.5px solid var(--line); border-radius: var(--r-sm); padding: 12px 14px; transition: border-color 140ms, background 140ms; }
+div.f > input:focus, div.f > select:focus, div.f > textarea:focus { border-color: var(--sky); background: #fff; outline: none; box-shadow: 0 0 0 4px rgb(14 165 233 / .14); }
+div.f > textarea { min-height: 88px; resize: vertical; }
+div.f > input[type=file] { font-size: 14px; padding: 10px; }
+div.f > [aria-invalid="true"] { border-color: #dc2626; background: #fef2f2; }
