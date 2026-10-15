@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Invoice NS-0001, Northline Apparel | Nextstep AI</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../scrollcraft.css" />
+  <link rel="stylesheet" href="../start.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar__in">
+    <a class="wordmark" href="index.html"><span class="node"></span>Nextstep <b>AI</b></a>
+    <ol class="progress" aria-label="Your steps">
+      <li class="done"><span>Welcome</span></li><li class="sep" aria-hidden="true"></li>
+      <li aria-current="step"><span>Invoice</span></li><li class="sep" aria-hidden="true"></li>
+      <li><span>Setup</span></li>
+    </ol>
+  </div>
+</header>
+
+<main class="narrow inv-shell" data-sc-act="flow">
+  <div class="inv-head" data-sc-in data-sc-stagger="60">
+    <p class="kicker">Step 2 of 3</p>
+    <h1 class="h2">Here's your invoice, Jordan</h1>
+    <p class="muted">Pick how you want to pay and you're good to go.</p>
+  </div>
+
+  <article class="invoice" data-sc-in aria-label="Invoice NS-0001">
+    <div class="inv-top">
+      <div class="me">
+        <img class="av" src="../caleb.jpg" width="56" height="56" alt="Caleb van Rooyen">
+        <div><span class="wordmark"><span class="node"></span>Nextstep <b>AI</b></span><span class="me__sub">Caleb van Rooyen, South Africa<br>WhatsApp +27 63 303 8209</span></div>
+      </div>
+      <dl class="inv-meta">
+        <dt>Invoice</dt><dd>NS-0001</dd>
+        <dt>Date</dt><dd>15 Oct 2026</dd>
+        <dt>Due</dt><dd>Today</dd>
+        <dt>Currency</dt><dd>US dollars</dd>
+      </dl>
+    </div>
+
+    <div class="inv-parties">
+      <div><h4>Billed to</h4><b>Northline Apparel</b><br>Jordan<br><span class="muted">northlineapparel.com</span></div>
+      <div><h4>What it's for</h4>The checkout recovery system we agreed on today's call.</div>
+    </div>
+
+    <div class="inv-scroll">
+      <table class="inv-lines">
+        <thead><tr><th scope="col">Item</th><th scope="col" class="num">Amount</th></tr></thead>
+        <tbody>
+          <tr><td><b>Checkout recovery, built and installed on your store</b><small>The four messages, the stop when someone buys, unsubscribes, inbox setup on your domain, and your results sheet.</small></td><td class="num">$650.00</td></tr>
+          <tr><td><b>First week of daily checks and the day-30 call</b><small>Part of the build, no extra cost.</small></td><td class="num">$0.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <fieldset class="inv-plan">
+      <legend>How do you want to pay?</legend>
+      <div class="plans">
+        <label class="plan" for="plan-half"><input type="radio" name="plan" id="plan-half" value="half" checked>
+          <span class="t">Half now, half when it's live</span><span class="a">$325 <small>today</small></span>
+          <span class="s">The other $325 once you've seen it work on your store.</span></label>
+        <label class="plan" for="plan-full"><input type="radio" name="plan" id="plan-full" value="full">
+          <span class="t">Pay in full</span><span class="a">$650 <small>today</small></span>
+          <span class="s">Nothing else to pay later.</span></label>
+      </div>
+    </fieldset>
+
+    <div class="inv-total" aria-live="polite">
+      <div class="row"><span class="muted">Total</span><span>$650.00</span></div>
+      <div class="row"><span class="muted">Due when it's live</span><span id="later">$325.00</span></div>
+      <div class="row big"><span>Due today</span><span id="today">$325.00</span></div>
+    </div>
+
+    <div class="inv-terms">
+      <h3>The fine print, in plain English</h3>
+      <ul>
+        <li>I start building the day your payment comes in. It takes 3 to 4 days once I have access to your store.</li>
+        <li>If I can't get it working on your store, you get your money back.</li>
+        <li>If you pay half, the second half is only due after you've seen it work.</li>
+        <li>There's no monthly fee unless it brings you back $1,000 a month or more, and only if you want to keep going.</li>
+      </ul>
+      <label class="agree" for="agree"><input type="checkbox" id="agree"> I've read this and I'm ready to start.</label>
+    </div>
+
+    <div class="inv-pay">
+      <a class="btn btn--go" id="payBtn" href="setup.html?plan=half" aria-disabled="true">Pay $325 and start</a>
+      <p class="hint" id="payHint">Tick the box above first.</p>
+      <p class="secure">Payment goes through Payfast, a secure card checkout. Visa, Mastercard and Amex all work, and I never see your card details. When you're done, you'll come back here to finish the setup.</p>
+    </div>
+  </article>
+
+  <p class="muted after-note">Something you want to ask first? Ask me now on the call, or WhatsApp me on +27 63 303 8209.</p>
+</main>
+
+<footer class="foot"><p class="foot__note">Nextstep AI, invoice NS-0001, made for Northline Apparel.</p></footer>
+
+<script src="../scrollcraft.js"></script>
+<script>
+  ScrollCraft.mount(document.body);
+  (function () {
+    // Payfast payment links go here once the account is verified. While they
+    // are empty, the button goes straight to setup so the flow can be tested.
+    var PAYFAST = { half: "", full: "" };
+    var btn = document.getElementById('payBtn'), agree = document.getElementById('agree'), hint = document.getElementById('payHint');
+    function full() { return document.getElementById('plan-full').checked; }
+    function sync() {
+      var f = full();
+      document.getElementById('today').textContent = f ? '$650.00' : '$325.00';
+      document.getElementById('later').textContent = f ? '$0.00' : '$325.00';
+      btn.textContent = 'Pay ' + (f ? '$650' : '$325') + ' and start';
+      btn.href = PAYFAST[f ? 'full' : 'half'] || ('setup.html?plan=' + (f ? 'full' : 'half'));
+      btn.setAttribute('aria-disabled', agree.checked ? 'false' : 'true');
+      hint.hidden = agree.checked;
+    }
+    document.querySelectorAll('input[name=plan]').forEach(function (r) { r.addEventListener('change', sync); });
+    agree.addEventListener('change', sync);
+    btn.addEventListener('click', function (e) {
+      if (!agree.checked) { e.preventDefault(); hint.hidden = false; hint.classList.add('shake'); agree.focus();
+        setTimeout(function () { hint.classList.remove('shake'); }, 400); }
+    });
+    sync();
+  })();
+</script>
+</body>
+</html>

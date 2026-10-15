@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Setup, Northline Apparel | Nextstep AI</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../scrollcraft.css" />
+  <link rel="stylesheet" href="../start.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar__in">
+    <a class="wordmark" href="index.html"><span class="node"></span>Nextstep <b>AI</b></a>
+    <ol class="progress" aria-label="Your steps">
+      <li class="done"><span>Welcome</span></li><li class="sep" aria-hidden="true"></li>
+      <li class="done"><span>Invoice</span></li><li class="sep" aria-hidden="true"></li>
+      <li aria-current="step"><span>Setup</span></li>
+    </ol>
+  </div>
+</header>
+
+<main class="narrow inv-shell" data-sc-act="flow">
+  <div class="inv-head" id="intro" data-sc-in data-sc-stagger="60">
+    <p class="kicker">Step 3 of 3</p>
+    <h1 class="h2">Last step, Jordan: the setup</h1>
+    <p class="muted">This is everything I need to build Northline's system. We'll fill it in together on the call. If you don't know something, skip it and I'll sort it out with you on WhatsApp.</p>
+  </div>
+
+  <form id="setup" class="stack form-stack" name="onboarding" method="POST" action="/start/northline/setup.html?sent=1" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="form-name" value="onboarding">
+    <input type="hidden" name="client" value="Northline Apparel">
+    <input type="hidden" name="plan" id="planField" value="">
+    <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+    <section class="group" data-sc-in aria-labelledby="g1">
+      <div class="group__head"><h2 id="g1">About you</h2><p>So the messages sound like Northline, and replies reach the right person.</p></div>
+      <div class="fields">
+        <label class="f" for="name">Your name <span class="req" aria-hidden="true">*</span><input type="text" id="name" name="name" autocomplete="name" required value="Jordan"></label>
+        <label class="f" for="email">Your email <span class="req" aria-hidden="true">*</span><input type="email" id="email" name="email" autocomplete="email" required></label>
+        <label class="f" for="phone">Your WhatsApp number<small>For quick questions while I build.</small><input type="tel" id="phone" name="whatsapp" autocomplete="tel" placeholder="+1 555 123 4567"></label>
+        <label class="f" for="country">Where are most of your customers? <span class="req" aria-hidden="true">*</span>
+          <select id="country" name="customers_in" required><option value="">Pick one</option><option>United States</option><option>United Kingdom</option><option>Europe</option><option>Australia or New Zealand</option><option>Canada</option><option>Somewhere else</option></select></label>
+        <label class="f" for="from">The name your customers see <span class="req" aria-hidden="true">*</span><small>Usually just your brand name.</small><input type="text" id="from" name="sender_name" required value="Northline Apparel"></label>
+        <label class="f" for="replyto">Where customer replies should go <span class="req" aria-hidden="true">*</span><small>Like hello@ or support@ your domain.</small><input type="email" id="replyto" name="reply_to" required></label>
+        <label class="f" for="who">Who answers those replies?<input type="text" id="who" name="replies_by" placeholder="Me, or someone on the team"></label>
+        <label class="f" for="logo">Your logo<small>PNG, SVG or JPG under 5 MB. Skip it and I'll use the one on your store.</small><input type="file" id="logo" name="logo" accept="image/png,image/svg+xml,image/jpeg"></label>
+      </div>
+    </section>
+
+    <section class="group" data-sc-in aria-labelledby="g2">
+      <div class="group__head"><h2 id="g2">Your Shopify store</h2><p>So I can send you an access request. You approve it, and there's no password involved.</p></div>
+      <div class="fields">
+        <label class="f" for="store">Your store's web address <span class="req" aria-hidden="true">*</span><input type="text" inputmode="url" id="store" name="store_url" required value="https://northlineapparel.com"></label>
+        <label class="f" for="myshopify">Your myshopify address<small>If you know it. It's under Settings, then Domains.</small><input type="text" id="myshopify" name="myshopify" placeholder="northline.myshopify.com"></label>
+        <label class="f" for="code">Collaborator code<small>Only if your store has one.</small><input type="text" id="code" name="collab_code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}"></label>
+        <label class="f" for="apps">Custom app development <span class="req" aria-hidden="true">*</span>
+          <select id="apps" name="custom_apps" required><option value="">Pick one</option><option>I've switched it on</option><option>Let's do it together on the call</option><option>I'm not the store owner</option></select></label>
+        <div class="how full">
+          <p><b>Two quick things in your Shopify admin.</b></p>
+          <p>The collaborator code, if you have one, is under Settings, then Users and permissions, then Security.</p>
+          <p>Custom app development is under Settings, then Apps, then Develop apps, then Allow. Only the store owner can switch it on. It's how your store talks to the system that sends the messages.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="group" data-sc-in aria-labelledby="g3">
+      <div class="group__head"><h2 id="g3">Email and your domain</h2><p>So your messages land in the inbox, not spam, and nobody gets the same email twice.</p></div>
+      <div class="fields">
+        <label class="f" for="esp">Your email marketing app <span class="req" aria-hidden="true">*</span>
+          <select id="esp" name="email_app" required><option value="">Pick one</option><option>Klaviyo</option><option>Shopify Email</option><option>Omnisend</option><option>Mailchimp</option><option>Something else</option><option>I don't use one</option><option>Not sure</option></select></label>
+        <label class="f" for="inbox">Where your business inbox lives <span class="req" aria-hidden="true">*</span>
+          <select id="inbox" name="inbox_provider" required><option value="">Pick one</option><option>Google Workspace (Gmail)</option><option>Microsoft 365 / Outlook</option><option>Zoho</option><option>My domain host's email</option><option>I only use a personal Gmail</option><option>Not sure</option></select></label>
+        <label class="f" for="current">What happens now when someone leaves checkout?
+          <select id="current" name="current_cart_emails"><option value="">Pick one</option><option>Shopify sends its own reminder</option><option>My email app sends a flow</option><option>Nothing goes out</option><option>Not sure</option></select></label>
+        <label class="f" for="dns">Where you bought your domain <span class="req" aria-hidden="true">*</span>
+          <select id="dns" name="domain_host" required><option value="">Pick one</option><option>Shopify</option><option>GoDaddy</option><option>Namecheap</option><option>Cloudflare</option><option>Squarespace or Google Domains</option><option>Wix</option><option>Somewhere else</option><option>Not sure</option></select></label>
+        <label class="f full" for="dnswho">Who can change your domain settings?<small>If it's someone else, add their name and email.</small><input type="text" id="dnswho" name="domain_contact" placeholder="Me, or their name and email"></label>
+        <label class="f full" for="addr">Your business address <span class="req" aria-hidden="true">*</span><small>By law it goes at the bottom of every marketing email. A PO box works.</small><input type="text" id="addr" name="postal_address" required autocomplete="street-address"></label>
+      </div>
+    </section>
+
+    <section class="group" data-sc-in aria-labelledby="g4">
+      <div class="group__head"><h2 id="g4">The messages</h2><p>Your voice, your rules.</p></div>
+      <div class="fields">
+        <label class="f" for="tone">How does Northline talk to customers? <span class="req" aria-hidden="true">*</span><small>Two or three words is plenty.</small><input type="text" id="tone" name="tone" required value="Relaxed, short, a bit cheeky"></label>
+        <label class="f" for="disc">A discount in message 3?<small>Leave it empty for no discount.</small><input type="text" id="disc" name="discount" placeholder="Like 10% off, once per customer"></label>
+        <label class="f full" for="review">A review you're happy for me to use<small>Or leave it and I'll pick a good one from your store.</small><textarea id="review" name="review"></textarea></label>
+        <label class="f full" for="skip">Anything that should never get a reminder?<small>Pre-orders, gift cards, samples, that kind of thing.</small><input type="text" id="skip" name="exclude_products"></label>
+        <label class="f full" for="other">Anything else I should know?<small>A drop coming up, another agency on your emails, whatever's on your mind.</small><textarea id="other" name="notes"></textarea></label>
+      </div>
+    </section>
+
+    <section class="group" data-sc-in aria-labelledby="g5">
+      <div class="group__head"><h2 id="g5">Your results</h2><p>Every order it brings back lands in a Google Sheet you can open whenever you like.</p></div>
+      <div class="fields">
+        <label class="f full" for="gmail">Which Google email should I share it with?<input type="email" id="gmail" name="results_email"></label>
+      </div>
+    </section>
+
+    <section class="group" data-only="wa" hidden aria-labelledby="g6">
+      <div class="group__head"><h2 id="g6">WhatsApp</h2><p>Your customers are mostly outside the US, so the first message can also go out on WhatsApp to people who said yes to it at checkout.</p></div>
+      <div class="fields">
+        <label class="f" for="wanum">Your business WhatsApp number<small>The one customers know, not your personal number.</small><input type="tel" id="wanum" name="wa_number"></label>
+        <label class="f" for="optin">Does your checkout ask for a phone number and permission to message?
+          <select id="optin" name="wa_optin"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+        <label class="f full" for="meta">Do you have a Meta Business account? It's the one behind your Instagram or Facebook ads.
+          <select id="meta" name="meta_business"><option value="">Pick one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+      </div>
+    </section>
+
+    <div class="form-end">
+      <p class="err" id="err" role="alert" hidden></p>
+      <button class="btn btn--go" type="submit" id="sendBtn">Send it over</button>
+      <p class="muted small">Stuck on something? Leave it empty. I'll ask you on WhatsApp.</p>
+    </div>
+  </form>
+
+  <div class="sent" id="sent" hidden tabindex="-1">
+    <div class="sent__tick" aria-hidden="true">✓</div>
+    <h2 class="h2">Got it, thanks Jordan.</h2>
+    <p class="muted">I'll send the Shopify request today. Approve it when it comes in, and I'll keep you posted on WhatsApp as I go. The next time you hear from me about the build, it'll be to test it on your own store.</p>
+    <div class="me">
+      <img class="av" src="../caleb.jpg" width="56" height="56" alt="Caleb van Rooyen">
+      <div><b>Caleb van Rooyen</b><span>WhatsApp +27 63 303 8209</span></div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot"><p class="foot__note">Made for Northline Apparel by Nextstep AI. Questions? WhatsApp +27 63 303 8209.</p></footer>
+
+<script src="../scrollcraft.js"></script>
+<script>
+  ScrollCraft.mount(document.body);
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var form = document.getElementById('setup'), err = document.getElementById('err'), btn = document.getElementById('sendBtn');
+    var sent = document.getElementById('sent'), intro = document.getElementById('intro');
+    document.getElementById('planField').value = q.get('plan') || 'not chosen';
+
+    function showSent() { form.hidden = true; intro.hidden = true; sent.hidden = false; sent.focus(); window.scrollTo(0, 0); }
+    if (q.get('sent') === '1') showSent();   // the no-JavaScript path lands here after Netlify accepts the form
+
+    var country = document.getElementById('country');
+    function wa() { var show = !!country.value && country.value !== 'United States';
+      document.querySelectorAll('[data-only="wa"]').forEach(function (el) { el.hidden = !show; }); }
+    country.addEventListener('change', wa); wa();
+
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    function problem() {
+      var bad = null;
+      form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      [].some.call(form.querySelectorAll('[required]'), function (el) {
+        if (!el.value.trim()) { bad = [el, 'A few required fields are still empty. I’ve jumped you to the first one.']; return true; }
+      });
+      if (bad) return bad;
+      [].some.call(form.querySelectorAll('input[type=email]'), function (el) {
+        if (el.value.trim() && !emailRe.test(el.value.trim())) { bad = [el, 'That email address doesn’t look right. Have another look?']; return true; }
+      });
+      if (bad) return bad;
+      var code = document.getElementById('code');
+      if (code.value.trim() && !/^\d{4}$/.test(code.value.trim())) return [code, 'The collaborator code is four numbers.'];
+      var store = document.getElementById('store'), sv = store.value.trim();
+      if (sv && !/^https?:\/\//i.test(sv)) { sv = 'https://' + sv; store.value = sv; }
+      if (!/^https?:\/\/[^\s.]+\.[^\s]+/i.test(sv)) return [store, 'That store address doesn’t look right. It should look like yourstore.com'];
+      var logo = document.getElementById('logo').files[0];
+      if (logo && logo.size > 5 * 1024 * 1024) return [document.getElementById('logo'), 'That logo file is over 5 MB. Try a smaller one, or skip it.'];
+      return null;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (btn.disabled) return;
+      err.hidden = true;
+      var p = problem();
+      if (p) { p[0].setAttribute('aria-invalid', 'true'); err.textContent = p[1]; err.hidden = false; p[0].focus(); return; }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      fetch('/', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); showSent(); })
+        .catch(function () {
+          btn.disabled = false; btn.textContent = 'Send it over';
+          err.textContent = 'That didn’t go through. Try once more, or WhatsApp me on +27 63 303 8209 and I’ll take it from there. Nothing you typed is lost.';
+          err.hidden = false;
+        });
+    });
+  })();
+</script>
+</body>
+</html>
