@@ -267,3 +267,6 @@ label.f .req { color: var(--sky-deep); }
 .sent__tick { width: 56px; height: 56px; border-radius: 50%; background: var(--ok-bg); color: var(--ok); display: grid; place-items: center; font-size: 26px; font-weight: 700; }
 #intro[hidden], form[hidden] { display: none; }
 @media (max-width: 640px) { .runs .run { grid-template-columns: 1fr; gap: 4px; } }
+
+.btn--wa { background: #25d366; color: #0b3d1f; }
+@media (hover: hover) and (pointer: fine) { .btn--wa:hover { background: #1fbe5b; } }
